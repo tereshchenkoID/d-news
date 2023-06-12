@@ -1,0 +1,5 @@
+mixin search
+  form(mthod="get").search&attributes(attributes)
+    input(type="text" placeholder="Search here..." required).search__field
+    button(type="submit").search__button
+      i.fa.fa-search

@@ -1,3 +1,5 @@
+@use 'src/scss/config' as *;
+
 .logo {
   @include size(201px, 42px);
 

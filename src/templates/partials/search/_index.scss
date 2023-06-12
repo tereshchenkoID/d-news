@@ -1,0 +1,30 @@
+@use 'src/scss/config' as *;
+
+.search {
+  position: relative;
+
+  &__field {
+    @include transition(all);
+    @include make-spacer(pr, 35px);
+    @include make-spacer(pl, 20px);
+    @include make-spacer(py, 6px);
+
+    background-color: var(--color-cod-gray);
+    border-radius: rem(4px);
+    border: 1px solid var(--color-cod-gray);
+    height: rem(40px);
+    color: var(--color-white);
+
+    &:focus {
+      outline: 0;
+      border-color: var(--color-primary);
+      background-color: var(--color-shark);
+    }
+  }
+
+  &__button {
+    @include absolute-center-right(8px);
+
+    color: var(--color-comet);
+  }
+}
