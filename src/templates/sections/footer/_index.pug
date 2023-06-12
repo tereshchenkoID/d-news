@@ -1,0 +1,29 @@
+mixin footer
+  footer.footer&attributes(attributes)
+    .footer__top
+      .container-fluid
+        .container
+          +navbar
+
+    .footer__middle
+      .container-fluid
+        .container
+          .row
+            .col.col-md-8.col-lg-4
+              +widget-menu('CATEGORY', ['Business', 'Politics', 'Sports', 'Environment', 'World', 'Technology', 'Health', 'Entertainment', 'Lifestyle']).widget-menu--2
+
+            .col.col-md-4.col-lg-2
+              +widget-menu('EDITIONS', ['United States', 'China', 'India', 'Maxico', 'Middle East'])
+
+            .col.col-md-8.col-lg-4
+              +widget-menu('TAG', ['Gallery', 'Sports', 'Featured', 'Fashion', 'Entertainment', 'Business', 'Tech', 'Movies', 'Music', 'Packages', 'Amazon', 'Cars', 'Phones']).widget-menu--3
+
+            .col.col-md-4.col-lg-2
+              +widget-menu('PRODUCTS', ['Ebooks', 'Newsfeeds', 'Reprints & Permissions', 'Magazine', 'College Guide'])
+
+    .footer__bottom
+      .container-fluid
+        .container
+          +logo.u-mx-auto
+          +social.u-my-35
+          p.u-color-white.u-text-center Copyright © 2022 ChtStudio Varient - All Rights Reserved.

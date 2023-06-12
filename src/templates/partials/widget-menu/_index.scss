@@ -1,0 +1,57 @@
+@use 'src/scss/config' as *;
+
+.widget-menu {
+  @include make-spacer(pt, 10px);
+
+  &--2,
+  &--3 {
+
+    .widget-menu {
+
+      &__list {
+        @include flex(null, center, null, wrap);
+      }
+    }
+  }
+
+  &--2 {
+
+    .widget-menu {
+
+      &__item {
+        flex: 1 0 50%;
+      }
+    }
+  }
+
+  &--3 {
+
+    .widget-menu {
+
+      &__item {
+        flex: 1 0 33%;
+      }
+    }
+  }
+
+  &__title {
+    @include make-spacer(mb, 25px);
+
+    font-size: rem(14px);
+    color: var(--color-gray-chateau);
+  }
+
+  &__item {
+    @include make-spacer(py, 8px);
+  }
+
+  &__link {
+    font-size: rem(14px);
+    color: var(--color-comet);
+
+    &:active,
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}

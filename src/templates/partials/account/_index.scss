@@ -1,0 +1,13 @@
+@use 'src/scss/config' as *;
+
+.account {
+  @include flex(null, center);
+
+  &__icon {
+    @include make-spacer(mr, 5px);
+  }
+
+  &__hr {
+    @include make-spacer(mx, 5px);
+  }
+}

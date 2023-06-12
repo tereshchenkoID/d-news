@@ -1,0 +1,21 @@
+@use 'src/scss/config' as *;
+
+.footer {
+  background-color: var(--color-shark);
+
+  &__top {
+    border-bottom: rem(1px) solid var(--color-porcelain);
+  }
+
+  &__middle {
+    @include make-spacer(py, 50px);
+
+    background-color: var(--color-shark);
+  }
+
+  &__bottom {
+    @include make-spacer(py, 40px);
+
+    background-color: var(--color-cod-gray);
+  }
+}

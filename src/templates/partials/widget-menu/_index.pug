@@ -1,0 +1,7 @@
+mixin widget-menu(title, list)
+  .widget-menu&attributes(attributes)
+    h2.widget-menu__title= title
+    ul.widget-menu__list
+      each item in list
+        li.widget-menu__item
+          a(href="#").widget-menu__link= item

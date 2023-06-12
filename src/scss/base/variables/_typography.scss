@@ -1,0 +1,78 @@
+@use '../../config' as *;
+
+:root {
+  --font-size: 16px;
+  --font-family: 'Roboto', sans-serif;
+  --font-family-alt: 'Signika', sans-serif;
+  --line-height: 1.5;
+  --typography-regular: 400;
+  --typography-medium: 500;
+  --typography-bold: 700;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include make-spacer(mt, 0);
+  @include make-spacer(mb, 8px);
+
+  color: var(--color-title);
+  font-weight: var(--typography-bold);
+  text-transform: uppercase;
+}
+
+
+h1,
+.h1 {
+  font-size: calc(1.375rem + 1.5vw);
+
+  @include media-breakpoint-up(xl) {
+    font-size: 2.5rem
+  }
+}
+
+h2,
+.h2 {
+  font-size: calc(1.325rem + 0.9vw);
+
+  @include media-breakpoint-up(xl) {
+    font-size: 2rem
+  }
+}
+
+h3,
+.h3 {
+  font-size: calc(1.3rem + 0.6vw);
+
+  @include media-breakpoint-up(xl) {
+    font-size: 1.75rem
+  }
+}
+
+h4,
+.h4 {
+  font-size: calc(1.275rem + 0.3vw);
+
+  @include media-breakpoint-up(xl) {
+    font-size: 1.5rem
+  }
+}
+
+h5,
+.h5 {
+  font-size: 1.25rem;
+}
+
+h6,
+.h6 {
+  font-size: 1rem
+}

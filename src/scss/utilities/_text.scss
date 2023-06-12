@@ -1,0 +1,66 @@
+@use '../config' as *;
+
+// Colors
+
+.u-color-white {
+  color: var(--color-white);
+}
+
+.u-color-black {
+  color: var(--color-black);
+}
+
+.u-color-primary {
+  color: var(--color-primary);
+}
+
+
+// Text Transform
+
+.u-text-transform-uppercase {
+  text-transform: uppercase;
+}
+
+
+// Text Decoration
+
+.u-text-decoration-underline {
+  text-decoration: underline;
+}
+
+.u-text-decoration-none {
+  text-decoration: none;
+}
+
+
+// Text Align
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-left {
+  text-align: left;
+}
+
+.u-text-right {
+  text-align: right;
+}
+
+
+// Font Weight
+
+.u-text-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.u-text-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+
+// Font Family
+
+.u-text-headline {
+  font-family: var(--font-family-headline);
+}

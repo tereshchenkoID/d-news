@@ -1,0 +1,62 @@
+@use 'src/scss/config' as *;
+
+.language {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  &--active {
+
+    .language {
+
+      &__list {
+        display: block;
+      }
+    }
+  }
+
+  &__select {
+    @include make-spacer(py, 5px);
+    @include flex(null, center);
+
+    gap: rem(10px);
+  }
+
+  &__list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: rem(100px);
+    background-color: var(--color-shark);
+    border: 1px solid var(--color-gray-chateau);
+    z-index: $z-index-1;
+
+    @include media-breakpoint-up(md) {
+      left: unset;
+      right: 0;
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid var(--color-gray-chateau);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &__link {
+    @include make-spacer(py, 2px);
+    @include make-spacer(px, 15px);
+
+    display: block;
+    cursor: pointer;
+    font-size: rem(12px);
+
+    &--active,
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }
+}

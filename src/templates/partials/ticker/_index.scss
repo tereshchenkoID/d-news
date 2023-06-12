@@ -1,0 +1,33 @@
+@use 'src/scss/config' as *;
+
+.ticker {
+
+  &__marquee {
+    @include flex(null, center);
+  }
+
+  &__item {
+    @include make-spacer(pl, 20px);
+    @include make-spacer(mr, 40px);
+
+    position: relative;
+
+    &:last-child {
+      @include make-spacer(mr, 0);
+    }
+
+    &::before {
+      @include size(rem(6px));
+      @include absolute-center-left(0);
+
+      background-color: var(--color-white);
+      border-radius: 50%;
+      content: '';
+    }
+  }
+
+  &__text {
+    font-weight: var(--typography-medium);
+    font-size: rem(12px);
+  }
+}

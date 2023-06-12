@@ -1,0 +1,11 @@
+@use 'src/scss/config' as *;
+
+.nav {
+  @include make-spacer(py, 10px);
+
+  background-color: var(--color-shark);
+
+  &__container {
+    @include flex(space-between, center);
+  }
+}

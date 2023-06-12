@@ -1,0 +1,7 @@
+.logo {
+  @include size(201px, 42px);
+
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}

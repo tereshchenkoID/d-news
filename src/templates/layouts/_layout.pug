@@ -1,0 +1,14 @@
+include ../components/index
+include ../sections/index
+include ../partials/index
+
+doctype html
+html
+  head
+    include _head
+  body
+    +header#header
+    +nav
+    block content
+    +footer#footer
+    script(src="./js/app.js")

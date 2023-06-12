@@ -1,0 +1,60 @@
+@use "sass:math";
+@use '../config' as *;
+
+$grid-padding: rem(12px);
+$grid-gutter: rem(12px);
+$count-column: 12;
+$count-width: math.div(100, $count-column);
+
+.container-fluid {
+  @include make-spacer(px, $grid-padding);
+  @include make-spacer(mx, auto);
+
+  width: 100%;
+}
+
+.container {
+  @include make-spacer(mx, auto);
+
+  position: relative;
+  max-width: rem(1400px);
+  //border: 1px solid red;
+}
+
+.row {
+  @include flex($wrap: wrap);
+
+  margin-right: -$grid-padding;
+  margin-left: -$grid-padding;
+}
+
+.col {
+  @include make-spacer(px, $grid-padding);
+
+  flex: 1 0 100%;
+  max-width: 100%;
+  //border: 1px solid red;
+
+  @for $i from 1 through $count-column {
+
+    &-#{$i} {
+      flex: 0 0 ($i * $count-width) * 1%;
+      max-width: ($i * $count-width) * 1%;
+    }
+  }
+}
+
+@each $status, $breakpoints-size in $grid-breakpoints {
+  @media (min-width: $breakpoints-size) {
+
+    .col-#{$status} {
+      @for $i from 1 through $count-column {
+
+        &-#{$i} {
+          flex: 0 0 ($i * $count-width) * 1%;
+          min-width: ($i * $count-width) * 1%;
+        }
+      }
+    }
+  }
+}

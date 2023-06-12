@@ -1,0 +1,24 @@
+@use 'src/scss/config' as *;
+
+.menu {
+  @include make-spacer(m, 0);
+  @include flex;
+
+  &__link {
+    @include flex(null, center);
+    @include make-spacer(p, 20px);
+
+    white-space: nowrap;
+    font-weight: var(--typography-medium);
+    color: var(--color-gray-chateau);
+
+    &:hover,
+    &--active {
+      color: var(--color-primary);
+    }
+  }
+
+  &__icon {
+    @include make-spacer(ml, 5px);
+  }
+}

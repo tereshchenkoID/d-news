@@ -1,0 +1,76 @@
+@use '../config' as *;
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+body {
+  @include smooth-font;
+
+  min-width: rem(375px);
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  line-height: var(--line-height);
+  letter-spacing: 0.5px;
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--typography-medium);
+}
+
+button {
+  @include reset-button;
+}
+
+a {
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+p {
+  @include make-spacer(p, 0);
+  @include make-spacer(m, 0);
+}
+
+ul,
+ol {
+  @include reset-list;
+}
+
+.picture,
+.img {
+  @include size(100%);
+
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+.section {
+  position: relative;
+  padding: 100px 0;
+}
+
+.slider {
+
+  .slick-list,
+  .slick-track {
+    height: 100%;
+  }
+
+  .slick-slide {
+
+    > div {
+      height: 100%;
+    }
+  }
+
+  .slick-arrow {
+    display: none;
+  }
+}

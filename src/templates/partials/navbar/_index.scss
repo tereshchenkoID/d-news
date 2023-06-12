@@ -1,0 +1,19 @@
+@use 'src/scss/config' as *;
+
+.navbar {
+  @include make-spacer(py, 15px);
+  @include flex(center, center, null, wrap);
+
+  &__link {
+    @include make-spacer(p, 10px);
+
+    font-size: rem(11px);
+    letter-spacing: rem(2px);
+    color: var(--color-gray-chateau);
+
+    &:active,
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
