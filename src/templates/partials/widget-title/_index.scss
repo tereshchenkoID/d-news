@@ -1,0 +1,25 @@
+@use 'src/scss/config' as *;
+
+.widget-title {
+  @include make-spacer(pt, 10px);
+  @include make-spacer(mb, 20px);
+
+  position: relative;
+  border-bottom: rem(2px) solid var(--color-porcelain);
+
+  &::after {
+    @include size(rem(50px), rem(2px));
+
+    position: absolute;
+    left: 0;
+    bottom: rem(-2px);
+    background-color: var(--color-primary);
+    content: '';
+  }
+
+  &__text {
+    font-size: rem(16px);
+    font-weight: var(--typography-medium);
+    color: var(--color-white);
+  }
+}
