@@ -1,0 +1,29 @@
+@use 'src/scss/config' as *;
+
+.follow {
+  @include flex(null, center, null, wrap);
+
+  &__item {
+    @include make-spacer(mr, 20px);
+
+    &:last-child {
+      @include make-spacer(mr, 0);
+    }
+  }
+
+  &__link {
+    @include flex(center, center);
+
+    font-size: rem(30px);
+    color: var(--color-white);
+
+    &.active,
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__icon {
+    color: currentColor;
+  }
+}

@@ -1,0 +1,103 @@
+@use 'src/scss/config' as *;
+
+.post-small {
+  position: relative;
+  background-color: var(--color-shark);
+  border-radius: rem(4px);
+  overflow: hidden;
+
+  &--row {
+
+    @include media-breakpoint-up(sm) {
+      display: grid;
+      grid-template-columns: rem(140px) 1fr;
+    }
+
+    .post-small {
+
+      &__thumbnail {
+
+        @include media-breakpoint-up(sm) {
+          height: rem(90px);
+        }
+      }
+    }
+  }
+
+  &--column {
+
+    .post-small {
+
+      &__thumbnail {
+
+        @include media-breakpoint-up(sm) {
+          height: rem(150px);
+        }
+      }
+    }
+  }
+
+  &__content {
+    @include make-spacer(py, 10px);
+    @include make-spacer(px, 15px);
+
+    align-self: center;
+    font-size: rem(13px);
+  }
+
+  &__category {
+    @include make-spacer(py, 3px);
+    @include make-spacer(px, 10px);
+
+    display: block;
+    position: absolute;
+    top: rem(15px);
+    left: rem(15px);
+    background-color: var(--color-primary);
+    font-size: rem(12px);
+    z-index: $z-index-1;
+
+    &:hover {
+      background-color: var(--color-white);
+    }
+  }
+
+  &__thumbnail {
+    @include size(100%);
+
+    display: block;
+    overflow: hidden;
+
+    img {
+      @include transition(transform);
+    }
+
+    &:hover {
+
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__title {
+    line-height: 1.2;
+    color: var(--color-white);
+    font-size: rem(16px);
+  }
+
+  &__meta {
+    @include make-spacer(mt, 10px);
+    @include flex(null, center, null, wrap);
+
+    column-gap: rem(10px);
+  }
+
+  &__item {
+    @include flex(null, center);
+
+    color: var(--color-comet);
+    font-size: rem(12px);
+    column-gap: rem(5px);
+  }
+}

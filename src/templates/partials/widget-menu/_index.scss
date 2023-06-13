@@ -48,10 +48,5 @@
   &__link {
     font-size: rem(14px);
     color: var(--color-comet);
-
-    &:active,
-    &:hover {
-      color: var(--color-primary);
-    }
   }
 }

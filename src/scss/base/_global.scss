@@ -25,11 +25,18 @@ button {
   @include reset-button;
 }
 
-a {
-  transition: all 0.3s ease-in;
+a,
+.a {
+  @include transition(all);
+
   cursor: pointer;
   text-decoration: none;
-  color: var(--color-text);
+  color: inherit;
+
+  &:active,
+  &:hover {
+    color: var(--color-primary);
+  }
 }
 
 p {
@@ -49,6 +56,10 @@ ol {
   display: block;
   object-fit: contain;
   object-position: center;
+
+  &--cover {
+    object-fit: cover;
+  }
 }
 
 .main {
@@ -58,6 +69,37 @@ ol {
 .section {
   position: relative;
 }
+
+.widget {
+  @include make-spacer(mb, 30px);
+
+  &__list {
+    display: grid;
+    grid-gap: rem(15px);
+
+    &--2 {
+
+      @include media-breakpoint-up(md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &--3 {
+
+      @include media-breakpoint-up(sm) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include media-breakpoint-up(lg) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
+
+
+
+
 
 .slider {
 

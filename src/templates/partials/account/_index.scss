@@ -10,4 +10,11 @@
   &__hr {
     @include make-spacer(mx, 5px);
   }
+
+  &__link {
+
+    &:hover {
+      color: var(--color-white);
+    }
+  }
 }

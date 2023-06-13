@@ -11,10 +11,54 @@ block content
       .container
         .row
           .col.col-md-7.col-lg-8
-            +widget-title('Latest News')
+            .widget
+              +widget-title('Latest News')
+              - var n = 1;
+                ul.widget__list.widget__list--3
+                  while n < 10
+                    li.widget__item
+                      +post-small(n++, true).post-small--column
+
+            .widget
+              +widget-title('WORLDS')
+              .row
+                .col.col-md-6
+                  p 1
+                .col.col-md-6
+                  - var n = 1;
+                    ul.widget__list.widget__list--1
+                      while n < 5
+                        li.widget__item
+                          +post-small(n++, false).post-small--row
+
+            .widget
+              +widget-title('HEALTH')
+              - var n = 1;
+                ul.widget__list.widget__list--2
+                  while n < 7
+                    li.widget__item
+                      +post-small(n++, false).post-small--row
+
           .col.col-md-5.col-lg-4
-            +widget-title('Popular Post')
-            +widget-title('Follow us')
-            +widget-title('Recent Posts')
+            .widget
+              +widget-title('Popular Post')
+              - var n = 1;
+                ul.widget__list.widget__list--1
+                  while n < 5
+                    li.widget__item
+                      +post-small(n++, false).post-small--row
+
+            .widget
+              +widget-title('Follow us')
+              +follow
+
+            .widget
+              +widget-title('Recent Posts')
+              - var n = 1;
+                ul.widget__list.widget__list--2
+                  while n < 5
+                    li.widget__item
+                      +post-small(n++, true).post-small--column
+
             +widget-title('Weather')
             +widget-title('Weekly toplist')
