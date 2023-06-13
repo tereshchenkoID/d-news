@@ -5,7 +5,20 @@
 
   background-color: var(--color-shark);
 
+  &__logo,
+  &__search {
+    flex-shrink: 0;
+  }
+
   &__container {
     @include flex(space-between, center);
+  }
+
+  &__logo {
+    width: rem(150px);
+  }
+
+  &__search {
+    width: rem(160px);
   }
 }

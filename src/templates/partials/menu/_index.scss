@@ -4,11 +4,26 @@
   @include make-spacer(m, 0);
   @include flex;
 
+  &__item {
+
+    &:hover {
+
+      .menu {
+
+        &__dropdown {
+          display: block;
+        }
+      }
+    }
+  }
+
   &__link {
     @include flex(null, center);
-    @include make-spacer(p, 20px);
+    @include make-spacer(px, 10px);
+    @include make-spacer(p, 20px, xl);
 
     white-space: nowrap;
+    font-size: rem(14px);
     font-weight: var(--typography-medium);
     color: var(--color-gray-chateau);
 
@@ -20,5 +35,71 @@
 
   &__icon {
     @include make-spacer(ml, 5px);
+  }
+
+  &__dropdown {
+    display: none;
+  }
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  min-width: rem(225px);
+  z-index: $z-index-1;
+  background-color: var(--color-shark);
+  box-shadow: 0 rem(6px) rem(12px) rgba(0, 0, 0, 0.175);
+
+  &__item {
+    border-top: 1px solid var(--color-porcelain);
+  }
+
+  &__link {
+    @include make-spacer(px, 20px);
+    @include make-spacer(py, 10px);
+
+    display: block;
+    font-size: rem(14px);
+    color: var(--color-gray-chateau);
+
+    @include media-breakpoint-up(xl) {
+      font-size: rem(16px);
+    }
+
+    &--active,
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__container {
+    @include make-spacer(p, 30px);
+  }
+
+  &__title {
+    @include make-spacer(pb, 10px);
+    @include make-spacer(mb, 20px);
+
+    color: var(--color-gray-chateau);
+    font-size: rem(16px);
+    font-weight: var(--typography-medium);
+    border-bottom: 1px solid var(--color-porcelain);
+  }
+
+  &--wide {
+    left: 0;
+    right: 0;
+    width: 100%;
+
+    .submenu {
+
+      &__item {
+        border: 0;
+      }
+
+      &__link {
+        @include make-spacer(pl, 0);
+      }
+    }
   }
 }
