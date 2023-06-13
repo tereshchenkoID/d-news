@@ -1,0 +1,71 @@
+mixin submenu(data)
+  .submenu&attributes(attributes)
+    ul.submenu__list
+      each item, index in data
+        li.submenu__item
+          a(href=item.href class=`submenu__link ${index === 0 ? 'submenu__link--active' : ''}`)= item.text
+
+
+mixin submenu-wide
+  .submenu&attributes(attributes)
+    .row.submenu__container
+      .col.col-md-3.submenu__cell
+        h3.submenu__title.u-text-transform-capitalize Top News
+        ul.submenu__list
+          li.submenu__item
+            a(href="#").submenu__link Criket match
+          li.submenu__item
+            a(href="#").submenu__link Earth fire
+          li.submenu__item
+            a(href="#").submenu__link Education
+          li.submenu__item
+            a(href="#").submenu__link Banking seba
+          li.submenu__item
+            a(href="#").submenu__link Best Program
+          li.submenu__item
+            a(href="#").submenu__link About News
+      .col.col-md-3.submenu__cell
+        h3.submenu__title.u-text-transform-capitalize Related Post
+        ul.submenu__list
+          li.submenu__item
+            a(href="#").submenu__link Forest
+          li.submenu__item
+            a(href="#").submenu__link Rivers
+          li.submenu__item
+            a(href="#").submenu__link Sport Criket
+          li.submenu__item
+            a(href="#").submenu__link Sport Football
+          li.submenu__item
+            a(href="#").submenu__link Video & music
+          li.submenu__item
+            a(href="#").submenu__link Natural country
+      .col.col-md-3.submenu__cell
+        h3.submenu__title.u-text-transform-capitalize Business
+        ul.submenu__list
+          li.submenu__item
+            a(href="#").submenu__link Criket match
+          li.submenu__item
+            a(href="#").submenu__link Earth fire
+          li.submenu__item
+            a(href="#").submenu__link Education
+          li.submenu__item
+            a(href="#").submenu__link Banking seba
+          li.submenu__item
+            a(href="#").submenu__link Best Program
+          li.submenu__item
+            a(href="#").submenu__link About News
+      .col.col-md-3.submenu__cell
+        h3.submenu__title.u-text-transform-capitalize Technology
+        ul.submenu__list
+          li.submenu__item
+            a(href="#").submenu__link Forest
+          li.submenu__item
+            a(href="#").submenu__link Rivers
+          li.submenu__item
+            a(href="#").submenu__link Sport Criket
+          li.submenu__item
+            a(href="#").submenu__link Sport Football
+          li.submenu__item
+            a(href="#").submenu__link Video & music
+          li.submenu__item
+            a(href="#").submenu__link Natural country

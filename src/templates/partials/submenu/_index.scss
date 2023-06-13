@@ -1,0 +1,74 @@
+@use 'src/scss/config' as *;
+
+.submenu {
+  @include make-spacer(px, 10px);
+  @include make-spacer(px, 0, lg);
+
+  @include media-breakpoint-up(lg) {
+    background-color: var(--color-shark);
+    box-shadow: 0 rem(6px) rem(12px) rgba(0, 0, 0, 0.175);
+  }
+
+  &--wide {
+
+    .submenu {
+
+      &__list {
+        @include make-spacer(mb, 20px);
+        @include make-spacer(mb, 0, lg);
+      }
+
+      &__item {
+        border: 0;
+      }
+
+      &__link {
+        @include make-spacer(pl, 0);
+        @include make-spacer(py, 5px);
+        @include make-spacer(py, 10px, lg);
+      }
+    }
+  }
+
+  &__item {
+    border-top: 1px solid var(--color-porcelain);
+  }
+
+  &__link {
+    @include make-spacer(px, 20px);
+    @include make-spacer(py, 10px);
+
+    display: block;
+    font-size: rem(14px);
+    color: var(--color-gray-chateau);
+
+    @include media-breakpoint-up(xl) {
+      font-size: rem(16px);
+    }
+
+    &--active,
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__container {
+    @include make-spacer(p, 15px);
+    @include make-spacer(p, 30px, lg);
+  }
+
+  &__title {
+    @include make-spacer(pb, 10px);
+    @include make-spacer(mb, 10px);
+    @include make-spacer(mb, 20px, lg);
+
+    border-bottom: 1px solid var(--color-porcelain);
+    color: var(--color-gray-chateau);
+    font-size: rem(14px);
+    font-weight: var(--typography-medium);
+
+    @include media-breakpoint-up(xl) {
+      font-size: rem(16px);
+    }
+  }
+}

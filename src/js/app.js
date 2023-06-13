@@ -9,3 +9,8 @@ $('.js-language-item').click(function() {
   $('.js-language-toggle').text($(this)[0].getAttribute('data-language'))
   $('.js-language').toggleClass('language--active')
 });
+
+$('.js-toggle').click(function() {
+  $(this).toggleClass('toggle--active')
+  $('.menu').toggleClass('menu--active')
+});

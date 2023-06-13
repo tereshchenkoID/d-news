@@ -1,32 +1,28 @@
-.toggle {
-  @include size(38px);
+@use 'src/scss/config' as *;
 
-  display: none;
-  margin-top: var(--base-margin);
-  margin-bottom: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
+.toggle {
+  @include size(rem(35px));
+
+  border: rem(1px) solid var(--color-primary);
+  border-radius: rem(4px);
 
   &__item {
-    @include size(18px, 2px);
+    @include transition(all);
+    @include make-spacer(my, 3px);
+    @include make-spacer(mx, auto);
+    @include size(rem(18px), rem(1px));
 
-    transition: all 0.3s;
-    margin: 2px 0;
-    background-color: var(--color-white);
+    background-color: var(--color-primary);
   }
 
-  @include media-max(map_get($grid-breakpoints, md)) {
-    @include flex(center, center, column);
-  }
-
-  &.toggle--active {
+  &--active {
 
     .toggle {
 
       &__item {
 
         &:nth-child(1) {
-          transform: translateY(6px) rotateZ(45deg);
+          transform: translateY(rem(4px)) rotateZ(45deg);
         }
 
         &:nth-child(2) {
@@ -35,7 +31,7 @@
         }
 
         &:nth-child(3) {
-          transform: translateY(-6px) rotateZ(-45deg);
+          transform: translateY(rem(-4px)) rotateZ(-45deg);
         }
       }
     }

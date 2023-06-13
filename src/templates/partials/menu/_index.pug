@@ -5,127 +5,97 @@ mixin menu
         span.menu__text Home
         span.menu__icon
           i.fa.fa.fa-angle-down
-      .submenu.menu__dropdown
-        ul.submenu__list
-          li.submenu__item
-            a(href="#").submenu__link.submenu__link--active Home v-1
-          li.submenu__item
-            a(href="#").submenu__link Home v-2
-          li.submenu__item
-            a(href="#").submenu__link Home v-3
+      .menu__dropdown.menu__dropdown--left
+        +submenu([
+          {
+            text: 'Home v-1',
+            href: "#"
+          },
+          {
+            text: 'Home v-2',
+            href: "#"
+          },
+          {
+            text: 'Home v-3',
+            href: "#"
+          }]
+        )
+
     .menu__item
       a(href="#").menu__link
         span.menu__text Business
         span.menu__icon
           i.fa.fa.fa-angle-down
-      .submenu.menu__dropdown
-        ul.submenu__list
-          li.submenu__item
-            a(href="#").submenu__link Dropdown menu
-          li.submenu__item
-            a(href="#").submenu__link Dropdown menu
-          li.submenu__item
-            a(href="#").submenu__link Dropdown menu
+      .menu__dropdown.menu__dropdown--left
+        +submenu([
+          {
+            text: 'Dropdown menu',
+            href: "#"
+          },
+          {
+            text: 'Dropdown menu',
+            href: "#"
+          }]
+        )
+
     .menu__item
       a(href="#").menu__link
         span.menu__text Politics
         span.menu__icon
           i.fa.fa.fa-angle-down
-      .submenu.menu__dropdown
-        ul.submenu__list
-          li.submenu__item
-            a(href="#").submenu__link Dropdown menu
-          li.submenu__item
-            a(href="#").submenu__link Dropdown menu
-          li.submenu__item
-            a(href="#").submenu__link Dropdown menu
+      .menu__dropdown.menu__dropdown--left
+        +submenu([
+          {
+            text: 'Dropdown menu',
+            href: "#"
+          },
+          {
+            text: 'Dropdown menu',
+            href: "#"
+          }]
+        )
+
     .menu__item
       a(href="#").menu__link
         span.menu__text Category
+
     .menu__item
       a(href="#").menu__link
         span.menu__text Mega Menu
         span.menu__icon
           i.fa.fa.fa-angle-down
-      .submenu.submenu--wide.menu__dropdown
-        .row.submenu__container
-          .col.col-md-3.submenu__cell
-            h3.submenu__title.u-text-transform-capitalize Top News
-            ul.submenu__list
-              li.submenu__item
-                a(href="#").submenu__link Criket match
-              li.submenu__item
-                a(href="#").submenu__link Earth fire
-              li.submenu__item
-                a(href="#").submenu__link Education
-              li.submenu__item
-                a(href="#").submenu__link Banking seba
-              li.submenu__item
-                a(href="#").submenu__link Best Program
-              li.submenu__item
-                a(href="#").submenu__link About News
-          .col.col-md-3.submenu__cell
-            h3.submenu__title.u-text-transform-capitalize Related Post
-            ul.submenu__list
-              li.submenu__item
-                a(href="#").submenu__link Forest
-              li.submenu__item
-                a(href="#").submenu__link Rivers
-              li.submenu__item
-                a(href="#").submenu__link Sport Criket
-              li.submenu__item
-                a(href="#").submenu__link Sport Football
-              li.submenu__item
-                a(href="#").submenu__link Video & music
-              li.submenu__item
-                a(href="#").submenu__link Natural country
-          .col.col-md-3.submenu__cell
-            h3.submenu__title.u-text-transform-capitalize Business
-            ul.submenu__list
-              li.submenu__item
-                a(href="#").submenu__link Criket match
-              li.submenu__item
-                a(href="#").submenu__link Earth fire
-              li.submenu__item
-                a(href="#").submenu__link Education
-              li.submenu__item
-                a(href="#").submenu__link Banking seba
-              li.submenu__item
-                a(href="#").submenu__link Best Program
-              li.submenu__item
-                a(href="#").submenu__link About News
-          .col.col-md-3.submenu__cell
-            h3.submenu__title.u-text-transform-capitalize Technology
-            ul.submenu__list
-              li.submenu__item
-                a(href="#").submenu__link Forest
-              li.submenu__item
-                a(href="#").submenu__link Rivers
-              li.submenu__item
-                a(href="#").submenu__link Sport Criket
-              li.submenu__item
-                a(href="#").submenu__link Sport Football
-              li.submenu__item
-                a(href="#").submenu__link Video & music
-              li.submenu__item
-                a(href="#").submenu__link Natural country
+      .menu__dropdown.menu__dropdown--wide
+        +submenu-wide.submenu--wide
+
     .menu__item
       a(href="#").menu__link
         span.menu__text About
+
     .menu__item
       a(href="#").menu__link
         span.menu__text Pages
         span.menu__icon
           i.fa.fa.fa-angle-down
-      .submenu.menu__dropdown
-        ul.submenu__list
-          li.submenu__item
-            a(href="#").submenu__link News Details
-          li.submenu__item
-            a(href="#").submenu__link Contact Page
-          li.submenu__item
-            a(href="#").submenu__link Sign In
-          li.submenu__item
-            a(href="#").submenu__link Sign Up
-          li.submenu__item
-            a(href="#").submenu__link 404
+      .menu__dropdown.menu__dropdown--right
+        +submenu([
+          {
+            text: 'News Details',
+            href: "#"
+          },
+          {
+            text: 'Contact Page',
+            href: "#"
+          },
+          {
+            text: 'Sign In',
+            href: "#"
+          },
+          {
+            text: 'Sign Up',
+            href: "#"
+          },
+          {
+            text: '404',
+            href: "#"
+          }]
+        )

@@ -6,7 +6,8 @@
   background-color: var(--color-shark);
 
   &__logo,
-  &__search {
+  &__search,
+  &__toggle {
     flex-shrink: 0;
   }
 
@@ -15,10 +16,25 @@
   }
 
   &__logo {
-    width: rem(150px);
+    width: rem(100px);
+
+    @include media-breakpoint-up(sm) {
+      width: rem(150px);
+    }
   }
 
   &__search {
+    @include make-spacer(mr, 25px);
+    @include make-spacer(ml, auto);
+    @include make-spacer(mx, 0, lg);
+
     width: rem(160px);
+  }
+
+  &__toggle {
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
   }
 }
