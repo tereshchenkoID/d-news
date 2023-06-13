@@ -1,0 +1,33 @@
+.button {
+  display: inline-flex;
+  position: relative;
+  border-radius: 20px;
+  padding: 5px 20px;
+  min-height: 40px;
+  font-weight: var(--typography-medium);
+
+  &__text {
+    @include flex($align-items: center);
+
+    font-size: 16px;
+  }
+
+  &--primary {
+    background: var(--gradient-horizontal);
+    color: var(--color-white);
+
+    &:hover,
+    &--active {
+      background: linear-gradient(-90deg, #4da7cc 21%, #65d1cc 100%);
+    }
+  }
+
+  &--secondary {
+    background-color: var(--color-secondary);
+
+    &:hover,
+    &--active {
+      opacity: 0.6;
+    }
+  }
+}
