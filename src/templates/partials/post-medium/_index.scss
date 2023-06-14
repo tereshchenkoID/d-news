@@ -1,6 +1,6 @@
 @use 'src/scss/config' as *;
 
-.post-small {
+.post-medium {
   position: relative;
   background-color: var(--color-shark);
   border-radius: rem(4px);
@@ -8,16 +8,17 @@
 
   &--row {
 
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up(lg) {
       display: grid;
-      grid-template-columns: rem(140px) 1fr;
+      grid-template-columns: rem(350px) 1fr;
     }
 
-    .post-small {
+    .post-medium {
 
       &__thumbnail {
 
         @include media-breakpoint-up(sm) {
+          min-height: rem(130px);
           height: 100%;
         }
       }
@@ -26,15 +27,20 @@
 
   &--column {
 
-    .post-small {
+    .post-medium {
 
       &__thumbnail {
 
         @include media-breakpoint-up(sm) {
-          height: rem(150px);
+          min-height: rem(170px);
         }
       }
     }
+  }
+
+  &__meta,
+  &__description {
+    @include make-spacer(mt, 15px);
   }
 
   &__content {
@@ -42,7 +48,7 @@
     @include make-spacer(px, 15px);
 
     align-self: center;
-    font-size: rem(13px);
+    font-size: rem(14px);
   }
 
   &__category {
@@ -83,21 +89,23 @@
   &__title {
     line-height: 1.2;
     color: var(--color-white);
-    font-size: rem(16px);
+    font-size: rem(20px);
   }
 
   &__meta {
-    @include make-spacer(mt, 10px);
     @include flex(null, center, null, wrap);
 
-    column-gap: rem(10px);
+    column-gap: rem(15px);
   }
 
   &__item {
     @include flex(null, center);
 
     color: var(--color-comet);
-    font-size: rem(12px);
     column-gap: rem(5px);
+  }
+
+  &__description {
+    @include line-clamp(3);
   }
 }

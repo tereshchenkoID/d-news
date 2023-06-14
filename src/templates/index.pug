@@ -14,38 +14,60 @@ block content
             .widget
               +widget-title('Latest News')
               - var n = 1;
-                ul.widget__list.widget__list--3
+                .row
                   while n < 10
-                    li.widget__item
+                    .col.col-md-6.col-lg-4.col-verticall-offset
                       +post-small(n++, true).post-small--column
 
             .widget
               +widget-title('WORLDS')
               .row
-                .col.col-md-6
+                .col.col-lg-6
                   p 1
-                .col.col-md-6
+                .col.col-lg-6
                   - var n = 1;
-                    ul.widget__list.widget__list--1
+                    .row
                       while n < 5
-                        li.widget__item
+                        .col.col-verticall-offset
                           +post-small(n++, false).post-small--row
 
             .widget
               +widget-title('HEALTH')
-              - var n = 1;
-                ul.widget__list.widget__list--2
+              .row
+                .col.col-verticall-offset
+                  +post-medium(true).post-medium--row
+                - var n = 1;
                   while n < 7
-                    li.widget__item
+                    .col.col-lg-6.col-verticall-offset
                       +post-small(n++, false).post-small--row
+
+            .widget
+              +widget-title('LIFE STYLE')
+              .row
+                - var n = 1;
+                  while n < 3
+                    .col.col-lg-6.col-verticall-offset
+                      +post-medium(true)(data-count=n++).post-medium--column
+                - var n = 1;
+                  while n < 4
+                    .col.col-lg-4.col-verticall-offset
+                      +post-medium(true)(data-count=n++).post-medium--column
+
+            .widget
+              +widget-title('LIFE STYLE')
+              .row
+                - var n = 1;
+                  while n < 4
+                    .col.col-verticall-offset
+                      +post-medium(true)(data-count=n++).post-medium--row
 
           .col.col-md-5.col-lg-4
             .widget
               +widget-title('Popular Post')
               - var n = 1;
-                ul.widget__list.widget__list--1
+                .row
                   while n < 5
-                    li.widget__item
+                    .col.col-verticall-offset
                       +post-small(n++, false).post-small--row
 
             .widget
@@ -55,9 +77,9 @@ block content
             .widget
               +widget-title('Recent Posts')
               - var n = 1;
-                ul.widget__list.widget__list--2
+                .row
                   while n < 5
-                    li.widget__item
+                    .col.col-lg-6.col-verticall-offset
                       +post-small(n++, true).post-small--column
 
             +widget-title('Weather')

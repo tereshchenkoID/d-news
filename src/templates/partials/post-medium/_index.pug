@@ -1,0 +1,23 @@
+mixin post-medium(category)
+  article.post-medium&attributes(attributes)
+    if category
+      a(href="#").post-medium__category.u-color-white.u-text-transform-uppercase Category
+    a(href="./details.html").post-medium__thumbnail
+      img(src='https://chtstudio.com/demo/news/images/post/hel1.jpg' loading="lazy").img.img--cover
+    .post-medium__content
+      h2.post-medium__title.u-mb-0.u-text-transform-capitalize
+        a(href="./details.html") Shots in border dispute - BBC News
+      ul.post-medium__meta
+        li.post-medium__item
+          i.far.fa-clock
+          a(href="#") Feb 28, 2022
+        li.post-medium__item
+          i.far.fa-eye
+          a(href="#") 50k
+        li.post-medium__item
+          i.far.fa-heart
+          a(href="#") 270
+        li.post-medium__item
+          i.far.fa-comment
+          a(href="#") 89
+      p.post-medium__description.u-color-white Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis quae perferendis, nesciunt facere tenetur repudiandae

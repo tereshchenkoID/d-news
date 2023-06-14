@@ -74,8 +74,14 @@ ol {
   @include make-spacer(mb, 30px);
 
   &__list {
+    @include make-spacer(mb, 30px);
+
     display: grid;
     grid-gap: rem(15px);
+
+    &:last-child {
+      @include make-spacer(mb, 0);
+    }
 
     &--2 {
 

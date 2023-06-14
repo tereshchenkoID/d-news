@@ -12,7 +12,6 @@
 
   position: relative;
   max-width: rem(1400px);
-  //border: 1px solid red;
 }
 
 .row {
@@ -27,7 +26,6 @@
 
   flex: 1 0 100%;
   max-width: 100%;
-  //border: 1px solid red;
 
   @for $i from 1 through $count-column {
 
@@ -35,6 +33,10 @@
       flex: 0 0 ($i * $count-width) * 1%;
       max-width: ($i * $count-width) * 1%;
     }
+  }
+
+  &-verticall-offset {
+    @include make-spacer(py, $grid-padding);
   }
 }
 
