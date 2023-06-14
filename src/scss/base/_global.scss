@@ -98,6 +98,12 @@ ol {
   }
 }
 
+.banner {
+  display: block;
+  border-radius: rem(4px);
+  overflow: hidden;
+}
+
 .gallery-photo {
   border-radius: rem(4px) rem(4px) 0 0;
   aspect-ratio: 16/9;
