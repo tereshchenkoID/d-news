@@ -1,13 +1,14 @@
 @use 'src/scss/config' as *;
 
 .widget-title {
+  @include flex(space-between, stretch);
   @include make-spacer(pt, 10px);
   @include make-spacer(mb, 20px);
 
   position: relative;
   border-bottom: rem(2px) solid var(--color-porcelain);
 
-  &::after {
+  &::before {
     @include size(rem(50px), rem(2px));
 
     position: absolute;
@@ -17,9 +18,35 @@
     content: '';
   }
 
+  &__link,
   &__text {
-    font-size: rem(16px);
     font-weight: var(--typography-medium);
     color: var(--color-white);
+  }
+
+  &__text {
+    font-size: rem(16px);
+  }
+
+  &__link {
+    @include transition(all);
+    @include flex(null, center);
+
+    border-bottom: rem(2px) solid var(--color-primary);
+    transform: translateY(rem(2px));
+    opacity: 0;
+    visibility: hidden;
+    font-size: rem(12px);
+  }
+
+  &:hover {
+
+    .widget-title {
+
+      &__link {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
   }
 }

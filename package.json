@@ -83,6 +83,7 @@
     "jquery": "^3.4.1",
     "jquery.photoswipe": "^1.1.1",
     "slick-carousel": "^1.8.1",
-    "slick-slider": "^1.8.2"
+    "slick-slider": "^1.8.2",
+    "swiper": "^9.4.1"
   }
 }

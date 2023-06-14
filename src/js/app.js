@@ -1,3 +1,31 @@
+import {Swiper, EffectFade, Navigation, Pagination, Thumbs } from 'swiper';
+
+Swiper.use([ EffectFade, Navigation, Pagination, Thumbs]);
+
+const swiper = new Swiper(".mySwiper", {
+  spaceBetween: 10,
+  slidesPerView: 6,
+  freeMode: true,
+  watchSlidesProgress: true,
+});
+
+const swiper2 = new Swiper(".mySwiper2", {
+  loop: true,
+  spaceBetween: 10,
+  slideToClickedSlide: true,
+  slidesPerView: 'auto',
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  thumbs: {
+    swiper,
+  },
+});
+
+// swiper[0].controller.control = swiper2;
+// swiper2[0].controller.control = swiper;
+
 $('.js-language-select').click(function() {
   $('.js-language').toggleClass('language--active')
   $('.menu').toggleClass('menu--active')

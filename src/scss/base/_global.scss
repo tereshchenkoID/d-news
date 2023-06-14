@@ -72,56 +72,44 @@ ol {
 
 .widget {
   @include make-spacer(mb, 30px);
-
-  &__list {
-    @include make-spacer(mb, 30px);
-
-    display: grid;
-    grid-gap: rem(15px);
-
-    &:last-child {
-      @include make-spacer(mb, 0);
-    }
-
-    &--2 {
-
-      @include media-breakpoint-up(md) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    &--3 {
-
-      @include media-breakpoint-up(sm) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @include media-breakpoint-up(lg) {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  }
 }
 
 
 
 
 
-.slider {
+.swiper {
+  @include size(100%, rem(300px));
+  @include make-spacer(mx, auto);
+}
 
-  .slick-list,
-  .slick-track {
-    height: 100%;
+.swiper-slide {
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
+.mySwiper {
+  @include make-spacer(p, 10px!important);
+
+  box-sizing: border-box;
+  height: rem(96px);
+  background-color: var(--color-white);
+
+  .swiper-slide {
+    @include transition(opacity);
+
+    border-radius: rem(4px);
+    overflow: hidden;
+    opacity: 0.4;
   }
+}
 
-  .slick-slide {
+.mySwiper2 {
+  @include size(100%, rem(500px));
+}
 
-    > div {
-      height: 100%;
-    }
-  }
-
-  .slick-arrow {
-    display: none;
-  }
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
 }
