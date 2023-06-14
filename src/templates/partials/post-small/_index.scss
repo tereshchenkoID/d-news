@@ -31,7 +31,8 @@
       &__thumbnail {
 
         @include media-breakpoint-up(sm) {
-          height: rem(150px);
+          min-height: rem(150px);
+          aspect-ratio: 16/9;
         }
       }
     }

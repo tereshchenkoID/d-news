@@ -72,44 +72,68 @@ ol {
 
 .widget {
   @include make-spacer(mb, 30px);
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: rem(20px);
+
+    .swiper-pagination {
+      @include make-spacer(mt, 15px);
+
+      position: static;
+
+      .swiper-pagination-bullet {
+        @include make-spacer(mx, 2px!important);
+
+        background-color: var(--color-gray-chateau);
+        opacity: 1;
+      }
+
+      .swiper-pagination-bullet-active {
+        background-color: var(--color-primary);
+      }
+    }
+  }
 }
 
+.gallery-photo {
+  border-radius: rem(4px) rem(4px) 0 0;
+  aspect-ratio: 16/9;
 
+  .swiper-slide {
 
+    &:hover {
 
+      .img {
+        transform: scale(1.1);
+      }
+    }
 
-.swiper {
-  @include size(100%, rem(300px));
-  @include make-spacer(mx, auto);
+    .img {
+      @include transition(transform);
+    }
+  }
 }
 
-.swiper-slide {
-  cursor: pointer;
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-}
-
-.mySwiper {
+.gallery-thumb-photo {
   @include make-spacer(p, 10px!important);
 
-  box-sizing: border-box;
-  height: rem(96px);
   background-color: var(--color-white);
+  border-radius: 0 0 rem(4px) rem(4px);
+  height: rem(96px);
 
   .swiper-slide {
     @include transition(opacity);
 
+    cursor: pointer;
     border-radius: rem(4px);
     overflow: hidden;
     opacity: 0.4;
   }
-}
 
-.mySwiper2 {
-  @include size(100%, rem(500px));
-}
-
-.mySwiper .swiper-slide-thumb-active {
-  opacity: 1;
+  .swiper-slide-thumb-active {
+    opacity: 1;
+  }
 }

@@ -2,29 +2,66 @@ import {Swiper, EffectFade, Navigation, Pagination, Thumbs } from 'swiper';
 
 Swiper.use([ EffectFade, Navigation, Pagination, Thumbs]);
 
-const swiper = new Swiper(".mySwiper", {
+const swiper = new Swiper(".gallery-thumb-photo", {
   spaceBetween: 10,
   slidesPerView: 6,
+  breakpoints: {
+    320: {
+      slidesPerView: 2
+    },
+    480: {
+      slidesPerView: 3
+    },
+    992: {
+      slidesPerView: 4
+    },
+    1200: {
+      slidesPerView: 6
+    },
+  },
   freeMode: true,
   watchSlidesProgress: true,
 });
 
-const swiper2 = new Swiper(".mySwiper2", {
+const swiper2 = new Swiper(".gallery-photo", {
   loop: true,
   spaceBetween: 10,
   slideToClickedSlide: true,
   slidesPerView: 'auto',
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+  pagination: {
+    el: ".pagination-photo-gallery",
+    clickable: true,
   },
   thumbs: {
     swiper,
   },
 });
 
-// swiper[0].controller.control = swiper2;
-// swiper2[0].controller.control = swiper;
+const swiper3 = new Swiper(".gallery-latest-news", {
+  loop: true,
+  spaceBetween: 20,
+  slideToClickedSlide: true,
+  pagination: {
+    el: ".pagination-latest-news",
+    clickable: true,
+  },
+  slidesPerView: 3,
+  breakpoints: {
+    320: {
+      slidesPerView: 1
+    },
+    480: {
+      slidesPerView: 2
+    },
+    992: {
+      slidesPerView: 2
+    },
+    1200: {
+      slidesPerView: 3
+    },
+  },
+});
+
 
 $('.js-language-select').click(function() {
   $('.js-language').toggleClass('language--active')
