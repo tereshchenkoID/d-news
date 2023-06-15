@@ -16,7 +16,7 @@ block content
                 .widget__header
                   +widget-title('LEAVE A COMMENTS')
                 .widget__body
-                  +contact-form-small
+                  +contact-form-2
 
               .widget
                 .widget__header
@@ -40,8 +40,7 @@ block content
                           +post-small(n++, false).post-small--row
               .widget
                 .widget__body
-                  a(href="#").banner
-                    img(src="https://chtstudio.com/demo/news/images/post/14.jpg").img
+                  +banner(14)
 
               .widget
                 .widget__header
@@ -61,5 +60,4 @@ block content
 
               .widget
                 .widget__body
-                  a(href="#").banner
-                    img(src="https://chtstudio.com/demo/news/images/post/12.jpg").img
+                  +banner(12)

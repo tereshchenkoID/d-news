@@ -8,7 +8,7 @@
   @include make-spacer(px, 20px);
 
   position: relative;
-  border-radius: rem(4px);
+  border-radius: var(--border-radius);
   overflow: hidden;
   color: var(--color-white);
 
@@ -16,7 +16,7 @@
     position: relative;
     font-size: rem(14px);
     font-weight: var(--typography-medium);
-    letter-spacing: rem(4px);
+    letter-spacing: var(--border-radius);
     text-transform: uppercase;
     color: currentColor;
   }

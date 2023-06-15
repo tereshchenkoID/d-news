@@ -3,7 +3,7 @@
 .post-small {
   position: relative;
   background-color: var(--color-shark);
-  border-radius: rem(4px);
+  border-radius: var(--border-radius);
   overflow: hidden;
 
   &--row {

@@ -103,14 +103,8 @@ ol {
   }
 }
 
-.banner {
-  display: block;
-  border-radius: rem(4px);
-  overflow: hidden;
-}
-
 .gallery-photo {
-  border-radius: rem(4px) rem(4px) 0 0;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
   aspect-ratio: 16/9;
 
   .swiper-slide {
@@ -132,14 +126,14 @@ ol {
   @include make-spacer(p, 10px!important);
 
   background-color: var(--color-white);
-  border-radius: 0 0 rem(4px) rem(4px);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
   height: rem(96px);
 
   .swiper-slide {
     @include transition(opacity);
 
     cursor: pointer;
-    border-radius: rem(4px);
+    border-radius: var(--border-radius);
     overflow: hidden;
     opacity: 0.4;
   }

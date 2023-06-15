@@ -78,7 +78,7 @@
     @include flex(null, center);
     @include reset-button;
 
-    border-radius: rem(4px);
+    border-radius: var(--border-radius);
     background-color: var(--color-comet);
     overflow: hidden;
     height: rem(45px);

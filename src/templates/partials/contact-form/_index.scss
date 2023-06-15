@@ -4,7 +4,7 @@
   @include make-spacer(px, 30px);
   @include make-spacer(py, 15px);
 
-  border-radius: rem(4px);
+  border-radius: var(--border-radius);
   overflow: hidden;
   background-color: var(--color-shark);
   box-shadow: 0 rem(6px) rem(12px) rgba(0, 0, 0, 0.175);

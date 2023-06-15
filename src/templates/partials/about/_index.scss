@@ -4,7 +4,7 @@
   @include size(100%);
 
   overflow: hidden;
-  border-radius: rem(4px);
+  border-radius: var(--border-radius);
   background-color: var(--color-shark);
   color: var(--color-comet);
 

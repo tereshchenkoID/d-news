@@ -1,0 +1,7 @@
+@use 'src/scss/config' as *;
+
+.banner {
+  display: block;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
