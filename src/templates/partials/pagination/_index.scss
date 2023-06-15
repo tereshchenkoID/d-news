@@ -1,0 +1,41 @@
+@use 'src/scss/config' as *;
+
+.pagination {
+  @include flex(center);
+
+  &__list {
+    @include flex(center, center);
+
+    overflow: hidden;
+    border-radius: rem(4px);
+    background-color: var(--color-shark);
+    box-shadow: 0 rem(6px) rem(12px) rgba(0, 0, 0, 0.075);
+    height: rem(47px);
+    color: var(--color-comet);
+  }
+
+  &__item {
+    @include size(rem(50px), 100%);
+
+    border-right: 1px solid currentColor;
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+
+  &__link {
+    @include size(100%);
+    @include flex(center, center);
+
+    &--disabled {
+      pointer-events: none;
+    }
+
+    &--active,
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+mixin pagination
+  .pagination&attributes(attributes)
+    ul.pagination__list
+      li.pagination__item
+        a(href="#").pagination__link
+          i.fa.fa-angle-left
+      - var n = 1;
+        while n < 3
+          li.pagination__item
+            a(href="#").pagination__link= n++
+      li.pagination__item
+        a(href="#").pagination__link.pagination__link--disabled ...
+      li.pagination__item
+        a(href="#").pagination__link.pagination__link--active 8
+      li.pagination__item
+        a(href="#").pagination__link 9
+      li.pagination__item
+        a(href="#").pagination__link
+          i.fa.fa-angle-right
