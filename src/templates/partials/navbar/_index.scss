@@ -4,6 +4,14 @@
   @include make-spacer(py, 15px);
   @include flex(center, center, null, wrap);
 
+  &__item {
+    @include make-spacer(mr, 25px, lg);
+
+    &:last-child {
+      @include make-spacer(mr, 0);
+    }
+  }
+
   &__link {
     @include make-spacer(p, 10px);
 

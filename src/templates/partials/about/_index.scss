@@ -1,0 +1,34 @@
+@use 'src/scss/config' as *;
+
+.about {
+  @include size(100%);
+
+  overflow: hidden;
+  border-radius: rem(4px);
+  background-color: var(--color-shark);
+  color: var(--color-comet);
+
+  @include media-breakpoint-up(md) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__picture {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+
+  &__content {
+    @include flex(null, null, column);
+    @include make-spacer(p, 20px);
+    @include make-spacer(p, 30px, lg);
+
+    gap: rem(20px);
+    align-self: center;
+  }
+
+  &__title {
+    font-size: rem(20px);
+    color: currentColor;
+  }
+}

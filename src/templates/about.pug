@@ -1,0 +1,56 @@
+---
+title: D-news | About
+lang: en
+---
+extends layouts/_layout
+
+block content
+  main.main
+    section.section
+      .container-fluid
+        .container
+          .widget
+            .widget__header
+              +widget-title('ABOUT US')
+            .widget__body
+              .about
+                .about__image
+                  img(src="https://chtstudio.com/demo/news/images/post/1.jpg" loading="lazy").img.img--cover
+                .about__content
+                  h2.about__title.u-mb-0 Aliquid quas similique delectus? Officiis.
+                  p.about__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iusto libero magnam molestiae, odit quae quia ut voluptate! Ad deserunt labore laborum molestiae tempore! Dolores harum impedit maxime natus nemo!
+                  p.about__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iusto libero magnam molestiae, odit quae quia ut voluptate! Ad deserunt labore laborum molestiae tempore! Dolores harum impedit maxime natus nemo!
+                  p.about__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iusto libero magnam molestiae, odit quae quia ut voluptate! Ad deserunt labore laborum molestiae tempore! Dolores harum impedit maxime natus nemo!
+          .widget
+            .widget__header
+              +widget-title('SERVICES')
+            .widget__body
+              .row
+                .col.col-md-4.col-verticall-offset
+                  .service
+                    .service__icon
+                      i.far.fa-edit
+                    h2.service__title.u-mb-0 Web design
+                    p.service__text Lorem ipsum dolor sit amet consectetur adipisicing, elit. Enim minima, voluptatum ipsam iusto deserunt dignissimos accusamus ea iste odit exercitationem eveniet neque explicabo reiciendis id! Minima dolores corporis voluptatibus, voluptatum.
+                .col.col-md-4.col-verticall-offset
+                  .service
+                    .service__icon
+                      i.fas.fa-tv
+                    h2.service__title.u-mb-0 Media & content
+                    p.service__text Lorem ipsum dolor sit amet consectetur adipisicing, elit. Enim minima, voluptatum ipsam iusto deserunt dignissimos accusamus ea iste odit exercitationem eveniet neque explicabo reiciendis id! Minima dolores corporis voluptatibus, voluptatum.
+                .col.col-md-4.col-verticall-offset
+                  .service
+                    .service__icon
+                      i.fas.fa-camera-retro
+                    h2.service__title.u-mb-0 Vedeo prod.
+                    p.service__text Lorem ipsum dolor sit amet consectetur adipisicing, elit. Enim minima, voluptatum ipsam iusto deserunt dignissimos accusamus ea iste odit exercitationem eveniet neque explicabo reiciendis id! Minima dolores corporis voluptatibus, voluptatum.
+
+          .widget
+            .widget__header
+              +widget-title('OUR TEAM')
+            .widget__body
+              .row
+                - var n = 1;
+                  while n < 9
+                    .col.col-md-6.col-lg-3.col-verticall-offset
+                      +team-member(n++)

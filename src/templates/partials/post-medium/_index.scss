@@ -44,8 +44,7 @@
   }
 
   &__content {
-    @include make-spacer(py, 10px);
-    @include make-spacer(px, 15px);
+    @include make-spacer(p, 15px);
 
     align-self: center;
     font-size: rem(14px);

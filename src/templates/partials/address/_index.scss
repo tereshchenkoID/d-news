@@ -3,7 +3,8 @@
 .address {
   @include size(100%);
   @include flex(center, center, column);
-  @include make-spacer(p, 30px);
+  @include make-spacer(p, 20px);
+  @include make-spacer(p, 30px, lg);
 
   border-radius: rem(4px);
   background-color: var(--color-shark);
