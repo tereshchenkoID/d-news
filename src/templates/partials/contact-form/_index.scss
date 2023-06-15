@@ -1,7 +1,8 @@
 @use 'src/scss/config' as *;
 
 .contact-form {
-  @include make-spacer(p, 30px);
+  @include make-spacer(px, 30px);
+  @include make-spacer(py, 15px);
 
   border-radius: rem(4px);
   overflow: hidden;
@@ -40,5 +41,12 @@
 
   &__button {
     width: fit-content;
+  }
+
+  &__label {
+    @include make-spacer(mb, 5px);
+
+    display: block;
+    font-size: rem(14px);
   }
 }

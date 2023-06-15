@@ -29,6 +29,10 @@
     @include make-spacer(mx, 0, lg);
 
     width: rem(160px);
+
+    @include media-breakpoint-up(lg) {
+      width: rem(225px);
+    }
   }
 
   &__toggle {

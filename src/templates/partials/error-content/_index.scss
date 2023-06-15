@@ -7,6 +7,8 @@
   @include make-spacer(px, 15px);
 
   gap: rem(20px);
+  border-radius: rem(4px);
+  overflow: hidden;
   background-color: var(--color-shark);
   color: var(--color-comet);
   text-align: center;

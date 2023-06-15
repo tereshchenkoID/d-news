@@ -1,7 +1,7 @@
 mixin post-small(id, category)
   article.post-small&attributes(attributes)
     if category
-      a(href="#").post-small__category.u-color-white.u-text-transform-uppercase Category
+      a(href="./details.html").post-small__category.u-color-white.u-text-transform-uppercase Category
     a(href="./details.html").post-small__thumbnail
       img(src=`https://chtstudio.com/demo/news/images/post/sm${id}.jpg` loading="lazy").img.img--cover
     .post-small__content

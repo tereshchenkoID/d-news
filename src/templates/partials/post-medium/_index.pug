@@ -1,7 +1,7 @@
 mixin post-medium(category)
   article.post-medium&attributes(attributes)
     if category
-      a(href="#").post-medium__category.u-color-white.u-text-transform-uppercase Category
+      a(href="./details.html").post-medium__category.u-color-white.u-text-transform-uppercase Category
     a(href="./details.html").post-medium__thumbnail
       img(src='https://chtstudio.com/demo/news/images/post/hel1.jpg' loading="lazy").img.img--cover
     .post-medium__content

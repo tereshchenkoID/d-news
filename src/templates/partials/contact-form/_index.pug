@@ -20,3 +20,25 @@ mixin contact-form
       .col.col-verticall-offset
         .contact-form__block
           +button('Submit')(type="submit").button--animate.contact-form__button
+
+mixin contact-form-small
+  form.contact-form&attributes(attributes)
+    .row
+      .col.col-lg-6.col-verticall-offset
+        .contact-form__block.contact-form__block--error
+          label.sign-form__label Name
+          input(type="text" placeholder="admin" required).field.contact-form__field
+          p.contact-form__error Field is required
+      .col.col-lg-6.col-verticall-offset
+        .contact-form__block
+          label.sign-form__label Email
+          input(type="text" placeholder="demo@gmail.com" required).field.contact-form__field
+          p.contact-form__error Field is required
+      .col.col-verticall-offset
+        .contact-form__block
+          label.sign-form__label Comments
+          textarea(type="text" placeholder="this is message..." required).textarea.contact-form__field
+          p.contact-form__error Field is required
+      .col.col-verticall-offset
+        .contact-form__block
+          +button('Submit your text')(type="submit").button--animate.contact-form__button
