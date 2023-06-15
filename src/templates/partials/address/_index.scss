@@ -1,0 +1,31 @@
+@use 'src/scss/config' as *;
+
+.address {
+  @include size(100%);
+  @include flex(center, center, column);
+  @include make-spacer(p, 30px);
+
+  border-radius: rem(4px);
+  background-color: var(--color-shark);
+  color: var(--color-comet);
+  gap: rem(20px);
+
+  &__icon {
+    @include flex(center, center);
+    @include size(rem(80px));
+
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    overflow: hidden;
+    font-size: rem(30px);
+  }
+
+  &__title {
+    font-size: rem(22px);
+    color: currentColor;
+
+    @include media-breakpoint-up(lg) {
+      font-size: rem(24px);
+    }
+  }
+}

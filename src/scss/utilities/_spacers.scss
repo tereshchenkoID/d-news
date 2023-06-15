@@ -1,7 +1,7 @@
 @use "sass:math";
 @use '../config' as *;
 
-$spacings: (30, 35);
+$spacings: (0, 16, 20, 30, 35);
 $directions: ('mt', 'mr', 'mb', 'ml', 'mx', 'my', 'pt', 'pr', 'pb', 'pl', 'px', 'py');
 
 @mixin set-spacing($spacing, $direction, $breakpoint: null) {

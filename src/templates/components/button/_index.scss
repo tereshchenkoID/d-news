@@ -1,33 +1,61 @@
+@use 'src/scss/config' as *;
+
 .button {
-  display: inline-flex;
+  @include reset-button;
+  @include size(100%, rem(45px));
+  @include flex(center, center);
+  @include transition(color);
+  @include make-spacer(px, 20px);
+
   position: relative;
-  border-radius: 20px;
-  padding: 5px 20px;
-  min-height: 40px;
-  font-weight: var(--typography-medium);
+  border-radius: rem(4px);
+  overflow: hidden;
+  color: var(--color-white);
 
   &__text {
-    @include flex($align-items: center);
-
-    font-size: 16px;
+    position: relative;
+    font-size: rem(14px);
+    font-weight: var(--typography-medium);
+    letter-spacing: rem(4px);
+    text-transform: uppercase;
+    color: currentColor;
   }
 
   &--primary {
-    background: var(--gradient-horizontal);
-    color: var(--color-white);
+    background-color: var(--color-primary);
+    border: rem(1px) solid var(--color-primary);
 
-    &:hover,
-    &--active {
-      background: linear-gradient(-90deg, #4da7cc 21%, #65d1cc 100%);
+    &:hover {
+      background-color: transparent;
+      color: var(--color-primary);
+
+      .button {
+
+        &__text {
+          color: var(--color-primary);
+        }
+      }
     }
   }
 
-  &--secondary {
-    background-color: var(--color-secondary);
+  &--animate {
+    border: rem(1px) solid var(--color-primary);
 
-    &:hover,
-    &--active {
-      opacity: 0.6;
+    &::before {
+      @include transition(transform);
+      @include absolute-filled;
+
+      background-color: var(--color-primary);
+      transform-origin: 100% 50%;
+      content: '';
+    }
+
+    &:hover {
+      color: var(--color-primary);
+
+      &::before {
+        transform: scaleX(0);
+      }
     }
   }
 }

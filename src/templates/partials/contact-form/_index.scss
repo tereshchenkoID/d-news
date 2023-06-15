@@ -1,0 +1,44 @@
+@use 'src/scss/config' as *;
+
+.contact-form {
+  @include make-spacer(p, 30px);
+
+  border-radius: rem(4px);
+  overflow: hidden;
+  background-color: var(--color-shark);
+  box-shadow: 0 rem(6px) rem(12px) rgba(0, 0, 0, 0.175);
+  color: var(--color-comet);
+
+  &__block {
+
+    &--error {
+
+      .contact-form {
+
+        &__error {
+          display: block;
+        }
+
+        &__field {
+          border-color: var(--color-primary);
+        }
+
+        &__label {
+          color: var(--color-primary);
+        }
+      }
+    }
+  }
+
+  &__error {
+    @include make-spacer(mt, 5px);
+
+    display: none;
+    color: var(--color-primary);
+    font-size: rem(12px);
+  }
+
+  &__button {
+    width: fit-content;
+  }
+}

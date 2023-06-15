@@ -67,6 +67,8 @@ ol {
 }
 
 .section {
+  @include make-spacer(py, 50px);
+
   position: relative;
 }
 

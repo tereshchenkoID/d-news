@@ -1,0 +1,22 @@
+mixin contact-form
+  form.contact-form&attributes(attributes)
+    .row
+      .col.col-lg-6.col-verticall-offset
+        .contact-form__block.contact-form__block--error
+          input(type="text" placeholder="Your Name" required).field.contact-form__field
+          p.contact-form__error Field is required
+      .col.col-lg-6.col-verticall-offset
+        .contact-form__block
+          input(type="text" placeholder="Your Email" required).field.contact-form__field
+          p.contact-form__error Field is required
+      .col.col-verticall-offset
+        .contact-form__block
+          input(type="text" placeholder="Subject" required).field.contact-form__field
+          p.contact-form__error Field is required
+      .col.col-verticall-offset
+        .contact-form__block
+          textarea(type="text" placeholder="Your message" required).textarea.contact-form__field
+          p.contact-form__error Field is required
+      .col.col-verticall-offset
+        .contact-form__block
+          +button('Submit')(type="submit").button--animate.contact-form__button

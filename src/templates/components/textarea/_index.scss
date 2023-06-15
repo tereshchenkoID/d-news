@@ -1,12 +1,20 @@
+@use 'src/scss/config' as *;
+
 .textarea {
-  border: 1px solid var(--color-border);
-  background-color: var(--color-content);
-  padding: 10px;
-  width: 100%;
-  min-height: 50px;
+  @include make-spacer(p, 20px);
+  @include transition(all);
+
+  border-radius: rem(4px);
+  background-color: transparent;
+  border: rem(1px) solid var(--color-comet);
   resize: vertical;
+  min-height: rem(120px);
+  width: 100%;
+  color: var(--color-white);
 
   &:focus {
-    outline-color: var(--color-primary);
+    outline: 0;
+    border-color: var(--color-primary);
+    background-color: var(--color-mine-shaft);
   }
 }

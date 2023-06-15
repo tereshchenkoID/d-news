@@ -1,3 +1,7 @@
 mixin button(text)
   a(href="#").button&attributes(attributes)
     span.button__text= text
+
+mixin button-link(text)
+  a.button&attributes(attributes)
+    span.button__text= text

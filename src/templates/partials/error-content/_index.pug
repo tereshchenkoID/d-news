@@ -1,0 +1,6 @@
+mixin error-content
+  .error-content&attributes(attributes)
+    +logo.error-content__logo
+    h1.error-content__title 404
+    p.error-content__text Page not found
+    +button-link('Back to Home')(href="./index.html").button--animate.error-content__button
