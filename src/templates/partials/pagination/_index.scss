@@ -9,7 +9,7 @@
     overflow: hidden;
     border-radius: var(--border-radius);
     background-color: var(--color-shark);
-    box-shadow: 0 rem(6px) rem(12px) rgba(0, 0, 0, 0.075);
+    box-shadow: var(--border-radius);
     height: rem(47px);
     color: var(--color-comet);
   }
@@ -17,7 +17,7 @@
   &__item {
     @include size(rem(50px), 100%);
 
-    border-right: 1px solid currentColor;
+    border-right: rem(1px) solid currentColor;
 
     &:last-child {
       border-right: 0;

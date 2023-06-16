@@ -1,0 +1,23 @@
+@use 'src/scss/config' as *;
+
+.comments {
+  @include make-spacer(mb, 30px);
+  @include make-spacer(p, 20px);
+  @include make-spacer(p, 30px, lg);
+
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  background-color: var(--color-shark);
+  box-shadow: var(--border-radius);
+
+  &__list {
+
+    .comments {
+
+      &__list {
+        @include make-spacer(pl, 20px);
+        @include make-spacer(pl, 30px, lg);
+      }
+    }
+  }
+}

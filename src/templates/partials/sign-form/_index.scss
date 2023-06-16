@@ -6,7 +6,7 @@
   border-radius: rem(10px);
   overflow: hidden;
   background-color: var(--color-shark);
-  box-shadow: 0 rem(6px) rem(12px) rgba(0, 0, 0, 0.175);
+  box-shadow: var(--border-radius);
   width: 100%;
   max-width: rem(500px);
   color: var(--color-comet);

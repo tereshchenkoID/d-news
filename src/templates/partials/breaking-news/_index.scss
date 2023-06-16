@@ -8,6 +8,6 @@
     @include make-spacer(pr, 20px);
 
     flex-shrink: 0;
-    border-right: 1px solid var(--color-porcelain);
+    border-right: rem(1px) solid var(--color-porcelain);
   }
 }

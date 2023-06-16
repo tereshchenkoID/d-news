@@ -12,7 +12,7 @@
   right: -$grid-padding;
   background-color: var(--color-shark);
   z-index: $z-index-11;
-  box-shadow: 0 rem(6px) rem(12px) rgba(0, 0, 0, 0.175);
+  box-shadow: var(--border-radius);
 
   @include media-breakpoint-up(lg) {
     @include flex(null, null, column);

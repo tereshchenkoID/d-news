@@ -6,7 +6,7 @@
 
   @include media-breakpoint-up(lg) {
     background-color: var(--color-shark);
-    box-shadow: 0 rem(6px) rem(12px) rgba(0, 0, 0, 0.175);
+    box-shadow: var(--border-radius);
   }
 
   &--wide {
@@ -31,7 +31,7 @@
   }
 
   &__item {
-    border-top: 1px solid var(--color-porcelain);
+    border-top: rem(1px) solid var(--color-porcelain);
   }
 
   &__link {
@@ -62,7 +62,7 @@
     @include make-spacer(mb, 10px);
     @include make-spacer(mb, 20px, lg);
 
-    border-bottom: 1px solid var(--color-porcelain);
+    border-bottom: rem(1px) solid var(--color-porcelain);
     color: var(--color-gray-chateau);
     font-size: rem(14px);
     font-weight: var(--typography-medium);
