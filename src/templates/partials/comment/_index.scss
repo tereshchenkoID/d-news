@@ -22,7 +22,7 @@
 
     row-gap: rem(15px);
     border-bottom: rem(1px) solid var(--color-comet);
-    color: var(--color-comet);
+    color: var(--color-white);
   }
 
   &__meta {
@@ -36,11 +36,20 @@
     }
   }
 
+  &__date,
+  &__replay {
+    color: var(--color-comet);
+  }
+
   &__date {
 
     @include media-breakpoint-up(lg) {
       text-align: right;
     }
+  }
+
+  &__form {
+    display: none;
   }
 
   &--small {
@@ -49,6 +58,16 @@
 
       &__picture {
         @include size(rem(40px));
+      }
+    }
+  }
+
+  &--replay {
+
+    .comment {
+
+      &__form {
+        display: block;
       }
     }
   }

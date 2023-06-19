@@ -1,0 +1,16 @@
+@use 'src/scss/config' as *;
+
+.tag {
+  @include make-spacer(py, 5px);
+  @include make-spacer(px, 20px);
+
+  display: block;
+  border-radius: var(--border-radius);
+  background-color: var(--color-comet);
+  color: var(--color-white);
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+}

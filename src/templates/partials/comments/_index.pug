@@ -6,7 +6,7 @@ mixin comments
       .widget__body
         ul.comments__list
           li.comments__item
-            +comment
+            +comment.comment--replay
             ul.comments__list
               li.comments__item
                 +comment.comment--small
@@ -14,7 +14,7 @@ mixin comments
                   li.comments__item
                     +comment.comment--small
                   li.comments__item
-                    +comment.comment--small
+                    +comment.comment--small.comment--replay
                   li.comments__item
                     +comment.comment--small
               li.comments__item

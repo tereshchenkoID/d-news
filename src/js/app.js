@@ -62,6 +62,16 @@ const swiper3 = new Swiper(".gallery-latest-news", {
   },
 });
 
+const swiper4 = new Swiper(".gallery-rss", {
+  direction: "vertical",
+  slidesPerView: 3,
+  spaceBetween: 15,
+  navigation: {
+    nextEl: ".navigation-rss-next",
+    prevEl: ".navigation-rss-prev",
+  },
+  loop: true
+});
 
 $('.js-language-select').click(function() {
   $('.js-language').toggleClass('language--active')

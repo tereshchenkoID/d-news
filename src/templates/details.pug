@@ -11,13 +11,19 @@ block content
         .container
           .row
             .col.col-md-7.col-lg-8
-              +comments
+              .widget
+                .widget__body
+                  +post
 
               .widget
                 .widget__header
                   +widget-title('LEAVE A COMMENTS')
                 .widget__body
                   +contact-form-2
+
+              .widget
+                .widget__body
+                  +comments
 
               .widget
                 .widget__header

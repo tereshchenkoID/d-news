@@ -1,0 +1,13 @@
+mixin rss-news
+  .rss-news&attributes(attributes)
+    .swiper.gallery-rss
+      .swiper-wrapper
+        - var n = 1;
+          while n < 10
+            .swiper-slide
+              .rss
+                a(href="./detail.html").rss__category.u-text-transform-uppercase Music
+                h2.rss__title.u-text-transform-capitalize.u-mb-0
+                  a(href="./details.html") Dwarf planet Ceres
+                p.rss__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eos incidunt nisi officiis. Ad amet asperiores blanditiis commodi distinctio, eligendi esse, ipsum itaque, laborum libero nam officiis quis quos tempore.
+                a(href="./detail.html").rss__date= `${n++} hours ago`

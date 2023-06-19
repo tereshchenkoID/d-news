@@ -1,0 +1,36 @@
+@use 'src/scss/config' as *;
+
+.rss-news {
+  @include make-spacer(p, 20px);
+  @include make-spacer(p, 30px, lg);
+
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--color-shark);
+}
+
+.rss {
+  @include flex(null, null, column);
+
+  gap: rem(8px);
+  color: var(--color-comet);
+  font-size: rem(14px);
+
+  &__category {
+    font-size: rem(12px);
+    color: var(--color-primary);
+  }
+
+  &__title {
+    @include line-clamp(1);
+
+    color: var(--color-white);
+    font-size: rem(16px);
+  }
+
+  &__text {
+    @include line-clamp(2);
+
+    color: var(--color-white);
+  }
+}
