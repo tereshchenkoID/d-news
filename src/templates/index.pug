@@ -9,6 +9,17 @@ block content
     section.section
       .container-fluid
         .container
+          .row.u-mb-35
+            .col.col-lg-9
+              .row
+                .col.col-md-8
+                  +post-full(true)
+                .col.col-md-4
+                  +post-full(true).post-full--small
+                  +post-full(true).post-full--small
+            .col.col-lg-3
+              +rss-news
+
           .row
             .col.col-md-7.col-lg-8
               .widget.widget--alt
@@ -114,8 +125,6 @@ block content
                       +pagination
 
             .col.col-md-5.col-lg-4
-              +rss-news
-
               .widget
                 .widget__header
                   +widget-title('Popular Post')
@@ -150,5 +159,18 @@ block content
                 .widget__body
                   +banner(9)
 
-              +widget-title('Weather')
-              +widget-title('Weekly toplist')
+              .widget
+                .widget__header
+                  +widget-title('Weather')
+                .widget__body
+                  .weather
+                    //https://weatherwidget.org/
+                    #ww_2da15754bd949(v='1.3' loc='auto' a='{"t":"horizontal","lang":"en","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"#000000","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}')
+                      a#ww_2da15754bd949_u(href='https://oneweather.org/archive/' target='_blank') Weather Archive
+                    script(async='' src='https://app1.weatherwidget.org/js/?id=ww_2da15754bd949')
+
+              .widget
+                .widget__header
+                  +widget-title('WEEKLY TOPLIST')
+                .widget__body
+                  +top-list

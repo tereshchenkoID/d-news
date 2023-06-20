@@ -89,3 +89,12 @@ $('.js-toggle').click(function() {
   $(this).toggleClass('toggle--active')
   $('.menu').toggleClass('menu--active')
 });
+
+
+$('.js-top-list').click(function() {
+  const id = $(this)[0].getAttribute('data-link')
+  $('.top-list__link').removeClass('top-list__link--active')
+  $('.top-list__body').removeClass('top-list__body--active')
+  $(this).addClass('top-list__link--active')
+  $(`div[data-tab="${id}"]`).addClass('top-list__body--active')
+})

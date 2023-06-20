@@ -187,9 +187,49 @@ ol {
   }
 }
 
+.thumbnail {
+  @include size(100%);
+
+  display: block;
+  overflow: hidden;
+
+  img {
+    @include transition(transform);
+  }
+
+  &:hover {
+
+    img {
+      transform: scale(1.2);
+    }
+  }
+}
+
 .image {
   @include size(100%);
 
   border-radius: var(--border-radius);
   overflow: hidden;
+}
+
+.weather {
+  background-color: var(--color-shark);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  #ww_2da15754bd949 {
+    max-width: 100%!important;
+    color: var(--color-white);
+
+    .ww_source {
+      display: none;
+    }
+
+    .ww_additional {
+
+      .wi_add_ic {
+        fill: var(--color-white);
+      }
+    }
+  }
 }

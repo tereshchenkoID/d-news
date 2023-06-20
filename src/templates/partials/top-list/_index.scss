@@ -1,0 +1,48 @@
+@use 'src/scss/config' as *;
+
+.top-list {
+  background-color: var(--color-shark);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  &__header {
+    @include flex(null, center);
+
+    border-bottom: 1px solid var(--color-comet);
+    height: rem(42px);
+  }
+
+  &__item {
+    border-bottom: 1px solid var(--color-comet);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &__link {
+    @include flex(null, center);
+    @include make-spacer(px, 20px);
+
+    gap: rem(5px);
+    height: 100%;
+    color: var(--color-comet);
+
+    &:hover {
+      color: var(--color-white);
+    }
+
+    &--active {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+  }
+
+  &__body {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+}

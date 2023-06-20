@@ -1,0 +1,22 @@
+mixin post-full(category)
+  article.post-full&attributes(attributes)
+    a(href="./details.html").post-full__thumbnail
+      img(src='https://chtstudio.com/demo/news/images/post/5.jpg' loading="lazy").img.img--cover
+    .post-full__content
+      if category
+        a(href="./details.html").post-full__category.u-color-white.u-text-transform-uppercase Category
+      h2.post-full__title.u-mb-0.u-text-transform-capitalize
+        a(href="./details.html") Shots in border dispute - BBC News
+      ul.post-full__meta
+        li.post-full__item
+          i.far.fa-clock
+          a(href="#") Feb 28, 2022
+        li.post-full__item
+          i.far.fa-eye
+          a(href="#") 50k
+        li.post-full__item
+          i.far.fa-heart
+          a(href="#") 270
+        li.post-full__item
+          i.far.fa-comment
+          a(href="#") 89

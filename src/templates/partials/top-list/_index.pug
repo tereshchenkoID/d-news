@@ -1,0 +1,26 @@
+mixin top-list
+  .top-list&attributes(attributes)
+    .top-list__header
+      a.top-list__link.top-list__link--active.js-top-list(data-link="1")
+        i.fa.fa-user
+        span Authors
+      a.top-list__link.js-top-list(data-link="2")
+        i.far.fa-comment
+        span Comments
+    .top-list__body.top-list__body--active.js-top-body(data-tab="1")
+      - var n = 1;
+      while n < 5
+        .top-list__item
+          .top-item.top-item--row
+            a(href="#").top-item__image
+              img(src=`https://chtstudio.com/demo/news/images/others/author${n++}.png`).image
+            h2.top-item__title.u-mb-0
+              a(href="#") Janet Jackson
+    .top-list__body.js-top-body(data-tab="2")
+      - var n = 1;
+        while n < 5
+          .top-list__item
+            .top-item
+              h2.top-item__title
+                a(href="#" data=n++) JHON DUN
+              a(href="#").top-item__text 3 students arrested after body-slamming principal

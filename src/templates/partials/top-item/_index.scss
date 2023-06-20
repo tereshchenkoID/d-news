@@ -1,0 +1,29 @@
+@use 'src/scss/config' as *;
+
+.top-item {
+  @include make-spacer(py, 15px);
+  @include make-spacer(px, 20px);
+
+  &--row {
+    display: grid;
+    grid-template-columns: rem(45px) 1fr;
+    align-items: center;
+    column-gap: rem(15px);
+  }
+
+  &__image {
+    @include size(100%, rem(45px));
+  }
+
+  &__title {
+    @include make-spacer(mb, 5px);
+
+    font-size: rem(12px);
+    color: var(--color-white);
+  }
+
+  &__text {
+    font-size: rem(14px);
+    color: var(--color-comet);
+  }
+}

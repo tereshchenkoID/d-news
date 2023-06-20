@@ -63,24 +63,6 @@
     }
   }
 
-  &__thumbnail {
-    @include size(100%);
-
-    display: block;
-    overflow: hidden;
-
-    img {
-      @include transition(transform);
-    }
-
-    &:hover {
-
-      img {
-        transform: scale(1.2);
-      }
-    }
-  }
-
   &__title {
     line-height: 1.2;
     color: var(--color-white);
