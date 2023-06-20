@@ -3,6 +3,8 @@
 .account {
   @include flex(null, center);
 
+  color: var(--color-white);
+
   &__icon {
     @include make-spacer(mr, 5px);
   }

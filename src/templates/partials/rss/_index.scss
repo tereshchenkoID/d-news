@@ -4,7 +4,6 @@
   @include flex(null, null, column);
 
   gap: rem(8px);
-  color: var(--color-comet);
   font-size: rem(14px);
 
   &__category {

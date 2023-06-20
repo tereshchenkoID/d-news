@@ -2,8 +2,10 @@
 
 .post-full {
   position: relative;
-  border-radius: var(--border-radius);
   overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  color: var(--color-white);
 
   &:hover {
 
@@ -23,6 +25,10 @@
         }
       }
     }
+  }
+
+  &--wide {
+    @include size(100%);
   }
 
   &--small {
@@ -77,6 +83,7 @@
     background-color: var(--color-primary);
     z-index: $z-index-1;
     font-size: rem(12px);
+    color: var(--color-white);
 
     &:hover {
       background-color: var(--color-white);
@@ -85,11 +92,12 @@
 
   &__title {
     line-height: 1.2;
-    color: var(--color-white);
     font-size: rem(28px);
+    color: var(--color-white);
   }
 
   &__thumbnail {
+    aspect-ratio: 16/9;
 
     img {
       @include transition(transform);

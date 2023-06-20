@@ -24,17 +24,15 @@
     @include flex(null, center);
     @include make-spacer(px, 20px);
 
-    gap: rem(5px);
+    gap: rem(8px);
     height: 100%;
-    color: var(--color-comet);
+    opacity: 0.8;
 
-    &:hover {
-      color: var(--color-white);
-    }
-
+    &:hover,
     &--active {
       background-color: var(--color-primary);
       color: var(--color-white);
+      opacity: 1;
     }
   }
 

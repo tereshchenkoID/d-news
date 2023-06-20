@@ -16,7 +16,7 @@
     @include flex(center, center);
     @include size(rem(40px));
 
-    background-color: var(--color-mine-shaft);
+    background-color: #282828;
 
     &.active,
     &:hover {

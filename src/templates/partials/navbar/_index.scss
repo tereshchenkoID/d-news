@@ -17,6 +17,10 @@
 
     font-size: rem(11px);
     letter-spacing: rem(2px);
-    color: var(--color-gray-chateau);
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }

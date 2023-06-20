@@ -15,7 +15,6 @@
     @include flex(center, center);
 
     font-size: rem(30px);
-    color: var(--color-white);
 
     &.active,
     &:hover {

@@ -8,7 +8,7 @@
 
   border-radius: var(--border-radius);
   background-color: var(--color-shark);
-  color: var(--color-comet);
+  box-shadow: var(--box-shadow);
   gap: rem(10px);
 
   &__icon {
@@ -20,11 +20,11 @@
     border-radius: 50%;
     overflow: hidden;
     font-size: rem(30px);
+    color: var(--color-white);
   }
 
   &__title {
     font-size: rem(22px);
-    color: currentColor;
 
     @include media-breakpoint-up(lg) {
       font-size: rem(24px);

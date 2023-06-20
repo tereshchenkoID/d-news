@@ -26,9 +26,10 @@
     position: absolute;
     top: rem(15px);
     left: rem(15px);
+    z-index: $z-index-1;
     background-color: var(--color-primary);
     font-size: rem(12px);
-    z-index: $z-index-1;
+    color: var(--color-white);
 
     &:hover {
       background-color: var(--color-white);
@@ -55,7 +56,6 @@
 
   &__title {
     line-height: 1.2;
-    color: var(--color-white);
     font-size: rem(20px);
   }
 

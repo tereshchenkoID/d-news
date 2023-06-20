@@ -20,6 +20,7 @@
     @include flex(null, center);
 
     gap: rem(10px);
+    color: var(--color-white);
   }
 
   &__list {
@@ -29,7 +30,7 @@
     left: 0;
     min-width: rem(100px);
     background-color: var(--color-shark);
-    border: rem(1px) solid var(--color-gray-chateau);
+    border: rem(1px) solid var(--color-mine-shaft);
     z-index: $z-index-1;
 
     @include media-breakpoint-up(md) {
@@ -39,7 +40,7 @@
   }
 
   &__item {
-    border-bottom: rem(1px) solid var(--color-gray-chateau);
+    border-bottom: rem(1px) solid var(--color-mine-shaft);
 
     &:last-child {
       border-bottom: 0;
@@ -57,6 +58,7 @@
     &--active,
     &:hover {
       background-color: var(--color-primary);
+      color: var(--color-white);
     }
   }
 }

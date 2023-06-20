@@ -47,14 +47,19 @@
 
     display: block;
     font-size: rem(14px);
-    color: var(--color-gray-chateau);
+    opacity: 0.9;
 
     @include media-breakpoint-up(xl) {
       font-size: rem(16px);
     }
 
+    &:hover {
+      transform: translateX(rem(10px));
+    }
+
     &--active,
     &:hover {
+      opacity: 1;
       color: var(--color-primary);
     }
   }
@@ -70,7 +75,6 @@
     @include make-spacer(mb, 20px, lg);
 
     border-bottom: rem(1px) solid var(--color-porcelain);
-    color: var(--color-gray-chateau);
     font-size: rem(14px);
     font-weight: var(--typography-medium);
 

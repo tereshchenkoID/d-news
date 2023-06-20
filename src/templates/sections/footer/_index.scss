@@ -16,6 +16,7 @@
   &__bottom {
     @include make-spacer(py, 40px);
 
-    background-color: var(--color-cod-gray);
+    background-color: #0d0d0d;
+    color: var(--color-white);
   }
 }
