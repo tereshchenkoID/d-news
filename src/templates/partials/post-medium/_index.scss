@@ -67,6 +67,10 @@
     }
   }
 
+  &__thumbnail {
+    aspect-ratio: 16/9;
+  }
+
   &__title {
     line-height: 1.2;
     color: var(--color-white);

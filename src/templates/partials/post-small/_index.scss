@@ -15,6 +15,10 @@
 
     .post-small {
 
+      &__title {
+        @include line-clamp(1);
+      }
+
       &__thumbnail {
 
         @include media-breakpoint-up(sm) {
@@ -28,11 +32,14 @@
 
     .post-small {
 
+      &__title {
+        @include line-clamp(3);
+      }
+
       &__thumbnail {
 
         @include media-breakpoint-up(sm) {
           min-height: rem(150px);
-          aspect-ratio: 16/9;
         }
       }
     }
@@ -65,7 +72,6 @@
 
   &__title {
     line-height: 1.2;
-    color: var(--color-white);
     font-size: rem(16px);
   }
 
@@ -74,6 +80,10 @@
     @include flex(null, center, null, wrap);
 
     column-gap: rem(10px);
+  }
+
+  &__thumbnail {
+    aspect-ratio: 16/9;
   }
 
   &__item {

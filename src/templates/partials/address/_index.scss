@@ -9,9 +9,10 @@
   border-radius: var(--border-radius);
   background-color: var(--color-shark);
   color: var(--color-comet);
-  gap: rem(20px);
+  gap: rem(10px);
 
   &__icon {
+    @include make-spacer(mb, 10px);
     @include flex(center, center);
     @include size(rem(80px));
 

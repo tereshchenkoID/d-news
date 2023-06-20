@@ -6,7 +6,7 @@
 
   @include media-breakpoint-up(lg) {
     background-color: var(--color-shark);
-    box-shadow: var(--border-radius);
+    box-shadow: var(--box-shadow);
   }
 
   &--wide {
@@ -22,10 +22,17 @@
         border: 0;
       }
 
+      &__title {
+        @include make-spacer(mb, 15px, lg);
+
+        font-size: rem(14px);
+      }
+
       &__link {
         @include make-spacer(pl, 0);
         @include make-spacer(py, 5px);
-        @include make-spacer(py, 10px, lg);
+
+        font-size: rem(13px);
       }
     }
   }

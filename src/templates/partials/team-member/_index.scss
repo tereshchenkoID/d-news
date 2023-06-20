@@ -31,12 +31,10 @@
     @include flex(null, null, column);
     @include make-spacer(p, 15px);
 
-    color: var(--color-comet);
     gap: rem(10px);
   }
 
   &__title {
-    color: currentColor;
     font-size: rem(20px);
   }
 

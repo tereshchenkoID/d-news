@@ -6,7 +6,7 @@
   overflow: hidden;
   border-radius: var(--border-radius);
   background-color: var(--color-shark);
-  color: var(--color-comet);
+  color: var(--color-white);
 
   @include media-breakpoint-up(md) {
     display: grid;

@@ -47,7 +47,7 @@ block content
                     .col.col-lg-6
                       .row
                         .col.col-verticall-offset
-                          +post-medium(true).post-medium--column
+                          +post-medium(1, true).post-medium--column
                     .col.col-lg-6
                       - var n = 1;
                         .row
@@ -63,7 +63,7 @@ block content
                     .col.col-lg-9
                       .row
                         .col.col-verticall-offset
-                          +post-medium(true).post-medium--column
+                          +post-medium(2, true).post-medium--column
                     .col.col-lg-3
                       - var n = 1;
                         .row
@@ -97,7 +97,7 @@ block content
                 .widget__body
                   .row
                     .col.col-verticall-offset
-                      +post-medium(true).post-medium--row
+                      +post-medium(2, true).post-medium--row
                     - var n = 1;
                       while n < 7
                         .col.col-lg-6.col-verticall-offset
@@ -111,11 +111,11 @@ block content
                     - var n = 1;
                       while n < 3
                         .col.col-lg-6.col-verticall-offset
-                          +post-medium(false)(data-count=n++).post-medium--column
+                          +post-medium(n++, false).post-medium--column
                     - var n = 1;
                       while n < 4
                         .col.col-lg-4.col-verticall-offset
-                          +post-medium(false)(data-count=n++).post-medium--column
+                          +post-medium(n++, false).post-medium--column
 
               .widget
                 .widget__header
@@ -125,7 +125,7 @@ block content
                     - var n = 1;
                       while n < 5
                         .col.col-verticall-offset
-                          +post-medium(true)(data-count=n++).post-medium--row
+                          +post-medium(n++, true).post-medium--row
                     .col.col-verticall-offset
                       +pagination
 

@@ -6,11 +6,9 @@
 
   display: block;
   border-radius: var(--border-radius);
-  background-color: var(--color-comet);
-  color: var(--color-white);
+  background-color: var(--color-cod-gray);
 
   &:hover {
     background-color: var(--color-primary);
-    color: var(--color-white);
   }
 }

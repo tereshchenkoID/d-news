@@ -79,7 +79,7 @@
     @include reset-button;
 
     border-radius: var(--border-radius);
-    background-color: var(--color-comet);
+    background-color: var(--color-cod-gray);
     overflow: hidden;
     height: rem(45px);
     color: var(--color-white);
@@ -102,12 +102,20 @@
 
     &--facebook {
 
+      span {
+        color: #2D4373;
+      }
+
       i {
         background-color: #2D4373;
       }
     }
 
     &--google {
+
+      span {
+        color: #C9070D;
+      }
 
       i {
         background-color: #C9070D;
