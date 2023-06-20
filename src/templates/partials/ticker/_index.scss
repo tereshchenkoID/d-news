@@ -29,5 +29,9 @@
   &__text {
     font-weight: var(--typography-medium);
     font-size: rem(12px);
+
+    &:hover {
+      color: var(--color-white);
+    }
   }
 }
