@@ -147,6 +147,16 @@ ol {
   }
 }
 
+.gallery-default {
+  @include size(100%);
+
+  aspect-ratio: 16/9;
+
+  .swiper-slide {
+    @include size(100%);
+  }
+}
+
 .gallery-photo {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   aspect-ratio: 16/9;

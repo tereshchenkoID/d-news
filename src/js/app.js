@@ -73,6 +73,12 @@ const swiper4 = new Swiper(".gallery-rss", {
   loop: true
 });
 
+const swiper5 = new Swiper(".gallery-default", {
+  slidesPerView: 1,
+  loop: true
+});
+
+
 $('.js-language-select').click(function() {
   $('.js-language').toggleClass('language--active')
   $('.menu').toggleClass('menu--active')

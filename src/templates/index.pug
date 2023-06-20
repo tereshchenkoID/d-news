@@ -13,10 +13,15 @@ block content
             .col.col-lg-9
               .row
                 .col.col-md-8
-                  +post-full(true)
+                  .swiper.gallery-default
+                    .swiper-wrapper
+                      - var n = 1;
+                      while n < 10
+                        .swiper-slide
+                          +post-full(n++, true)
                 .col.col-md-4
-                  +post-full(true).post-full--small
-                  +post-full(true).post-full--small
+                  +post-full(5, true).post-full--small
+                  +post-full(3, true).post-full--small
             .col.col-lg-3
               +rss-news
 
