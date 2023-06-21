@@ -82,8 +82,10 @@ block content
                         .swiper-wrapper
                           - var n = 1;
                           while n < 10
-                            a(href="#").swiper-slide
-                              img(src=`https://chtstudio.com/demo/news/images/post/${n++}.jpg` loading="lazy").img.img--cover
+                            .swiper-slide
+                              a(href="#").thumbnail
+                                img(src=`https://chtstudio.com/demo/news/images/post/${n++}.jpg` loading="lazy").img.img--cover
+                              a(href="#").content= `Slide number ${n}`
                       .swiper.gallery-thumb-photo
                         .swiper-wrapper
                           - var n = 1;

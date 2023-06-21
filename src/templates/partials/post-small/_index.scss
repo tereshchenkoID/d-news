@@ -17,7 +17,7 @@
     .post-small {
 
       &__title {
-        @include line-clamp(1);
+        @include line-clamp(2);
       }
 
       &__thumbnail {

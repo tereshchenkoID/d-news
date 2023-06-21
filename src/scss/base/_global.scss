@@ -177,8 +177,8 @@ ol {
 
 .gallery-photo {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
-  aspect-ratio: 16/9;
   box-shadow: var(--box-shadow);
+  background-color: var(--color-white);
 
   .swiper-slide {
 
@@ -191,6 +191,15 @@ ol {
 
     .img {
       @include transition(transform);
+
+      aspect-ratio: 16/9;
+    }
+
+    .content {
+      @include make-spacer(pt, 10px);
+      @include make-spacer(px, 10px);
+
+      display: block;
     }
   }
 }
