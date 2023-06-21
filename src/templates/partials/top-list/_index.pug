@@ -12,8 +12,8 @@ mixin top-list
       while n < 5
         .top-list__item
           .top-item.top-item--row
-            a(href="#").top-item__image
-              img(src=`https://chtstudio.com/demo/news/images/others/author${n++}.png`).image
+            a(href="#").thumbnail.top-item__image
+              img(src=`https://chtstudio.com/demo/news/images/others/author${n++}.png`).img.img--cover
             h2.top-item__title.u-mb-0
               a(href="#") Janet Jackson
     .top-list__body.js-top-body(data-tab="2")

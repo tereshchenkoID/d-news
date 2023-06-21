@@ -5,6 +5,7 @@
   overflow: hidden;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  min-height: rem(350px);
   color: var(--color-white);
 
   &:hover {
@@ -32,6 +33,7 @@
   }
 
   &--small {
+    min-height: auto;
 
     .post-full {
 

@@ -81,7 +81,6 @@ const swiper5 = new Swiper(".gallery-default", {
 
 $('.js-language-select').click(function() {
   $('.js-language').toggleClass('language--active')
-  $('.menu').toggleClass('menu--active')
 });
 
 $('.js-language-item').click(function() {

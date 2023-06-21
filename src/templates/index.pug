@@ -10,9 +10,9 @@ block content
       .container-fluid
         .container
           .row.u-mb-35
-            .col.col-lg-9
+            .col.col-lg-9.u-mb-24
               .row
-                .col.col-md-8
+                .col.col-md-8.u-mb-24.u-mb-0-md
                   .swiper.gallery-default
                     .swiper-wrapper
                       - var n = 4;
@@ -20,15 +20,15 @@ block content
                         .swiper-slide
                           +post-full(n++, true).post-full--wide
                 .col.col-md-4
-                  +post-full(5, true).post-full--small
+                  +post-full(5, true).post-full--small.u-mb-24
                   +post-full(3, true).post-full--small
-            .col.col-lg-3
+            .col.col-lg-3.u-mb-24
               +banner(5).wide
 
           .row.u-mb-35
-            .col.col-lg-9
+            .col.col-lg-9.u-mb-24
               .row
-                .col.col-md-8
+                .col.col-md-8.u-mb-24.u-mb-0-md
                   .swiper.gallery-default
                     .swiper-wrapper
                       - var n = 1;
@@ -36,9 +36,9 @@ block content
                         .swiper-slide
                           +post-full(n++, true).post-full--wide
                 .col.col-md-4
-                  +post-full(5, true).post-full--small
+                  +post-full(5, true).post-full--small.u-mb-24
                   +post-full(3, true).post-full--small
-            .col.col-lg-3
+            .col.col-lg-3.u-mb-24
               +rss-news
 
           .row

@@ -13,6 +13,9 @@
 
   &__image {
     @include size(100%, rem(45px));
+
+    border-radius: var(--border-radius);
+    overflow: hidden;
   }
 
   &__title {
