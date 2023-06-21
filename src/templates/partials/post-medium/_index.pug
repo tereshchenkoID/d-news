@@ -1,12 +1,16 @@
-mixin post-medium(id, category)
+mixin post-medium(id, category, video)
   article.post-medium&attributes(attributes)
     if category
       a(href="./details.html").post-medium__category.u-text-transform-uppercase Category
     a(href="./details.html").thumbnail.post-medium__thumbnail
-      img(src=`https://chtstudio.com/demo/news/images/post/${id}.jpg` loading="lazy").img.img--cover
+      if video
+        iframe(src='https://www.youtube.com/embed/2mh_ZICm-EU' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen='').img.img--cover
+      else
+        img(src=`https://chtstudio.com/demo/news/images/post/${id}.jpg` loading="lazy").img.img--cover
     .post-medium__content
       h2.post-medium__title.u-mb-0.u-text-transform-capitalize
         a(href="./details.html") Shots in border dispute - BBC News
+      p.post-medium__description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis quae perferendis, nesciunt facere tenetur repudiandae
       ul.post-medium__meta
         li.post-medium__item
           i.far.fa-clock
@@ -20,4 +24,3 @@ mixin post-medium(id, category)
         li.post-medium__item
           i.far.fa-comment
           a(href="#") 89
-      p.post-medium__description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis quae perferendis, nesciunt facere tenetur repudiandae

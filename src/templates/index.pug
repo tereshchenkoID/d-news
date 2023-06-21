@@ -15,6 +15,22 @@ block content
                 .col.col-md-8
                   .swiper.gallery-default
                     .swiper-wrapper
+                      - var n = 4;
+                      while n < 11
+                        .swiper-slide
+                          +post-full(n++, true).post-full--wide
+                .col.col-md-4
+                  +post-full(5, true).post-full--small
+                  +post-full(3, true).post-full--small
+            .col.col-lg-3
+              +banner(5).wide
+
+          .row.u-mb-35
+            .col.col-lg-9
+              .row
+                .col.col-md-8
+                  .swiper.gallery-default
+                    .swiper-wrapper
                       - var n = 1;
                       while n < 10
                         .swiper-slide
@@ -47,7 +63,7 @@ block content
                     .col.col-lg-6
                       .row
                         .col.col-verticall-offset
-                          +post-medium(1, true).post-medium--column
+                          +post-medium(1, true).post-medium--column.wide
                     .col.col-lg-6
                       - var n = 1;
                         .row
@@ -63,7 +79,7 @@ block content
                     .col.col-lg-9
                       .row
                         .col.col-verticall-offset
-                          +post-medium(2, true).post-medium--column
+                          +post-medium(2, true).post-medium--column.wide
                     .col.col-lg-3
                       - var n = 1;
                         .row
@@ -110,14 +126,20 @@ block content
                   +widget-title('LIFE STYLE')
                 .widget__body
                   .row
+                    .col.col-lg-4.col-verticall-offset
+                      +post-medium(2, false, true).post-medium--column.wide
+                    .col.col-lg-4.col-verticall-offset
+                      +post-medium(3, false).post-medium--column.wide
+                    .col.col-lg-4.col-verticall-offset
+                      +post-medium(4, false, true).post-medium--column.wide
                     - var n = 1;
                       while n < 3
                         .col.col-lg-6.col-verticall-offset
-                          +post-medium(n++, false).post-medium--column
+                          +post-medium(n++, false).post-medium--column.wide
                     - var n = 1;
                       while n < 4
                         .col.col-lg-4.col-verticall-offset
-                          +post-medium(n++, false).post-medium--column
+                          +post-medium(n++, false).post-medium--column.wide
 
               .widget
                 .widget__header

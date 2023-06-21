@@ -1,0 +1,69 @@
+@use 'src/scss/config' as *;
+
+.gallery-rss {
+  max-height: rem(450px);
+
+  .swiper-slide {
+    @include flex(null, center);
+  }
+}
+
+.gallery-default {
+  @include size(100%);
+
+  aspect-ratio: 16/9;
+
+  .swiper-slide {
+    @include size(100%);
+  }
+}
+
+.gallery-photo {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-white);
+
+  .swiper-slide {
+
+    &:hover {
+
+      .img {
+        transform: scale(1.1);
+      }
+    }
+
+    .img {
+      @include transition(transform);
+
+      aspect-ratio: 16/9;
+    }
+
+    .content {
+      @include make-spacer(pt, 10px);
+      @include make-spacer(px, 10px);
+
+      display: block;
+    }
+  }
+}
+
+.gallery-thumb-photo {
+  @include make-spacer(p, 10px!important);
+
+  background-color: var(--color-white);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  height: rem(96px);
+
+  .swiper-slide {
+    @include transition(opacity);
+
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    opacity: 0.4;
+  }
+
+  .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+}

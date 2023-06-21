@@ -1,0 +1,23 @@
+@use 'src/scss/config' as *;
+
+.weather {
+  background-color: var(--color-shark);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  #ww_2da15754bd949 {
+    max-width: 100%!important;
+    color: var(--color-text);
+
+    .ww_source {
+      display: none;
+    }
+
+    .ww_additional {
+
+      .wi_add_ic {
+        fill: var(--color-text);
+      }
+    }
+  }
+}

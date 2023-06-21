@@ -1,9 +1,11 @@
 @use 'src/scss/config' as *;
 
 .logo {
-  @include size(201px, 42px);
+  @include size(rem(201px), (42px));
 
   display: block;
   position: relative;
   flex-shrink: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
