@@ -75,7 +75,11 @@ const swiper4 = new Swiper(".gallery-rss", {
 
 const swiper5 = new Swiper(".gallery-default", {
   slidesPerView: 1,
-  loop: true
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  loop: true,
 });
 
 
@@ -103,3 +107,9 @@ $('.js-top-list').click(function() {
   $(this).addClass('top-list__link--active')
   $(`div[data-tab="${id}"]`).addClass('top-list__body--active')
 })
+
+$('.js-ticker').hover(function(){
+  this.stop();
+}, function(){
+  this.start();
+});

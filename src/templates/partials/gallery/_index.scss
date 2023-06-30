@@ -11,10 +11,15 @@
 .gallery-default {
   @include size(100%);
 
-  aspect-ratio: 16/9;
+  //aspect-ratio: 16/9;
 
   .swiper-slide {
     @include size(100%);
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--color-white);
   }
 }
 
