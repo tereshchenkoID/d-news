@@ -8,6 +8,50 @@
   }
 }
 
+.gallery-ticker {
+
+  p {
+    @include line-clamp(2);
+  }
+
+  .swiper-slide {
+    @include make-spacer(pr, 75px);
+    @include flex(null, center);
+  }
+
+  .swiper-navigation {
+    @include flex(center, center);
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    gap: rem(5px);
+    background-color: var(--color-cod-gray);
+    z-index: $z-index-1;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    @include make-spacer(m, 0);
+    @include size(rem(25px));
+
+    color: var(--color-text);
+    border: rem(2px) solid currentColor;
+    position: static;
+
+    &::after {
+      font-size: rem(14px);
+      font-weight: var(--typography-bold);
+      color: currentColor;
+    }
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
 .gallery-default {
   @include size(100%);
 

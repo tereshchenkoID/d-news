@@ -1,4 +1,5 @@
 import {Swiper, EffectFade, Navigation, Pagination, Thumbs } from 'swiper';
+import 'theia-sticky-sidebar';
 
 Swiper.use([ EffectFade, Navigation, Pagination, Thumbs]);
 
@@ -82,6 +83,15 @@ const swiper5 = new Swiper(".gallery-default", {
   loop: true,
 });
 
+const swiper6 = new Swiper(".gallery-ticker", {
+  slidesPerView: 1,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  loop: true,
+});
+
 
 $('.js-language-select').click(function() {
   $('.js-language').toggleClass('language--active')
@@ -96,9 +106,8 @@ $('.js-language-item').click(function() {
 
 $('.js-toggle').click(function() {
   $(this).toggleClass('toggle--active')
-  $('.menu').toggleClass('menu--active')
+  $(this).closest('.nav').find('menu').toggleClass('menu--active')
 });
-
 
 $('.js-top-list').click(function() {
   const id = $(this)[0].getAttribute('data-link')
@@ -113,3 +122,9 @@ $('.js-ticker').hover(function(){
 }, function(){
   this.start();
 });
+
+
+$('.sa-sticky')
+  .theiaStickySidebar({
+    additionalMarginTop: 0
+  });

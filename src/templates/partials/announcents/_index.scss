@@ -1,0 +1,78 @@
+@use 'src/scss/config' as *;
+
+.announcents {
+  @include size(100%);
+
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    max-height: rem(550px);
+  }
+
+  &__post {
+    @include size(100%);
+
+    overflow: hidden;
+    max-height: rem(320px);
+
+    @include media-breakpoint-up(md) {
+      max-height: unset;
+    }
+  }
+
+  &__list {
+    @include make-spacer(mt, 10px);
+    @include make-spacer(mt, 0, md);
+
+    display: grid;
+    position: static;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: $z-index-1;
+
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 40%;
+    }
+  }
+
+  &__item {
+    @include make-spacer(p, 15px);
+    @include make-spacer(p, 25px, sm);
+
+    border-bottom: rem(1px) solid var(--color-shark);
+    color: var(--color-white);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:hover,
+    &--active {
+      background-color: rgba(#ff0000, 0.7);
+      color: var(--color-white);
+    }
+  }
+
+  &__text {
+    @include line-clamp(2);
+
+    font-weight: var(--typography-medium);
+  }
+
+  &__category {
+    @include make-spacer(mb, 10px);
+    @include make-spacer(py, 3px);
+    @include make-spacer(px, 10px);
+
+    display: inline-block;
+    background-color: var(--color-primary);
+    font-size: rem(12px);
+    color: var(--color-white);
+  }
+}

@@ -17,4 +17,12 @@
       display: block;
     }
   }
+
+  &-lg {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+  }
 }

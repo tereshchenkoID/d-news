@@ -1,0 +1,10 @@
+mixin announcents
+  .announcents&attributes(attributes)
+    .announcents__post
+      +post-full(3, true).post-full--wide
+    .announcents__list
+      - var n = 0;
+        while n < 4
+          a(href="#" class=n === 0 && 'announcents__item--active').announcents__item
+            p(data=n++).announcents__category TECHNOLOGY
+            p.announcents__text We Are Seeing The Effects Of The Minimum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto aspernatur deleniti molestiae, molestias obcaecati rem rerum veritatis! Consectetur dignissimos impedit in itaque neque quam quasi quidem similique sunt suscipit!

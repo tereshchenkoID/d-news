@@ -1,3 +1,6 @@
-mixin banner(id)
+mixin banner(id, url)
   a(href="#").banner&attributes(attributes)
-    img(src=`https://chtstudio.com/demo/news/images/post/${id}.jpg` loading="lazy").img.img--cover
+    if url
+      img(src=url loading="lazy").img.img--cover
+    else
+      img(src=`https://chtstudio.com/demo/news/images/post/${id}.jpg` loading="lazy").img.img--cover

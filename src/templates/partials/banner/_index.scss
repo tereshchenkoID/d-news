@@ -5,4 +5,8 @@
   border-radius: var(--border-radius);
   overflow: hidden;
   aspect-ratio: 16/9;
+
+  &--responsive {
+    aspect-ratio: unset;
+  }
 }

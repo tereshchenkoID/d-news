@@ -3,12 +3,16 @@
 .breaking-news {
   @include flex(null, center);
 
-  &__slogan {
+  &__slogan,
+  &__text {
     @include make-spacer(py, 15px);
     @include make-spacer(pr, 20px);
 
     flex-shrink: 0;
-    border-right: rem(1px) solid var(--color-porcelain);
     color: var(--color-white);
+  }
+
+  &__slogan {
+    border-right: rem(1px) solid var(--color-porcelain);
   }
 }

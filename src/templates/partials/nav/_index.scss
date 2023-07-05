@@ -5,6 +5,48 @@
 
   background-color: var(--color-shark);
 
+  &--alt {
+    @include make-spacer(py, 0);
+
+    background-color: transparent;
+
+    .menu {
+      z-index: $z-index-11;
+    }
+
+    .container-fluid {
+      @include make-spacer(py, 10px);
+
+      &:first-child {
+
+        .nav {
+
+          &__logo {
+            display: none;
+
+            @include media-breakpoint-up(lg) {
+              display: block;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        background-color: var(--color-shark);
+
+        .nav {
+
+          &__logo {
+
+            @include media-breakpoint-up(lg) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
   &__logo,
   &__search,
   &__toggle {
@@ -16,6 +58,7 @@
   }
 
   &__logo {
+    @include make-spacer(mr, 20px);
     width: rem(100px);
 
     @include media-breakpoint-up(sm) {
@@ -39,6 +82,21 @@
 
     @include media-breakpoint-up(lg) {
       display: none;
+    }
+  }
+
+  &__banner {
+    @include make-spacer(mx, auto);
+    @include make-spacer(mr, 0, lg);
+
+    flex-grow: 1;
+    width: 100%;
+    max-height: rem(56px);
+    max-width: rem(516px);
+
+    @include media-breakpoint-up(lg) {
+      max-height: rem(85px);
+      max-width: rem(780px);
     }
   }
 }

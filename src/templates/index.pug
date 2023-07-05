@@ -5,10 +5,32 @@ lang: en
 extends layouts/_layout
 
 block content
+  +header#header
+  +nav
   main.main
     section.section
       .container-fluid
         .container
+          .row.u-mb-35
+            .col
+              .news-ticker
+                h4.u-text-transform-capitalize.news-ticker__title Breaking News
+                .swiper.gallery-ticker.news-ticker__slider
+                  .swiper-wrapper
+                    - var n = 0;
+                      while n < 11
+                        .swiper-slide
+                          p= `${n++} Slide Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium commodi culpa ea expedita magnam modi molestiae numquam quaerat quis suscipit! Architecto cum ducimus facilis ipsam non possimus quaerat sunt velit?`
+                  .swiper-navigation
+                    .swiper-button-prev
+                    .swiper-button-next
+
+          .row.u-mb-35
+            .col.col-lg-9.u-mb-24
+              +announcents
+            .col.col-lg-3.u-mb-24.u-visible-lg
+              +banner(5, 'https://chtstudio.com/demo/news/images/others/add1.jpg').wide
+
           .row.u-mb-35
             .col.col-lg-9.u-mb-24
               .row
@@ -44,11 +66,15 @@ block content
                 .col.col-md-4
                   +post-full(5, true).post-full--small.u-mb-24
                   +post-full(3, true).post-full--small
-            .col.col-lg-3.u-mb-24
+            .col.col-lg-3
               +rss-news
 
+          .row.u-mb-35
+            .col
+              +banner(5, 'https://chtstudio.com/demo/news/images/others/ad1.jpg')(style="max-height: 85px").banner--responsive.wide
+
           .row
-            .col.col-md-7.col-lg-8
+            .col.col-md-7.col-lg-8.sa-sticky
               .widget.widget--alt
                 .widget__header
                   +widget-title('Latest News')
@@ -159,7 +185,7 @@ block content
                     .col.col-verticall-offset
                       +pagination
 
-            .col.col-md-5.col-lg-4
+            .col.col-md-5.col-lg-4.sa-sticky
               .widget
                 .widget__header
                   +widget-title('Popular Post')
@@ -187,7 +213,7 @@ block content
                   - var n = 1;
                     .row
                       while n < 5
-                        .col.col-lg-6.col-verticall-offset
+                        .col.col-xl-6.col-verticall-offset
                           +post-small(n++, true).post-small--column
 
               .widget

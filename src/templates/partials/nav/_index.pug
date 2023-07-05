@@ -7,3 +7,18 @@ mixin nav
           +menu.js-menu.nav__menu
           +search.nav__search
           +toggle.js-toggle.nav__toggle
+
+mixin nav-2
+  nav.nav&attributes(attributes)
+    .container-fluid
+      .container
+        .nav__container
+          +logo.nav__logo
+          +banner(1, 'https://chtstudio.com/demo/news/images/others/top-ad.jpg').nav__banner
+    .container-fluid
+      .container
+        .nav__container
+          +logo.nav__logo
+          +menu.js-menu.nav__menu
+          +search.nav__search
+          +toggle.js-toggle.nav__toggle

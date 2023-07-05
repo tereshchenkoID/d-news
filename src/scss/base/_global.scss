@@ -59,6 +59,7 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size);
   font-weight: var(--typography-medium);
+  background-color: var(--color-cod-gray);
 }
 
 button {
@@ -108,10 +109,6 @@ ol {
 
 .wide {
   @include size(100%);
-}
-
-.main {
-  background-color: var(--color-cod-gray);
 }
 
 .section {
@@ -202,5 +199,37 @@ ol {
     img {
       transform: scale(1.2);
     }
+  }
+}
+
+.news-ticker {
+  display: grid;
+  gap: rem(10px);
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: auto 1fr;
+  }
+
+  &__title,
+  &__slider {
+    @include size(100%, rem(45px));
+  }
+
+  &__title{
+    @include make-spacer(m, 0);
+    @include flex(center, center);
+
+    background-color: var(--color-primary);
+    font-size: rem(14px);
+    width: rem(150px);
+    color: var(--color-white);
+  }
+}
+
+.group-sticky {
+
+  &--sticky {
+    position: sticky;
+    top: 0;
   }
 }

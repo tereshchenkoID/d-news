@@ -4,7 +4,19 @@ mixin header
       .container
         .header__container
           .header__left
-            +breaking-news
+            +breaking-news(1)
+
+          .header__right
+            +language.u-mr-30
+            +account
+
+mixin header-2
+  header.header&attributes(attributes)
+    .container-fluid
+      .container
+        .header__container
+          .header__left
+            +breaking-news(2)
 
           .header__right
             +language.u-mr-30

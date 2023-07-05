@@ -1,4 +1,7 @@
-mixin breaking-news
+mixin breaking-news(type)
   .breaking-news&attributes(attributes)
-    p.breaking-news__slogan Breaking News
-    +ticker.js-ticker.breaking-news__ticker
+    if type === 1
+      p.breaking-news__slogan Breaking News
+      +ticker.js-ticker.breaking-news__ticker
+    else
+      p.breaking-news__text Wednesday 5 July 2023
