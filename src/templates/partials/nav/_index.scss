@@ -67,22 +67,8 @@
   }
 
   &__search {
-    @include make-spacer(mr, 25px);
     @include make-spacer(ml, auto);
     @include make-spacer(mx, 0, lg);
-
-    width: rem(160px);
-
-    @include media-breakpoint-up(lg) {
-      width: rem(225px);
-    }
-  }
-
-  &__toggle {
-
-    @include media-breakpoint-up(lg) {
-      display: none;
-    }
   }
 
   &__banner {

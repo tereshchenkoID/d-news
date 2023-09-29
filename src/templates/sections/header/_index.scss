@@ -3,6 +3,11 @@
 .header {
   background-color: var(--color-primary);
 
+  &__left,
+  &__right {
+    min-height: rem(50px);
+  }
+
   &__container {
 
     @include media-breakpoint-up(md) {
@@ -12,16 +17,12 @@
     }
   }
 
-  &__left,
-  &__right {
-    min-height: rem(50px);
-  }
-
   &__left {
+    display: none;
     flex-grow: 1;
-    border-bottom: rem(1px) solid var(--color-porcelain);
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
+      display: block;
       border-bottom: 0;
     }
   }
@@ -29,8 +30,25 @@
   &__right {
     @include flex(space-between, center);
 
-    @include media-breakpoint-up(md) {
+    flex-grow: 1;
+
+    @include media-breakpoint-up(lg) {
       justify-content: flex-end;
+    }
+  }
+
+  &__language {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+  }
+
+  &__toggle {
+
+    @include media-breakpoint-up(lg) {
+      display: none;
     }
   }
 }

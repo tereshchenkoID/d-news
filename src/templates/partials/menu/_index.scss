@@ -42,6 +42,13 @@
         }
       }
     }
+
+    &:last-child {
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
   }
 
   &__link {

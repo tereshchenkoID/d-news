@@ -106,7 +106,7 @@ $('.js-language-item').click(function() {
 
 $('.js-toggle').click(function() {
   $(this).toggleClass('toggle--active')
-  $(this).closest('.nav').find('menu').toggleClass('menu--active')
+  $('.menu').toggleClass('menu--active')
 });
 
 $('.js-top-list').click(function() {
@@ -128,3 +128,15 @@ $('.sa-sticky')
   .theiaStickySidebar({
     additionalMarginTop: 0
   });
+
+$('.js-search-toggle').on('click', function() {
+  $('.js-search').toggleClass('search--wide')
+})
+
+$('.js-search-field').on('focus', function() {
+  $('.js-search').toggleClass('search--focus')
+});
+
+$('.js-search-field').on('focusout', function() {
+  $('.js-search').toggleClass('search--focus')
+});

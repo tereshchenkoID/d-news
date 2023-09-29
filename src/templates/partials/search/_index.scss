@@ -1,17 +1,92 @@
 @use 'src/scss/config' as *;
 
 .search {
-  position: relative;
+  @include transition(width);
+
+  position: absolute;
+  right: 0;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  width: rem(40px);
+
+  @include media-breakpoint-up(lg) {
+    position: relative;
+    border: rem(1px) solid var(--color-comet);
+    width: rem(225px);
+  }
+
+  &--focus {
+    border-color: var(--color-primary);
+  }
+
+  &--wide {
+    width: 101%;
+
+    @include media-breakpoint-up(lg) {
+      width: rem(225px);
+    }
+
+    .search {
+
+      &__button {
+        opacity: 1;
+      }
+
+      &__toggle {
+
+        i {
+
+          &::before {
+            content: '\f00d';
+          }
+        }
+      }
+    }
+  }
+
+  &__button,
+  &__toggle {
+    @include size(rem(40px), 100%);
+
+    color: var(--color-comet);
+    font-size: rem(20px);
+  }
 
   &__field {
-    @include make-spacer(pr, 35px);
-    @include make-spacer(pl, 20px);
+    @include make-spacer(pr, 40px);
+    @include make-spacer(pl, 40px);
     @include make-spacer(py, 6px);
+
+    @include make-spacer(pl, 10px, lg);
+
+    border: 0;
+    background-color: var(--color-white);
+
+    &:focus {
+      background-color: var(--color-white);
+    }
   }
 
   &__button {
-    @include absolute-center-right(8px);
+    @include transition(opacity);
+    @include absolute-center-left(0);
 
-    color: var(--color-comet);
+    opacity: 0;
+
+    @include media-breakpoint-up(lg) {
+      opacity: 1;
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &__toggle {
+    @include absolute-center-right(0);
+
+    z-index: 1;
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
   }
 }

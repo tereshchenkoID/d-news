@@ -1,18 +1,15 @@
 @use 'src/scss/config' as *;
 
 .toggle {
-  @include size(rem(35px));
-
-  border: rem(1px) solid var(--color-primary);
-  border-radius: var(--border-radius);
+  @include size(rem(18px), rem(35px));
 
   &__item {
     @include transition(all);
-    @include make-spacer(my, 3px);
+    @include make-spacer(my, 4px);
     @include make-spacer(mx, auto);
-    @include size(rem(18px), rem(1px));
+    @include size(rem(18px), rem(2px));
 
-    background-color: var(--color-primary);
+    background-color: var(--color-white);
   }
 
   &--active {
@@ -22,7 +19,7 @@
       &__item {
 
         &:nth-child(1) {
-          transform: translateY(rem(4px)) rotateZ(45deg);
+          transform: translateY(rem(6px)) rotateZ(45deg);
         }
 
         &:nth-child(2) {
@@ -31,7 +28,7 @@
         }
 
         &:nth-child(3) {
-          transform: translateY(rem(-4px)) rotateZ(-45deg);
+          transform: translateY(rem(-6px)) rotateZ(-45deg);
         }
       }
     }
