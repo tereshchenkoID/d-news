@@ -5,48 +5,6 @@
 
   background-color: var(--color-shark);
 
-  &--alt {
-    @include make-spacer(py, 0);
-
-    background-color: transparent;
-
-    .menu {
-      z-index: $z-index-11;
-    }
-
-    .container-fluid {
-      @include make-spacer(py, 10px);
-
-      &:first-child {
-
-        .nav {
-
-          &__logo {
-            display: none;
-
-            @include media-breakpoint-up(lg) {
-              display: block;
-            }
-          }
-        }
-      }
-
-      &:last-child {
-        background-color: var(--color-shark);
-
-        .nav {
-
-          &__logo {
-
-            @include media-breakpoint-up(lg) {
-              display: none;
-            }
-          }
-        }
-      }
-    }
-  }
-
   &__logo,
   &__search,
   &__toggle {

@@ -71,7 +71,12 @@ const swiper4 = new Swiper(".gallery-rss", {
     nextEl: ".navigation-rss-next",
     prevEl: ".navigation-rss-prev",
   },
-  loop: true
+  loop: false,
+  breakpoints: {
+    768: {
+      loop: true,
+    }
+  }
 });
 
 const swiper5 = new Swiper(".gallery-default", {

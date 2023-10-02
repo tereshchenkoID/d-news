@@ -13,6 +13,7 @@ body[theme="dark"] {
   --color-mine-shaft: #282828;
   --color-comet: #5e5e75;
   --color-shark: #292b2d;
+  --color-border: #5e5e75;
 
   .logo {
     background-image: url('https://chtstudio.com/demo/news/images/logo-white.png');
@@ -33,6 +34,7 @@ body[theme="light"] {
   --color-mine-shaft: #F6F6F6;
   --color-comet: #aaa;
   --color-shark: #fff;
+  --color-border: #e3e6e8;
 
   .logo {
     background-image: url('https://chtstudio.com/demo/news/images/logo.png');

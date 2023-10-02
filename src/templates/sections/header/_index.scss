@@ -1,6 +1,9 @@
 @use 'src/scss/config' as *;
 
 .header {
+  position: sticky;
+  top: 0;
+  z-index: $z-index-12;
   background-color: var(--color-primary);
 
   &__left,

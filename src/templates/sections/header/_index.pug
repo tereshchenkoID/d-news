@@ -10,16 +10,4 @@ mixin header
             +toggle.js-toggle.header__toggle
             +language.header__language.u-mr-30
             +account
-
-mixin header-2
-  header.header&attributes(attributes)
-    .container-fluid
-      .container
-        .header__container
-          .header__left
-            +breaking-news(2)
-
-          .header__right
-            +toggle.js-toggle.header__toggle
-            +language.header__language.u-mr-30
-            +account
+    +nav
