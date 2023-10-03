@@ -1,0 +1,18 @@
+mixin cookie
+  .cookie&attributes(attributes)
+    .cookie__wrapper
+      .cookie__column
+        h6.cookie__title.u-mb-10 We care about your security
+        p.cookie__text.u-mb-10 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dolor illum necessitatibus nisi quia quisquam totam. Aspernatur, illum, possimus? Aliquam deserunt exercitationem fuga fugiat mollitia odio quae reiciendis repellendus vitae.
+        p.cookie__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consectetur debitis ea enim magnam provident quia similique soluta voluptates. Doloremque excepturi fugit laudantium modi nobis omnis quas unde veritatis. Omnis?
+      .cookie__column
+        h6.cookie__title.u-mb-10 We care about your security
+        p.cookie__text
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt labore minus modi nisi velit?
+          a(href="./").cookie__link Show more
+          | Ab alias commodi, earum eum expedita impedit ipsam natus necessitatibus nobis officia praesentium ut veritatis, voluptatem?
+      .cookie__column
+        .cookie__options
+          +button-link('Allow').button--primary.button--sm
+          +button-link('Decline').button--primary.button--sm
+          +button-link('Show rules').button--default.button--sm

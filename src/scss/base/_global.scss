@@ -226,6 +226,12 @@ ol {
     width: rem(150px);
     color: var(--color-white);
   }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    border-radius: var(--border-radius);
+    opacity: 0.7;
+  }
 }
 
 .group-sticky {

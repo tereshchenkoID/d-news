@@ -9,4 +9,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 0 50% ;
+
+  &--wide {
+    @include size(100%);
+  }
 }

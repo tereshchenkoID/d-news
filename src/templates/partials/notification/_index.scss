@@ -1,0 +1,54 @@
+@use 'src/scss/config' as *;
+
+.notification {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: $z-index-12;
+
+  &__column {
+    @include make-spacer(p, 15px);
+
+    &:first-child {
+      @include make-spacer(pb, 0);
+      @include make-spacer(pb, 15px, md);
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    min-width: rem(320px);
+    max-width: rem(500px);
+    background-color: var(--color-shark);
+    box-shadow: var(--box-shadow);
+    border-radius:  0 0 var(--border-radius) var(--border-radius);
+
+    @include media-breakpoint-up(md) {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+    }
+  }
+
+  &__options {
+    @include make-spacer(mt, 10px);
+    @include flex($align-items: center, $direction: column);
+
+    gap: rem(10px);
+
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  &__logo {
+    @include size(100%, rem(50px));
+
+    max-width: rem(150px);
+  }
+
+  &__text {
+    font-size: rem(13px);
+  }
+}

@@ -1,0 +1,11 @@
+mixin notification
+  .notification&attributes(attributes)
+    .notification__wrapper
+      .notification__column
+        .notification__logo
+          +logo.logo--wide
+      .notification__column
+        p.notification__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, odit, porro! At illo modi non
+        .notification__options
+          +button-link('No thank\'s').button--default.button--sm
+          +button-link('Allow').button--primary.button--sm

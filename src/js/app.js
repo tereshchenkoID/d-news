@@ -145,3 +145,11 @@ $('.js-search-field').on('focus', function() {
 $('.js-search-field').on('focusout', function() {
   $('.js-search').toggleClass('search--focus')
 });
+
+$('.js-notification .button').on('click', function() {
+  $('.js-notification').remove()
+})
+
+$('.js-cookie .button').on('click', function() {
+  $('.js-cookie').remove()
+})
