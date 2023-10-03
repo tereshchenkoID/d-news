@@ -1,0 +1,14 @@
+mixin popup
+  .popup&attributes(attributes)
+    .popup__wrapper
+      .popup__top(style="background-image: url('https://images.pexels.com/photos/6068329/pexels-photo-6068329.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load')")
+        a.popup__close
+          i.fa.fa-times
+        .popup__content
+          h5.popup__title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consectetur
+          p.popup__text.u-mb-16 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim ipsam tempore temporibus ut. Aspernatur, dicta dolorem magni quidem ratione soluta suscipit. Aut dolorem modi quibusdam recusandae rerum saepe voluptatem voluptates?
+          .u-text-right
+            a(href="#").popup__link Learn more about
+      .popup__bottom
+        +button-link('Button text').button--default.button--sm
+        +button-link('Button text').button--primary.button--sm

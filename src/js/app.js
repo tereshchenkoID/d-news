@@ -153,3 +153,7 @@ $('.js-notification .button').on('click', function() {
 $('.js-cookie .button').on('click', function() {
   $('.js-cookie').remove()
 })
+
+$('.js-popup a').on('click', function() {
+  $('.js-popup').remove()
+})

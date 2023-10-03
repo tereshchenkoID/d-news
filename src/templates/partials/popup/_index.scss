@@ -1,0 +1,82 @@
+@use 'src/scss/config' as *;
+
+.popup {
+  @include flex(center, center);
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: $z-index-12;
+
+  &__close,
+  &__title,
+  &__text,
+  &__link {
+    color: var(--color-white);
+  }
+
+  &__text,
+  &__link {
+    font-size: rem(14px);
+  }
+
+  &__close {
+    position: absolute;
+    top: rem(15px);
+    right: rem(15px);
+    font-size: rem(20px);
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    background-color: var(--color-shark);
+    box-shadow: var(--box-shadow);
+    border-radius:  var(--border-radius);
+    overflow: hidden;
+    min-width: rem(320px);
+    max-width: rem(500px);
+    width: 100%;
+  }
+
+  &__top {
+    @include make-spacer(pt, 60px);
+    @include make-spacer(px, 15px);
+    @include make-spacer(pb, 30px);
+
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    &::before {
+      @include absolute-filled;
+
+      background-color: rgba(0, 0, 0, 0.85);
+      content: '';
+    }
+  }
+
+  &__link {
+    text-align: right;
+    text-decoration: underline;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__bottom {
+    @include make-spacer(py, 30px);
+    @include make-spacer(px, 15px);
+    @include flex(null, center);
+
+    gap: rem(10px);
+  }
+}
