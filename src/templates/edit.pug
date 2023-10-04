@@ -7,15 +7,14 @@ extends layouts/_layout
 block content
   +header#header
   main.main
+    +header-tabs(1)
+
     section.section
       .container-fluid
         .container
           .widget
             .widget__header
               +widget-title('My account', 'Unsubscribe')
-            .widget__body
-              .panel.u-py-0
-                +header-tabs(1)
 
           .edit-form.u-mb-30
             h1.edit-form__header.u-text-transform-capitalize Edit customer number

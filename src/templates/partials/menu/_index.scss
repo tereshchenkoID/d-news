@@ -11,7 +11,7 @@
   left: -$grid-padding;
   right: -$grid-padding;
   background-color: var(--color-shark);
-  z-index: $z-index-12;
+  z-index: $z-index-13;
   box-shadow: var(--box-shadow);
 
   @include media-breakpoint-up(lg) {

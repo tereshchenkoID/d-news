@@ -7,15 +7,14 @@ extends layouts/_layout
 block content
   +header#header
   main.main
+    +header-tabs(0)
+
     section.section
       .container-fluid
         .container
           .widget
             .widget__header
               +widget-title('My account', 'Unsubscribe')
-            .widget__body
-              .panel.u-py-0
-                +header-tabs(0)
 
           .panel.u-mb-30
             h4 Hello,

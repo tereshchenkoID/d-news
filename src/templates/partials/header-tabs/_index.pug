@@ -27,7 +27,7 @@
   ]
 
 mixin header-tabs(active)
-  .header-tabs&attributes(attributes)
-    .header-tabs__wrapper
+  .header-tabs.container-fluid&attributes(attributes)
+    .header-tabs__wrapper.container
       each item, index in links
         a(href=item.link class=index === active && 'header-tabs__link--active').header-tabs__link= item.text

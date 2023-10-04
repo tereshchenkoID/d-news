@@ -1,12 +1,27 @@
 @use 'src/scss/config' as *;
 
 .header-tabs {
+  position: sticky;
+  top: rem(112px);
+  border-top: rem(1px) solid var(--color-border);
+  background-color: var(--color-shark);
+  box-shadow: var(--box-shadow);
   overflow-x: auto;
+  z-index: $z-index-12;
+
+  @include media-breakpoint-up(md) {
+    top: rem(125px);
+  }
 
   &__wrapper {
     @include flex;
 
+    position: relative;
     height: rem(56px);
+
+    @include media-breakpoint-up(md) {
+      justify-content: center;
+    }
   }
 
   &__link {
@@ -16,6 +31,7 @@
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
+    font-size: rem(14px);
 
     &--active {
       color: var(--color-primary);
