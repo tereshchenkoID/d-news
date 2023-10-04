@@ -163,3 +163,20 @@ $('.js-edit-form-button').on('click', function() {
   const form = $(this).closest('.js-edit-form-password')
   $(form).find('.js-edit-form-field').attr('type', $(this).hasClass('edit-form__eye--active') ? 'text' : 'password')
 })
+
+
+$('.js-checkbox').on('change', function() {
+  $(this).next('.js-checkable-content').toggleClass('checkable-content--active')
+})
+
+$('.js-checkbox-all').on('change', function() {
+  const isChecked = $(this).find('input').prop('checked');
+  $('.js-checkbox input').prop('checked', isChecked);
+
+  if (isChecked) {
+    $('.js-checkable-content').addClass('checkable-content--active')
+  }
+  else {
+    $('.js-checkable-content').removeClass('checkable-content--active')
+  }
+})

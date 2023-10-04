@@ -18,41 +18,41 @@ block content
 
           .panel.u-mb-30
             .row
-              .col.col-md-4
+              .col.col-md-4.u-pb-10
                 strong Name
-              .col.col-md-6
+              .col.col-md-6.u-pb-10
                 p N / A.
-              .col.col-md-2
+              .col.col-md-2.u-pb-10
                 .u-text-right
-                  a(href='./edit.html') Edit
-              .col.col-md-4
+                  +button('Edit')(href="./user-edit.html").button--primary.button--sm.button--inline
+              .col.col-md-4.u-pb-10
                 strong Email
-              .col.col-md-6
+              .col.col-md-6.u-pb-10
                 p tereschenko23041991@gmail.com
-              .col.col-md-2
+              .col.col-md-2.u-pb-10
                 .u-text-right
-                  a(href='./edit.html') Edit
-              .col.col-md-4
+                  +button('Edit')(href="./user-edit.html").button--primary.button--sm.button--inline
+              .col.col-md-4.u-pb-10
                 strong Password
-              .col.col-md-6
+              .col.col-md-6.u-pb-10
                 p *****
-              .col.col-md-2
+              .col.col-md-2.u-pb-10
                 .u-text-right
-                  a(href='./edit.html') Edit
-              .col.col-md-4
+                  +button('Edit')(href="./user-edit.html").button--primary.button--sm.button--inline
+              .col.col-md-4.u-pb-10
                 strong Customer number
-              .col.col-md-6
+              .col.col-md-6.u-pb-10
                 p N / A.
-              .col.col-md-2
+              .col.col-md-2.u-pb-10
                 .u-text-right
-                  a(href='./edit.html') Edit
+                  +button('Edit')(href="./user-edit.html").button--primary.button--sm.button--inline
               .col.col-md-4
                 strong Address
               .col.col-md-6
                 p N / A.
               .col.col-md-2
                 .u-text-right
-                  a(href='./edit.html') Edit
+                  +button('Edit')(href="./user-edit.html").button--primary.button--sm.button--inline
 
           .panel
             .row.row--center
@@ -60,4 +60,4 @@ block content
                 h6.u-mb-0 Data deletion according to DSGVO
               .col.col-md-6
                 .u-text-right
-                  +button('For data deletions').button--animate.button--sm.button--inline
+                  +button('For data deletions')(href="./user-delete.html").button--animate.button--sm.button--inline

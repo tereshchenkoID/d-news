@@ -17,6 +17,35 @@ block content
               +widget-title('My account', 'Unsubscribe')
 
           .edit-form.u-mb-30
+            h1.edit-form__header.u-text-transform-capitalize Data deletion according to GDPR
+            .edit-form__body.row
+              .col.col-verticall-offset
+                label.edit-form__label On this page you can now select all the areas that should then be deleted:
+              .col.u-pb-16
+                +alert('You have not currently subscribed to a newsletter.').alert--error
+              .col.u-pb-10
+                +checkbox('Community / Comments', false).js-checkbox
+                +checkable-content('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis deleniti dolore enim expedita fugit ipsam, maxime nulla obcaecati placeat praesentium repudiandae similique sit ut veritatis voluptatibus, voluptatum. Amet, esse.').js-checkable-content
+              .col.u-pb-10
+                +checkbox('Bookmarks', false).js-checkbox
+                +checkable-content('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis deleniti dolore enim expedita ').js-checkable-content
+              .col.u-pb-10
+                +checkbox('Marketing/Advertising Data', false).js-checkbox
+                +checkable-content('Lorem ipsum dolor sit amet, dita ').js-checkable-content
+              .col.u-pb-10
+                +checkbox('Subscription data', false).js-checkbox
+                +checkable-content('Lorem ipsum dolor sit amet, dita consectetur adipisicing elit. ').js-checkable-content
+              .col.u-pb-10
+                +checkbox('Account', false).js-checkbox
+                +checkable-content('Lorem ipsum dolor sit amet').js-checkable-content
+              .col.u-pt-16
+                +checkbox('Select all', false).js-checkbox.js-checkbox-all
+              .col.col-verticall-offset
+                .u-text-right
+                  +button-link('Save change').button--primary.button--sm.button--inline.u-mr-16
+                  +button-link('Cancel').button--default.button--sm.button--inline
+
+          .edit-form.u-mb-30
             h1.edit-form__header.u-text-transform-capitalize Edit customer number
             .edit-form__body.row
               .col.col-verticall-offset

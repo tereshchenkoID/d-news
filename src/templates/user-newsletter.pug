@@ -1,0 +1,25 @@
+---
+title: D-news | Newsletter
+lang: en
+---
+extends layouts/_layout
+
+block content
+  +header#header
+  main.main
+    +header-tabs(3)
+
+    section.section
+      .container-fluid
+        .container
+          .widget
+            .widget__header
+              +widget-title('My account', 'Unsubscribe')
+
+          .panel.u-mb-30
+            h4 My newsletter
+            .row
+              .col.col-md-12
+                +alert('You have not currently subscribed to a newsletter.').alert--info.u-mb-16
+                +alert('Example error alert').alert--error.u-mb-16
+                +alert('Example success alert').alert--success.u-mb-16

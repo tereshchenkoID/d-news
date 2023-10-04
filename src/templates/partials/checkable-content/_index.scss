@@ -1,0 +1,13 @@
+@use 'src/scss/config' as *;
+
+.checkable-content {
+  @include make-spacer(py, 5px);
+  @include make-spacer(pl, 35px);
+
+  display: none;
+  font-size: rem(12px);
+
+  &--active {
+    display: block;
+  }
+}

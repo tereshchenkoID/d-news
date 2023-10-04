@@ -47,7 +47,7 @@
 
   &__top {
     @include make-spacer(pt, 60px);
-    @include make-spacer(px, 15px);
+    @include make-spacer(px, 20px);
     @include make-spacer(pb, 30px);
 
     position: relative;
@@ -73,8 +73,7 @@
   }
 
   &__bottom {
-    @include make-spacer(py, 30px);
-    @include make-spacer(px, 15px);
+    @include make-spacer(p, 20px);
     @include flex(null, center);
 
     gap: rem(10px);

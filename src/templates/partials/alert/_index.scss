@@ -1,0 +1,70 @@
+@use 'src/scss/config' as *;
+
+.alert {
+  @include flex(null, center);
+
+  border-radius: var(--border-radius);
+  background-color: var(--color-cod-gray);
+  overflow: hidden;
+  height: rem(45px);
+
+  &__text {
+    @include make-spacer(px, 10px);
+
+    font-size: rem(14px);
+    font-weight: var(--typography-medium);
+    letter-spacing: rem(1px);
+  }
+
+  &__icon {
+    @include flex(center, center);
+    @include size(rem(45px), 100%);
+
+    font-size: rem(20px);
+  }
+
+  &--success {
+
+    .alert {
+
+      &__icon {
+        background-color: var(--color-green);
+        color: var(--color-white);
+      }
+
+      &__text {
+        color: var(--color-green);
+      }
+    }
+  }
+
+  &--info {
+
+    .alert {
+
+      &__icon {
+        background-color: var(--color-secondary);
+        color: var(--color-white);
+      }
+
+      &__text {
+        color: var(--color-secondary);
+      }
+    }
+  }
+
+  &--error {
+
+    .alert {
+
+      &__icon {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+      }
+
+      &__text {
+        color: var(--color-primary);
+      }
+    }
+  }
+}

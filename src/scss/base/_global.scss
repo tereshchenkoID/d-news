@@ -250,3 +250,22 @@ ol {
   box-shadow: var(--box-shadow);
   background-color: var(--color-shark);
 }
+
+.delete-card {
+  text-align: center;
+
+  &__title {
+    @include make-spacer(my, 10px);
+  }
+
+  &__icon {
+    font-size: rem(32px);
+    color: var(--color-primary);
+  }
+
+  &__link {
+    @include make-spacer(ml, 5px);
+
+    color: var(--color-primary);
+  }
+}

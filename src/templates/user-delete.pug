@@ -1,0 +1,55 @@
+---
+title: D-news | User Data
+lang: en
+---
+extends layouts/_layout
+
+block content
+  +header#header
+  main.main
+    +header-tabs(1)
+
+    section.section
+      .container-fluid
+        .container
+          .widget
+            .widget__header
+              +widget-title('My account', 'Unsubscribe')
+
+          .panel
+            h4.u-text-center.u-mb-30 It's a shame that you want to delete your data!
+              br
+              | Or do you have a different request?
+            .row
+              .col.col-md-6.u-pb-35
+                .delete-card
+                  .delete-card__icon
+                    i.fa.fa-cogs
+                  h5.delete-card__title User details
+                  p.delete-card__text Change contact details:
+                    a(href="#").delete-card__link here
+              .col.col-md-6.u-pb-35
+                .delete-card
+                  .delete-card__icon
+                    i.fa.fa-user
+                  h5.delete-card__title Subscriptions
+                  p.delete-card__text Cancel subscriptions:
+                    a(href="#").delete-card__link here
+              .col.col-md-6.u-pb-35
+                .delete-card
+                  .delete-card__icon
+                    i.fa.fa-envelope
+                  h5.delete-card__title Newsletter
+                  p.delete-card__text Manage newsletter & unsubscribe:
+                    a(href="#").delete-card__link here
+              .col.col-md-6.u-pb-35
+                .delete-card
+                  .delete-card__icon
+                    i.fa.fa-server
+                  h5.delete-card__title Customer service
+                  p.delete-card__text End publishing offers / advertising opt-out:
+                    a(href="#").delete-card__link here
+              .col
+                .u-text-right
+                  +button-link('For data deleting').button--primary.button--sm.button--inline.u-mr-16
+                  +button-link('Cancel').button--default.button--sm.button--inline
