@@ -19,6 +19,10 @@
 
   margin-right: -$grid-padding;
   margin-left: -$grid-padding;
+
+  &--center {
+    align-items: center;
+  }
 }
 
 .col {

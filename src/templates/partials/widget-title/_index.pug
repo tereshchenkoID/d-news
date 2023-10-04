@@ -1,4 +1,4 @@
-mixin widget-title(text)
+mixin widget-title(text, link)
   .widget-title&attributes(attributes)
     h3.widget-title__text= text
-    a(href="#").widget-title__link.u-text-transform-uppercase See all
+    a(href="#").widget-title__link.u-text-transform-uppercase=link || 'See all'

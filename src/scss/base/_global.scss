@@ -241,3 +241,12 @@ ol {
     top: 0;
   }
 }
+
+.panel {
+  @include make-spacer(p, 15px);
+
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-shark);
+}

@@ -1,0 +1,108 @@
+@use 'src/scss/config' as *;
+
+.edit-form {
+  @include make-spacer(mx, auto);
+
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--color-shark);
+  box-shadow: var(--box-shadow);
+  color: var(--color-comet);
+  max-width: rem(500px);
+
+  &__header {
+    @include make-spacer(py, 10px);
+    @include make-spacer(px, 20px);
+
+    color: inherit;
+    background-color: var(--color-mine-shaft);
+    border-bottom: rem(1px) solid var(--color-border);
+    font-size: rem(18px);
+  }
+
+  &__body {
+    @include make-spacer(px, 30px);
+    @include make-spacer(py, 15px);
+  }
+
+  &__block {
+    position: relative;
+
+    &--error {
+
+      .edit-form {
+
+        &__select,
+        &__field {
+          border-color: var(--color-primary);
+        }
+
+        &__error {
+          display: block;
+        }
+
+        &__label {
+          color: var(--color-primary);
+        }
+      }
+    }
+  }
+
+  &__error {
+    @include make-spacer(mt, 5px);
+
+    display: none;
+    color: var(--color-primary);
+    font-size: rem(12px);
+  }
+
+  &__button {
+    width: fit-content;
+  }
+
+  &__label {
+    @include make-spacer(mb, 5px);
+
+    display: block;
+    font-size: rem(14px);
+  }
+
+  &__notifications {
+    @include make-spacer(mt, 10px);
+
+    font-size: rem(12px);
+  }
+
+  &__notification {
+    @include make-spacer(mb, 2px);
+    @include flex($align-items: center);
+
+    gap: rem(5px);
+    color: var(--color-primary);
+
+    &--success {
+      color: var(--color-green);
+    }
+  }
+
+  &__password {
+    position: relative;
+  }
+
+  &__eye {
+    @include absolute-center-right(rem(10px));
+
+    z-index: $z-index-1;
+    color: var(--color-text);
+
+    &--active {
+
+      i {
+
+        &::before {
+          content: '\f070';
+        }
+      }
+    }
+  }
+}

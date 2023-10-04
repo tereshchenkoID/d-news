@@ -1,0 +1,65 @@
+---
+title: D-news | Overview
+lang: en
+---
+extends layouts/_layout
+
+block content
+  +header#header
+  main.main
+    section.section
+      .container-fluid
+        .container
+          .widget
+            .widget__header
+              +widget-title('My account', 'Unsubscribe')
+            .widget__body
+              .panel.u-py-0
+                +header-tabs(0)
+
+          .panel.u-mb-30
+            h4 Hello,
+            p.u-mb-30 Find an overview of your stored information here and edit your data and subscriptions conveniently from home.
+            .row.u-mb-16
+              .col.col-6
+                h6.u-mb-0 User Data
+              .col.col-6
+                a(href="./user-data.html") Edit
+
+            .row
+              .col.col-md-6
+                strong Name
+              .col.col-md-6
+                p N / A.
+              .col.col-md-6
+                strong Email
+              .col.col-md-6
+                p tereschenko23041991@gmail.com
+              .col.col-md-6
+                strong Password
+              .col.col-md-6
+                p *****
+              .col.col-md-6
+                strong Customer number
+              .col.col-md-6
+                p N / A.
+
+          .row
+            .col.col-md-4.col-verticall-offset
+              .address.u-text-center
+                .address__icon
+                  i.fas.fa-map-signs
+                h3.address__title.u-text-transform-capitalize.u-mb-0 Address
+                p.address__text Suite 456 New York, NY 123456
+            .col.col-md-4.col-verticall-offset
+              .address.u-text-center
+                .address__icon
+                  i.fas.fa-phone-alt
+                h3.address__title.u-text-transform-capitalize.u-mb-0 Mobile number
+                p.address__text +012 345 678 910
+            .col.col-md-4.col-verticall-offset
+              .address.u-text-center
+                .address__icon
+                  i.far.fa-envelope
+                h3.address__title.u-text-transform-capitalize.u-mb-0 Email address
+                p.address__text info@gmail.com

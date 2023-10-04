@@ -37,6 +37,11 @@
     }
   }
 
+  &--inline {
+    display: inline-flex;
+    width: auto;
+  }
+
   &--default {
     background-color: var(--color-comet);
     border: rem(1px) solid var(--color-comet);

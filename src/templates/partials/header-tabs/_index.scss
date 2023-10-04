@@ -1,0 +1,24 @@
+@use 'src/scss/config' as *;
+
+.header-tabs {
+  overflow-x: auto;
+
+  &__wrapper {
+    @include flex;
+
+    height: rem(56px);
+  }
+
+  &__link {
+    @include make-spacer(px, 10px);
+    @include flex(center, center);
+
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &--active {
+      color: var(--color-primary);
+    }
+  }
+}

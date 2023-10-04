@@ -157,3 +157,9 @@ $('.js-cookie .button').on('click', function() {
 $('.js-popup a').on('click', function() {
   $('.js-popup').remove()
 })
+
+$('.js-edit-form-button').on('click', function() {
+  $(this).toggleClass('edit-form__eye--active')
+  const form = $(this).closest('.js-edit-form-password')
+  $(form).find('.js-edit-form-field').attr('type', $(this).hasClass('edit-form__eye--active') ? 'text' : 'password')
+})

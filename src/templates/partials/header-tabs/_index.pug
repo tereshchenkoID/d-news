@@ -1,0 +1,33 @@
+-
+  var links = [
+    {
+      link: './overview.html',
+      text: 'Overview'
+    },
+    {
+      link: './user-data.html',
+      text: 'User data'
+    },
+    {
+      link: './',
+      text: 'Subscriptions'
+    },
+    {
+      link: './',
+      text: 'Newsletter'
+    },
+    {
+      link: './',
+      text: 'Events'
+    },
+    {
+      link: './',
+      text: 'Magazines'
+    }
+  ]
+
+mixin header-tabs(active)
+  .header-tabs&attributes(attributes)
+    .header-tabs__wrapper
+      each item, index in links
+        a(href=item.link class=index === active && 'header-tabs__link--active').header-tabs__link= item.text
