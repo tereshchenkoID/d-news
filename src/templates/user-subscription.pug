@@ -1,0 +1,29 @@
+---
+title: D-news | Subscriptions
+lang: en
+---
+extends layouts/_layout
+
+block content
+  +header#header
+  main.main
+    +header-tabs(2)
+
+    section.section
+      .container-fluid
+        .container
+          .widget
+            .widget__header
+              +widget-title('My account', 'Unsubscribe')
+
+          .panel.u-mb-30
+            h4.u-mb-16 My subscriptions
+            .row
+              .col.col-md-12
+                +alert('You don\`t have an active subscription.').alert--info
+
+          .panel
+            h4.u-mb-16 Past subscriptions
+            .row
+              .col.col-md-12
+                +alert('You have no past subscriptions.').alert--info

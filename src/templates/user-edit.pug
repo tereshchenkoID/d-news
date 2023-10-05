@@ -16,6 +16,11 @@ block content
             .widget__header
               +widget-title('My account', 'Unsubscribe')
 
+          .panel.u-mb-30
+            +alert('You have not currently subscribed to a newsletter.').alert--info.u-mb-16
+            +alert('Example error alert').alert--error.u-mb-16
+            +alert('Example success alert').alert--success
+
           .edit-form.u-mb-30
             h1.edit-form__header.u-text-transform-capitalize Data deletion according to GDPR
             .edit-form__body.row
