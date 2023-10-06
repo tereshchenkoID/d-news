@@ -7,14 +7,14 @@ extends layouts/_layout
 block content
   +header#header
   main.main
-    +header-tabs(4)
+    +header-tabs(3)
 
     section.section
       .container-fluid
         .container
           .widget
             .widget__header
-              +widget-title('My account', 'Unsubscribe')
+              +widget-title('My account', 'logout').widget-title--alt
 
           .panel.u-mb-30
             h4.u-mb-16 My events
@@ -24,7 +24,5 @@ block content
 
           .panel
             h4.u-mb-16 Discover events
-            .row
-              .col.col-md-12
-                p.u-mb-16 DER SPIEGEL regularly invites you to exclusive, digital events - where you can ask your own questions and discuss!
-                +button-link('View all events').button--primary.button--sm.button--inline
+            p.u-mb-16 DER SPIEGEL regularly invites you to exclusive, digital events - where you can ask your own questions and discuss!
+            +button-link('View all events').button--primary.button--sm.button--inline

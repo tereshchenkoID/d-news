@@ -7,53 +7,51 @@ extends layouts/_layout
 block content
   +header#header
   main.main
-    +header-tabs(3)
+    +header-tabs(2)
 
     section.section
       .container-fluid
         .container
           .widget
             .widget__header
-              +widget-title('My account', 'Unsubscribe')
+              +widget-title('My account', 'logout').widget-title--alt
 
           .panel.u-mb-30
             h4.u-mb-16 My newsletters
-            .row
-              .col.col-md-12.col-verticall-offset
-                +alert('You are not currently subscribed to a newsletter.').alert--info
-              .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
-                .newsletter
-                  .newsletter__thumbnail
-                    img(src="https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/die-lage-am-morgen.png").img
-                  .newsletter__content
-                    h5.newsletter__title.u-text-transform-capitalize The situation in the morning
-                    p.newsletter__date.u-mb-10 daily (Mon - Sat)
-                    .u-text-right
-                      +button-link('Unsubscribe').button--default.button--sm.button--inline
+            +alert('You are not currently subscribed to a newsletter.').alert--info
 
-              .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
-                .newsletter
-                  .newsletter__thumbnail
-                    img(src="https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/inside-austria.png").img
-                  .newsletter__content
-                    h5.newsletter__title.u-text-transform-capitalize The location: Inside Austria
-                    p.newsletter__date.u-mb-10 daily (Mon - Sat)
-                    .u-text-right
-                      +button-link('Unsubscribe').button--default.button--sm.button--inline
+          .row.u-mb-30
+            .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
+              .newsletter
+                .newsletter__thumbnail
+                  img(src="https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/die-lage-am-morgen.png").img
+                .newsletter__content
+                  h5.newsletter__title.u-text-transform-capitalize The situation in the morning
+                  p.newsletter__date.u-mb-10 daily (Mon - Sat)
+                  .u-text-right
+                    +button-link('Unsubscribe').button--default.button--sm.button--inline
 
-              .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
-                .newsletter
-                  .newsletter__thumbnail
-                    img(src="https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/alles-gute.png").img
-                  .newsletter__content
-                    h5.newsletter__title.u-text-transform-capitalize All the best
-                    p.newsletter__date.u-mb-10 weekly (Sat)
-                    .u-text-right
-                      +button-link('Unsubscribe').button--default.button--sm.button--inline
+            .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
+              .newsletter
+                .newsletter__thumbnail
+                  img(src="https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/inside-austria.png").img
+                .newsletter__content
+                  h5.newsletter__title.u-text-transform-capitalize The location: Inside Austria
+                  p.newsletter__date.u-mb-10 daily (Mon - Sat)
+                  .u-text-right
+                    +button-link('Unsubscribe').button--default.button--sm.button--inline
+
+            .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
+              .newsletter
+                .newsletter__thumbnail
+                  img(src="https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/alles-gute.png").img
+                .newsletter__content
+                  h5.newsletter__title.u-text-transform-capitalize All the best
+                  p.newsletter__date.u-mb-10 weekly (Sat)
+                  .u-text-right
+                    +button-link('Unsubscribe').button--default.button--sm.button--inline
 
           .panel
-            h4.u-mb-16 Discover events
-            .row
-              .col.col-md-12
-                p.u-mb-16 Receive exciting comments and analyzes from our SPIEGEL journalists directly to your inbox - from current news to socially relevant topics.
-                +button-link('View all newsletters').button--primary.button--sm.button--inline
+            h4 Discover events
+            p.u-mb-16 Receive exciting comments and analyzes from our SPIEGEL journalists directly to your inbox - from current news to socially relevant topics.
+            +button-link('View all newsletters').button--primary.button--sm.button--inline

@@ -252,15 +252,34 @@ ol {
 }
 
 .delete-card {
-  text-align: center;
+  @include size(100%);
+  @include flex(center, center, column);
+  @include make-spacer(p, 20px);
+  @include make-spacer(p, 30px, lg);
+
+  border-radius: var(--border-radius);
+  background-color: var(--color-shark);
+  box-shadow: var(--box-shadow);
+  gap: rem(10px);
 
   &__title {
-    @include make-spacer(my, 10px);
+    font-size: rem(22px);
+
+    @include media-breakpoint-up(lg) {
+      font-size: rem(24px);
+    }
   }
 
   &__icon {
-    font-size: rem(32px);
-    color: var(--color-primary);
+    @include make-spacer(mb, 10px);
+    @include flex(center, center);
+    @include size(rem(80px));
+
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    overflow: hidden;
+    font-size: rem(30px);
+    color: var(--color-white);
   }
 
   &__link {

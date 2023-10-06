@@ -7,23 +7,20 @@ extends layouts/_layout
 block content
   +header#header
   main.main
-    +header-tabs(2)
+    +header-tabs(1)
 
     section.section
       .container-fluid
         .container
           .widget
             .widget__header
-              +widget-title('My account', 'Unsubscribe')
+              +widget-title('My account', 'logout').widget-title--alt
 
           .panel.u-mb-30
-            h4.u-mb-16 My subscriptions
-            .row
-              .col.col-md-12
-                +alert('You don\`t have an active subscription.').alert--info
+            h4 My subscriptions
+            +alert('You don\`t have an active subscription.').alert--info.u-mb-16
+            +button-link('View all subscriptions').button--primary.button--sm.button--inline
 
           .panel
-            h4.u-mb-16 Past subscriptions
-            .row
-              .col.col-md-12
-                +alert('You have no past subscriptions.').alert--info
+            h4 Past subscriptions
+            +alert('You have no past subscriptions.').alert--info.u-mb-16

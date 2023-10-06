@@ -7,14 +7,14 @@ extends layouts/_layout
 block content
   +header#header
   main.main
-    +header-tabs(1)
+    +header-tabs(0)
 
     section.section
       .container-fluid
         .container
           .widget
             .widget__header
-              +widget-title('My account', 'Unsubscribe')
+              +widget-title('My account', 'logout').widget-title--alt
 
           .panel.u-mb-30
             +alert('You have not currently subscribed to a newsletter.').alert--info.u-mb-16
@@ -30,34 +30,74 @@ block content
                 +alert('You have not currently subscribed to a newsletter.').alert--error
               .col.u-pb-10
                 +checkbox('Community / Comments', false).js-checkbox
-                +checkable-content('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis deleniti dolore enim expedita fugit ipsam, maxime nulla obcaecati placeat praesentium repudiandae similique sit ut veritatis voluptatibus, voluptatum. Amet, esse.').js-checkable-content
+                +checkable-content('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis deleniti dolore enim expedita fugit ipsam, maxime nulla obcaecati placeat praesentium repudiandae similique sit ut veritatis voluptatibus, voluptatum. Amet, esse.')
               .col.u-pb-10
                 +checkbox('Bookmarks', false).js-checkbox
-                +checkable-content('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis deleniti dolore enim expedita ').js-checkable-content
+                +checkable-content('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis deleniti dolore enim expedita ')
               .col.u-pb-10
                 +checkbox('Marketing/Advertising Data', false).js-checkbox
-                +checkable-content('Lorem ipsum dolor sit amet, dita ').js-checkable-content
+                +checkable-content('Lorem ipsum dolor sit amet, dita ')
               .col.u-pb-10
                 +checkbox('Subscription data', false).js-checkbox
-                +checkable-content('Lorem ipsum dolor sit amet, dita consectetur adipisicing elit. ').js-checkable-content
+                +checkable-content('Lorem ipsum dolor sit amet, dita consectetur adipisicing elit. ')
               .col.u-pb-10
                 +checkbox('Account', false).js-checkbox
-                +checkable-content('Lorem ipsum dolor sit amet').js-checkable-content
+                +checkable-content('Lorem ipsum dolor sit amet')
               .col.u-pt-16
-                +checkbox('Select all', false).js-checkbox.js-checkbox-all
+                +checkbox('Select all', false).js-checkbox-all
               .col.col-verticall-offset
                 .u-text-right
                   +button-link('Save change').button--primary.button--sm.button--inline.u-mr-16
                   +button-link('Cancel').button--default.button--sm.button--inline
 
           .edit-form.u-mb-30
-            h1.edit-form__header.u-text-transform-capitalize Edit customer number
+            h1.edit-form__header.u-text-transform-capitalize Edit information
             .edit-form__body.row
               .col.col-verticall-offset
-                label.edit-form__label Edit your customer or order number here.
+                label.edit-form__label Edit your customer information here.
               .col.col-verticall-offset
+                .row
+                  .col.u-pb-10
+                    label.edit-form__label Gender
+                  .col.col-lg-3.u-pb-10
+                    +radio('Man', 'gander', true)
+                  .col.col-lg-3.u-pb-10
+                    +radio('Women', 'gander', true)
+                  .col.col-lg-3.u-pb-10
+                    +radio('Divers', 'gander', true)
+                  .col.col-lg-3.u-pb-10
+                    +radio('No information', 'gander', true)
+              .col.col-lg-6.col-verticall-offset
+                .edit-form__block.edit-form__block--error
+                  label.edit-form__label Name
+                  input(type="text" required).field.edit-form__field
+                  p.edit-form__error Field is required
+              .col.col-lg-6.col-verticall-offset
                 .edit-form__block
-                  label.edit-form__label Customer or order number
+                  label.edit-form__label Surname
+                  input(type="text" required).field.edit-form__field
+                  p.edit-form__error Field is required
+              .col.col-lg-6.col-verticall-offset
+                .edit-form__block
+                  label.edit-form__label Country
+                  select.select.edit-form__field
+                    option(value="1") Ukraine
+                    option(value="2") England
+                    option(value="3") Poland
+                  p.edit-form__error Field is required
+              .col.col-lg-6.col-verticall-offset
+                .edit-form__block
+                  label.edit-form__label City
+                  input(type="text" required).field.edit-form__field
+                  p.edit-form__error Field is required
+              .col.col-lg-6.col-verticall-offset
+                .edit-form__block
+                  label.edit-form__label Street
+                  input(type="text" required).field.edit-form__field
+                  p.edit-form__error Field is required
+              .col.col-lg-3.col-verticall-offset
+                .edit-form__block
+                  label.edit-form__label House
                   input(type="text" required).field.edit-form__field
                   p.edit-form__error Field is required
               .col.col-lg-3.col-verticall-offset
@@ -65,10 +105,15 @@ block content
                   label.edit-form__label Zip
                   input(type="text" required).field.edit-form__field
                   p.edit-form__error Field is required
-              .col.col-lg-9.col-verticall-offset
+              .col.col-lg-6.col-verticall-offset
                 .edit-form__block
-                  label.edit-form__label Place
+                  label.edit-form__label Phone number
                   input(type="text" required).field.edit-form__field
+                  p.edit-form__error Field is required
+              .col.col-lg-6.col-verticall-offset
+                .edit-form__block
+                  label.edit-form__label Email address
+                  input(type="email" required).field.edit-form__field
                   p.edit-form__error Field is required
               .col.col-verticall-offset
                 .u-text-right
@@ -79,7 +124,7 @@ block content
             .edit-form__body.row
               .col.col-verticall-offset
                 label.edit-form__label Edit your current password here. When changing, please make sure to choose a long and secure password ( incl. Lowercase and uppercase letters, special characters or numbers ).
-              .col.col-verticall-offset
+              .col.col-lg-6.col-verticall-offset
                 .edit-form__block.edit-form__block--error
                   label.edit-form__label Set password
                   .edit-form__password.js-edit-form-password
@@ -109,7 +154,7 @@ block content
                       i.fa.fa-times
                       p Special characters or numbers
 
-              .col.col-verticall-offset
+              .col.col-lg-6.col-verticall-offset
                 .edit-form__block
                   label.edit-form__label Confirm new password
                   .edit-form__password.js-edit-form-password
@@ -117,99 +162,13 @@ block content
                     button(type="button").edit-form__eye.js-edit-form-button
                       i.fa.fa-eye
                   p.edit-form__error Field is required
-              .col.col-verticall-offset
+              .col.col-lg-6.col-verticall-offset
                 .edit-form__block
                   label.edit-form__label Current password for confirmation
                   .edit-form__password.js-edit-form-password
                     input(type="password" required).field.edit-form__field.js-edit-form-field
                     button(type="button").edit-form__eye.js-edit-form-button
                       i.fa.fa-eye
-                  p.edit-form__error Field is required
-              .col.col-verticall-offset
-                .u-text-right
-                  +button-link('Save change').button--primary.button--sm.button--inline.u-mr-16
-                  +button-link('Cancel').button--default.button--sm.button--inline
-
-          .edit-form.u-mb-30
-            h1.edit-form__header.u-text-transform-capitalize Edit email address
-            .edit-form__body.row
-              .col.col-verticall-offset
-                label.edit-form__label Set a new email address and confirm the change with your password.
-              .col.col-verticall-offset
-                .edit-form__block.edit-form__block--error
-                  label.edit-form__label New email address
-                  input(type="email" required).field.edit-form__field
-                  p.edit-form__error Field is required
-              .col.col-verticall-offset
-                .edit-form__block
-                  label.edit-form__label Repeat new email address
-                  input(type="email" required).field.edit-form__field
-                  p.edit-form__error Field is required
-              .col.col-verticall-offset
-                .edit-form__block
-                  label.edit-form__label Current password for confirmation
-                  .edit-form__password.js-edit-form-password
-                    input(type="password" required).field.edit-form__field.js-edit-form-field
-                    button(type="button").edit-form__eye.js-edit-form-button
-                      i.fa.fa-eye
-                  p.edit-form__error Field is required
-              .col.col-verticall-offset
-                .u-text-right
-                  +button-link('Save change').button--primary.button--sm.button--inline.u-mr-16
-                  +button-link('Cancel').button--default.button--sm.button--inline
-
-          .edit-form.u-mb-30
-            h1.edit-form__header.u-text-transform-capitalize Edit Address
-            .edit-form__body.row
-              .col.col-verticall-offset
-                label.edit-form__label Edit your saved address data here.
-              .col.col-verticall-offset
-                .row
-                  .col.col-lg-6.u-pb-10
-                    +radio('Man', 'gander', true)
-                  .col.col-lg-6.u-pb-10
-                    +radio('Women', 'gander', true)
-                  .col.col-lg-6.u-pb-10
-                    +radio('Divers', 'gander', true)
-                  .col.col-lg-6.u-pb-10
-                    +radio('No information', 'gander', true)
-              .col.col-verticall-offset
-                .edit-form__block.edit-form__block--error
-                  label.edit-form__label Name
-                  input(type="text" required).field.edit-form__field
-                  p.edit-form__error Field is required
-              .col.col-verticall-offset
-                .edit-form__block
-                  label.edit-form__label Surname
-                  input(type="text" required).field.edit-form__field
-                  p.edit-form__error Field is required
-              .col.col-lg-9.col-verticall-offset
-                .edit-form__block
-                  label.edit-form__label Street
-                  input(type="text" required).field.edit-form__field
-                  p.edit-form__error Field is required
-              .col.col-lg-3.col-verticall-offset
-                .edit-form__block
-                  label.edit-form__label House
-                  input(type="text" required).field.edit-form__field
-                  p.edit-form__error Field is required
-              .col.col-lg-3.col-verticall-offset
-                .edit-form__block
-                  label.edit-form__label Zip
-                  input(type="text" required).field.edit-form__field
-                  p.edit-form__error Field is required
-              .col.col-lg-9.col-verticall-offset
-                .edit-form__block
-                  label.edit-form__label Place
-                  input(type="text" required).field.edit-form__field
-                  p.edit-form__error Field is required
-              .col.col-verticall-offset
-                .edit-form__block
-                  label.edit-form__label Country
-                  select.select.edit-form__field
-                    option(value="1") Ukraine
-                    option(value="2") England
-                    option(value="3") Poland
                   p.edit-form__error Field is required
               .col.col-verticall-offset
                 .u-text-right

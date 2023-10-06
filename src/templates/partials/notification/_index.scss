@@ -1,11 +1,16 @@
 @use 'src/scss/config' as *;
 
 .notification {
+  display: none;
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: $z-index-13;
+
+  &--active {
+    display: block;
+  }
 
   &__column {
     @include make-spacer(p, 15px);

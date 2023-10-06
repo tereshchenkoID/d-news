@@ -33,12 +33,17 @@
 
   &__item {
 
-    &:hover {
+    &--active {
 
       .menu {
 
         &__dropdown {
           display: block;
+        }
+
+        &__link {
+          color: var(--color-primary);
+          opacity: 1;
         }
       }
     }
@@ -63,11 +68,6 @@
     font-size: rem(14px);
     font-weight: var(--typography-medium);
     opacity: 0.9;
-
-    &--active {
-      color: var(--color-primary);
-      opacity: 1;
-    }
   }
 
   &__icon {
@@ -78,7 +78,7 @@
     display: none;
 
     @include media-breakpoint-up(lg) {
-      @include make-spacer(pt, 11px);
+      @include make-spacer(pt, 10px);
 
       position: absolute;
       top: 100%;
@@ -94,6 +94,8 @@
     }
 
     &--wide {
+      @include make-spacer(pt, 11px);
+
       left: 0;
       right: 0;
       width: 100%;

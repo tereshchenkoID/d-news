@@ -1,8 +1,7 @@
 @use 'src/scss/config' as *;
 
 .popup {
-  @include flex(center, center);
-
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
@@ -10,6 +9,10 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.75);
   z-index: $z-index-14;
+
+  &--active {
+    @include flex(center, center);
+  }
 
   &__close,
   &__title,

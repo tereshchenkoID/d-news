@@ -14,7 +14,7 @@ block content
         .container
           .widget
             .widget__header
-              +widget-title('My account', 'Unsubscribe')
+              +widget-title('My account', 'logout').widget-title--alt
 
           .panel.u-mb-30
             h4 Hello,
@@ -23,7 +23,7 @@ block content
               .col.col-6
                 h6.u-mb-0 User Data
               .col.col-6
-                +button('Edit')(href="./user-data.html").button--primary.button--sm.button--inline
+                +button('Edit')(href="./user-edit.html").button--primary.button--sm.button--inline
             .row
               .col.col-md-6.u-pb-10
                 strong Name
@@ -41,6 +41,10 @@ block content
                 strong Customer number
               .col.col-md-6
                 p N / A.
+
+          .panel.u-mb-30
+            h4 Data deletion according to DSGVO
+            +button('For data deletions')(href="./user-delete.html").button--animate.button--sm.button--inline
 
           .row
             .col.col-md-4.col-verticall-offset

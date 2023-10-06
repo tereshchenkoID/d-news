@@ -7,19 +7,17 @@ extends layouts/_layout
 block content
   +header#header
   main.main
-    +header-tabs(5)
+    +header-tabs(4)
 
     section.section
       .container-fluid
         .container
           .widget
             .widget__header
-              +widget-title('My account', 'Unsubscribe')
+              +widget-title('My account', 'logout').widget-title--alt
 
           .panel.u-mb-30
-            h4.u-mb-16 My magazines
-            .row
-              .col.col-md-12
-                p.u-mb-10 You do not have an active subscription or purchased individual issues.
-                p You can find the subscription that is right for you at
-                  a(href="#").u-color-primary.u-ml-5 https://abo.spiegel.de/de/c/spiegelplus.
+            h4 My magazines
+            p.u-mb-10 You do not have an active subscription or purchased individual issues.
+            p You can find the subscription that is right for you at
+              a(href="#").u-color-primary.u-ml-5 https://abo.spiegel.de/de/c/spiegelplus.

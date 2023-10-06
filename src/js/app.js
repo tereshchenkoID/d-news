@@ -131,7 +131,7 @@ $('.js-ticker').hover(function(){
 
 $('.sa-sticky')
   .theiaStickySidebar({
-    additionalMarginTop: 0
+    additionalMarginTop: 130
   });
 
 $('.js-search-toggle').on('click', function() {
@@ -147,15 +147,15 @@ $('.js-search-field').on('focusout', function() {
 });
 
 $('.js-notification .button').on('click', function() {
-  $('.js-notification').remove()
+  $('.js-notification').removeClass('notification--active')
 })
 
 $('.js-cookie .button').on('click', function() {
-  $('.js-cookie').remove()
+  $('.js-cookie').removeClass('cookie--active')
 })
 
 $('.js-popup a').on('click', function() {
-  $('.js-popup').remove()
+  $('.js-popup').removeClass('popup--active')
 })
 
 $('.js-edit-form-button').on('click', function() {
@@ -166,17 +166,22 @@ $('.js-edit-form-button').on('click', function() {
 
 
 $('.js-checkbox').on('change', function() {
-  $(this).next('.js-checkable-content').toggleClass('checkable-content--active')
+  if ($('.js-checkbox-all input').prop('checked') === true) {
+    $('.js-checkbox-all input').prop('checked', false);
+  }
 })
 
 $('.js-checkbox-all').on('change', function() {
   const isChecked = $(this).find('input').prop('checked');
   $('.js-checkbox input').prop('checked', isChecked);
+})
 
-  if (isChecked) {
-    $('.js-checkable-content').addClass('checkable-content--active')
+$('.js-menu-item').on('click', function() {
+  if ($(this).hasClass('menu__item--active')) {
+    $(this).removeClass('menu__item--active')
   }
   else {
-    $('.js-checkable-content').removeClass('checkable-content--active')
+    $('.js-menu-item').removeClass('menu__item--active')
+    $(this).addClass('menu__item--active')
   }
 })

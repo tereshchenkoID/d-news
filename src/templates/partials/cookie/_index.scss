@@ -1,11 +1,16 @@
 @use 'src/scss/config' as *;
 
 .cookie {
+  display: none;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: $z-index-13;
+
+  &--active {
+    display: block;
+  }
 
   &__link,
   &__text {
