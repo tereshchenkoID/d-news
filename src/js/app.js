@@ -158,6 +158,12 @@ $('.js-popup a').on('click', function() {
   $('.js-popup').removeClass('popup--active')
 })
 
+$(document).click(function (e) {
+  if (!$(e.target).closest('.js-popup-wrapper').length) {
+    $('.js-popup').removeClass('popup--active')
+  }
+});
+
 $('.js-edit-form-button').on('click', function() {
   $(this).toggleClass('edit-form__eye--active')
   const form = $(this).closest('.js-edit-form-password')
@@ -185,3 +191,9 @@ $('.js-menu-item').on('click', function() {
     $(this).addClass('menu__item--active')
   }
 })
+
+$(document).click(function (e) {
+  if (!$(e.target).closest('.js-menu-item').length) {
+    $('.js-menu-item').removeClass('menu__item--active');
+  }
+});

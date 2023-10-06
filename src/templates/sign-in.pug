@@ -10,4 +10,32 @@ block content
     section.section
       .container-fluid
         .container
-          +sign-in
+          form.edit-form.edit-form--center
+            h1.edit-form__header.u-text-transform-capitalize User login
+            .edit-form__body
+              .edit-form__block.u-mb-30.edit-form__block--error
+                label.edit-form__label Email
+                input(type="email" placeholder="demo@gmail.com" required).field.edit-form__field
+                p.edit-form__error Field is required
+              .edit-form__block.u-mb-30
+                label.edit-form__label Password
+                .edit-form__password.js-edit-form-password
+                  input(type="password" placeholder="***********" required).field.edit-form__field.js-edit-form-field
+                  button(type="button").edit-form__eye.js-edit-form-button
+                    i.fa.fa-eye
+                p.edit-form__error Field is required
+              .edit-form__block.u-mb-30
+                +button('Login')(type="submit").button--primary
+              .edit-form__block.u-mb-30
+                p.edit-form__label Don't have an account?
+                  a(href="./sign-up.html").u-color-primary.u-ml-5 Sign Up
+                p.edit-form__label
+                  a(href="./sign-up.html").u-color-primary Forgot your password?
+              .edit-form__block
+                .edit-form__buttons
+                  a(href="#").edit-form__social.edit-form__social--facebook.u-mb-20
+                    i.fab.fa-facebook-f
+                    span login with facebook
+                  a(href="#").edit-form__social.edit-form__social--google
+                    i.fab.fa-google-plus-g
+                    span login with google plus

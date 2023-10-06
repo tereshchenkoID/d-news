@@ -7,6 +7,12 @@
   box-shadow: var(--box-shadow);
   color: var(--color-comet);
 
+  &--center {
+    @include make-spacer(mx, auto);
+
+    max-width: rem(500px);
+  }
+
   &__header {
     @include make-spacer(py, 10px);
     @include make-spacer(px, 20px);
@@ -99,6 +105,55 @@
         &::before {
           content: '\f070';
         }
+      }
+    }
+  }
+
+  &__social {
+    @include flex(null, center);
+    @include reset-button;
+
+    border-radius: var(--border-radius);
+    background-color: var(--color-cod-gray);
+    overflow: hidden;
+    height: rem(45px);
+    color: var(--color-white);
+    font-size: rem(14px);
+    font-weight: var(--typography-medium);
+    text-transform: uppercase;
+    letter-spacing: rem(2px);
+
+    &:hover {
+      color: var(--color-white);
+    }
+
+    i {
+      @include flex(center, center);
+      @include make-spacer(mr, 15px);
+      @include size(rem(60px), 100%);
+
+      font-size: rem(20px);
+    }
+
+    &--facebook {
+
+      span {
+        color: #2D4373;
+      }
+
+      i {
+        background-color: #2D4373;
+      }
+    }
+
+    &--google {
+
+      span {
+        color: #C9070D;
+      }
+
+      i {
+        background-color: #C9070D;
       }
     }
   }
