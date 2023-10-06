@@ -5,7 +5,7 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: $z-index-12;
+  z-index: $z-index-13;
 
   &__column {
     @include make-spacer(p, 15px);
