@@ -1,0 +1,38 @@
+---
+title: D-news | Newsletter
+lang: en
+---
+extends layouts/_layout
+
+block content
+  +header#header
+  main.main
+    +header-tabs(6)
+
+    section.section
+      .container-fluid
+        .container
+          .widget
+            .widget__header
+              +widget-title('My account', 'Unsubscribe')
+
+          .panel.u-mb-30
+            h4.u-mb-16 My bookmarks
+            .row
+              .col.col-md-12.col-verticall-offset
+                +alert('You are not currently subscribed to a newsletter.').alert--info
+              - var n = 1;
+              while n < 5
+                .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
+                  button(type="button").bookmark
+                    i.fa.fa-bookmark
+                  +post-small(n++, true).post-small--column
+              .col.col-md-12.col-verticall-offset
+                +button-link('View all articles').button--primary.button--sm.button--inline
+
+          .panel
+            h4.u-mb-16 Discover events
+            .row
+              .col.col-md-12
+                p.u-mb-16 Receive exciting comments and analyzes from our SPIEGEL journalists directly to your inbox - from current news to socially relevant topics.
+                +button-link('View all newsletters').button--primary.button--sm.button--inline

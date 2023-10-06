@@ -270,6 +270,13 @@ ol {
   }
 }
 
+.bookmark {
+  position: absolute;
+  top: rem(25px);
+  right: rem(25px);
+  z-index: $z-index-1;
+  color: var(--color-yellow);
+}
 
 .newsletter {
   position: relative;
