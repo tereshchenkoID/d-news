@@ -97,6 +97,17 @@ const swiper6 = new Swiper(".gallery-ticker", {
   loop: true,
 });
 
+const swiper7 = new Swiper(".gallery-online-games", {
+  slideToClickedSlide: true,
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  freeMode: true,
+  pagination: {
+    el: ".pagination-online-games",
+    clickable: true,
+  },
+});
+
 
 $('.js-language-select').click(function() {
   $('.js-language').toggleClass('language--active')

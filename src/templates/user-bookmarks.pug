@@ -17,11 +17,27 @@ block content
               +widget-title('My account', 'logout').widget-title--alt
 
           .panel.u-mb-30
+            h4.u-mb-16 Daily quiz
+            .quiz
+              .quiz__question
+                div
+                  h6 Which film won the Golden Lion at the Venice Film Festival in 2023?
+                div
+                  +button('Poor Things').button--primary.button--sm.u-mb-16
+                  +button('There is no evil').button--primary.button--sm.u-mb-16
+                  +button('Io capitano').button--primary.button--sm.u-mb-16
+              .quiz__result
+                h6 Your answer:
+                p.u-mb-16 Poor things
+                h6 Correct
+                p.u-mb-16 The comedy » Poor Things « by director Yorgos Lanthimos received the Golden Lion of the Venice Film Festival in 2023. The Silver Lion went to » There is no evil «.
+                +button('Next question').button--primary.button--sm.button--inline.u-mb-16
+
+          .panel.u-mb-30
             h4.u-mb-16 My bookmarks
             +alert('You are not currently subscribed to a newsletter.').alert--info
 
           .row.u-mb-30
-
             - var n = 1;
             while n < 5
               .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
@@ -33,3 +49,104 @@ block content
             h4.u-mb-16 Discover posts
             p.u-mb-16 Receive exciting comments and analyzes from our SPIEGEL journalists directly to your inbox - from current news to socially relevant topics.
             +button-link('View all posts').button--primary.button--sm.button--inline
+
+          -
+            var games = [
+              {
+                url: 'pic_solitaer',
+                title: 'Solitaire'
+              },
+              {
+                url: 'pic_sudoku',
+                title: 'Sudoku'
+              },
+              {
+                url: 'pic_mahjong',
+                title: 'Mahjong'
+              },
+              {
+                url: 'pic_bubble-shooter',
+                title: 'Bubble shooter'
+              },
+              {
+                url: 'pic_jackpot',
+                title: 'Jackpot'
+              },
+              {
+                url: 'pic_snake',
+                title: 'Snake'
+              },
+              {
+                url: 'pic_exchange',
+                title: 'Pic exchange'
+              },
+              {
+                url: 'pic_2048',
+                title: '2048'
+              },
+              {
+                url: 'pic_doppel',
+                title: 'Double'
+              },
+              {
+                url: 'pic_rushtower',
+                title: 'Rushtower'
+              },
+              {
+                url: 'pic_sudoken',
+                title: 'Sudoken'
+              },
+              {
+                url: 'pic_snake',
+                title: 'Snake'
+              },
+            ]
+          .panel.u-mb-30
+            h4.u-mb-16 Free online games
+            .swiper.gallery-online-games.u-mb-16
+              .swiper-wrapper
+                each game in games
+                  .swiper-slide
+                    a(href="#").game
+                      .game__image
+                        img(src=`https://cdn.prod.www.spiegel.de/public/spon/images/games-icons/${game.url}_88.svg` alt=game.title).img
+                      .game__title.u-mt-5.u-text-center= game.title
+              .swiper-pagination.pagination-online-games
+            +button-link('View all games').button--primary.button--sm.button--inline
+
+          -
+            var vauchers = [
+              {
+                url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/64c8b93ae22e8.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
+                logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/5fcf90564e9f7.png?fit=crop&w=78&h=39&lossless=true&q=100',
+                title: 'Thalia vouchers'
+              },
+              {
+                url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/64c76d6a586b2.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
+                logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/61160f812cf29.png?fit=crop&w=78&h=39&lossless=true&q=100',
+                title: 'OTTO vouchers'
+              },
+              {
+                url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/64c770aeee387.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
+                logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/5fcf4d3346dd1.png?fit=crop&w=78&h=39&lossless=true&q=100',
+                title: 'LIDL vouchers'
+              },
+              {
+                url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/65168a38b553d.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
+                logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/618bde573a696.png?fit=crop&w=78&h=39&lossless=true&q=100',
+                title: 'Lamp world vouchers'
+              }
+            ]
+          .panel.u-mb-30
+            h4 vouchers
+            .row.u-mb-16
+              each vaucher in vauchers
+                .col.col-sm-6.col-verticall-offset
+                  a(href="#").voucher
+                    .voucher__image
+                      img(src=vaucher.url alt=vaucher.title).img.img--cover
+                    .voucher__content
+                      p.voucher__title= vaucher.title
+                      .voucher__logo
+                        img(src=vaucher.logo alt=vaucher.title).img
+            +button-link('View all games').button--primary.button--sm.button--inline

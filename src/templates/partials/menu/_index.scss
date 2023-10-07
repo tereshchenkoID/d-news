@@ -13,6 +13,8 @@
   background-color: var(--color-shark);
   z-index: $z-index-13;
   box-shadow: var(--box-shadow);
+  max-height: calc(100vh - rem(112px));
+  overflow-y: auto;
 
   @include media-breakpoint-up(lg) {
     @include flex(null, null, column);
