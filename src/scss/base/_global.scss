@@ -326,13 +326,15 @@ ol {
 
   &__date {
     color: var(--color-comet);
-    font-size: rem(14px);
   }
 }
 
+.gallery-magazines,
 .gallery-online-games {
 
   .swiper-pagination {
+    @include make-spacer(mt, 10px);
+
     position: static;
 
     .swiper-pagination-bullet {
@@ -346,9 +348,31 @@ ol {
       background-color: var(--color-primary);
     }
   }
+}
+
+.gallery-magazines {
+
+  .swiper-slide {
+    width: rem(140px)!important;
+  }
+}
+
+.gallery-online-games {
 
   .swiper-slide {
     width: rem(100px)!important;
+  }
+}
+
+.magazine {
+  display: block;
+  width: rem(140px);
+
+  &__image {
+    @include size(rem(140px), rem(190px));
+
+    background-color: var(--color-border);
+    overflow: hidden;
   }
 }
 
@@ -362,10 +386,6 @@ ol {
     border-radius: var(--border-radius);
     background-color: var(--color-border);
     overflow: hidden;
-  }
-
-  &__title {
-    font-size: rem(14px);
   }
 }
 
@@ -407,7 +427,6 @@ ol {
   }
 
   &__title {
-    font-size: rem(14px);
     color: var(--color-shark);
   }
 }

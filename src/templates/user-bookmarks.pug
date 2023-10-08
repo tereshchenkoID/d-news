@@ -45,64 +45,66 @@ block content
                   i.fa.fa-bookmark
                 +post-small(n++, true).post-small--column
 
-          .panel
+          .panel.u-mb-30
             h4.u-mb-16 Discover posts
             p.u-mb-16 Receive exciting comments and analyzes from our SPIEGEL journalists directly to your inbox - from current news to socially relevant topics.
             +button-link('View all posts').button--primary.button--sm.button--inline
 
-          -
-            var games = [
-              {
-                url: 'pic_solitaer',
-                title: 'Solitaire'
-              },
-              {
-                url: 'pic_sudoku',
-                title: 'Sudoku'
-              },
-              {
-                url: 'pic_mahjong',
-                title: 'Mahjong'
-              },
-              {
-                url: 'pic_bubble-shooter',
-                title: 'Bubble shooter'
-              },
-              {
-                url: 'pic_jackpot',
-                title: 'Jackpot'
-              },
-              {
-                url: 'pic_snake',
-                title: 'Snake'
-              },
-              {
-                url: 'pic_exchange',
-                title: 'Pic exchange'
-              },
-              {
-                url: 'pic_2048',
-                title: '2048'
-              },
-              {
-                url: 'pic_doppel',
-                title: 'Double'
-              },
-              {
-                url: 'pic_rushtower',
-                title: 'Rushtower'
-              },
-              {
-                url: 'pic_sudoken',
-                title: 'Sudoken'
-              },
-              {
-                url: 'pic_snake',
-                title: 'Snake'
-              },
-            ]
           .panel.u-mb-30
             h4.u-mb-16 Free online games
+
+            -
+              var games = [
+                {
+                  url: 'pic_solitaer',
+                  title: 'Solitaire'
+                },
+                {
+                  url: 'pic_sudoku',
+                  title: 'Sudoku'
+                },
+                {
+                  url: 'pic_mahjong',
+                  title: 'Mahjong'
+                },
+                {
+                  url: 'pic_bubble-shooter',
+                  title: 'Bubble shooter'
+                },
+                {
+                  url: 'pic_jackpot',
+                  title: 'Jackpot'
+                },
+                {
+                  url: 'pic_snake',
+                  title: 'Snake'
+                },
+                {
+                  url: 'pic_exchange',
+                  title: 'Pic exchange'
+                },
+                {
+                  url: 'pic_2048',
+                  title: '2048'
+                },
+                {
+                  url: 'pic_doppel',
+                  title: 'Double'
+                },
+                {
+                  url: 'pic_rushtower',
+                  title: 'Rushtower'
+                },
+                {
+                  url: 'pic_sudoken',
+                  title: 'Sudoken'
+                },
+                {
+                  url: 'pic_snake',
+                  title: 'Snake'
+                },
+              ]
+
             .swiper.gallery-online-games.u-mb-16
               .swiper-wrapper
                 each game in games
@@ -110,35 +112,37 @@ block content
                     a(href="#").game
                       .game__image
                         img(src=`https://cdn.prod.www.spiegel.de/public/spon/images/games-icons/${game.url}_88.svg` alt=game.title).img
-                      .game__title.u-mt-5.u-text-center= game.title
+                      p.game__title.u-mt-5.u-text-center.u-font-size-14= game.title
               .swiper-pagination.pagination-online-games
             +button-link('View all games').button--primary.button--sm.button--inline
 
-          -
-            var vauchers = [
-              {
-                url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/64c8b93ae22e8.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
-                logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/5fcf90564e9f7.png?fit=crop&w=78&h=39&lossless=true&q=100',
-                title: 'Thalia vouchers'
-              },
-              {
-                url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/64c76d6a586b2.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
-                logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/61160f812cf29.png?fit=crop&w=78&h=39&lossless=true&q=100',
-                title: 'OTTO vouchers'
-              },
-              {
-                url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/64c770aeee387.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
-                logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/5fcf4d3346dd1.png?fit=crop&w=78&h=39&lossless=true&q=100',
-                title: 'LIDL vouchers'
-              },
-              {
-                url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/65168a38b553d.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
-                logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/618bde573a696.png?fit=crop&w=78&h=39&lossless=true&q=100',
-                title: 'Lamp world vouchers'
-              }
-            ]
           .panel.u-mb-30
             h4 vouchers
+
+            -
+              var vauchers = [
+                {
+                  url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/64c8b93ae22e8.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
+                  logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/5fcf90564e9f7.png?fit=crop&w=78&h=39&lossless=true&q=100',
+                  title: 'Thalia vouchers'
+                },
+                {
+                  url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/64c76d6a586b2.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
+                  logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/61160f812cf29.png?fit=crop&w=78&h=39&lossless=true&q=100',
+                  title: 'OTTO vouchers'
+                },
+                {
+                  url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/64c770aeee387.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
+                  logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/5fcf4d3346dd1.png?fit=crop&w=78&h=39&lossless=true&q=100',
+                  title: 'LIDL vouchers'
+                },
+                {
+                  url: 'https://cdn-assets-widget-production.imgix.net/uploads/syndication/65168a38b553d.jpeg?fit=crop&w=472&h=88&lossless=true&q=100',
+                  logo: 'https://cdn-assets-widget-production.imgix.net/uploads/provider/618bde573a696.png?fit=crop&w=78&h=39&lossless=true&q=100',
+                  title: 'Lamp world vouchers'
+                }
+              ]
+
             .row.u-mb-16
               each vaucher in vauchers
                 .col.col-sm-6.col-verticall-offset
@@ -146,7 +150,137 @@ block content
                     .voucher__image
                       img(src=vaucher.url alt=vaucher.title).img.img--cover
                     .voucher__content
-                      p.voucher__title= vaucher.title
+                      p.voucher__title.u-font-size-14= vaucher.title
                       .voucher__logo
                         img(src=vaucher.logo alt=vaucher.title).img
-            +button-link('View all games').button--primary.button--sm.button--inline
+            .u-mb-16
+              +button-link('View all vauchers').button--primary.button--sm.button--inline
+              +button-link('View all shops').button--default.button--sm.button--inline.u-ml-10
+
+            -
+              var categories = [
+                {
+                  title: 'car',
+                  data: [
+                    'Fines',
+                    'Company car computer',
+                  ]
+                },
+                {
+                  title: 'job',
+                  data: [
+                    'Gross net calculator',
+                    'Job search',
+                    'Short - time work allowance calculator',
+                    'Subjects explained',
+                  ]
+                },
+                {
+                  title: 'finance',
+                  data: [
+                    'Salary comparison',
+                    'Real estate valuation',
+                    'Studies and finance',
+                    'Insurance',
+                    'Currency converter',
+                  ]
+                },
+                {
+                  title: 'Ceisure',
+                  data: [
+                    'Order books',
+                    'Eurojackpot',
+                    'Vacation dates',
+                  ]
+                },
+                {
+                  title: 'Senior portal',
+                  data: [
+                    'GlücksSpirale',
+                    'vouchers',
+                    'LOTTO 6aus49',
+                  ]
+                },
+                {
+                  title: 'Senior portal',
+                  data: [
+                    'Senior portal',
+                    'Games',
+                    'The daily quiz',
+                  ]
+                }
+              ]
+
+            .row
+              each category in categories
+                .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
+                  +widget-title(category.title)
+                  ul.list
+                    each link in category.data
+                      li.list__item.u-pb-5
+                        a(href="#").u-font-size-14= link
+
+          .panel.u-mb-30
+            h4.u-mb-16 All SPIEGEL magazines
+
+            -
+              var magazines = [
+                {
+                  url: 'https://cdn.prod.www.spiegel.de/images/30b1a7f3-dbbd-4fb6-98ce-211aa5adfd34_w272_r0.75_fpx46.96_fpy53.26.jpg',
+                  title: 'The spiegel'
+                },
+                {
+                  url: 'https://cdn.magazin.spiegel.de/EpubDelivery/image/title/SP/-1/-1/272',
+                  title: 'The special spiegel'
+                },
+                {
+                  url: 'https://cdn.magazin.spiegel.de/EpubDelivery/image/title/SPGE/-1/-1/272',
+                  title: 'Most mixed history'
+                },
+                {
+                  url: 'https://cdn.magazin.spiegel.de/EpubDelivery/image/title/SPWI/-1/-1/272',
+                  title: 'Spiegel knowledge'
+                },
+                {
+                  url: 'https://cdn.magazin.spiegel.de/EpubDelivery/image/title/SPST/-1/-1/272',
+                  title: 'Spiegel start'
+                },
+                {
+                  url: 'https://cdn.magazin.spiegel.de/EpubDelivery/image/title/SPGELD/-1/-1/272',
+                  title: 'Spiegel money'
+                },
+                {
+                  url: 'https://cdn.prod.www.spiegel.de/images/a44adeb9-661b-483b-a860-093f245467c5_w272_r0.75_fpx50_fpy52.52.jpg',
+                  title: 'Special coaching'
+                },
+                {
+                  url: 'https://cdn.magazin.spiegel.de/EpubDelivery/image/title/DEIN/-1/-1/272',
+                  title: 'Your spiegel'
+                },
+                {
+                  url: 'https://cdn.magazin.spiegel.de/EpubDelivery/image/title/SPBEST/-1/-1/272',
+                  title: 'Spiegel best seller'
+                },
+                {
+                  url: 'https://cdn.prod.www.spiegel.de/images/30b1a7f3-dbbd-4fb6-98ce-211aa5adfd34_w272_r0.75_fpx46.96_fpy53.26.jpg',
+                  title: 'The spiegel'
+                },
+                {
+                  url: 'https://cdn.magazin.spiegel.de/EpubDelivery/image/title/SP/-1/-1/272',
+                  title: 'The special spiegel'
+                },
+                {
+                  url: 'https://cdn.magazin.spiegel.de/EpubDelivery/image/title/SPGE/-1/-1/272',
+                  title: 'Most mixed history'
+                },
+              ]
+
+            .swiper.gallery-magazines.u-mb-16
+              .swiper-wrapper
+                each magazine in magazines
+                  .swiper-slide
+                    a(href="#").magazine
+                      .magazine__image
+                        img(src=magazine.url alt=magazine.title).img.img--cover
+                      p.magazine__title.u-mt-5.u-text-center.u-font-size-14= magazine.title
+              .swiper-pagination.pagination-magazines
