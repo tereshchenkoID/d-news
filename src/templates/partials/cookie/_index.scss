@@ -7,6 +7,8 @@
   left: 0;
   right: 0;
   z-index: $z-index-13;
+  max-height: 100vh;
+  overflow-y: auto;
 
   &--active {
     display: block;

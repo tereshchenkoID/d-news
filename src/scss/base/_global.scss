@@ -204,36 +204,6 @@ ol {
   }
 }
 
-.news-ticker {
-  display: grid;
-  gap: rem(10px);
-
-  @include media-breakpoint-up(md) {
-    grid-template-columns: auto 1fr;
-  }
-
-  &__title,
-  &__slider {
-    @include size(100%, rem(45px));
-  }
-
-  &__title{
-    @include make-spacer(m, 0);
-    @include flex(center, center);
-
-    background-color: var(--color-primary);
-    font-size: rem(14px);
-    width: rem(150px);
-    color: var(--color-white);
-  }
-
-  .swiper-button-prev,
-  .swiper-button-next {
-    border-radius: var(--border-radius);
-    opacity: 0.7;
-  }
-}
-
 .group-sticky {
 
   &--sticky {
@@ -290,11 +260,17 @@ ol {
 }
 
 .bookmark {
+  @include size(rem(30px));
+  @include flex(center, center);
+
+  border-radius: 50%;
   position: absolute;
-  top: rem(25px);
+  top: rem(20px);
   right: rem(25px);
   z-index: $z-index-1;
-  color: var(--color-yellow);
+  background-color: var(--color-primary);
+  font-size: rem(12px);
+  color: var(--color-white);
 }
 
 .newsletter {
@@ -431,10 +407,53 @@ ol {
   }
 }
 
+.js-quiz-list {
+}
+
 .quiz {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+
+  &__question,
+  &__answer {
+
+    > div {
+      @include make-spacer(p, 20px);
+    }
+  }
 
   &__question {
     display: grid;
     grid-template-columns: 2fr 1.5fr;
+  }
+
+  &__image {
+    max-width: 80%;
+  }
+}
+
+.scale {
+  display: grid;
+  grid-template-columns: 1fr rem(50px);
+  align-items: center;
+  position: relative;
+
+  &__background {
+    @include size(100%, rem(20px));
+
+    background-color: var(--color-border);
+
+    div {
+      @include size(100%);
+
+      transform-origin: 0 50%;
+      background-color: var(--color-primary);
+    }
+  }
+
+  &__value {
   }
 }

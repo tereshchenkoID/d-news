@@ -11,28 +11,18 @@ block content
     +notification.notification--active.js-notification
     +cookie.cookie--active.js-cookie
     +popup.popup--active.js-popup
-    section.section
+    section.section.u-pt-16
       .container-fluid
         .container
           .row.u-mb-35
             .col
-              .news-ticker
-                h4.u-text-transform-capitalize.news-ticker__title Breaking News
-                .swiper.gallery-ticker.news-ticker__slider
-                  .swiper-wrapper
-                    - var n = 0;
-                      while n < 11
-                        .swiper-slide
-                          p= `${n++} Slide Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium commodi culpa ea expedita magnam modi molestiae numquam quaerat quis suscipit! Architecto cum ducimus facilis ipsam non possimus quaerat sunt velit?`
-                  .swiper-navigation
-                    .swiper-button-prev
-                    .swiper-button-next
+              +banner(style="max-height: 60px")
 
           .row.u-mb-35
             .col.col-lg-9.u-mb-24
               +announcents
             .col.col-lg-3.u-mb-24.u-visible-lg
-              +banner(5, 'https://chtstudio.com/demo/news/images/others/add1.jpg').wide
+              +banner(style="max-height: 550px")
 
           .row.u-mb-35
             .col.col-lg-9.u-mb-24
@@ -51,7 +41,7 @@ block content
                   +post-full(5, true).post-full--small.u-mb-24
                   +post-full(3, true).post-full--small
             .col.col-lg-3.u-mb-24
-              +banner(5).wide
+              +banner(style="max-height: 700px")
 
           .row.u-mb-35
             .col.col-lg-9.u-mb-24
@@ -74,7 +64,7 @@ block content
 
           .row.u-mb-35
             .col
-              +banner(5, 'https://chtstudio.com/demo/news/images/others/ad1.jpg')(style="max-height: 85px").banner--responsive.wide
+              +banner(style="max-height: 85px")
 
           .row
             .col.col-md-7.col-lg-8.sa-sticky
@@ -201,7 +191,7 @@ block content
 
               .widget
                 .widget__body
-                  +banner(10)
+                  +banner(style="max-height: 300px")
 
               .widget
                 .widget__header
@@ -221,7 +211,7 @@ block content
 
               .widget
                 .widget__body
-                  +banner(9)
+                  +banner(style="max-height: 300px")
 
               .widget
                 .widget__header

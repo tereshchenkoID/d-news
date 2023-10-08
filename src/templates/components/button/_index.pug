@@ -1,7 +1,7 @@
 mixin button(text)
-  a(href="#").button&attributes(attributes)
+  a(href="#" aria-label="Label Name").button&attributes(attributes)
     span.button__text= text
 
 mixin button-link(text)
-  a.button&attributes(attributes)
+  a.button(aria-label="Label Name")&attributes(attributes)
     span.button__text= text

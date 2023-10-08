@@ -18,20 +18,8 @@ block content
 
           .panel.u-mb-30
             h4.u-mb-16 Daily quiz
-            .quiz
-              .quiz__question
-                div
-                  h6 Which film won the Golden Lion at the Venice Film Festival in 2023?
-                div
-                  +button('Poor Things').button--primary.button--sm.u-mb-16
-                  +button('There is no evil').button--primary.button--sm.u-mb-16
-                  +button('Io capitano').button--primary.button--sm.u-mb-16
-              .quiz__result
-                h6 Your answer:
-                p.u-mb-16 Poor things
-                h6 Correct
-                p.u-mb-16 The comedy » Poor Things « by director Yorgos Lanthimos received the Golden Lion of the Venice Film Festival in 2023. The Silver Lion went to » There is no evil «.
-                +button('Next question').button--primary.button--sm.button--inline.u-mb-16
+            .quiz-pagination.js-quiz-list-pagination
+            .quiz-list.js-quiz-list
 
           .panel.u-mb-30
             h4.u-mb-16 My bookmarks
@@ -41,7 +29,7 @@ block content
             - var n = 1;
             while n < 5
               .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
-                button(type="button").bookmark
+                button(aria-label="Bookmark" title="Bookmark").bookmark
                   i.fa.fa-bookmark
                 +post-small(n++, true).post-small--column
 
@@ -111,7 +99,7 @@ block content
                   .swiper-slide
                     a(href="#").game
                       .game__image
-                        img(src=`https://cdn.prod.www.spiegel.de/public/spon/images/games-icons/${game.url}_88.svg` alt=game.title).img
+                        img(src=`https://cdn.prod.www.spiegel.de/public/spon/images/games-icons/${game.url}_88.svg` alt=game.title loading="lazy").img
                       p.game__title.u-mt-5.u-text-center.u-font-size-14= game.title
               .swiper-pagination.pagination-online-games
             +button-link('View all games').button--primary.button--sm.button--inline
@@ -152,7 +140,7 @@ block content
                     .voucher__content
                       p.voucher__title.u-font-size-14= vaucher.title
                       .voucher__logo
-                        img(src=vaucher.logo alt=vaucher.title).img
+                        img(src=vaucher.logo alt=vaucher.title loading="lazy").img
             .u-mb-16
               +button-link('View all vauchers').button--primary.button--sm.button--inline
               +button-link('View all shops').button--default.button--sm.button--inline.u-ml-10
@@ -281,6 +269,6 @@ block content
                   .swiper-slide
                     a(href="#").magazine
                       .magazine__image
-                        img(src=magazine.url alt=magazine.title).img.img--cover
+                        img(src=magazine.url alt=magazine.title loading="lazy").img.img--cover
                       p.magazine__title.u-mt-5.u-text-center.u-font-size-14= magazine.title
               .swiper-pagination.pagination-magazines
