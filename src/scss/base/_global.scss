@@ -51,7 +51,7 @@ body[theme="light"] {
 body {
   @include smooth-font;
 
-  min-width: rem(375px);
+  min-width: rem(360px);
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
@@ -289,6 +289,13 @@ ol {
   }
 }
 
+.gallery-rss {
+
+  &.swiper-vertical {
+    touch-action: initial!important;
+  }
+}
+
 .bookmark {
   @include size(rem(30px));
   @include flex(center, center);
@@ -456,12 +463,35 @@ ol {
   }
 
   &__question {
-    display: grid;
-    grid-template-columns: 2fr 1.5fr;
+
+    @include media-breakpoint-up(lg) {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr;
+    }
   }
 
   &__image {
     max-width: 80%;
+  }
+
+  &__pagination {
+    @include flex(flex-end, center);
+  }
+
+  &__dot {
+    @include size(rem(15px));
+    @include make-spacer('mx', 5px);
+
+    background-color: var(--color-border);
+    border-radius: 50%;
+
+    &--true {
+      background-color: var(--color-green);
+    }
+
+    &--false {
+      background-color: var(--color-primary);
+    }
   }
 }
 

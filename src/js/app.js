@@ -70,9 +70,13 @@ const swiper4 = new Swiper(".gallery-rss", {
   navigation: {
     nextEl: ".navigation-rss-next",
     prevEl: ".navigation-rss-prev",
+    clickable: true,
   },
   loop: false,
   breakpoints: {
+    320: {
+      allowTouchMove: false,
+    },
     768: {
       loop: true,
     }
@@ -240,6 +244,7 @@ $(document).click(function (e) {
 function Base() {
   this.BASE = 'https://api.qool90.bet/news'
   this.data = []
+  this.active = 0
   this.types = {
     '1': 'quiz',
     '2': 'test',
@@ -270,20 +275,25 @@ Base.prototype.question = function(data) {
 
             data.answers.forEach(function (item, index) {
               html += `
-                        <button class="button button--primary button--sm ${index < data.answers.length - 1 && 'u-mb-16'} js-quiz-question-button" data-index="${index}" aria-label="${item}">
-                          <span class="button__text">${item}</span>
-                        </button>
+                        <label class="radio ${index < data.answers.length - 1 ? 'u-mb-16' : 'u-mb-24'}">
+                          <input class="radio__input js-quiz-question-checkbox" data-index="${index}" type="radio" name="answer" checked="checked">
+                          <span class="radio__item"></span>
+                          <span>${item}</span>
+                        </label>
                       `
             });
 
-  html += `     </div>
+  html += `        <button class="button button--primary button--sm button--inline js-quiz-question-button" aria-label="Next question">
+                    <span class="button__text">Next</span>
+                  </button>
+                </div>
               </div>
             `
 
   return html
 }
 
-Base.prototype.answer = function(data, answer) {
+Base.prototype.answer = function(data, answer, length, idx) {
   let html = ''
 
   html += `
@@ -316,7 +326,9 @@ Base.prototype.answer = function(data, answer) {
 
   html += `       </div>
                   <button class="button button--primary button--sm button--inline js-quiz-answer-button" aria-label="Next question">
-                    <span class="button__text">Next question</span>
+                    <span class="button__text">
+                        ${length === idx ? 'To results' : 'Next question'}
+                    </span>
                   </button>
                 </div>
               </div>
@@ -326,14 +338,26 @@ Base.prototype.answer = function(data, answer) {
 
 Base.prototype.finish = function(data, result) {
     return `
-         <div class="js-quiz">
+         <div class="u-p-24">
             <p class="u-mb-16">With <strong>${result}</strong> out of <strong>${data}</strong> points you are in the good midfield.</p>
             <p class="u-mb-16">Continue quizzing straight away? Let's go!</p>
-            <button class="button button--primary button--inline button--sm u-mb-16" aria-label="New quiz!">
-                <span class="button__text">Start new quiz! Strong!</span>
+            <button class="button button--primary button--inline button--sm u-mr-10 js-quiz-button-new" aria-label="New quiz!">
+                <span class="button__text">Start new quiz!</span>
             </button>
          </div>
         `
+}
+
+Base.prototype.pagination = function(length) {
+  let html = ''
+  html += `<div class="quiz__pagination">`
+
+  for (let i = 0; i < length; i++) {
+    html += `<button class="quiz__dot js-quiz-dot" data-index="${i}"></button>`
+  }
+
+  html += `</div>`
+  return html
 }
 
 Base.prototype.sendFormData = function(formData, url, type, successCallback, errorCallback, options = null) {
@@ -372,7 +396,9 @@ Quiz.prototype.initQuiz = function(id) {
 }
 
 Quiz.prototype.draw = function() {
-  let html = '';
+  let html = ''
+
+  $('.js-quiz-list-pagination').html(base.pagination(this.data.data.length))
 
   this.data.data.forEach(function (item, index) {
     html += `
@@ -387,15 +413,17 @@ Quiz.prototype.draw = function() {
   this.initQuiz(0)
 }
 
-Quiz.prototype.init = function(data) {
+Quiz.prototype.init = function(data, idx) {
   const self = this
   this.active = data
+  base.active = idx
 
   base.sendFormData(null, `${base.BASE }/opinions/data/?id=${this.active.id}`, 'GET', function (response) {
       if (response) {
         self.data = JSON.parse(response)
-        console.log(self.data)
-        // self.draw()
+        self.result = 0
+        self.answer = 0
+        self.draw()
       }
     }, function (xhr, status, error) {
       console.error(error);
@@ -408,14 +436,22 @@ Quiz.prototype.init = function(data) {
 const quiz = new Quiz()
 
 $('body').on('click', '.js-quiz-question-button', function () {
-  const index = $(this).attr('data-index')
   const $form = $(this).closest('.js-quiz')
+  const index = $form.find('.js-quiz-question-checkbox:checked').attr('data-index')
   const active = quiz.data.data[$form.attr('data-opinion')]
+  const idx = $form.attr('data-opinion')
 
   quiz.answer = index
   quiz.result += (active.true === Number(index) ? 1 : 0)
 
-  $form.html(base.answer(active, quiz.answer))
+  if (active.true === Number(index)) {
+    $(`.js-quiz-dot[data-index="${idx}"]`).addClass('quiz__dot--true')
+  }
+  else {
+    $(`.js-quiz-dot[data-index="${idx}"]`).addClass('quiz__dot--false')
+  }
+
+  $form.html(base.answer(active, quiz.answer, quiz.data.data.length, Number(idx) + 1))
 })
 
 $('body').on('click', '.js-quiz-answer-button', function() {
@@ -427,6 +463,14 @@ $('body').on('click', '.js-quiz-answer-button', function() {
   }
   else {
     $('.js-quiz-list').html(base.finish(quiz.data.data.length, quiz.result))
+  }
+})
+
+$('body').on('click', '.js-quiz-button-new', function() {
+  console.log(base.data[base.active + 1], base.active + 1)
+
+  if (base.active < base.data.length - 1) {
+    quiz.init(base.data[base.active + 1], base.active + 1)
   }
 })
 /* End Quiz */
@@ -442,46 +486,57 @@ function Test() {}
 /* End Test */
 
 
-function Questionary() {
-  this.data = []
-}
+function Questionary() {}
 
 Questionary.prototype.init = function() {
-  const self = this
-
-  base.sendFormData(null, `${base.BASE }/opinions/`, 'GET', function (response) {
-      if (response) {
-        self.data = JSON.parse(response)
-
-        const groupedData = self.data.reduce(function (accumulator, currentValue) {
-          const {type} = currentValue;
-          if (!accumulator[type]) {
-            accumulator[type] = [];
-          }
-          accumulator[type].push(currentValue.id);
-          return accumulator;
-        }, {});
-
-        console.log(groupedData);
-
-        // self.data.forEach(function(item) {
-        //   if (item.type === 1) {
-        //     quiz.init(item)
-        //   }
-        //   else if (self.data[0].type === 2) {
-        //     // i = new Test(self.data[0])
-        //   }
-        //   else if (self.data[0].type === 3) {
-        //     // i = new Opinion(self.data[0])
-        //   }
-        // })
-      }
-    }, function (xhr, status, error) {
-      console.error(error);
+  const test = [
+    {
+      "id": 321,
+      "type": 1
     },
     {
-      async: false
-    });
+      "id": 322,
+      "type": 1
+    },
+    {
+      "id": 523,
+      "type": 3
+    },
+    {
+      "id": 423,
+      "type": 2
+    },
+    {
+      "id": 524,
+      "type": 3
+    }
+  ]
+
+  base.data = test
+  quiz.init(base.data[0], 0)
+
+  // base.sendFormData(null, `${base.BASE }/opinions/`, 'GET', function (response) {
+  //     if (response) {
+  //       base.data = JSON.parse(response)
+  //
+  //       if(base.data.length > 0) {
+  //         if (base.data[0].type === 1) {
+  //           quiz.init(base.data[0], 0)
+  //         }
+  //         else if (base.data[0].type === 2) {
+  //           // i = new Test(self.data[0])
+  //         }
+  //         else if (base.data[0].type === 3) {
+  //           // i = new Opinion(self.data[0])
+  //         }
+  //       }
+  //     }
+  //   }, function (xhr, status, error) {
+  //     console.error(error);
+  //   },
+  //   {
+  //     async: false
+  //   });
 }
 
 
