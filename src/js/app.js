@@ -120,7 +120,7 @@ const handleScroll = () => {
   if (scrollTop < prevScrollTop) {
     $header.css("top", "0");
   } else {
-    $header.css("top", "-115px");
+    $header.css("top", `-${$header.height()}px`);
   }
 
   prevScrollTop = scrollTop;
@@ -168,7 +168,7 @@ $('.js-ticker').hover(function(){
 
 $('.sa-sticky')
   .theiaStickySidebar({
-    additionalMarginTop: 96
+    additionalMarginTop: 130
   });
 
 $('.js-search-toggle').on('click', function() {

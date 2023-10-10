@@ -144,7 +144,7 @@ ol {
 }
 
 .section {
-  @include make-spacer(py, 50px);
+  @include make-spacer(py, 24px);
 
   position: relative;
 }

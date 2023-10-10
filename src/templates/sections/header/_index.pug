@@ -1,4 +1,4 @@
-mixin header
+mixin header(show, id)
   header.header&attributes(attributes)
     .container-fluid
       .container
@@ -11,6 +11,8 @@ mixin header
             +language.header__language.u-mr-30
             +account
     +nav
-
-    .header__sticky
-      +top-news
+    if show
+      +header-tabs(id)
+    else
+      .header__sticky
+        +top-news

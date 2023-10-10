@@ -5,9 +5,10 @@ lang: en
 extends layouts/_layout
 
 block content
+  .top-banner
+    .top-banner__block
+      +banner('Wide #1')
   +header#header
-  .sticky-block
-    +nav
 
   main.main
     section.section
@@ -34,7 +35,7 @@ block content
                   a(href="./sign-up.html").u-color-primary.u-ml-5 Sign Up
                 p.edit-form__label
                   a(href="./sign-up.html").u-color-primary Forgot your password?
-              .edit-form__block
+              .edit-form__block.u-mb-30
                 .edit-form__buttons
                   a(href="#").edit-form__social.edit-form__social--facebook.u-mb-20
                     i.fab.fa-facebook-f

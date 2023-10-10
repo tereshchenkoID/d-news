@@ -5,13 +5,12 @@ lang: en
 extends layouts/_layout
 
 block content
-  +header#header
-  .sticky-block
-    +nav
+  .top-banner
+    .top-banner__block
+      +banner('Wide #1')
+  +header(true, 0)#header
 
   main.main
-    +header-tabs(0)
-
     section.section
       .container-fluid
         .container

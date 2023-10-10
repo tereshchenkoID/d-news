@@ -1,17 +1,10 @@
 @use 'src/scss/config' as *;
 
 .header-tabs {
-  position: sticky;
-  top: rem(112px);
   border-top: rem(1px) solid var(--color-border);
   background-color: var(--color-shark);
   box-shadow: var(--box-shadow);
   overflow-x: auto;
-  z-index: $z-index-11;
-
-  @include media-breakpoint-up(lg) {
-    top: rem(71px);
-  }
 
   &__wrapper {
     @include flex;

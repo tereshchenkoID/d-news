@@ -5,10 +5,10 @@ lang: en
 extends layouts/_layout
 
 block content
+  .top-banner
+    .top-banner__block
+      +banner('Wide #1')
   +header#header
-  .sticky-block
-    +nav
-    +top-news
 
   main.main
     section.section
@@ -43,7 +43,13 @@ block content
             .col.col-md-5.col-lg-4
               .widget
                 .widget__header
-                  +widget-title('Popular Post').u-pt-0
+                  +widget-title('Follow us')
+                .widget__body
+                  +follow
+
+              .widget
+                .widget__header
+                  +widget-title('Popular Post')
                 .widget__body
                   - var n = 1;
                     .row
@@ -52,13 +58,7 @@ block content
                           +post-small(n++, false).post-small--row
               .widget
                 .widget__body
-                  +banner(14)
-
-              .widget
-                .widget__header
-                  +widget-title('Follow us')
-                .widget__body
-                  +follow
+                  +banner('banner #5')(style="max-height: 216px;")
 
               .widget
                 .widget__header
@@ -72,4 +72,4 @@ block content
 
               .widget
                 .widget__body
-                  +banner(12)
+                  +banner('banner #5')(style="max-height: 216px;")
