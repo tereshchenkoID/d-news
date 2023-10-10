@@ -7,10 +7,10 @@
   background-color: var(--color-shark);
   box-shadow: var(--box-shadow);
   overflow-x: auto;
-  z-index: $z-index-12;
+  z-index: $z-index-11;
 
-  @include media-breakpoint-up(md) {
-    top: rem(125px);
+  @include media-breakpoint-up(lg) {
+    top: rem(71px);
   }
 
   &__wrapper {

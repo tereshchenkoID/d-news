@@ -16,9 +16,12 @@
   &__bottom {
     @include make-spacer(py, 40px);
 
-    position: relative;
-    z-index: $z-index-12;
     background-color: #0d0d0d;
     color: var(--color-white);
+
+    @include media-breakpoint-up(xl) {
+      position: relative;
+      z-index: $z-index-12;
+    }
   }
 }

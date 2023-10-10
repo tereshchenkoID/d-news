@@ -109,6 +109,16 @@ ol {
   }
 }
 
+.sticky-block {
+  position: sticky;
+  top: rem(50px);
+  z-index: $z-index-12;
+
+  @include media-breakpoint-up(lg) {
+    top: 0;
+  }
+}
+
 .wide {
   @include size(100%);
 }
@@ -120,7 +130,7 @@ ol {
 }
 
 .widget {
-  @include make-spacer(mb, 30px);
+  @include make-spacer(mb, 24px);
 
   &__header {
     align-items: center;

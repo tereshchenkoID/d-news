@@ -3,8 +3,12 @@
 .header {
   position: sticky;
   top: 0;
-  z-index: $z-index-13;
+  z-index: $z-index-12;
   background-color: var(--color-primary);
+
+  @include media-breakpoint-up(lg) {
+    position: static;
+  }
 
   &__left,
   &__right {

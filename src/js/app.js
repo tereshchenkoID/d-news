@@ -144,7 +144,7 @@ $('.js-ticker').hover(function(){
 
 $('.sa-sticky')
   .theiaStickySidebar({
-    additionalMarginTop: 130
+    additionalMarginTop: 96
   });
 
 $('.js-search-toggle').on('click', function() {

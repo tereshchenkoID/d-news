@@ -1,61 +1,35 @@
 @use 'src/scss/config' as *;
 
 .top-news {
-  @include size(rem(1750px), 100%);
+  @include absolute-center-top(92px);
 
   display: none;
-  position: fixed;
-  top: rem(140px);
-  left: 50%;
-  bottom: rem(15px);
-  transform: translateX(-50%);
-  min-height: rem(320px);
-  max-height: rem(715px);
+  width: rem(1750px);
 
   @media (min-width: rem(1750px)) {
     @include flex(space-between);
   }
 
   &__column {
-    @include make-spacer(p, 10px);
+    @include make-spacer(p, 2px);
     @include flex($direction: column);
     @include size(rem(160px), 100%);
 
-    gap: rem(10px);
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    min-height: rem(320px);
+    max-height: rem(675px);
     background-color: var(--color-shark);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-  }
-}
 
-.top-new {
-  position: relative;
-  box-shadow: var(--box-shadow);
-  height: rem(165px);
+    &--left {
+      left: 0;
+    }
 
-  &::after {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 70%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.13) 18%, rgba(0, 0, 0, 0.33) 36%, rgba(0, 0, 0, 0.74) 70%, rgba(0, 0, 0, 0.91) 87%, rgb(0, 0, 0) 100%);
-    content: '';
-  }
-
-  &__image {
-    @include absolute-filled;
-  }
-
-  &__title {
-    @include line-clamp(5);
-
-    position: absolute;
-    left: rem(5px);
-    right: rem(5px);
-    bottom: rem(5px);
-    font-size: rem(12px);
-    color: var(--color-white);
-    z-index: 1;
+    &--right {
+      right: 0;
+    }
   }
 }

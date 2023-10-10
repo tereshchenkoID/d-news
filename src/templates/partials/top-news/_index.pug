@@ -1,45 +1,7 @@
 mixin top-news
   .top-news&attributes(attributes)
-    .top-news__column
-      .top-list__item
-        .top-new
-          .top-new__image
-            img(src="https://fakeimg.pl/165x160/cccccc/cccccc").img.img--cover
-          p.top-new__title Ukraine abolished the fixed dollar exchange rate: NBU announces new currency regime
-      .top-list__item
-        .top-new
-          .top-new__image
-            img(src="https://fakeimg.pl/165x160/cccccc/cccccc").img.img--cover
-          p.top-new__title Russians shelled Kupiansk: two civilians were injured. Photo
-      .top-list__item
-        .top-new
-          .top-new__image
-            img(src="https://fakeimg.pl/165x160/cccccc/cccccc").img.img--cover
-          p.top-new__title Occupants shelled a transport company in Kherson, a police car was hit: one person was killed. Photos and videos
-      .top-list__item
-        .top-new
-          .top-new__image
-            img(src="https://fakeimg.pl/165x160/cccccc/cccccc").img.img--cover
-          p.top-new__title Two Ukrainian natives are on the list of Russia's best singers of 2023: who are these traitors
+    .top-news__column.top-news__column--left
+      +banner('Banner #2')(style="max-height: 100%")
 
-    .top-news__column
-      .top-list__item
-        .top-new
-          .top-new__image
-            img(src="https://fakeimg.pl/165x160/cccccc/cccccc").img.img--cover
-          p.top-new__title Ukraine abolished the fixed dollar exchange rate: NBU announces new currency regime
-      .top-list__item
-        .top-new
-          .top-new__image
-            img(src="https://fakeimg.pl/165x160/cccccc/cccccc").img.img--cover
-          p.top-new__title Russians shelled Kupiansk: two civilians were injured. Photo
-      .top-list__item
-        .top-new
-          .top-new__image
-            img(src="https://fakeimg.pl/165x160/cccccc/cccccc").img.img--cover
-          p.top-new__title Occupants shelled a transport company in Kherson, a police car was hit: one person was killed. Photos and videos
-      .top-list__item
-        .top-new
-          .top-new__image
-            img(src="https://fakeimg.pl/165x160/cccccc/cccccc").img.img--cover
-          p.top-new__title Two Ukrainian natives are on the list of Russia's best singers of 2023: who are these traitors
+    .top-news__column.top-news__column--right
+      +banner('Banner #2')(style="max-height: 100%")
