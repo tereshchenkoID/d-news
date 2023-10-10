@@ -111,6 +111,30 @@ const swiper8 = new Swiper(".gallery-magazines", {
 });
 
 
+let prevScrollTop = $(window).scrollTop();
+
+const handleScroll = () => {
+  const $header = $("#header");
+  const scrollTop = $(window).scrollTop();
+
+  if (scrollTop < prevScrollTop) {
+    $header.css("top", "0");
+  } else {
+    $header.css("top", "-115px");
+  }
+
+  prevScrollTop = scrollTop;
+}
+
+$(document).ready(function () {
+  handleScroll();
+
+  $(window).scroll(function () {
+    handleScroll();
+  });
+});
+
+
 $('.js-language-select').click(function() {
   $('.js-language').toggleClass('language--active')
 });

@@ -1,18 +1,20 @@
 @use 'src/scss/config' as *;
 
 .header {
+  @include transition(top);
+
   position: sticky;
   top: 0;
   z-index: $z-index-12;
   background-color: var(--color-primary);
 
-  @include media-breakpoint-up(lg) {
-    position: static;
-  }
-
   &__left,
   &__right {
     min-height: rem(50px);
+  }
+
+  &__sticky {
+    position: relative;
   }
 
   &__container {

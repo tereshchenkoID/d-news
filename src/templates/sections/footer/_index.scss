@@ -1,7 +1,12 @@
 @use 'src/scss/config' as *;
 
 .footer {
+  position: relative;
   background-color: var(--color-shark);
+
+  @include media-breakpoint-up(xl) {
+    z-index: $z-index-12;
+  }
 
   &__top {
     border-bottom: rem(1px) solid var(--color-porcelain);
@@ -18,10 +23,5 @@
 
     background-color: #0d0d0d;
     color: var(--color-white);
-
-    @include media-breakpoint-up(xl) {
-      position: relative;
-      z-index: $z-index-12;
-    }
   }
 }

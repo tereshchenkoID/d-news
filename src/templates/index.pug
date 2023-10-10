@@ -5,16 +5,17 @@ lang: en
 extends layouts/_layout
 
 block content
+  .top-banner
+    .top-banner__block
+      +banner('Wide #1')
   +header#header
-  .sticky-block
-    +nav
-    +top-news
+
   main.main
     //notification--active
     +notification.js-notification
 
     //cookie--active
-    +cookie.cookie--active.js-cookie
+    +cookie.js-cookie
 
     //popup--active
     +popup.js-popup
@@ -24,7 +25,7 @@ block content
         .container
           .widget
             .widget__body
-              +banner('Banner #1')(style="max-height: 70px")
+              +banner('Banner #1')(style="max-height: 120px")
 
           .widget
             .widget__body
@@ -50,7 +51,7 @@ block content
 
           .widget
             .widget__body
-              +banner('Banner #1')(style="max-height: 70px")
+              +banner('Banner #1')(style="max-height: 120px")
 
           .row
             .col.col-md-7.col-lg-8.sa-sticky
@@ -229,7 +230,7 @@ block content
 
               .widget
                 .widget__body
-                  +banner('banner #6')(style="max-height: 50px")
+                  +banner('banner #6')(style="max-height: 87px")
 
               .widget
                 .widget__header

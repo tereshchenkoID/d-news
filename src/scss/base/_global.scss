@@ -109,13 +109,33 @@ ol {
   }
 }
 
-.sticky-block {
-  position: sticky;
-  top: rem(50px);
-  z-index: $z-index-12;
+.main {
+  position: relative;
+  background-color: var(--color-cod-gray);
+}
 
-  @include media-breakpoint-up(lg) {
+.top-banner {
+  height: 50vw;
+
+  @include media-breakpoint-up(sm) {
+    height: 33.3vw;
+  }
+
+  @include media-breakpoint-up(md) {
+    height: 25vw;
+  }
+
+  @include media-breakpoint-up(xl) {
+    height: 20vw;
+  }
+
+  &__block {
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    height: inherit;
+    z-index: 0;
   }
 }
 

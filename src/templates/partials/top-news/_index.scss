@@ -1,7 +1,7 @@
 @use 'src/scss/config' as *;
 
 .top-news {
-  @include absolute-center-top(92px);
+  @include absolute-center-top(rem(24px));
 
   display: none;
   width: rem(1750px);
