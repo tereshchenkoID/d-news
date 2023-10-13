@@ -303,13 +303,6 @@ ol {
   color: var(--color-white);
 }
 
-.gallery-rss {
-
-  &.swiper-vertical {
-    touch-action: initial!important;
-  }
-}
-
 .gallery-magazines,
 .gallery-online-games {
 
@@ -335,6 +328,13 @@ ol {
 
   .swiper-slide {
     width: rem(140px)!important;
+  }
+}
+
+.gallery-rss {
+
+  &.swiper-vertical {
+    touch-action: initial!important;
   }
 }
 
