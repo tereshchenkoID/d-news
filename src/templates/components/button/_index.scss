@@ -23,6 +23,11 @@
     color: currentColor;
   }
 
+  &:disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
   &--sm {
     @include make-spacer(px, 10px);
 

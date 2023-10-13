@@ -19,7 +19,7 @@ block content
               +widget-title('My account', 'logout').widget-title--alt
 
           .panel.u-mb-30
-            h4.u-mb-16 Daily quiz
+            h4 Daily quiz
             .quiz-pagination.js-quiz-list-pagination
             .quiz-list.js-quiz-list
 
@@ -97,12 +97,9 @@ block content
 
             .swiper.gallery-online-games.u-mb-16
               .swiper-wrapper
-                each game in games
+                each item in games
                   .swiper-slide
-                    a(href="#").game
-                      .game__image
-                        img(src=`https://cdn.prod.www.spiegel.de/public/spon/images/games-icons/${game.url}_88.svg` alt=game.title loading="lazy").img
-                      p.game__title.u-mt-5.u-text-center.u-font-size-14= game.title
+                    +game(item)
               .swiper-pagination.pagination-online-games
             +button-link('View all games').button--primary.button--sm.button--inline
 
@@ -134,15 +131,9 @@ block content
               ]
 
             .row.u-mb-16
-              each vaucher in vauchers
+              each item in vauchers
                 .col.col-sm-6.col-verticall-offset
-                  a(href="#").voucher
-                    .voucher__image
-                      img(src=vaucher.url alt=vaucher.title).img.img--cover
-                    .voucher__content
-                      p.voucher__title.u-font-size-14= vaucher.title
-                      .voucher__logo
-                        img(src=vaucher.logo alt=vaucher.title loading="lazy").img
+                  +voucher(item)
             .u-mb-16
               +button-link('View all vauchers').button--primary.button--sm.button--inline
               +button-link('View all shops').button--default.button--sm.button--inline.u-ml-10
@@ -267,10 +258,7 @@ block content
 
             .swiper.gallery-magazines.u-mb-16
               .swiper-wrapper
-                each magazine in magazines
+                each item in magazines
                   .swiper-slide
-                    a(href="#").magazine
-                      .magazine__image
-                        img(src=magazine.url alt=magazine.title loading="lazy").img.img--cover
-                      p.magazine__title.u-mt-5.u-text-center.u-font-size-14= magazine.title
+                    +magazine(item)
               .swiper-pagination.pagination-magazines

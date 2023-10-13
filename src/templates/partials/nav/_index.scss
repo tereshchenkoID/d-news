@@ -3,6 +3,8 @@
 .nav {
   @include make-spacer(py, 10px);
 
+  position: relative;
+  z-index: $z-index-1;
   background-color: var(--color-shark);
 
   &__logo,

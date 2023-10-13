@@ -22,36 +22,29 @@ block content
             h4.u-mb-16 My newsletters
             +alert('You are not currently subscribed to a newsletter.').alert--info
 
+          -
+            var newsletters = [
+              {
+                title: 'The situation in the morning',
+                date: 'daily (Mon - Sat)',
+                image: 'https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/die-lage-am-morgen.png'
+              },
+              {
+                title: 'The location: Inside Austria',
+                date: 'daily (Mon - Sat)',
+                image: 'https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/inside-austria.png'
+              },
+              {
+                title: 'All the best',
+                date: 'weekly (Sat)',
+                image: 'https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/alles-gute.png'
+              }
+            ]
+
           .row.u-mb-30
-            .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
-              .newsletter
-                .newsletter__thumbnail
-                  img(src="https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/die-lage-am-morgen.png").img
-                .newsletter__content
-                  h5.newsletter__title.u-text-transform-capitalize The situation in the morning
-                  p.newsletter__date.u-font-size-14.u-mb-10 daily (Mon - Sat)
-                  .u-text-right
-                    +button-link('Unsubscribe').button--default.button--sm.button--inline
-
-            .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
-              .newsletter
-                .newsletter__thumbnail
-                  img(src="https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/inside-austria.png").img
-                .newsletter__content
-                  h5.newsletter__title.u-text-transform-capitalize The location: Inside Austria
-                  p.newsletter__date.u-font-size-14.u-mb-10 daily (Mon - Sat)
-                  .u-text-right
-                    +button-link('Unsubscribe').button--default.button--sm.button--inline
-
-            .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
-              .newsletter
-                .newsletter__thumbnail
-                  img(src="https://static.gruppenkonto.spiegel.de/images/common/newsletter/sp/alles-gute.png").img
-                .newsletter__content
-                  h5.newsletter__title.u-text-transform-capitalize All the best
-                  p.newsletter__date.u-font-size-14.u-mb-10 weekly (Sat)
-                  .u-text-right
-                    +button-link('Unsubscribe').button--default.button--sm.button--inline
+            each item in newsletters
+              .col.col-sm-6.col-md-4.col-lg-3.col-verticall-offset
+                +newsletter(item)
 
           .panel
             h4 Discover events

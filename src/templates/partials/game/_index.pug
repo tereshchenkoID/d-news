@@ -1,0 +1,5 @@
+mixin game(data)
+  a(href="#").game&attributes(attributes)
+    .game__image
+      img(src=`https://cdn.prod.www.spiegel.de/public/spon/images/games-icons/${data.url}_88.svg` alt=data.title loading="lazy").img
+    p.game__title.u-mt-5.u-text-center.u-font-size-14= data.title

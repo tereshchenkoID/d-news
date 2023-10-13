@@ -1,0 +1,21 @@
+@use 'src/scss/config' as *;
+
+.scale {
+  display: grid;
+  grid-template-columns: 1fr rem(50px);
+  align-items: center;
+  position: relative;
+
+  &__background {
+    @include size(100%, rem(12px));
+
+    background-color: var(--color-border);
+
+    div {
+      @include size(100%);
+
+      transform-origin: 0 50%;
+      background-color: var(--color-primary);
+    }
+  }
+}

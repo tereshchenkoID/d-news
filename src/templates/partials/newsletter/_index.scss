@@ -1,0 +1,33 @@
+@use 'src/scss/config' as *;
+
+.newsletter {
+  position: relative;
+  background-color: var(--color-shark);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+
+  &__title {
+    @include line-clamp(2);
+
+    line-height: 1.2;
+    font-size: rem(16px);
+  }
+
+  &__thumbnail {
+    aspect-ratio: 16/9;
+
+    @include media-breakpoint-up(sm) {
+      min-height: rem(150px);
+    }
+  }
+
+  &__content {
+    @include make-spacer(py, 10px);
+    @include make-spacer(px, 15px);
+  }
+
+  &__date {
+    color: var(--color-comet);
+  }
+}

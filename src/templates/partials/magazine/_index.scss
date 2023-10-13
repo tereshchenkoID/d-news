@@ -1,0 +1,13 @@
+@use 'src/scss/config' as *;
+
+.magazine {
+  display: block;
+  width: rem(140px);
+
+  &__image {
+    @include size(rem(140px), rem(190px));
+
+    background-color: var(--color-border);
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,5 @@
+mixin magazine(data)
+  a(href="#" aria-label="Logo").magazine&attributes(attributes)
+    .magazine__image
+      img(src=data.url alt=data.title loading="lazy").img.img--cover
+    p.magazine__title.u-mt-5.u-text-center.u-font-size-14= data.title

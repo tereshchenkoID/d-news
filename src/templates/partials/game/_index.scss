@@ -1,0 +1,14 @@
+@use 'src/scss/config' as *;
+
+.game {
+  display: block;
+  width: rem(100px);
+
+  &__image {
+    @include size(rem(100px));
+
+    border-radius: var(--border-radius);
+    background-color: var(--color-border);
+    overflow: hidden;
+  }
+}

@@ -289,13 +289,6 @@ ol {
   }
 }
 
-.gallery-rss {
-
-  &.swiper-vertical {
-    touch-action: initial!important;
-  }
-}
-
 .bookmark {
   @include size(rem(30px));
   @include flex(center, center);
@@ -310,35 +303,10 @@ ol {
   color: var(--color-white);
 }
 
-.newsletter {
-  position: relative;
-  background-color: var(--color-shark);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  overflow: hidden;
+.gallery-rss {
 
-  &__title {
-    @include line-clamp(2);
-
-    line-height: 1.2;
-    font-size: rem(16px);
-  }
-
-  &__thumbnail {
-    aspect-ratio: 16/9;
-
-    @include media-breakpoint-up(sm) {
-      min-height: rem(150px);
-    }
-  }
-
-  &__content {
-    @include make-spacer(py, 10px);
-    @include make-spacer(px, 15px);
-  }
-
-  &__date {
-    color: var(--color-comet);
+  &.swiper-vertical {
+    touch-action: initial!important;
   }
 }
 
@@ -377,112 +345,92 @@ ol {
   }
 }
 
-.magazine {
-  display: block;
-  width: rem(140px);
-
-  &__image {
-    @include size(rem(140px), rem(190px));
-
-    background-color: var(--color-border);
-    overflow: hidden;
-  }
-}
-
-.game {
-  display: block;
-  width: rem(100px);
-
-  &__image {
-    @include size(rem(100px));
-
-    border-radius: var(--border-radius);
-    background-color: var(--color-border);
-    overflow: hidden;
-  }
-}
-
-.voucher {
-  @include size(100%, rem(80px));
-
-  display: block;
-  position: relative;
-  border-radius: var(--border-radius);
-  background-color: var(--color-border);
-  overflow: hidden;
-
-  &::after {
-    @include absolute-filled;
-
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.13) 18%,rgba(0,0,0,0.33) 36%,rgba(0,0,0,0.74) 70%,rgba(0,0,0,0.91) 87%,rgba(0,0,0,1) 100%);
-    content: '';
-  }
-
-  &__image {
-    @include absolute-filled;
-  }
-
-  &__content {
-    @include flex(space-between, flex-end);
-
-    position: absolute;
-    top: 50%;
-    right: rem(15px);
-    left: rem(15px);
-    transform: translateY(-50%);
-    z-index: $z-index-1;
-  }
-
-  &__logo {
-    @include size(rem(80px), rem(50px));
-
-    background-color: var(--color-shark);
-  }
-
-  &__title {
-    color: var(--color-shark);
-  }
-}
-
-.js-quiz-list {
-}
-
 .quiz {
   display: none;
 
   &--active {
     display: block;
   }
+}
 
-  &__question,
-  &__answer {
+.quiz-question {
+  @include make-spacer(py, 10px);
+  @include make-spacer(px, 0);
+  @include make-spacer(p, 20px, lg);
 
-    > div {
-      @include make-spacer(p, 20px);
+  &__wrapper {
+    display: grid;
+    gap: rem(20px);
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: 1.5fr 2fr;
+      align-items: flex-start;
     }
   }
 
-  &__question {
+  &__list {
+    display: grid;
+    gap: rem(15px);
 
-    @include media-breakpoint-up(lg) {
-      display: grid;
-      grid-template-columns: 2fr 1.5fr;
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__block {
+    @include flex($align-items: center);
+
+    gap: rem(10px);
+  }
+
+  &__radio {
+    @include make-spacer(pl, 40px!important);
+
+    border-radius: var(--border-radius);
+    height: rem(48px) !important;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-mine-shaft);
+
+    .radio {
+
+      &__item {
+        @include size(rem(20px));
+
+        left: rem(10px);
+        background-color: var(--color-shark);
+        border-color: var(--color-border);
+      }
     }
   }
 
   &__image {
-    max-width: 80%;
+    max-width: 100%;
+  }
+}
+
+.quiz-pagination {
+  @include flex($align-items: center);
+
+  gap: rem(15px);
+
+  &::before {
+    @include size(100%, rem(1px));
+
+    display: block;
+    flex: 1;
+    background-color: var(--color-border);
+    content: '';
   }
 
-  &__pagination {
-    @include flex(flex-end, center);
+  &__list {
+    @include flex($align-items: center);
   }
 
   &__dot {
-    @include size(rem(15px));
-    @include make-spacer('mx', 5px);
+    @include size(rem(10px));
+    @include make-spacer('mx', 2px);
 
-    background-color: var(--color-border);
+    background-color: var(--color-gray-chateau);
     border-radius: 50%;
 
     &--true {
@@ -492,28 +440,5 @@ ol {
     &--false {
       background-color: var(--color-primary);
     }
-  }
-}
-
-.scale {
-  display: grid;
-  grid-template-columns: 1fr rem(50px);
-  align-items: center;
-  position: relative;
-
-  &__background {
-    @include size(100%, rem(20px));
-
-    background-color: var(--color-border);
-
-    div {
-      @include size(100%);
-
-      transform-origin: 0 50%;
-      background-color: var(--color-primary);
-    }
-  }
-
-  &__value {
   }
 }

@@ -1,0 +1,9 @@
+mixin newsletter(data)
+  .newsletter&attributes(attributes)
+    .newsletter__thumbnail
+      img(src=data.image).img
+    .newsletter__content
+      h5.newsletter__title.u-text-transform-capitalize= data.title
+      p.newsletter__date.u-font-size-14.u-mb-10= data.date
+      .u-text-right
+        +button-link('Unsubscribe').button--default.button--sm.button--inline

@@ -1,0 +1,8 @@
+mixin voucher(data)
+  a(href="#").voucher&attributes(attributes)
+    .voucher__image
+      img(src=data.url alt=data.title).img.img--cover
+    .voucher__content
+      p.voucher__title.u-font-size-14= data.title
+      .voucher__logo
+        img(src=data.logo alt=data.title loading="lazy").img

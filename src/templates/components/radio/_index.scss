@@ -35,11 +35,9 @@
 
   &__item {
     @include transition(all);
-    @include size(rem(25px), 100%);
+    @include size(rem(25px));
+    @include absolute-center-left(0);
 
-    position: absolute;
-    top: 0;
-    left: 0;
     border-radius: 50%;
     background-color: var(--color-cod-gray);
     border: rem(1px) solid var(--color-cod-gray);
