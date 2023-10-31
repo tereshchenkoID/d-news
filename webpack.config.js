@@ -1,18 +1,21 @@
 const webpack = require('webpack');
 const path = require('path');
 const config = require('./gulp/config');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 function createConfig(env) {
-  let isProduction,
-    webpackConfig;
+  let isProduction;
+    let webpackConfig;
 
   if (env === undefined) {
+    // eslint-disable-next-line no-param-reassign
     env = process.env.NODE_ENV;
   }
 
+  // eslint-disable-next-line prefer-const
   isProduction = env === 'production';
 
+  // eslint-disable-next-line prefer-const
   webpackConfig = {
     mode: isProduction?'production':'development',
     context: path.join(__dirname, config.src.js),
@@ -37,14 +40,10 @@ function createConfig(env) {
       new webpack.LoaderOptionsPlugin({
         options: {
           eslint: {
+            // eslint-disable-next-line global-require
             formatter: require('eslint-formatter-pretty')
           }
         }
-      }),
-      new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
       }),
       new webpack.NoEmitOnErrorsPlugin(),
 
@@ -73,7 +72,7 @@ function createConfig(env) {
           options: {
             fix: true,
             cache: true,
-            ignorePattern: __dirname + '/src/js/lib/'
+            ignorePattern: `${__dirname  }/src/js/lib/`
           }
         }, {
           test: /\.js$/,
@@ -84,7 +83,7 @@ function createConfig(env) {
         },
         { test: /\.(glsl|frag|vert)$/, loader: 'raw-loader', exclude: /node_modules/ },
         { test: /\.(glsl|frag|vert)$/, loader: 'glslify-loader', exclude: /node_modules/ }
-        ],
+      ],
     },
   };
 

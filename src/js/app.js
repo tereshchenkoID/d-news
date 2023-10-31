@@ -1,7 +1,10 @@
 import {Swiper, EffectFade, Navigation, Pagination, Thumbs } from 'swiper';
+import { Fancybox } from "@fancyapps/ui";
 import 'theia-sticky-sidebar';
 
 Swiper.use([ EffectFade, Navigation, Pagination, Thumbs]);
+
+Fancybox.bind("[data-fancybox]", {});
 
 const swiper = new Swiper(".gallery-thumb-photo", {
   spaceBetween: 10,
@@ -114,6 +117,30 @@ const swiper8 = new Swiper(".gallery-magazines", {
   },
 });
 
+const swiper9 = new Swiper(".gallery-details", {
+  loop: true,
+  spaceBetween: 20,
+  pagination: {
+    el: ".pagination-details",
+    clickable: true,
+  },
+  slidesPerView: 3,
+  breakpoints: {
+    320: {
+      slidesPerView: 1
+    },
+    480: {
+      slidesPerView: 2
+    },
+    992: {
+      slidesPerView: 2
+    },
+    1200: {
+      slidesPerView: 3
+    },
+  },
+});
+
 
 let prevScrollTop = $(window).scrollTop();
 
@@ -173,10 +200,9 @@ $('.js-ticker').hover(function(){
 });
 
 
-$('.sa-sticky')
-  .theiaStickySidebar({
+$('.sa-sticky').theiaStickySidebar({
     additionalMarginTop: 130
-  });
+});
 
 $('.js-search-toggle').on('click', function() {
   $('.js-search').toggleClass('search--wide')

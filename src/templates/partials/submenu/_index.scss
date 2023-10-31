@@ -32,7 +32,7 @@
         @include make-spacer(pl, 0);
         @include make-spacer(py, 5px);
 
-        font-size: rem(13px);
+        font-size: rem(14px);
       }
     }
   }
@@ -49,10 +49,6 @@
     display: block;
     font-size: rem(14px);
     opacity: 0.9;
-
-    @include media-breakpoint-up(xl) {
-      font-size: rem(16px);
-    }
 
     &:hover {
       opacity: 1;
