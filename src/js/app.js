@@ -526,32 +526,6 @@ function Test() {}
 function Questionary() {}
 
 Questionary.prototype.init = function() {
-  // const test = [
-  //   {
-  //     "id": 321,
-  //     "type": 1
-  //   },
-  //   {
-  //     "id": 322,
-  //     "type": 1
-  //   },
-  //   {
-  //     "id": 523,
-  //     "type": 3
-  //   },
-  //   {
-  //     "id": 423,
-  //     "type": 2
-  //   },
-  //   {
-  //     "id": 524,
-  //     "type": 3
-  //   }
-  // ]
-  //
-  // base.data = test
-  // quiz.init(base.data[0], 0)
-
   base.sendFormData(null, `${base.BASE }/opinions/`, 'GET', function (response) {
       if (response) {
         base.data = JSON.parse(response)

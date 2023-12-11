@@ -3,7 +3,6 @@
 .menu {
   @include make-spacer(p, 0);
   @include make-spacer(m, 0);
-  @include flex(null, null, column);
 
   display: none;
   position: absolute;
@@ -14,12 +13,12 @@
   box-shadow: var(--box-shadow);
   max-height: calc(100vh - rem(112px));
   overflow-y: auto;
+  overflow-x: hidden;
 
   @include media-breakpoint-up(lg) {
-    @include flex(null, null, column);
-
     position: static;
     flex-direction: row;
+    justify-content: center;
     background-color: transparent;
     box-shadow: unset;
     overflow-x: auto;
@@ -42,14 +41,16 @@
   }
 
   &--active {
-    @include flex(null, null, column);
+    @include flex(flex-start, null, column);
 
     @include media-breakpoint-up(lg) {
       flex-direction: row;
+      justify-content: center;
     }
   }
 
   &__item {
+    flex-shrink: 0;
 
     &--active {
 

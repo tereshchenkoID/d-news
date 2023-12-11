@@ -1,0 +1,67 @@
+@use 'src/scss/config' as *;
+
+.war-banner {
+  @include size(100%);
+
+  display: block;
+  position: relative;
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  box-shadow:  var(--box-shadow);
+  overflow: hidden;
+
+  &__container {
+    @include make-spacer(px, 15px);
+    @include make-spacer(py, 10px);
+    @include flex;
+
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+
+  &__title {
+    @include make-spacer(px, 15px);
+    @include make-spacer(py, 10px);
+
+    color: var(--color-primary);
+  }
+
+  &__item {
+    @include make-spacer(px, 8px);
+
+    max-width: rem(155px);
+    flex: 1;
+    border-right: rem(1px) solid var(--color-border);
+
+    &:first-child {
+      @include make-spacer(pl, 0);
+    }
+
+    &:last-child {
+      @include make-spacer(pr, 0);
+
+      border-right: 0;
+    }
+  }
+
+  &__count {
+    @include make-spacer(my, 5px);
+
+    span {
+      @include make-spacer(ml, 5px);
+
+      font-size: rem(14px);
+      color: var(--color-primary);
+    }
+  }
+
+  &__img {
+    width: rem(97px);
+  }
+
+  &__description {
+    text-transform: uppercase;
+    font-size: rem(10px);
+    line-height: 1;
+  }
+}
