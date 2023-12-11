@@ -16,9 +16,9 @@
   overflow-x: hidden;
 
   @include media-breakpoint-up(lg) {
+    @include flex(center, null, row);
+
     position: static;
-    flex-direction: row;
-    justify-content: center;
     background-color: transparent;
     box-shadow: unset;
     overflow-x: auto;
