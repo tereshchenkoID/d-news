@@ -49,6 +49,11 @@
     }
   }
 
+  &__text,
+  &__icon {
+    @include transition;
+  }
+
   &__item {
     flex-shrink: 0;
 
@@ -63,6 +68,10 @@
         &__link {
           color: var(--color-primary);
           opacity: 1;
+        }
+
+        &__icon {
+          transform: rotateZ(180deg);
         }
       }
     }
@@ -91,6 +100,8 @@
 
   &__icon {
     @include make-spacer(ml, 5px);
+
+    line-height: 1;
   }
 
   &__dropdown {
