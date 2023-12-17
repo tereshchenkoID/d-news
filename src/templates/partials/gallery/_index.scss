@@ -69,7 +69,7 @@
 
 .gallery-photo {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
-  background-color: var(--color-white);
+  background-color: var(--color-shark);
 
   .swiper-slide {
 
@@ -90,7 +90,6 @@
       @include make-spacer(p, 10px);
 
       display: block;
-      color: var(--color-black);
     }
   }
 }
@@ -98,9 +97,9 @@
 .gallery-thumb-photo {
   @include make-spacer(p, 10px!important);
 
-  background-color: var(--color-white);
+  background-color: var(--color-shark);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
-  border-top: rem(1px) solid var(--color-cod-gray);
+  border-top: rem(1px) solid var(--color-border);
   height: rem(96px);
 
   .swiper-slide {

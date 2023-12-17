@@ -49,11 +49,11 @@
     @include make-spacer(py, 6px);
 
     border: 0;
-    background-color: var(--color-white);
+    background-color: var(--color-shark);
     height: 100%;
 
     &:focus {
-      background-color: var(--color-white);
+      background-color: var(--color-shark);
     }
   }
 

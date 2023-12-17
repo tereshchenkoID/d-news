@@ -1,6 +1,6 @@
 @use 'src/scss/config' as *;
 
-.language {
+.edition {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -24,7 +24,7 @@
       content: '';
     }
 
-    .language {
+    .edition {
 
       &__select,
       &__item,
@@ -46,7 +46,7 @@
   &--active,
   &:hover {
 
-    .language {
+    .edition {
 
       &__select {
         @include transition(border-color);
@@ -59,7 +59,7 @@
 
   &--active {
 
-    .language {
+    .edition {
 
       &__select {
         color: var(--color-primary);
@@ -97,6 +97,10 @@
 
     * {
       @include transition;
+    }
+
+    i {
+      @include make-spacer(ml, auto);
     }
   }
 

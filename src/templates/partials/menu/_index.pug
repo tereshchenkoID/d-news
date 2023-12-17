@@ -1,5 +1,7 @@
 mixin menu
   menu.menu&attributes(attributes)
+    .menu__item.menu__item--u-hidden.js-menu-item
+      +edition.edition--alt
     .menu__item.js-menu-item
       a(href="./index.html").menu__link.menu__link--active
         span.menu__text Home
@@ -86,5 +88,5 @@ mixin menu
             href: "./user-overview.html"
           }]
         )
-    .menu__item.js-menu-item
+    .menu__item.menu__item--u-hidden.js-menu-item
       +language.language--alt

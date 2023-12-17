@@ -1,3 +1,10 @@
+-
+  var language = [
+    'Arabic',
+    'German',
+    'Ukrainian',
+  ]
+
 mixin language
   .language.js-language&attributes(attributes)
     .language__select.js-language-select
@@ -6,9 +13,6 @@ mixin language
     ul.language__list
       li.language__item
         a.language__link.language__link--active.js-language-item(data-language="English") English
-      li.language__item
-        a.language__link.js-language-item(data-language="Arabic") Arabic
-      li.language__item
-        a.language__link.js-language-item(data-language="German") German
-      li.language__item
-        a.language__link.js-language-item(data-language="Ukrainian") Ukrainian
+      each item in language
+        li.language__item
+          a.language__link.js-language-item(data-language=item)= item

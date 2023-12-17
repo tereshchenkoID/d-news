@@ -13,6 +13,15 @@
     min-height: rem(50px);
   }
 
+  &__edition,
+  &__language {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+  }
+
   &__sticky {
     position: relative;
   }
@@ -43,14 +52,6 @@
 
     @include media-breakpoint-up(lg) {
       justify-content: flex-end;
-    }
-  }
-
-  &__language {
-    display: none;
-
-    @include media-breakpoint-up(lg) {
-      display: block;
     }
   }
 

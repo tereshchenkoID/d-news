@@ -16,7 +16,7 @@
   overflow-x: hidden;
 
   @include media-breakpoint-up(lg) {
-    @include flex(center, null, row);
+    @include flex(flex-start, null, row);
 
     position: static;
     background-color: transparent;
@@ -76,7 +76,7 @@
       }
     }
 
-    &:last-child {
+    &--u-hidden {
 
       @include media-breakpoint-up(lg) {
         display: none;

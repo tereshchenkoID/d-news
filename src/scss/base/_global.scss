@@ -442,3 +442,16 @@ ol {
     }
   }
 }
+
+.grid {
+  display: grid;
+  border: 1px solid red;
+
+  &--2 {
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: 1fr rem(332px);
+      column-gap: $grid-padding * 2;
+    }
+  }
+}

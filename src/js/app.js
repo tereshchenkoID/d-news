@@ -2,6 +2,16 @@ import {Swiper, EffectFade, Navigation, Pagination, Thumbs } from 'swiper';
 import { Fancybox } from "@fancyapps/ui";
 import 'theia-sticky-sidebar';
 
+
+const $switch = $('.js-switch input')
+$switch.prop('checked', sessionStorage.getItem('theme') === 'dark')
+$('body').attr('theme', sessionStorage.getItem('theme'))
+
+$switch.on('change', function() {
+  $('body').attr('theme', $(this).prop('checked') === true ? 'dark' : 'light')
+  sessionStorage.setItem('theme', $(this).prop('checked') === true ? 'dark' : 'light')
+})
+
 Swiper.use([ EffectFade, Navigation, Pagination, Thumbs]);
 
 Fancybox.bind("[data-fancybox]", {});
@@ -168,6 +178,17 @@ $(document).ready(function () {
   });
 });
 
+
+$('.js-edition-select').click(function() {
+  $('.js-edition').toggleClass('edition--active')
+});
+
+$('.js-edition-item').click(function() {
+  $('.js-edition-item').removeClass('edition__link--active')
+  $(this).addClass('edition__link--active')
+  $('.js-edition-toggle').text($(this)[0].getAttribute('data-edition'))
+  $('.js-edition').toggleClass('edition--active')
+});
 
 $('.js-language-select').click(function() {
   $('.js-language').toggleClass('language--active')

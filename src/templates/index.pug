@@ -29,13 +29,9 @@ block content
 
           .widget
             .widget__body
-              .row
-                .col.col-lg-9.u-mb-24
-                  +announcents
-                .col.col-lg-3.u-mb-24
-                  +banner('Banner #3')(style="max-height: 550px")
-
-                .col.col-lg-9.u-mb-24
+              .grid.grid--2
+                .grid__column
+                  +announcents.u-mb-24
                   .row
                     .col.u-pb-12
                       +post-medium(2, true).post-medium--row
@@ -46,7 +42,8 @@ block content
                     .col.col-lg-6.col-verticall-offset
                       +banner('Banner #4')(style="max-height: 87px")
 
-                .col.col-lg-3
+                .grid__column.u-visible-lg
+                  +banner('Banner #3')(style="max-height: 550px").u-mb-24
                   +rss-news
 
           .widget

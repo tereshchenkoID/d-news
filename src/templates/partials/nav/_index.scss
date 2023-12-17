@@ -23,6 +23,10 @@
     justify-content: center;
   }
 
+  &__switch {
+    @include make-spacer(mr, 10px);
+  }
+
   &__logo {
     @include make-spacer(mr, 20px);
 
