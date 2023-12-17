@@ -14,8 +14,8 @@ block content
     section.section
       .container-fluid
         .container
-          .row
-            .col.col-md-7.col-lg-8
+          .grid.grid--lg
+            .grid__column
               .widget
                 .widget__body
                   +post
@@ -40,7 +40,8 @@ block content
                         .col.col-lg-4.col-verticall-offset
                           +post-medium(n++, false).post-medium--column
 
-            .col.col-md-5.col-lg-4.sa-sticky
+
+            .grid__column.sa-sticky
               .widget
                 .widget__header
                   +widget-title('Follow us')

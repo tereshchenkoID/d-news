@@ -445,13 +445,29 @@ ol {
 
 .grid {
   display: grid;
-  border: 1px solid red;
+  grid-template-columns: 1fr;
 
-  &--2 {
+  &--sm {
 
     @include media-breakpoint-up(lg) {
       grid-template-columns: 1fr rem(332px);
       column-gap: $grid-padding * 2;
     }
   }
+
+  &--lg {
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: 1fr rem(450px);
+      column-gap: $grid-padding * 2;
+    }
+  }
+
+  &__column {
+    overflow: hidden;
+  }
+}
+
+.sa-sticky {
+  overflow: hidden!important;
 }

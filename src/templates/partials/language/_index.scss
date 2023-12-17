@@ -108,7 +108,7 @@
     border-bottom: rem(1px) solid var(--color-white);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       position: absolute;
       top: calc(100% - 3px);
       left: 0;

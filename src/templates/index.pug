@@ -27,31 +27,29 @@ block content
             .widget__body
               +war-banner
 
-          .widget
-            .widget__body
-              .grid.grid--2
-                .grid__column
-                  +announcents.u-mb-24
-                  .row
-                    .col.u-pb-12
-                      +post-medium(2, true).post-medium--row
-                    - var n = 1;
-                    while n < 6
-                      .col.col-lg-6.col-verticall-offset
-                        +post-small(n++, false).post-small--row
-                    .col.col-lg-6.col-verticall-offset
-                      +banner('Banner #4')(style="max-height: 87px")
+          .grid.grid--sm.u-mb-24
+            .grid__column
+              +announcents.u-mb-24
+              .row
+                .col.u-pb-12
+                  +post-medium(2, true).post-medium--row
+                - var n = 1;
+                while n < 6
+                  .col.col-lg-6.col-verticall-offset
+                    +post-small(n++, false).post-small--row
+                .col.col-lg-6.col-verticall-offset
+                  +banner('Banner #4')(style="max-height: 87px")
 
-                .grid__column.u-visible-lg
-                  +banner('Banner #3')(style="max-height: 550px").u-mb-24
-                  +rss-news
+            .grid__column.u-visible-lg
+              +banner('Banner #3')(style="max-height: 550px").u-mb-24
+              +rss-news
 
           .widget
             .widget__body
               +banner('Banner #1')(style="max-height: 120px")
 
-          .row
-            .col.col-md-7.col-lg-8.sa-sticky
+          .grid.grid--lg
+            .grid__column
               .widget.widget--alt
                 .widget__header
                   +widget-title('Latest News')
@@ -84,21 +82,19 @@ block content
                 .widget__body
                   +banner('banner #7')(style="max-height: 120px")
 
-              - var i = 1;
-              while i < 4
-                .widget
-                  .widget__header
-                    +widget-title(`BUSINESS ${i++}`)
-                  .widget__body
-                    .row
-                      - var n = 1;
-                      while n < 4
-                        .col.col-verticall-offset
-                          +post-medium(n++, true).post-medium--row
+              .widget
+                .widget__header
+                  +widget-title(`BUSINESS ${i++}`)
+                .widget__body
+                  .row
+                    - var n = 1;
+                    while n < 4
+                      .col.col-verticall-offset
+                        +post-medium(n++, true).post-medium--row
 
-                .row.u-mb-24
-                  .col
-                    +banner('banner #7')(style="max-height: 70px")
+              .row.u-mb-24
+                .col
+                  +banner('banner #7')(style="max-height: 70px")
 
               .widget.widget--alt
                 .widget__header
@@ -179,7 +175,8 @@ block content
                 .widget__body
                   +pagination
 
-            .col.col-md-5.col-lg-4.sa-sticky
+
+            .grid__column.sa-sticky
               .widget
                 .widget__header
                   +widget-title('Follow us')
