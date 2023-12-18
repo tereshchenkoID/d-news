@@ -13,8 +13,7 @@
     min-height: rem(50px);
   }
 
-  &__edition,
-  &__language {
+  &__edition {
     display: none;
 
     @include media-breakpoint-up(lg) {

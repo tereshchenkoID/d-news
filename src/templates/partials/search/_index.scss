@@ -9,13 +9,14 @@
   border-radius: var(--border-radius);
   width: rem(40px);
   height: rem(55px);
+  background-color: var(--color-shark);
 
   &--focus {
-    border-color: var(--color-primary);
+    outline: rem(1px) solid var(--color-primary);
   }
 
   &--wide {
-    width: 101%;
+    width: calc(100% + rem(1px));
 
     .search {
 
@@ -49,16 +50,15 @@
     @include make-spacer(py, 6px);
 
     border: 0;
-    background-color: var(--color-shark);
+    background: transparent;
     height: 100%;
 
     &:focus {
-      background-color: var(--color-shark);
+      background: transparent;
     }
   }
 
   &__button {
-    @include transition(opacity);
     @include absolute-center-left(0);
 
     opacity: 0;

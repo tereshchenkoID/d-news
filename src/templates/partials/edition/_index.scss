@@ -37,8 +37,13 @@
         @include make-spacer(py, 10px);
       }
 
+      &__select {
+        border: 0;
+      }
+
       &__list {
-        background-color: var(--color-white);
+        border: 0;
+        background-color: transparent;
       }
     }
   }
@@ -72,10 +77,10 @@
       &__list {
         display: block;
       }
-    }
 
-    i {
-      transform: rotateZ(180deg);
+      &__arrow {
+        transform: rotateZ(180deg);
+      }
     }
   }
 
@@ -98,10 +103,14 @@
     * {
       @include transition;
     }
+  }
 
-    i {
-      @include make-spacer(ml, auto);
-    }
+  &__icon {
+    font-size: rem(18px);
+  }
+
+  &__arrow {
+    @include make-spacer(ml, auto);
   }
 
   &__list {
@@ -122,6 +131,9 @@
   }
 
   &__link {
+    @include make-spacer(pl, 28px);
+    @include make-spacer(pl, 10px, lg);
+
     display: block;
     cursor: pointer;
     font-size: rem(14px);

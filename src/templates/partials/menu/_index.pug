@@ -1,92 +1,118 @@
 mixin menu
   menu.menu&attributes(attributes)
-    .menu__item.menu__item--u-hidden.js-menu-item
-      +edition.edition--alt
-    .menu__item.js-menu-item
-      a(href="./index.html").menu__link.menu__link--active
-        span.menu__text Home
+    .menu__wrapper
+      .menu__item.menu__item--hidden.js-menu-item
+        +edition.edition--alt
+
+      .menu__item.js-menu-item
+        a(href="./index.html").menu__link.js-menu-link
+          span.menu__text Home
+
+      .menu__item.js-menu-item
+        a(href="./index.html").menu__link.js-menu-link
+          span.menu__text Category
+
+      .menu__item.js-menu-item
+        a.menu__link.js-menu-link
+          span.menu__text Business
+          span.menu__icon
+            i.fa.fa-angle-down
+        .menu__dropdown.menu__dropdown--left.js-menu-dropdown
+          +submenu([
+            {
+              text: 'Dropdown menu',
+              href: "#"
+            },
+            {
+              text: 'Dropdown menu',
+              href: "#"
+            }]
+          )
+
+      .menu__item.js-menu-item
+        a.menu__link.js-menu-link
+          span.menu__text Politics
+          span.menu__icon
+            i.fa.fa-angle-down
+        .menu__dropdown.menu__dropdown--left.js-menu-dropdown
+          +submenu([
+            {
+              text: 'Dropdown menu',
+              href: "#"
+            },
+            {
+              text: 'Dropdown menu',
+              href: "#"
+            }]
+          )
+
+      .menu__item.js-menu-item
+        a.menu__link.js-menu-link
+          span.menu__text Mega Menu
+          span.menu__icon
+            i.fa.fa-angle-down
+        .menu__dropdown.menu__dropdown--wide.js-menu-dropdown
+          +submenu-wide.submenu--wide
+
+      .menu__item.js-menu-item
+        a.menu__link.js-menu-link
+          span.menu__text Inner Pages
+          span.menu__icon
+            i.fa.fa-angle-down
+        .menu__dropdown.menu__dropdown--wide.js-menu-dropdown
+          +submenu-alt.submenu--wide
+
+      .menu__item.js-menu-item
+        a(href="./about.html").menu__link.js-menu-link
+          span.menu__text About
+
+      .menu__item.js-menu-item
+        a.menu__link.js-menu-link
+          span.menu__text Pages
+          span.menu__icon
+            i.fa.fa-angle-down
+        .menu__dropdown.menu__dropdown--right.js-menu-dropdown
+          +submenu([
+            {
+              text: 'News Details',
+              href: "./details.html"
+            },
+            {
+              text: 'Contact Page',
+              href: "./contact.html"
+            },
+            {
+              text: 'Sign In',
+              href: "./sign-in.html"
+            },
+            {
+              text: 'Sign Up',
+              href: "./sign-up.html"
+            },
+            {
+              text: '404',
+              href: "./404.html"
+            },
+            {
+              text: 'Overview',
+              href: "./user-overview.html"
+            }]
+          )
 
     .menu__item.js-menu-item
-      a.menu__link
-        span.menu__text Business
+      a.menu__link.menu__link--hidden.js-menu-link
+        span.menu__decor
+          i.fa.fa-cog
+        span.menu__text Settings
         span.menu__icon
-          i.fa.fa.fa-angle-down
-      .menu__dropdown.menu__dropdown--left.js-menu-dropdown
-        +submenu([
-          {
-            text: 'Dropdown menu',
-            href: "#"
-          },
-          {
-            text: 'Dropdown menu',
-            href: "#"
-          }]
-        )
-
-    .menu__item.js-menu-item
-      a.menu__link
-        span.menu__text Politics
-        span.menu__icon
-          i.fa.fa.fa-angle-down
-      .menu__dropdown.menu__dropdown--left.js-menu-dropdown
-        +submenu([
-          {
-            text: 'Dropdown menu',
-            href: "#"
-          },
-          {
-            text: 'Dropdown menu',
-            href: "#"
-          }]
-        )
-
-    .menu__item.js-menu-item
-      a(href="#").menu__link
-        span.menu__text Category
-
-    .menu__item.js-menu-item
-      a.menu__link
-        span.menu__text Mega Menu
-        span.menu__icon
-          i.fa.fa.fa-angle-down
-      .menu__dropdown.menu__dropdown--wide.js-menu-dropdown
-        +submenu-wide.submenu--wide
-
-    .menu__item.js-menu-item
-      a(href="./about.html").menu__link
-        span.menu__text About
-
-    .menu__item.js-menu-item
-      a.menu__link
-        span.menu__text Pages
-        span.menu__icon
-          i.fa.fa.fa-angle-down
-      .menu__dropdown.menu__dropdown--right.js-menu-dropdown
-        +submenu([
-          {
-            text: 'News Details',
-            href: "./details.html"
-          },
-          {
-            text: 'Contact Page',
-            href: "./contact.html"
-          },
-          {
-            text: 'Sign In',
-            href: "./sign-in.html"
-          },
-          {
-            text: 'Sign Up',
-            href: "./sign-up.html"
-          },
-          {
-            text: '404',
-            href: "./404.html"
-          },
-          {
-            text: 'Overview',
-            href: "./user-overview.html"
-          }]
-        )
-    .menu__item.menu__item--u-hidden.js-menu-item
-      +language.language--alt
+          i.fa.fa-angle-down
+      .menu__dropdown.menu__dropdown--hidden.menu__dropdown--right.js-menu-dropdown
+        .submenu
+          ul.submenu__list
+            li.submenu__item
+              .mode-switch
+                i.fa.fa-sun-o.mode-switch__icon
+                p.mode-switch__text Mode
+                +switch.js-switch.mode-switch__input
+            li.submenu__item.submenu__item--border
+              +language.js-language

@@ -1,12 +1,10 @@
 @use 'src/scss/config' as *;
 
 .switch {
-  @include size(rem(52px), rem(28px));
+  @include size(rem(35px), rem(20px));
 
   display: block;
   position: relative;
-  border-radius: rem(30px);
-  overflow: hidden;
 
   &__input {
     @include size(100%);
@@ -22,7 +20,7 @@
         background-color: var(--color-border);
 
         &::before {
-          transform: translate(rem(24px), -50%);
+          transform: translate(rem(15px), -50%);
           background-color: var(--color-white);
         }
       }
@@ -41,35 +39,21 @@
 
   &__slide {
     @include transition;
-    @include absolute-filled;
+    @include size(100%, rem(15px));
+    @include absolute-center;
 
+    border-radius: rem(20px);
     background-color: var(--color-border);
 
     &::before {
       @include transition;
-      @include size(rem(24px));
-      @include absolute-center-left(rem(2px));
+      @include size(rem(20px));
+      @include absolute-center-left(0);
 
       border-radius: 50%;
       background-color: var(--color-shark);
+      border: rem(2px) solid var(--color-border);
       content: '';
     }
   }
-
-  //&__icon {
-  //  @include flex(center, center);
-  //  @include size(rem(24px));
-  //
-  //  font-size: rem(19px);
-  //
-  //  &--left {
-  //    @include absolute-center-left(rem(2px));
-  //  }
-  //
-  //  &--right {
-  //    @include absolute-center-right(rem(2px));
-  //
-  //    color: var(--color-background-alt);
-  //  }
-  //}
 }

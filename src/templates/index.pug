@@ -25,6 +25,18 @@ block content
         .container
           .widget
             .widget__body
+              .swiper.gallery-wide
+                .swiper-navigation
+                  .swiper-button-prev
+                  .swiper-button-next
+                .swiper-wrapper
+                  - var n = 1;
+                  while n < 10
+                    .swiper-slide
+                      img(src=`https://chtstudio.com/demo/news/images/post/${n++}.jpg`).img.img--cover
+
+          .widget
+            .widget__body
               +war-banner
 
           .grid.grid--sm.u-mb-24
@@ -174,7 +186,6 @@ block content
               .widget
                 .widget__body
                   +pagination
-
 
             .grid__column.sa-sticky
               .widget

@@ -11,9 +11,10 @@
 mixin edition
   .edition.js-edition&attributes(attributes)
     .edition__select.js-edition-select
+      i.fa.fa-globe.edition__icon
       p.js-edition-toggle English
       p Edition
-      i.fa.fa-angle-down
+      i.fa.fa-angle-down.edition__arrow
     ul.edition__list
       li.edition__item
         a.edition__link.edition__link--active.js-edition-item(data-edition="UK") UK

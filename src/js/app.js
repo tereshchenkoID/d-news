@@ -2,10 +2,9 @@ import {Swiper, EffectFade, Navigation, Pagination, Thumbs } from 'swiper';
 import { Fancybox } from "@fancyapps/ui";
 import 'theia-sticky-sidebar';
 
-
 const $switch = $('.js-switch input')
 $switch.prop('checked', sessionStorage.getItem('theme') === 'dark')
-$('body').attr('theme', sessionStorage.getItem('theme'))
+$('body').attr('theme', sessionStorage.getItem('theme') || 'light')
 
 $switch.on('change', function() {
   $('body').attr('theme', $(this).prop('checked') === true ? 'dark' : 'light')
@@ -151,6 +150,15 @@ const swiper9 = new Swiper(".gallery-details", {
   },
 });
 
+const swiper10 = new Swiper(".gallery-wide", {
+  slidesPerView: 1,
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+    clickable: true,
+  },
+});
 
 let prevScrollTop = $(window).scrollTop();
 
@@ -181,6 +189,12 @@ $(document).ready(function () {
 
 $('.js-edition-select').click(function() {
   $('.js-edition').toggleClass('edition--active')
+});
+
+$(document).click(function (e) {
+  if (!$(e.target).closest('.js-edition-select').length) {
+    $('.js-edition').removeClass('edition--active');
+  }
 });
 
 $('.js-edition-item').click(function() {
@@ -273,13 +287,13 @@ $('.js-checkbox-all').on('change', function() {
   $('.js-checkbox input').prop('checked', isChecked);
 })
 
-$('.js-menu-item').on('click', function() {
-  if ($(this).hasClass('menu__item--active')) {
-    $(this).removeClass('menu__item--active')
+$('.js-menu-link').on('click', function(e) {
+  if ($(this).parent().hasClass('menu__item--active')) {
+    $(this).parent().removeClass('menu__item--active')
   }
   else {
     $('.js-menu-item').removeClass('menu__item--active')
-    $(this).addClass('menu__item--active')
+    $(this).parent().addClass('menu__item--active')
   }
 })
 

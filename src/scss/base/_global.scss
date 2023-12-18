@@ -25,6 +25,16 @@ body[theme="dark"] {
       background-image: url('https://chtstudio.com/demo/news/images/logo-white.png');
     }
   }
+
+  .mode-switch {
+
+    &__icon {
+
+      &::before {
+        content: '\f186'
+      }
+    }
+  }
 }
 
 body[theme="light"] {
@@ -44,6 +54,16 @@ body[theme="light"] {
 
     .logo {
       background-image: url('https://chtstudio.com/demo/news/images/logo-white.png');
+    }
+  }
+
+  .mode-switch {
+
+    &__icon {
+
+      &::before {
+        content: '\f185'
+      }
     }
   }
 }
@@ -470,4 +490,25 @@ ol {
 
 .sa-sticky {
   overflow: hidden!important;
+}
+
+.mode-switch {
+  @include make-spacer(py, 10px);
+  @include make-spacer(pr, 10px);
+  @include make-spacer(px, 15px, lg);
+  @include flex($align-items: center);
+
+  gap: rem(5px);
+
+  &__icon {
+    font-size: rem(18px);
+  }
+
+  &__text {
+    font-size: rem(14px);
+  }
+
+  &__input {
+    @include make-spacer(ml, auto);
+  }
 }

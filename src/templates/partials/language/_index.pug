@@ -8,8 +8,9 @@
 mixin language
   .language.js-language&attributes(attributes)
     .language__select.js-language-select
-      p.js-language-toggle English
-      i.fa.fa-angle-down
+      i.fa.fa-language.language__icon
+      p.language__label Language
+      p.language__toggle.js-language-toggle English
     ul.language__list
       li.language__item
         a.language__link.language__link--active.js-language-item(data-language="English") English

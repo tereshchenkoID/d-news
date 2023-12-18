@@ -21,22 +21,32 @@
     position: static;
     background-color: transparent;
     box-shadow: unset;
-    overflow-x: auto;
+  }
 
-    &::-webkit-scrollbar {
-      width: rem(15px);
-    }
+  &__wrapper {
+    @include make-spacer(mr, 10px, lg);
 
-    &::-webkit-scrollbar-track {
-      background-color: var(--color-shark);
-      border-radius: rem(4px);
-      height: rem(5px);
-    }
+    @include media-breakpoint-up(lg) {
+      @include flex;
 
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--color-primary);
-      border-radius: rem(6px);
-      border: rem(6px) solid var(--color-shark);
+      overflow-x: auto;
+      flex-grow: 1;
+
+      &::-webkit-scrollbar {
+        width: rem(15px);
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: var(--color-shark);
+        border-radius: rem(4px);
+        height: rem(5px);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--color-primary);
+        border-radius: rem(6px);
+        border: rem(6px) solid var(--color-shark);
+      }
     }
   }
 
@@ -49,9 +59,9 @@
     }
   }
 
-  &__text,
+  &__decor,
   &__icon {
-    @include transition;
+    line-height: 1;
   }
 
   &__item {
@@ -76,7 +86,8 @@
       }
     }
 
-    &--u-hidden {
+    &--hidden {
+      display: block;
 
       @include media-breakpoint-up(lg) {
         display: none;
@@ -87,21 +98,32 @@
   &__link {
     @include flex(space-between, center);
     @include make-spacer(py, 10px);
-    @include make-spacer(pl, $grid-padding);
+    @include make-spacer(pl, 30px);
     @include make-spacer(pr, 20px);
     @include make-spacer(px, 10px, lg);
     @include make-spacer(p, 15px, xl);
 
+    gap: rem(5px);
     white-space: nowrap;
     font-size: rem(14px);
     font-weight: var(--typography-medium);
     opacity: 0.9;
+
+    &--hidden {
+      display: none;
+
+      @include media-breakpoint-up(lg) {
+        @include flex(space-between, center);
+      }
+    }
   }
 
   &__icon {
-    @include make-spacer(ml, 5px);
+    @include transition(transform);
+  }
 
-    line-height: 1;
+  &__decor {
+    font-size: rem(16px);
   }
 
   &__dropdown {
@@ -117,16 +139,26 @@
     &--right {
 
       @include media-breakpoint-up(lg) {
-        transform: translateX(-60%);
+        transform: translateX(-50%);
       }
     }
 
     &--wide {
-      @include make-spacer(pt, 11px);
-
       left: 0;
       right: 0;
       width: 100%;
+
+      @include media-breakpoint-up(lg) {
+        @include make-spacer(pt, 11px);
+      }
+    }
+
+    &--hidden {
+      display: block;
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
     }
   }
 }

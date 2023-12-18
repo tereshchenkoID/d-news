@@ -69,3 +69,38 @@ mixin submenu-wide
             a(href="#").submenu__link Video & music
           li.submenu__item
             a(href="#").submenu__link Natural country
+
+mixin submenu-alt
+  .submenu&attributes(attributes)
+    .row.submenu__container
+      .col.col-lg-3.col-xl-2.submenu__cell
+        h3.submenu__title.u-text-transform-capitalize Top News
+        ul.submenu__list
+          li.submenu__item
+            a(href="#").submenu__link Criket match
+          li.submenu__item
+            a(href="#").submenu__link Earth fire
+          li.submenu__item
+            a(href="#").submenu__link Education
+          li.submenu__item
+            a(href="#").submenu__link Banking seba
+          li.submenu__item
+            a(href="#").submenu__link Best Program
+          li.submenu__item
+            a(href="#").submenu__link About News
+      .col.col-lg-3.col-xl-2.submenu__cell
+        h3.submenu__title.u-text-transform-capitalize Top News
+        ul.submenu__list
+          li.submenu__item
+            a(href="#").submenu__link Criket match
+          li.submenu__item
+            a(href="#").submenu__link Earth fire
+          li.submenu__item
+            a(href="#").submenu__link Education
+      .col.col-lg-6.col-xl-8.submenu__cell.u-visible-lg
+        h3.submenu__title.u-text-transform-capitalize Latest News
+        - var n = 1;
+        .row
+          while n < 5
+            .col.col-xl-6.col-verticall-offset
+              +post-small(n++, false).post-small--row
