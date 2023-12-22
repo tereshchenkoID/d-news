@@ -17,6 +17,21 @@
 
     overflow-y: hidden;
     overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      width: rem(15px);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: var(--color-shark);
+      height: rem(5px);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-primary);
+      border-top: rem(10px) solid var(--color-shark);
+      border-bottom: 0;
+    }
   }
 
   &__title {

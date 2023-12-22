@@ -32,19 +32,4 @@
       width: rem(150px);
     }
   }
-
-  &__banner {
-    @include make-spacer(mx, auto);
-    @include make-spacer(mr, 0, lg);
-
-    flex-grow: 1;
-    width: 100%;
-    max-height: rem(56px);
-    max-width: rem(516px);
-
-    @include media-breakpoint-up(lg) {
-      max-height: rem(85px);
-      max-width: rem(780px);
-    }
-  }
 }

@@ -160,6 +160,22 @@ const swiper10 = new Swiper(".gallery-wide", {
   },
 });
 
+const swiper11 = new Swiper(".gallery-archive", {
+  slidesPerView: 1,
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+    clickable: true,
+  },
+  on: {
+    slideChange: () =>  {
+      const activeSlide = swiper11.slides[swiper11.activeIndex];
+      $('.gallery-archive .swiper-title').text(activeSlide.getAttribute('data-title'))
+    }
+  }
+});
+
 let prevScrollTop = $(window).scrollTop();
 
 const handleScroll = () => {

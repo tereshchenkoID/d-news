@@ -4,6 +4,7 @@
   @include flex(null, center);
 
   color: var(--color-white);
+  font-family: var(--font-family-alt);
 
   &__icon {
     @include make-spacer(mr, 5px);

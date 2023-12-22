@@ -499,6 +499,7 @@ ol {
   @include flex($align-items: center);
 
   gap: rem(5px);
+  font-family: var(--font-family-alt);
 
   &__icon {
     font-size: rem(18px);
@@ -510,5 +511,34 @@ ol {
 
   &__input {
     @include make-spacer(ml, auto);
+  }
+}
+
+.date {
+  @include size(rem(40px));
+
+  display: block;
+  position: relative;
+  border-right: rem(1px) solid var(--color-border);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cdefs%3E%3Cstyle%3E .cls-1, .cls-2 %7B fill: %23111; %7D .cls-2 %7B fill-rule: evenodd; %7D %3C/style%3E%3C/defs%3E%3Ccircle id='Ellipse_1_copy' data-name='Ellipse 1 copy' class='cls-1' cx='11.453' cy='9.375' r='1.359'/%3E%3Ccircle id='Ellipse_1_copy_2' data-name='Ellipse 1 copy 2' class='cls-1' cx='15.547' cy='9.375' r='1.359'/%3E%3Cpath id='Ellipse_1_copy_3' data-name='Ellipse 1 copy 3' class='cls-2' d='M19.641,8a1.375,1.375,0,1,1-1.359,1.375A1.367,1.367,0,0,1,19.641,8Z'/%3E%3Ccircle id='Ellipse_1_copy_4' data-name='Ellipse 1 copy 4' class='cls-1' cx='7.359' cy='13.5' r='1.359'/%3E%3Ccircle id='Ellipse_1_copy_4-2' data-name='Ellipse 1 copy 4' class='cls-1' cx='11.453' cy='13.5' r='1.359'/%3E%3Ccircle id='Ellipse_1_copy_4-3' data-name='Ellipse 1 copy 4' class='cls-1' cx='15.547' cy='13.5' r='1.359'/%3E%3Cpath id='Ellipse_1_copy_4-4' data-name='Ellipse 1 copy 4' class='cls-2' d='M19.641,12.125A1.375,1.375,0,1,1,18.281,13.5,1.367,1.367,0,0,1,19.641,12.125Z'/%3E%3Cpath id='Ellipse_1_copy_5' data-name='Ellipse 1 copy 5' class='cls-2' d='M7.359,16.25A1.375,1.375,0,1,1,6,17.625,1.367,1.367,0,0,1,7.359,16.25Z'/%3E%3Cpath id='Ellipse_1_copy_5-2' data-name='Ellipse 1 copy 5' class='cls-2' d='M11.453,16.25a1.375,1.375,0,1,1-1.359,1.375A1.367,1.367,0,0,1,11.453,16.25Z'/%3E%3Cpath id='Ellipse_1_copy_5-3' data-name='Ellipse 1 copy 5' class='cls-2' d='M15.547,16.25a1.375,1.375,0,1,1-1.36,1.375A1.367,1.367,0,0,1,15.547,16.25Z'/%3E%3C/svg%3E");
+
+  &__input {
+    @include absolute-filled;
+
+    opacity: 0;
+
+    &::-webkit-calendar-picker-indicator {
+      @include size(100%);
+
+      position: absolute;
+      color: transparent;
+      background: none;
+      cursor: pointer;
+    }
   }
 }

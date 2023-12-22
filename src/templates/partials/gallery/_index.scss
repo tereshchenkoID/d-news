@@ -1,10 +1,50 @@
 @use 'src/scss/config' as *;
 
+.swiper-button-prev,
+.swiper-button-next {
+
+  &:after {
+    @include transition;
+  }
+}
+
 .gallery-rss {
   max-height: rem(450px);
 
   .swiper-slide {
     @include flex(null, center);
+  }
+}
+
+.gallery-archive {
+
+  .swiper-navigation {
+    @include make-spacer(mb, 10px);
+
+    display: grid;
+    grid-template-columns: rem(30px) rem(30px) 1fr auto;
+    align-items: center;
+    position: relative;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    @include size(100%, rem(30px));
+    @include make-spacer(m, 0);
+
+    position: static;
+
+    &::after {
+      font-size: rem(18px);
+      color: var(--color-text);
+    }
+
+    &:hover {
+
+      &::after {
+        color: var(--color-primary);
+      }
+    }
   }
 }
 
@@ -37,7 +77,17 @@
 
   .swiper-button-next,
   .swiper-button-prev {
-    color: var(--color-white);
+
+    &::after {
+      color: var(--color-white);
+    }
+
+    &:hover {
+
+      &::after {
+        color: var(--color-primary);
+      }
+    }
   }
 }
 
@@ -96,7 +146,17 @@
 
   .swiper-button-next,
   .swiper-button-prev {
-    color: var(--color-white);
+
+    &::after {
+      color: var(--color-white);
+    }
+
+    &:hover {
+
+      &::after {
+        color: var(--color-primary);
+      }
+    }
   }
 }
 

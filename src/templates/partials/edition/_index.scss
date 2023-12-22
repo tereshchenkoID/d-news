@@ -6,6 +6,7 @@
   cursor: pointer;
   z-index: $z-index-13;
   min-width: rem(100px);
+  font-family: var(--font-family-alt);
 
   &--alt {
     @include make-spacer(py, 5px);
@@ -38,6 +39,8 @@
       }
 
       &__select {
+        @include make-spacer(pl, 15px);
+
         border: 0;
       }
 
@@ -69,7 +72,7 @@
       &__select {
         color: var(--color-primary);
 
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(xl) {
           color: var(--color-white);
         }
       }
@@ -121,7 +124,7 @@
     border-bottom: rem(1px) solid var(--color-white);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
       position: absolute;
       top: calc(100% - 3px);
       left: 0;
@@ -131,8 +134,8 @@
   }
 
   &__link {
-    @include make-spacer(pl, 28px);
-    @include make-spacer(pl, 10px, lg);
+    @include make-spacer(pl, 34px);
+    @include make-spacer(pl, 10px, xl);
 
     display: block;
     cursor: pointer;

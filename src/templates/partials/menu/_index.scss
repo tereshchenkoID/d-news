@@ -15,7 +15,7 @@
   overflow-y: auto;
   overflow-x: hidden;
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(xl) {
     @include flex(flex-start, null, row);
 
     position: static;
@@ -24,9 +24,9 @@
   }
 
   &__wrapper {
-    @include make-spacer(mr, 10px, lg);
+    @include make-spacer(mr, 10px, xl);
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
       @include flex;
 
       overflow-x: auto;
@@ -38,14 +38,13 @@
 
       &::-webkit-scrollbar-track {
         background-color: var(--color-shark);
-        border-radius: rem(4px);
         height: rem(5px);
       }
 
       &::-webkit-scrollbar-thumb {
         background-color: var(--color-primary);
-        border-radius: rem(6px);
-        border: rem(6px) solid var(--color-shark);
+        border-top: rem(10px) solid var(--color-shark);
+        border-bottom: 0;
       }
     }
   }
@@ -53,7 +52,7 @@
   &--active {
     @include flex(flex-start, null, column);
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
       flex-direction: row;
       justify-content: flex-start;
     }
@@ -89,7 +88,7 @@
     &--hidden {
       display: block;
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(xl) {
         display: none;
       }
     }
@@ -100,19 +99,19 @@
     @include make-spacer(py, 10px);
     @include make-spacer(pl, 30px);
     @include make-spacer(pr, 20px);
-    @include make-spacer(px, 10px, lg);
     @include make-spacer(p, 15px, xl);
 
     gap: rem(5px);
     white-space: nowrap;
     font-size: rem(14px);
     font-weight: var(--typography-medium);
+    font-family: var(--font-family-alt);
     opacity: 0.9;
 
     &--hidden {
       display: none;
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(xl) {
         @include flex(space-between, center);
       }
     }
@@ -129,7 +128,7 @@
   &__dropdown {
     display: none;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
       position: absolute;
       top: 100%;
       min-width: rem(225px);
@@ -138,7 +137,7 @@
 
     &--right {
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(xl) {
         transform: translateX(-50%);
       }
     }
@@ -148,7 +147,7 @@
       right: 0;
       width: 100%;
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(xl) {
         @include make-spacer(pt, 11px);
       }
     }
@@ -156,7 +155,7 @@
     &--hidden {
       display: block;
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(xl) {
         display: none;
       }
     }
