@@ -23,6 +23,24 @@ block content
     section.section
       .container-fluid
         .container
+          .widget.widget--alt
+            .widget__header
+              +widget-title('Latest News')
+              .swiper-pagination.pagination-latest-news
+            .widget__body
+              .swiper.gallery-latest-news(data-breakpoints="320:1,480:2,992:5,1200:5").u-mb-30
+                .swiper-wrapper
+                  - var n = 1;
+                  while n < 10
+                    .swiper-slide
+                      +post-small(n++, true).post-small--column
+              .swiper.gallery-latest-news(data-breakpoints="320:1,480:2,992:3,1200:4")
+                .swiper-wrapper
+                  - var n = 1;
+                  while n < 10
+                    .swiper-slide
+                      +post-small(n++, true).post-small--column
+
           .widget
             .widget__body
               .swiper.gallery-wide
@@ -67,7 +85,7 @@ block content
                   +widget-title('Latest News')
                   .swiper-pagination.pagination-latest-news
                 .widget__body
-                  .swiper.gallery-latest-news
+                  .swiper.gallery-latest-news(data-breakpoints="320:1,480:2,992:3,1200:3")
                     .swiper-wrapper
                       - var n = 1;
                       while n < 10

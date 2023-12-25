@@ -50,50 +50,57 @@ const swiper2 = new Swiper(".gallery-photo", {
   },
 });
 
-const swiper3 = new Swiper(".gallery-latest-news", {
-  loop: true,
-  spaceBetween: 20,
-  slideToClickedSlide: true,
-  pagination: {
-    el: ".pagination-latest-news",
-    clickable: true,
-  },
-  slidesPerView: 3,
-  breakpoints: {
-    320: {
-      slidesPerView: 1
-    },
-    480: {
-      slidesPerView: 2
-    },
-    992: {
-      slidesPerView: 2
-    },
-    1200: {
-      slidesPerView: 3
-    },
-  },
-});
+const setBreakpoints = (el) => {
+  const breakpoints = $(el).attr('data-breakpoints').split(',')
+  const result = {}
 
-const swiper4 = new Swiper(".gallery-rss", {
-  direction: "vertical",
-  slidesPerView: 3,
-  spaceBetween: 15,
-  navigation: {
-    nextEl: ".navigation-rss-next",
-    prevEl: ".navigation-rss-prev",
-    clickable: true,
-  },
-  loop: false,
-  breakpoints: {
-    320: {
-      allowTouchMove: false,
-    },
-    768: {
-      loop: true,
+  breakpoints.forEach(item => {
+    const i = item.split(':')
+    result[i[0]] = {
+      slidesPerView: Number(i[1])
     }
-  }
-});
+  })
+
+  return result
+}
+
+document.querySelectorAll(".gallery-latest-news").forEach(el => {
+  // eslint-disable-next-line no-new
+  new Swiper(el, {
+    loop: true,
+    spaceBetween: 20,
+    slideToClickedSlide: true,
+    pagination: {
+      el: ".pagination-latest-news",
+      clickable: true,
+    },
+    breakpoints: setBreakpoints(el),
+  });
+})
+
+
+document.querySelectorAll(".gallery-rss").forEach(el => {
+  // eslint-disable-next-line no-new
+  new Swiper(el, {
+    direction: "vertical",
+    slidesPerView: $(el).attr('data-count'),
+    spaceBetween: 15,
+    navigation: {
+      nextEl: ".navigation-rss-next",
+      prevEl: ".navigation-rss-prev",
+      clickable: true,
+    },
+    loop: false,
+    breakpoints: {
+      320: {
+        allowTouchMove: false,
+      },
+      768: {
+        loop: true,
+      }
+    }
+  });
+})
 
 const swiper5 = new Swiper(".gallery-default", {
   slidesPerView: 1,
