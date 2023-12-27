@@ -16,13 +16,25 @@
   }
 }
 
+.swiper-title {
+  @include make-spacer(mx, 5px);
+  @include make-spacer(mx, 15px, md);
+
+  font-size: rem(14px);
+  cursor: pointer;
+
+  @include media-breakpoint-up(md) {
+    font-size: rem(16px);
+  }
+}
+
 .gallery-archive {
 
   .swiper-navigation {
     @include make-spacer(mb, 10px);
 
     display: grid;
-    grid-template-columns: rem(30px) rem(30px) 1fr auto;
+    grid-template-columns: repeat(2, rem(30px));
     align-items: center;
     position: relative;
   }

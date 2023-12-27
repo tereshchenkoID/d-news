@@ -1,0 +1,104 @@
+---
+title: D-news
+lang: en
+---
+extends layouts/_layout
+
+block content
+  .top-banner
+    .top-banner__block
+      +banner('Wide #1')
+  +header#header
+
+  main.main
+    //notification--active
+    +notification.js-notification
+
+    //cookie--active
+    +cookie.js-cookie
+
+    //popup--active
+    +popup.js-popup
+
+    section.section
+      .container-fluid
+        .container
+          .widget
+            .widget__body
+              +banner('Banner #1')(style="max-height: 120px")
+
+          .row
+            .col.col-md-12.col-xl-9.col-verticall-offset
+              .widget.widget--custom.u-mb-0
+                .widget__header
+                  .widget-title.widget-title--custom
+                    h3.widget-title__text Archive
+                    .widget-title__block
+                      .swiper-navigation
+                        .swiper-button-prev
+                        .swiper-title 23 December 2023
+                        .swiper-button-next
+
+                      button.button-calendar#button-calendar
+                        svg(xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28')
+                          defs
+                            style.
+                              .cls-1, .cls-2 {
+                                fill: currentColor;
+                              }
+
+                              .cls-2 {
+                                fill-rule: evenodd;
+                              }
+                          circle#Ellipse_1_copy.cls-1(data-name='Ellipse 1 copy' cx='11.453' cy='9.375' r='1.359')
+                          circle#Ellipse_1_copy_2.cls-1(data-name='Ellipse 1 copy 2' cx='15.547' cy='9.375' r='1.359')
+                          path#Ellipse_1_copy_3.cls-2(data-name='Ellipse 1 copy 3' d='M19.641,8a1.375,1.375,0,1,1-1.359,1.375A1.367,1.367,0,0,1,19.641,8Z')
+                          circle#Ellipse_1_copy_4.cls-1(data-name='Ellipse 1 copy 4' cx='7.359' cy='13.5' r='1.359')
+                          circle#Ellipse_1_copy_4-2.cls-1(data-name='Ellipse 1 copy 4' cx='11.453' cy='13.5' r='1.359')
+                          circle#Ellipse_1_copy_4-3.cls-1(data-name='Ellipse 1 copy 4' cx='15.547' cy='13.5' r='1.359')
+                          path#Ellipse_1_copy_4-4.cls-2(data-name='Ellipse 1 copy 4' d='M19.641,12.125A1.375,1.375,0,1,1,18.281,13.5,1.367,1.367,0,0,1,19.641,12.125Z')
+                          path#Ellipse_1_copy_5.cls-2(data-name='Ellipse 1 copy 5' d='M7.359,16.25A1.375,1.375,0,1,1,6,17.625,1.367,1.367,0,0,1,7.359,16.25Z')
+                          path#Ellipse_1_copy_5-2.cls-2(data-name='Ellipse 1 copy 5' d='M11.453,16.25a1.375,1.375,0,1,1-1.359,1.375A1.367,1.367,0,0,1,11.453,16.25Z')
+                          path#Ellipse_1_copy_5-3.cls-2(data-name='Ellipse 1 copy 5' d='M15.547,16.25a1.375,1.375,0,1,1-1.36,1.375A1.367,1.367,0,0,1,15.547,16.25Z')
+
+                .widget__body
+                  .swiper.gallery-archive
+                    .swiper-wrapper
+                      - var s = 1;
+                      while s < 4
+                        .swiper-slide(data-title=s++)
+                          .row
+                            - var n = 1;
+                            while n < 6
+                              .col.col-verticall-offset(class=`${n === 1 && 'u-pt-0'}`)
+                                +post-medium(n++, true).post-medium--row
+
+            .col.col-xl-hidden.col-xl-3.col-verticall-offset.sa-sticky
+              .calendar
+                .widget.u-mb-0
+                  .widget__header
+                    +widget-title('Calendar', false)
+                  .widget__body.u-mb-0
+                    input(type="hidden" id="constrained" data-inline="true" data-multiple="true" data-open-on="today" data-time="true")
+
+  //https://wwilsman.github.io/Datepicker.js/
+  script.
+    new Datepicker('#constrained', {
+      multiple: false,
+      time: false,
+      max: (function () {
+        const date = new Date();
+        date.setDate(date.getDate());
+        return date;
+      })(),
+    });
+
+    new Datepicker('#button-calendar', {
+      multiple: false,
+      time: false,
+      max: (function () {
+        const date = new Date();
+        date.setDate(date.getDate());
+        return date;
+      })()
+    });

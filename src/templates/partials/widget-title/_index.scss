@@ -49,4 +49,29 @@
       }
     }
   }
+
+  &--custom {
+    @include make-spacer(pb, 9px);
+
+    align-items: center;
+    gap: rem(10px);
+
+    .widget-title {
+
+      &__text {
+        @include make-spacer(mb, 0);
+        @include make-spacer(mr, auto);
+      }
+
+      &__block {
+        @include flex(flex-end, center);
+
+        gap: rem(10px);
+
+        * {
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
 }

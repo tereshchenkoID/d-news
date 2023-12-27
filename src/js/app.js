@@ -174,12 +174,6 @@ const swiper11 = new Swiper(".gallery-archive", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
     clickable: true,
-  },
-  on: {
-    slideChange: () =>  {
-      const activeSlide = swiper11.slides[swiper11.activeIndex];
-      $('.gallery-archive .swiper-title').text(activeSlide.getAttribute('data-title'))
-    }
   }
 });
 

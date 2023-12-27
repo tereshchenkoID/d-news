@@ -49,12 +49,23 @@
   @media (min-width: $breakpoints-size) {
 
     .col-#{$status} {
+
       @for $i from 1 through $count-column {
 
         &-#{$i} {
           flex: 0 0 ($i * $count-width) * 1%;
           min-width: ($i * $count-width) * 1%;
         }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoints-size) {
+
+    .col-#{$status} {
+
+      &-hidden {
+        display: none;
       }
     }
   }
