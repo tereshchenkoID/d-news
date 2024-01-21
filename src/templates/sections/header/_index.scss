@@ -13,7 +13,7 @@
     min-height: rem(50px);
   }
 
-  &__edition {
+  &__editions {
     display: none;
 
     @include media-breakpoint-up(xl) {

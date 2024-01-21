@@ -15,4 +15,10 @@
     border-color: var(--color-primary);
     background-color: var(--color-mine-shaft);
   }
+
+  &--sm {
+    @include make-spacer(px, 10px);
+
+    height: rem(30px);
+  }
 }

@@ -82,6 +82,10 @@ body {
   font-size: var(--font-size);
   font-weight: var(--typography-medium);
   background-color: var(--color-cod-gray);
+
+  &.hidden {
+    overflow: hidden;
+  }
 }
 
 button {
@@ -499,6 +503,7 @@ ol {
   overflow: hidden!important;
 }
 
+.timezone,
 .mode-switch {
   @include make-spacer(py, 10px);
   @include make-spacer(pr, 10px);
@@ -516,13 +521,22 @@ ol {
     font-size: rem(14px);
   }
 
+  &__select,
   &__input {
     @include make-spacer(ml, auto);
+  }
+
+  &__select {
+    max-width: rem(130px);
   }
 }
 
 .datepicker {
   display: block!important;
+
+  &.is-inline {
+    z-index: 0;
+  }
 
   &__next,
   &__prev {
@@ -663,5 +677,134 @@ ol {
 
   @include media-breakpoint-up(xl) {
     display: none;
+  }
+}
+
+.settings-toggle {
+  @include flex(center, center);
+  @include size(rem(22px));
+
+  svg {
+    @include transition;
+
+    fill: var(--color-comet);
+  }
+
+  &:hover {
+
+    svg {
+      fill: var(--color-primary);
+    }
+  }
+}
+
+.archive {
+  display: grid;
+  gap: rem(40px);
+
+  &__header {
+    @include flex($align-items: center, $wrap: wrap);
+
+    gap: rem(5px);
+  }
+
+  &__item {
+    @include make-spacer(py, 3px);
+    @include make-spacer(px, 10px);
+
+    &--active {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: var(--border-radius);
+    }
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: rem(40px);
+
+    @include media-breakpoint-up(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.u-calendar {
+
+  &__header,
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+  }
+
+  &__title {
+    font-size: rem(14px);
+  }
+
+  &__header {
+
+    p {
+      @include flex(center, center);
+
+      height: rem(48px);
+      text-transform: uppercase;
+      font-size: rem(12px);
+      opacity: 0.6;
+    }
+  }
+
+  &__body {
+
+    p {
+      @include flex(center, center);
+
+      position: relative;
+      height: rem(35px);
+      font-size: rem(14px);
+      cursor: pointer;
+
+      &::before {
+        @include absolute-center;
+        @include size(rem(35px));
+
+        border-radius: 50%;
+        content: ''
+      }
+
+      &:hover {
+        color: var(--color-white)!important;
+
+        &::before {
+          background-color: var(--color-primary);
+        }
+      }
+
+      span {
+        position: relative;
+        z-index: 1;
+      }
+
+      &.disabled {
+        opacity: 0.6;
+      }
+
+      &.active {
+        color: var(--color-primary);
+
+        &::before {
+          border: rem(1px) solid var(--color-primary);
+        }
+      }
+    }
   }
 }

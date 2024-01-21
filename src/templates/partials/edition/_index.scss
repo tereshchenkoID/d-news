@@ -1,152 +1,38 @@
 @use 'src/scss/config' as *;
 
 .edition {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  z-index: $z-index-13;
-  min-width: rem(100px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
   font-family: var(--font-family-alt);
 
-  &--alt {
-    @include make-spacer(py, 5px);
-    @include make-spacer(pl, 0);
-    @include make-spacer(pr, 10px);
-
-    width: 100%;
-
-    &::before {
-      position: absolute;
-      bottom: 0;
-      left: rem(10px);
-      right: rem(10px);
-      background: var(--color-porcelain);
-      height: rem(1px);
-      content: '';
-    }
-
-    .edition {
-
-      &__select,
-      &__item,
-      &__link {
-        font-size: rem(14px);
-        color: var(--color-text);
-      }
-
-      &__link {
-        @include make-spacer(py, 10px);
-      }
-
-      &__select {
-        @include make-spacer(pl, 15px);
-
-        border: 0;
-      }
-
-      &__list {
-        border: 0;
-        background-color: transparent;
-      }
-    }
-  }
-
-  &--active,
-  &:hover {
-
-    .edition {
-
-      &__select {
-        @include transition(border-color);
-
-        border-color: var(--color-white);
-        border-radius: var(--border-radius);
-      }
-    }
-  }
-
-  &--active {
-
-    .edition {
-
-      &__select {
-        color: var(--color-primary);
-
-        @include media-breakpoint-up(xl) {
-          color: var(--color-white);
-        }
-      }
-
-      &__list {
-        display: block;
-      }
-
-      &__arrow {
-        transform: rotateZ(180deg);
-      }
-    }
-  }
-
-  &__select,
   &__link {
-    @include make-spacer(py, 5px);
-    @include make-spacer(px, 10px);
+    @include flex($align-items: center);
+    @include make-spacer(py, 10px);
 
-    color: var(--color-white);
-  }
-
-  &__select {
-    @include flex(space-between, center);
+    @include make-spacer(pl, 20px);
+    @include make-spacer(px, 15px, xl);
 
     gap: rem(5px);
-    border: rem(1px) solid transparent;
     font-size: rem(14px);
-    white-space: nowrap;
+    text-align: center;
 
-    * {
-      @include transition;
+    &--active {
+      color: var(--color-primary);
     }
   }
 
   &__icon {
-    font-size: rem(18px);
-  }
+    @include size(rem(25px));
 
-  &__arrow {
-    @include make-spacer(ml, auto);
-  }
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: 50%;
 
-  &__list {
-    display: none;
-    background-color: var(--color-primary);
-    border-left: rem(1px) solid var(--color-white);
-    border-right: rem(1px) solid var(--color-white);
-    border-bottom: rem(1px) solid var(--color-white);
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-
-    @include media-breakpoint-up(xl) {
-      position: absolute;
-      top: calc(100% - 3px);
-      left: 0;
-      right: 0;
-      z-index: $z-index-1;
-    }
-  }
-
-  &__link {
-    @include make-spacer(pl, 34px);
-    @include make-spacer(pl, 10px, xl);
-
-    display: block;
-    cursor: pointer;
-    font-size: rem(14px);
-
-    &--active {
-      display: none;
-    }
-
-    &:hover {
-      background-color: var(--color-white);
+    .img {
+      @include absolute-center;
+      @include size(rem(45px));
     }
   }
 }

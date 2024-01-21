@@ -1,8 +1,9 @@
 mixin popup
   .popup&attributes(attributes)
+    .popup__shadow.js-popup-shadow
     .popup__wrapper.js-popup-wrapper
       .popup__top(style="background-image: url('https://images.pexels.com/photos/6068329/pexels-photo-6068329.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load')")
-        a.popup__close
+        a.popup__close.js-popup-close
           i.fa.fa-times
         .popup__content
           h5.popup__title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consectetur

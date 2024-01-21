@@ -24,8 +24,53 @@ block content
       .container-fluid
         .container
           .widget
+            .widget__header
+              +widget-title('Archive', false)
             .widget__body
-              +banner('Banner #1')(style="max-height: 120px")
+              .archive
+                .archive__header
+                  a(href="#").archive__item.archive__item--active 2024
+                  a(href="#").archive__item 2023
+                  a(href="#").archive__item 2022
+                  a(href="#").archive__item 2021
+                  a(href="#").archive__item 2020
+                  a(href="#").archive__item 2019
+                  a(href="#").archive__item 2018
+                  a(href="#").archive__item 2017
+
+                -
+                  var month = [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                  ]
+                .archive__body
+                  each item in month
+                    .u-calendar
+                      .u-calendar__title= `${item} 2024`
+                      .u-calendar__header
+                        p Sun
+                        p Mon
+                        p Thu
+                        p Wed
+                        p Fri
+                        p Sat
+                        p Sun
+                      .u-calendar__body
+                        - var n = 1;
+                          while n < 31
+                            p(class=n === 11 && 'active')(class=n < 10 && 'disabled')
+                              span= n++
+
 
           .row
             .col.col-md-12.col-xl-9.col-verticall-offset
@@ -35,9 +80,9 @@ block content
                     h3.widget-title__text Archive
                     .widget-title__block
                       .swiper-navigation
-                        .swiper-button-prev
+                        a(href="#").swiper-button-prev
                         .swiper-title 23 December 2023
-                        .swiper-button-next
+                        a(href="#").swiper-button-next
 
                       button.button-calendar#button-calendar
                         svg(xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28')
@@ -62,16 +107,11 @@ block content
                           path#Ellipse_1_copy_5-3.cls-2(data-name='Ellipse 1 copy 5' d='M15.547,16.25a1.375,1.375,0,1,1-1.36,1.375A1.367,1.367,0,0,1,15.547,16.25Z')
 
                 .widget__body
-                  .swiper.gallery-archive
-                    .swiper-wrapper
-                      - var s = 1;
-                      while s < 4
-                        .swiper-slide(data-title=s++)
-                          .row
-                            - var n = 1;
-                            while n < 6
-                              .col.col-verticall-offset(class=`${n === 1 && 'u-pt-0'}`)
-                                +post-medium(n++, true).post-medium--row
+                  .row
+                    - var n = 1;
+                      while n < 6
+                        .col.col-verticall-offset(class=`${n === 1 && 'u-pt-0'}`)
+                          +post-medium(n++, true).post-medium--row
 
             .col.col-xl-hidden.col-xl-3.col-verticall-offset.sa-sticky
               .calendar

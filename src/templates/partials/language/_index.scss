@@ -1,71 +1,42 @@
 @use 'src/scss/config' as *;
 
 .language {
-  position: relative;
-  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
   font-family: var(--font-family-alt);
 
-  &__select {
-    @include make-spacer(py, 10px);
-    @include make-spacer(pr, 10px);
-    @include make-spacer(px, 15px, lg);
-    @include flex(space-between, center);
-
-    gap: rem(5px);
-    font-size: rem(14px);
-    white-space: nowrap;
-
-    * {
-      @include transition;
-    }
-  }
-
-  &__label {
-    @include make-spacer(ml, 0);
-    @include make-spacer(mr, auto)
-  }
-
-  &__toggle {
-    color: var(--color-primary);
-  }
-
-  &__icon {
-    font-size: rem(18px);
-  }
-
-  &__arrow {
-    @include make-spacer(ml, auto);
-  }
-
-  &__list {
-    display: none;
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   &__link {
+    @include flex($align-items: center);
     @include make-spacer(py, 10px);
 
-    @include make-spacer(pl, 36px);
+    @include make-spacer(pl, 20px);
     @include make-spacer(px, 15px, xl);
 
-    display: block;
+    gap: rem(5px);
     font-size: rem(14px);
+    text-align: center;
 
     &--active {
-      display: none;
+      color: var(--color-primary);
     }
   }
 
-  &--active {
+  &__icon {
+    @include size(rem(25px));
 
-    .language {
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: 50%;
 
-      &__list {
-        display: block;
-      }
-
-      &__arrow {
-        transform: rotateZ(180deg);
-      }
+    .img {
+      @include absolute-center;
+      @include size(rem(40px));
     }
   }
 }

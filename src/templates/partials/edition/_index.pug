@@ -1,23 +1,36 @@
 -
   var edition = [
-    'Europe',
-    'US',
-    'Asia',
-    'Middle East',
-    'Africa',
-    '日本'
+    {
+      code: 'gb',
+      text: 'English',
+    },
+    {
+      code: 'ge',
+      text: 'Georgia',
+    },
+    {
+      code: 'ua',
+      text: 'Ukraine'
+    },
+    {
+      code: 'cu',
+      text: 'Cuba',
+    },
+    {
+      code: 'br',
+      text: 'Brazil',
+    },
+    {
+      code: 'hu',
+      text: 'Hungary'
+    },
   ]
 
 mixin edition
-  .edition.js-edition&attributes(attributes)
-    .edition__select.js-edition-select
-      i.fa.fa-globe.edition__icon
-      p.js-edition-toggle English
-      p Edition
-      i.fa.fa-angle-down.edition__arrow
-    ul.edition__list
+  ul.edition.js-edition&attributes(attributes)
+    each item in edition
       li.edition__item
-        a.edition__link.edition__link--active.js-edition-item(data-edition="UK") UK
-      each item in edition
-        li.edition__item
-          a.edition__link.js-edition-item(data-edition=item)= item
+        a.edition__link(data-edition=item.code).js-edition-link
+          span.edition__icon
+            img(src=`https://img.sportradar.com/ls/crest/big/${item.code}.png`).img.img--cover
+          span.edition__text.js-edition-text= item.text

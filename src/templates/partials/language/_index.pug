@@ -1,19 +1,36 @@
 -
   var language = [
-    'Arabic',
-    'German',
-    'Ukrainian',
+    {
+      code: 'gb',
+      text: 'English',
+    },
+    {
+      code: 'ge',
+      text: 'Georgie',
+    },
+    {
+      code: 'ua',
+      text: 'Ukrainian'
+    },
+    {
+      code: 'gb',
+      text: 'English',
+    },
+    {
+      code: 'ge',
+      text: 'Georgie',
+    },
+    {
+      code: 'ua',
+      text: 'Ukrainian'
+    },
   ]
 
 mixin language
-  .language.js-language&attributes(attributes)
-    .language__select.js-language-select
-      i.fa.fa-language.language__icon
-      p.language__label Language
-      p.language__toggle.js-language-toggle English
-    ul.language__list
+  ul.language.js-language&attributes(attributes)
+    each item in language
       li.language__item
-        a.language__link.language__link--active.js-language-item(data-language="English") English
-      each item in language
-        li.language__item
-          a.language__link.js-language-item(data-language=item)= item
+        a.language__link.js-language-link
+          span.language__icon
+            img(src=`https://img.sportradar.com/ls/crest/big/${item.code}.png`).img.img--cover
+          span.language__text= item.text
