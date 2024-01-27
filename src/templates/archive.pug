@@ -29,48 +29,17 @@ block content
             .widget__body
               .archive
                 .archive__header
-                  a(href="#").archive__item.archive__item--active 2024
-                  a(href="#").archive__item 2023
-                  a(href="#").archive__item 2022
-                  a(href="#").archive__item 2021
-                  a(href="#").archive__item 2020
-                  a(href="#").archive__item 2019
-                  a(href="#").archive__item 2018
-                  a(href="#").archive__item 2017
+                  button.archive__item.archive__item--active.js-archive-item 2024
+                  button.archive__item.js-archive-item 2023
+                  button.archive__item.js-archive-item 2022
+                  button.archive__item.js-archive-item 2021
+                  button.archive__item.js-archive-item 2020
+                  button.archive__item.js-archive-item 2019
+                  button.archive__item.js-archive-item 2018
+                  button.archive__item.js-archive-item 2017
 
-                -
-                  var month = [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                    'August',
-                    'September',
-                    'October',
-                    'November',
-                    'December',
-                  ]
                 .archive__body
-                  each item in month
-                    .u-calendar
-                      .u-calendar__title= `${item} 2024`
-                      .u-calendar__header
-                        p Sun
-                        p Mon
-                        p Thu
-                        p Wed
-                        p Fri
-                        p Sat
-                        p Sun
-                      .u-calendar__body
-                        - var n = 1;
-                          while n < 31
-                            p(class=n === 11 && 'active')(class=n < 10 && 'disabled')
-                              span= n++
-
+                  .calendar-container#calendar-container
 
           .row
             .col.col-md-12.col-xl-9.col-verticall-offset
@@ -142,3 +111,87 @@ block content
         return date;
       })()
     });
+
+    function generateCalendar() {
+      const yearInput = document.querySelector(".archive__item--active").innerText;
+      const calendarContainer = document.getElementById("calendar-container");
+      calendarContainer.innerHTML = "";
+
+      for (let month = 0; month < 12; month++) {
+        const monthContainer = document.createElement("div");
+        // monthContainer.classList.add("month-container");
+
+        const monthHeader = document.createElement("div");
+        // monthHeader.classList.add("month");
+        monthHeader.textContent = `${getMonthName(month)} ${yearInput}`;
+        monthContainer.appendChild(monthHeader);
+
+        const table = document.createElement("table");
+        const headerRow = table.createTHead().insertRow();
+        const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        weekdays.forEach(day => {
+          const th = document.createElement("th");
+          th.textContent = day;
+          headerRow.appendChild(th);
+        });
+
+        const firstDayOfMonth = new Date(yearInput, month, 1)
+        const lastDayOfMonth = new Date(yearInput, month + 1, 0)
+        const daysInMonth = lastDayOfMonth.getDate()
+        const startingDay = firstDayOfMonth.getDay()
+        const currentDate = new Date()
+        let dayCounter = 1
+
+        for (let i = 0; i < 6; i++) {
+          const row = table.insertRow();
+
+          for (let j = 0; j < 7; j++) {
+            const cell = row.insertCell();
+
+            if (i === 0 && j < startingDay) {
+              continue;
+            }
+
+            if (dayCounter > daysInMonth) {
+              break;
+            }
+
+            cell.textContent = dayCounter;
+            cell.setAttribute("data-date", `${yearInput}-${month + 1}-${dayCounter}`);
+            cell.addEventListener("click", handleDateClick);
+
+            if (currentDate.getDate() === dayCounter && currentDate.getMonth() === month && currentDate.getFullYear() === parseInt(yearInput, 10)) {
+              cell.classList.add("active");
+            }
+
+            if ((currentDate.getMonth() < month && currentDate.getFullYear() <= parseInt(yearInput, 10)) || (currentDate.getDate() < dayCounter && currentDate.getMonth() <= month) && currentDate.getFullYear() === parseInt(yearInput, 10)) {
+              cell.classList.add("disabled");
+            }
+
+            dayCounter++;
+          }
+        }
+
+        monthContainer.appendChild(table);
+        calendarContainer.appendChild(monthContainer);
+      }
+    }
+
+    function getMonthName(month) {
+      const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      return monthNames[month];
+    }
+
+    function handleDateClick(event) {
+      const selectedDate = event.target.getAttribute("data-date");
+      alert(`Selected Date: ${selectedDate}`);
+    }
+
+    generateCalendar()
+
+    $('.js-archive-item').on('click', function() {
+      $('.js-archive-item').removeClass('archive__item--active')
+      $(this).addClass('archive__item--active')
+      generateCalendar()
+    })

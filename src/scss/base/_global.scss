@@ -684,7 +684,7 @@ ol {
   @include flex(center, center);
   @include size(rem(22px));
 
-  svg {
+  .img {
     @include transition;
 
     fill: var(--color-comet);
@@ -692,7 +692,7 @@ ol {
 
   &:hover {
 
-    svg {
+    .img {
       fill: var(--color-primary);
     }
   }
@@ -718,93 +718,81 @@ ol {
       border-radius: var(--border-radius);
     }
   }
-
-  &__body {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: rem(40px);
-
-    @include media-breakpoint-up(sm) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include media-breakpoint-up(md) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @include media-breakpoint-up(lg) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
 }
 
-.u-calendar {
+.calendar-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: rem(40px);
+  font-size: rem(14px);
 
-  &__header,
-  &__body {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media-breakpoint-up(xl) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    position: relative;
     text-align: center;
+    cursor: pointer;
   }
 
-  &__title {
+  td {
+    @include transition;
+
+    z-index: 0;
+    height: rem(35px);
     font-size: rem(14px);
-  }
 
-  &__header {
+    &::before {
+      @include transition;
+      @include absolute-center;
+      @include size(rem(35px));
 
-    p {
-      @include flex(center, center);
-
-      height: rem(48px);
-      text-transform: uppercase;
-      font-size: rem(12px);
-      opacity: 0.6;
+      border-radius: 50%;
+      z-index: -1;
+      content: ''
     }
-  }
 
-  &__body {
-
-    p {
-      @include flex(center, center);
-
-      position: relative;
-      height: rem(35px);
-      font-size: rem(14px);
-      cursor: pointer;
+    &:hover {
+      color: var(--color-white)!important;
 
       &::before {
-        @include absolute-center;
-        @include size(rem(35px));
-
-        border-radius: 50%;
-        content: ''
-      }
-
-      &:hover {
-        color: var(--color-white)!important;
-
-        &::before {
-          background-color: var(--color-primary);
-        }
-      }
-
-      span {
-        position: relative;
-        z-index: 1;
-      }
-
-      &.disabled {
-        opacity: 0.6;
-      }
-
-      &.active {
-        color: var(--color-primary);
-
-        &::before {
-          border: rem(1px) solid var(--color-primary);
-        }
+        background-color: var(--color-primary);
       }
     }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    &.active {
+      color: var(--color-primary);
+
+      &::before {
+        border: rem(1px) solid var(--color-primary);
+      }
+    }
+  }
+
+  th {
+    height: rem(48px);
+    text-transform: uppercase;
+    font-size: rem(12px);
+    opacity: 0.6;
   }
 }
