@@ -767,11 +767,14 @@ ol {
       content: ''
     }
 
-    &:hover {
-      color: var(--color-white)!important;
+    &[data-date] {
 
-      &::before {
-        background-color: var(--color-primary);
+      &:hover {
+        color: var(--color-white)!important;
+
+        &::before {
+          background-color: var(--color-primary);
+        }
       }
     }
 
