@@ -1,0 +1,15 @@
+mixin microphone-search
+  .microphone&attributes(attributes)
+    .microphone__icon
+      i.fa.fa-microphone
+    p.microphone__text Listen
+    i.microphone__results.js-microphone-results
+
+mixin microphone-error
+  .microphone&attributes(attributes)
+    .microphone__info
+      p.microphone__text
+        | Voice search disabled.
+        a(href="https://support.google.com/chrome/answer/2693767?visit_id=638443961323463067-230572585&p=ui_voice_search&rd=1#change" target="_blank").microphone__link Information
+      .microphone__icon
+        i.fa.fa-microphone-slash

@@ -37,16 +37,17 @@
     }
   }
 
+  &__microphone,
   &__button,
   &__toggle {
     @include size(rem(40px), 100%);
 
-    color: var(--color-comet);
+    color: var(--color-text);
     font-size: rem(20px);
   }
 
   &__field {
-    @include make-spacer(pr, 40px);
+    @include make-spacer(pr, 90px);
     @include make-spacer(pl, 40px);
     @include make-spacer(py, 6px);
 
@@ -63,6 +64,29 @@
     @include absolute-center-left(0);
 
     opacity: 0;
+  }
+
+  &__microphone {
+    @include absolute-center-right(rem(40px));
+
+    z-index: 1;
+
+    &--active,
+    &:hover {
+      color: var(--color-primary);
+    }
+
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.7;
+
+      i {
+
+        &::before {
+          content: "\f131";
+        }
+      }
+    }
   }
 
   &__toggle {

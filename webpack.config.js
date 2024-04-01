@@ -1,11 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
-const config = require('./gulp/config');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const config = require('./gulp/config');
 
 function createConfig(env) {
   let isProduction;
-    let webpackConfig;
+  let webpackConfig;
 
   if (env === undefined) {
     // eslint-disable-next-line no-param-reassign
@@ -17,10 +17,9 @@ function createConfig(env) {
 
   // eslint-disable-next-line prefer-const
   webpackConfig = {
-    mode: isProduction?'production':'development',
+    mode: isProduction ? 'production' : 'development',
     context: path.join(__dirname, config.src.js),
     entry: {
-      // vendor: ['jquery'],
       app: './app.js',
     },
     output: {
@@ -28,15 +27,10 @@ function createConfig(env) {
       filename: '[name].js',
       publicPath: 'js/',
     },
-    devtool: isProduction ?
-      '#source-map' :
-      '#cheap-module-eval-source-map',
+    // devtool: isProduction ?
+    //   '#source-map' :
+    //   '#cheap-module-eval-source-map',
     plugins: [
-      // new webpack.optimize.CommonsChunkPlugin({
-      //     name: 'vendor',
-      //     filename: '[name].js',
-      //     minChunks: Infinity
-      // }),
       new webpack.LoaderOptionsPlugin({
         options: {
           eslint: {
@@ -57,7 +51,7 @@ function createConfig(env) {
       extensions: ['.js'],
       alias: {},
     },
-    optimization :{
+    optimization: {
       minimize: isProduction
     },
     module: {

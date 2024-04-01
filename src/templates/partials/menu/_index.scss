@@ -11,7 +11,6 @@
   right: -$grid-padding;
   background-color: var(--color-shark);
   box-shadow: var(--box-shadow);
-  max-height: calc(100vh - rem(112px));
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -52,7 +51,13 @@
   &--active {
     @include flex(flex-start, null, column);
 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
     @include media-breakpoint-up(xl) {
+      position: static;
       flex-direction: row;
       justify-content: flex-start;
     }

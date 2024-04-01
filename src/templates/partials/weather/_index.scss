@@ -1,6 +1,7 @@
 @use 'src/scss/config' as *;
 
 .weather {
+  position: relative;
   background-color: var(--color-shark);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -19,6 +20,36 @@
       .wi_add_ic {
         fill: var(--color-text);
       }
+    }
+  }
+
+  &__decor,
+  &__decor rect {
+    @include size(100%);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: transparent;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+  }
+
+  &__decor rect {
+    stroke-width: 4;
+    stroke: var(--color-primary);
+    stroke-dasharray: 670;
+    stroke-dashoffset: 1450;
+    animation: animate 3s linear infinite;
+  }
+
+  @keyframes animate {
+    0% {
+      stroke-dashoffset: 1350;
+    }
+
+    100% {
+      stroke-dashoffset: 0;
     }
   }
 }

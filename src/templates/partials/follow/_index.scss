@@ -25,4 +25,8 @@
   &__icon {
     color: currentColor;
   }
+
+  &__svg {
+    @include size(rem(30px));
+  }
 }

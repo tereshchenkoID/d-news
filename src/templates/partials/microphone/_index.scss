@@ -1,0 +1,120 @@
+@use 'src/scss/config' as *;
+
+.microphone {
+  @include flex(center, center, column);
+
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z-index-14;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: var(--color-white);
+
+  &--error {
+
+    .microphone {
+
+      &__info {
+        position: relative;
+        z-index: 1;
+      }
+
+      &__icon {
+        @include make-spacer(mx, auto);
+
+        &::before,
+        &::after {
+          animation: none;
+        }
+      }
+
+      &__text {
+        @include make-spacer(mt, 0);
+
+        font-size: rem(36px);
+        white-space: break-spaces;
+      }
+    }
+  }
+
+  &--active {
+    @include flex(center, center, column);
+  }
+
+  &__icon {
+    @include flex(center, center);
+    @include size(rem(100px));
+
+    position: relative;
+    font-size: rem(36px);
+
+    &:before,
+    &:after {
+      position: absolute;
+      border-radius: 50%;
+      border: rem(5px) solid var(--color-white);
+      animation: pulse 2s ease-in-out infinite;
+      content: '';
+    }
+
+    &::before {
+      @include size(rem(90px));
+
+      opacity: 0.7;
+    }
+
+    &::after {
+      @include size(rem(70px));
+    }
+  }
+
+  &__text {
+    @include make-spacer(mt, 30px);
+  }
+
+  &__results {
+    @include make-spacer(mt, 10px);
+  }
+
+  &__info {
+    @include make-spacer(px, 20px);
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: rem(20px);
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: minmax(rem(150px), rem(320px)) rem(100px);
+      gap: rem(40px);
+      text-align: left;
+    }
+  }
+
+  &__link {
+    @include make-spacer(ml, 10px);
+
+    display: inline-block;
+    vertical-align: baseline;
+    transform: translateY(rem(-2px));
+    color: var(--color-primary);
+    font-size: rem(20px);
+    text-decoration: underline;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1.2);
+    }
+    80% {
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

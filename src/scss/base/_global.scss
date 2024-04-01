@@ -86,6 +86,10 @@ body {
   &.hidden {
     overflow: hidden;
   }
+
+  @include media-breakpoint-up(xl) {
+    overflow-y: auto!important;
+  }
 }
 
 button {
@@ -318,20 +322,6 @@ ol {
 
     color: var(--color-primary);
   }
-}
-
-.bookmark {
-  @include size(rem(30px));
-  @include flex(center, center);
-
-  border-radius: 50%;
-  position: absolute;
-  top: rem(20px);
-  right: rem(25px);
-  z-index: $z-index-1;
-  background-color: var(--color-primary);
-  font-size: rem(12px);
-  color: var(--color-white);
 }
 
 .gallery-magazines,
@@ -687,7 +677,7 @@ ol {
   .img {
     @include transition;
 
-    fill: var(--color-comet);
+    fill: var(--color-text);
   }
 
   &:hover {
@@ -797,5 +787,23 @@ ol {
     text-transform: uppercase;
     font-size: rem(12px);
     opacity: 0.6;
+  }
+}
+
+.alphabet {
+  @include flex($justify-content: center, $align-items: center, $wrap: wrap);
+
+  gap: rem(3px);
+
+  &__link {
+    @include size(rem(40px));
+    @include flex(center, center);
+
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background-color: var(--color-shark);
+    box-shadow: var(--box-shadow);
+    border: rem(1px) solid var(--color-border);
   }
 }

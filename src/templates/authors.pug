@@ -1,0 +1,125 @@
+---
+title: D-news
+lang: en
+---
+extends layouts/_layout
+
+block content
+  .top-banner
+    .top-banner__block
+      +banner('Wide #1')
+  +header#header
+
+  main.main
+    //notification--active
+    +notification.js-notification
+
+    //cookie--active
+    +cookie.js-cookie
+
+    //popup--active
+    +popup.js-popup
+
+    section.section
+      .container-fluid
+        .container
+          .row
+            .col.col-md-12.col-xl-9.col-verticall-offset
+              .widget
+                .widget__header
+                  +widget-title('ALL AUTHORS')
+                .widget__body
+                  ul.alphabet
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_I/') I
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_K/') K
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_V/') V
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_W/') W
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Y/') Y
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_А/') А
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Б/') Б
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_В/') В
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Г/') Г
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Ґ/') Ґ
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Д/') Д
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Е/') Е
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Є/') Є
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Ж/') Ж
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_З/') З
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_І/') І
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Й/') Й
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_К/') К
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Л/') Л
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_М/') М
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Н/') Н
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_О/') О
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_П/') П
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Р/') Р
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_С/') С
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Т/') Т
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_У/') У
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Ф/') Ф
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Х/') Х
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Ц/') Ц
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Ч/') Ч
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Ш/') Ш
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Щ/') Щ
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Ю/') Ю
+                    li.alphabet__item
+                      a.alphabet__link(href='/letter_Я/') Я
+
+
+              widget
+                .widget__header
+                  +widget-title('version')
+                .widget__body
+                  - var n = 1;
+                    .row
+                      while n < 5
+                        .col.col-md-6.col-verticall-offset
+                          +author-preview(href="author.html" data=n++)
+                  +pagination
+
+            .col.col-xl-hidden.col-xl-3.col-verticall-offset.sa-sticky
+              .widget
+                .widget__header
+                  +widget-title('Follow us')
+                .widget__body
+                  +follow
+
+              .widget
+                .widget__body
+                  +banner('banner #7')(style="max-height: 120px")

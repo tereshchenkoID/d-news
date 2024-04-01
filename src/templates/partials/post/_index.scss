@@ -11,6 +11,15 @@
     @include make-spacer(mt, 15px);
   }
 
+  &__headline {
+    @include make-spacer(mb, 10px);
+    @include make-spacer(pr, 3px);
+
+    display: grid;
+    grid-template-columns: 1fr rem(30px);
+    column-gap: rem(20px);
+  }
+
   &__content {
     @include make-spacer(p, 20px);
 
@@ -48,6 +57,54 @@
     font-size: rem(20px);
   }
 
+  &__waveform {
+    @include make-spacer(my, 10px);
+
+    display: none;
+
+    &--active {
+      display: block;
+
+      @include media-breakpoint-up(xl) {
+        display: none;
+      }
+    }
+  }
+
+  &__options {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+  }
+
+  &__volume {
+    @include flex(center, center);
+    @include size(rem(35px));
+
+    background-color: var(--color-shark);
+    border: rem(1px) solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    color: var(--color-text);
+
+    @include media-breakpoint-up(md) {
+      @include size(rem(40px));
+    }
+
+    @include media-breakpoint-up(xl) {
+      display: none;
+    }
+
+    &--active {
+
+      i {
+        &::before {
+          content: "\f028";
+        }
+      }
+    }
+  }
+
   &__meta {
     @include flex(null, center, null, wrap);
 
@@ -74,5 +131,12 @@
     @include flex(null, center, null, wrap);
 
     gap: rem(15px);
+  }
+
+  &__author {
+    @include make-spacer(mt, 10px);
+
+    color: var(--color-comet);
+    display: block;
   }
 }

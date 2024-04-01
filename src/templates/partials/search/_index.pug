@@ -1,7 +1,9 @@
 mixin search
-  form(mthod="get").search&attributes(attributes)
+  form(method="get").search&attributes(attributes)
     button(type="submit" aria-label="Search button").search__button.js-search-button
       i.fa.fa-search
     input(type="text" placeholder="Search here..." required).field.search__field.js-search-field
+    button(type="button" aria-label="Voice search" data-locale="ru-Ru").search__microphone.js-search-microphone
+      i.fa.fa-microphone
     button(type="button" aria-label="Search button").search__toggle.js-search-toggle
       i.fa.fa-search

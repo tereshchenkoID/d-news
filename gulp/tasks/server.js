@@ -8,9 +8,6 @@ import config  from '../config';
 
 const server = browseeSync.create();
 
-// in CL 'gulp server --open' to open current project in browser
-// in CL 'gulp server --tunnel siteName' to make project available over http://siteName.localtunnel.me
-
 gulp.task('server', done => {
   server.init({
     server: {

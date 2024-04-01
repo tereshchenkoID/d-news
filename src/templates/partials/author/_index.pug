@@ -1,0 +1,22 @@
+mixin author
+  .author&attributes(attributes)
+    .author__wrapper
+      .author__photo
+        img(src="https://chtstudio.com/demo/news/images/others/author4.png").img
+      .author__content
+        h3.author__title.u-text-transform-capitalize.u-mb-0 Name Surname
+        p.author__text news editor of ...
+        a(href="#").author__link mail@mail.com
+    .author__meta
+      p In the UP team since 2018
+      p Amet asperiores, consectetur eius fugit illo ipsum mollitia odit placeat qui. Assumenda commodi consectetur est, eum expedita nobis suscipit temporibus unde! Ut!
+
+
+mixin author-preview
+  a.author&attributes(attributes)
+    .author__wrapper
+      .author__photo
+        img(src="https://chtstudio.com/demo/news/images/others/author3.png").img
+      .author__content
+        h3.author__title.u-text-transform-capitalize.u-mb-0 Name Surname
+        p.author__text news editor of ...

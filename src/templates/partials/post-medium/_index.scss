@@ -11,7 +11,7 @@
 
     @include media-breakpoint-up(lg) {
       display: grid;
-      grid-template-columns: rem(350px) 1fr;
+      grid-template-columns: rem(300px) 1fr;
     }
 
     .post-medium {
@@ -45,6 +45,12 @@
     @include make-spacer(mt, 15px);
   }
 
+  &__bookmark {
+    position: absolute;
+    top: rem(15px);
+    right: rem(15px);
+  }
+
   &__content {
     @include make-spacer(p, 15px);
 
@@ -70,6 +76,10 @@
     }
   }
 
+  &__media {
+    position: relative;
+  }
+
   &__thumbnail {
     aspect-ratio: 16/9;
   }
@@ -83,6 +93,12 @@
     @include flex(null, center, null, wrap);
 
     column-gap: rem(15px);
+  }
+
+  &__author {
+    @include make-spacer(mt, 10px);
+
+    display: block;
   }
 
   &__item {

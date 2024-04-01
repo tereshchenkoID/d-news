@@ -1,3 +1,4 @@
+import WaveSurfer from 'wavesurfer.js'
 import {Swiper, EffectFade, Navigation, Pagination, Thumbs } from 'swiper';
 import { Fancybox } from "@fancyapps/ui";
 import 'theia-sticky-sidebar';
@@ -5,6 +6,80 @@ import 'theia-sticky-sidebar';
 const $switch = $('.js-switch input')
 $switch.prop('checked', sessionStorage.getItem('theme') === 'dark')
 $('body').attr('theme', sessionStorage.getItem('theme') || 'light')
+
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (window.SpeechRecognition) {
+  // eslint-disable-next-line new-cap,no-undef
+  const recognizer = new SpeechRecognition();
+  recognizer.continuous = false
+  recognizer.interimResults = true
+  recognizer.lang = $('.js-search-microphone').attr('data-locale');
+
+  recognizer.onresult = function (event) {
+    if (event.results && event.results.length > 0) {
+      const result = event.results[event.resultIndex];
+      if (result.isFinal) {
+        $('.js-search-field').val(result[0].transcript)
+      } else {
+        $('.js-microphone-results').text(`"${result[0].transcript}"`)
+        $('.js-search-field').val(result[0].transcript)
+      }
+    }
+  }
+
+  recognizer.onerror = function(event) {
+    console.log(event)
+    if(event.error !== 'no-speech'){
+      $('.js-search-microphone').addClass('search__microphone--disabled')
+      $('.js-microphone-error').addClass('microphone--active')
+    }
+  };
+
+  recognizer.onend = function() {
+    $('.js-microphone-results').text('')
+    $('.js-microphone-search').removeClass('microphone--active')
+  };
+
+  $('.js-search-microphone').on('click', function() {
+    $('.js-microphone-search').addClass('microphone--active')
+    recognizer.start();
+  })
+
+  $('.js-microphone').on('click', function() {
+    $('.js-microphone').removeClass('microphone--active')
+  })
+} else {
+  $('.js-search-microphone').hide()
+}
+
+
+// https://wavesurfer.xyz/examples/?all-options.js
+const waveformOption = (el) => {
+  return {
+    container: el,
+    waveColor: "#5e5e75",
+    progressColor: "#ff0000",
+    cursorColor: "#5e5e75",
+    cursorWidth: 2,
+    mediaControls: true,
+    url: $(el).attr('data-record'),
+  }
+}
+
+if ($('#waveform').length  > 0 && $('#waveform-post').length > 0) {
+  const wavesurfer = WaveSurfer.create(
+    waveformOption('#waveform')
+  )
+  const wavesurferPost = WaveSurfer.create(
+    waveformOption('#waveform-post')
+  )
+}
+
+$('.js-post-volume').on('click', function() {
+  $(this).toggleClass('post__volume--active')
+  $('.js-post-waveform').toggleClass('post__waveform--active')
+})
 
 $switch.on('change', function() {
   $('body').attr('theme', $(this).prop('checked') === true ? 'dark' : 'light')
@@ -240,9 +315,30 @@ $('.js-language-link').click(function() {
   $(this).addClass('language__link--active')
 });
 
+const getOuterTop = () => {
+  const $stickyElement = $('.header');
+  const $stickyElementTop = $stickyElement.offset().top;
+  const $scrollTop = $(window).scrollTop();
+  return $stickyElementTop - $scrollTop === 0 ? $stickyElement.outerHeight() : $stickyElementTop - $scrollTop + $stickyElement.outerHeight()
+}
+
+$(window).resize(function() {
+  if($('.menu').hasClass('menu--active')) {
+    $('.js-menu').css('top', `${getOuterTop()}px`)
+  }
+});
+
 $('.js-toggle').click(function() {
   $(this).toggleClass('toggle--active')
   $('.menu').toggleClass('menu--active')
+
+  if($('.menu').hasClass('menu--active')) {
+    $('body').css('overflowY', 'hidden')
+    $('.js-menu').css('top', `${getOuterTop()}px`)
+  }
+  else {
+    $('body').css('overflowY', 'auto')
+  }
 });
 
 $('.js-top-list').click(function() {
@@ -265,6 +361,7 @@ $('.sa-sticky').theiaStickySidebar({
 
 $('.js-search-toggle').on('click', function() {
   $('.js-search').toggleClass('search--wide')
+  $('.js-search-field').val('')
 })
 
 $('.js-search-field').on('focus', function() {

@@ -1,19 +1,21 @@
 mixin post-medium(id, category, video)
   article.post-medium&attributes(attributes)
-    if category
-      a(href="./details.html").post-medium__category.u-text-transform-uppercase Category
-    a(href="./details.html").thumbnail.post-medium__thumbnail
-      if video
-        iframe(src='https://www.youtube.com/embed/2mh_ZICm-EU' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen='').img.img--cover
-      else
-        img(src=`https://chtstudio.com/demo/news/images/post/${id}.jpg` loading="lazy").img.img--cover
+    .post-medium__media
+      +bookmark.post-medium__bookmark
+      if category
+        a(href="./details.html").post-medium__category.u-text-transform-uppercase Category
+      a(href="./details.html").thumbnail.post-medium__thumbnail
+        if video
+          iframe(src='https://www.youtube.com/embed/2mh_ZICm-EU' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen='').img.img--cover
+        else
+          img(src=`https://chtstudio.com/demo/news/images/post/${id}.jpg` loading="lazy").img.img--cover
     .post-medium__content
       h2.post-medium__title.u-mb-0.u-text-transform-capitalize
         a(href="./details.html") Shots in border dispute - BBC News
       p.post-medium__description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis quae perferendis, nesciunt facere tenetur repudiandae
       ul.post-medium__meta
         li.post-medium__item
-          i.fa.fa-clock
+          i.fa.fa-clock-o
           a(href="#") Feb 28, 2022
         li.post-medium__item
           i.fa.fa-eye
@@ -24,3 +26,4 @@ mixin post-medium(id, category, video)
         li.post-medium__item
           i.fa.fa-comment
           a(href="#") 89
+      a(href="./author.html").post-medium__author Author Name

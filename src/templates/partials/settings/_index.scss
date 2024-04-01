@@ -31,16 +31,21 @@
   }
 
   &__wrapper {
+    @include size(100%);
+
     position: relative;
     background-color: var(--color-shark);
-    box-shadow: var(--box-shadow);
-    border-radius:  var(--border-radius);
     overflow: hidden;
     min-width: rem(320px);
-    max-width: rem(550px);
-    width: 100%;
     overflow-y: auto;
     max-height: 100%;
+
+    @include media-breakpoint-up(md) {
+      max-width: rem(550px);
+      height: auto;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
   }
 
   &__top {

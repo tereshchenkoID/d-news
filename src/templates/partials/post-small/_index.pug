@@ -1,15 +1,17 @@
 mixin post-small(id, category)
   article.post-small&attributes(attributes)
-    if category
-      a(href="./details.html" aria-label="Category").post-small__category.u-text-transform-uppercase Category
-    a(href="./details.html" aria-label="RCategory").thumbnail.post-small__thumbnail
-      img(src=`https://chtstudio.com/demo/news/images/post/sm${id}.jpg` loading="lazy" alt=category).img.img--cover
+    .post-small__media
+      +bookmark.post-small__bookmark
+      if category
+        a(href="./details.html" aria-label="Category").post-small__category.u-text-transform-uppercase Category
+      a(href="./details.html" aria-label="RCategory").thumbnail.post-small__thumbnail
+        img(src=`https://chtstudio.com/demo/news/images/post/sm${id}.jpg` loading="lazy" alt=category).img.img--cover
     .post-small__content
       h2.post-small__title.u-mb-0.u-text-transform-capitalize
         a(href="./details.html" aria-label="Category title") Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium at autem consectetur dolor eveniet excepturi magni modi quaerat quisquam, ratione sunt, velit voluptatum. Alias amet ea facilis id iusto totam.
       ul.post-small__meta
         li.post-small__item
-          i.fa.fa-clock
+          i.fa.fa-clock-o
           a(href="#") Feb 28, 2022
         li.post-small__item
           i.fa.fa-eye
@@ -17,3 +19,4 @@ mixin post-small(id, category)
         li.post-small__item
           i.fa.fa-heart
           a(href="#") 270
+      a(href="./author.html").post-small__author Author Name

@@ -50,7 +50,8 @@
 
   &__category,
   &__title,
-  &__meta {
+  &__meta,
+  &__author {
     position: relative;
     z-index: 1;
   }
@@ -121,5 +122,12 @@
 
     color: var(--color-comet);
     column-gap: rem(5px);
+  }
+
+  &__author {
+    @include make-spacer(mt, 10px);
+
+    color: var(--color-comet);
+    display: block;
   }
 }

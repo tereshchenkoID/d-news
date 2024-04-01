@@ -1,0 +1,18 @@
+@use 'src/scss/config' as *;
+
+.bookmark {
+  @include size(rem(30px));
+  @include flex(center, center);
+
+  border-radius: 50%;
+  z-index: $z-index-1;
+  background-color: var(--color-primary);
+  font-size: rem(12px);
+  color: var(--color-white);
+
+  &--absolute {
+    position: absolute;
+    top: rem(20px);
+    right: rem(25px);
+  }
+}

@@ -44,6 +44,12 @@ block content
             .grid__column.sa-sticky
               .widget
                 .widget__header
+                  +widget-title('Audio')
+                .widget__body
+                  #waveform(data-record="https://wavesurfer.xyz/wavesurfer-code/examples/audio/audio.wav")
+
+              .widget
+                .widget__header
                   +widget-title('Follow us')
                 .widget__body
                   +follow

@@ -20,6 +20,10 @@
         @include line-clamp(2);
       }
 
+      &__bookmark {
+        display: none;
+      }
+
       &__thumbnail {
 
         @include media-breakpoint-up(sm) {
@@ -52,6 +56,16 @@
 
     align-self: center;
     font-size: rem(13px);
+  }
+
+  &__media {
+    position: relative;
+  }
+
+  &__bookmark {
+    position: absolute;
+    top: rem(10px);
+    right: rem(10px);
   }
 
   &__category {
@@ -94,5 +108,11 @@
     color: var(--color-comet);
     font-size: rem(12px);
     column-gap: rem(5px);
+  }
+
+  &__author {
+    @include make-spacer(mt, 10px);
+
+    display: block;
   }
 }

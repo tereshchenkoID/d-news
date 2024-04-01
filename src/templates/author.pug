@@ -1,0 +1,60 @@
+---
+title: D-news
+lang: en
+---
+extends layouts/_layout
+
+block content
+  .top-banner
+    .top-banner__block
+      +banner('Wide #1')
+  +header#header
+
+  main.main
+    //notification--active
+    +notification.js-notification
+
+    //cookie--active
+    +cookie.js-cookie
+
+    //popup--active
+    +popup.js-popup
+
+    section.section
+      .container-fluid
+        .container
+          .row
+            .col.col-md-12.col-xl-9.col-verticall-offset
+              .widget.widget--custom
+                .widget__header
+                  .widget-title.widget-title--custom
+                    h3.widget-title__text ABOUT
+
+                .widget__body
+                  +author
+
+              .widget.widget--custom.u-mb-0
+                .widget__header
+                  .widget-title.widget-title--custom
+                    h3.widget-title__text AUTHOR PUBLICATIONS
+
+                .widget__body
+                  .row
+                    - var n = 1;
+                    while n < 9
+                      .col.col-lg-6.col-verticall-offset
+                        +post-small(n++, false).post-small--row
+
+                    .col.col-verticall-offset
+                      +pagination
+
+            .col.col-xl-hidden.col-xl-3.col-verticall-offset.sa-sticky
+              .widget
+                .widget__header
+                  +widget-title('Follow us')
+                .widget__body
+                  +follow
+
+              .widget
+                .widget__body
+                  +banner('banner #7')(style="max-height: 120px")
