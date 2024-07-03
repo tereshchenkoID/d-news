@@ -9,7 +9,7 @@
 
   &__logo,
   &__search,
-  &__toggle {
+  &__button {
     flex-shrink: 0;
   }
 
@@ -24,12 +24,43 @@
   }
 
   &__logo {
-    @include make-spacer(mr, 20px);
+    @include make-spacer(mr, auto);
 
     width: rem(100px);
 
     @include media-breakpoint-up(sm) {
       width: rem(150px);
+    }
+
+    @include media-breakpoint-up(xl) {
+      @include make-spacer(mr, 20px);
+    }
+  }
+
+  &__button {
+    @include flex(center, center);
+    @include size(rem(40px));
+
+    * {
+      @include transition;
+    }
+
+    .fa {
+      font-size: rem(20px);
+    }
+  
+    .img {
+      @include size(rem(22px));
+  
+      fill: var(--color-text);
+    }
+  
+    &:hover {
+      color: var(--color-primary);
+  
+      .img {
+        fill: var(--color-primary);
+      }
     }
   }
 }

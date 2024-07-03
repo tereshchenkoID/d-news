@@ -670,24 +670,6 @@ ol {
   }
 }
 
-.settings-toggle {
-  @include flex(center, center);
-  @include size(rem(22px));
-
-  .img {
-    @include transition;
-
-    fill: var(--color-text);
-  }
-
-  &:hover {
-
-    .img {
-      fill: var(--color-primary);
-    }
-  }
-}
-
 .archive {
   display: grid;
   gap: rem(40px);

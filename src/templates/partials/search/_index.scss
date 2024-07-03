@@ -40,6 +40,7 @@
   &__microphone,
   &__button,
   &__toggle {
+    @include transition;
     @include size(rem(40px), 100%);
 
     color: var(--color-text);
