@@ -1,5 +1,42 @@
 mixin account
   .account&attributes(attributes)
-    p.account__text Guest
-    .account__icon
-      i.fa.fa-user
+    .account__wrapper.js-account-wrapper
+      p.account__text Guest
+      .account__icon
+        i.fa.fa-user
+    .account__dropdown.js-account-dropdown
+      .account__meta
+        .account__avatar
+          img(src="https://chtstudio.com/demo/news/images/post/sm5.jpg" loading="lazy").img.img--cover
+        p.account__name Username
+
+      ul.account__menu
+        li.account__item
+          a(href="#").account__link
+            i.fa.fa-trophy
+            span Rewards
+            span 443
+        li.account__item
+          a(href="#").account__link
+            i.fa.fa-plus-square-o
+            span Collection
+        li.account__item
+          a(href="#").account__link
+            i.fa.fa-user
+            span My profile
+        li.account__item
+          a(href="#").account__link
+            i.fa.fa-cog
+            span Settings
+        li.account__item
+          a(href="#").account__link
+            i.fa.fa-repeat
+            span Search Journal
+        li.account__item
+          a(href="#").account__link
+            i.fa.fa-lock
+            span Confidential
+        li.account__item
+          a(href="#").account__link
+            i.fa.fa-envelope-o
+            span Support

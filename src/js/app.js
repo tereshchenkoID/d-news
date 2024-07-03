@@ -1,13 +1,24 @@
 import WaveSurfer from 'wavesurfer.js'
-import { Fancybox } from "@fancyapps/ui";
-import { Swiper, EffectFade, Navigation, Pagination, Thumbs } from 'swiper';
-import 'theia-sticky-sidebar';
+import { Fancybox } from "@fancyapps/ui"
+import { Swiper, EffectFade, Navigation, Pagination, Thumbs } from 'swiper'
+import 'theia-sticky-sidebar'
+
+const $elBody = $('body')
+const $elToggle = $('.js-toggle')
+const $elMenu = $('.js-menu')
+const $elHeader = $('#header')
 
 const $switch = $('.js-switch input')
 $switch.prop('checked', sessionStorage.getItem('theme') === 'dark')
-$('body').attr('theme', sessionStorage.getItem('theme') || 'light')
+$elBody.attr('theme', sessionStorage.getItem('theme') || 'light')
 
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+const getOuterTop = () => {
+  const $stickyElementTop = $elHeader.offset().top
+  const $scrollTop = $(window).scrollTop()
+  return $stickyElementTop - $scrollTop === 0 ? $elHeader.outerHeight() : $stickyElementTop - $scrollTop + $elHeader.outerHeight()
+}
 
 if (window.SpeechRecognition) {
   // eslint-disable-next-line new-cap,no-undef
@@ -81,7 +92,7 @@ $('.js-post-volume').on('click', function() {
 })
 
 $switch.on('change', function() {
-  $('body').attr('theme', $(this).prop('checked') === true ? 'dark' : 'light')
+  $elBody.attr('theme', $(this).prop('checked') === true ? 'dark' : 'light')
   sessionStorage.setItem('theme', $(this).prop('checked') === true ? 'dark' : 'light')
 })
 
@@ -151,7 +162,6 @@ document.querySelectorAll(".gallery-latest-news").forEach(el => {
     breakpoints: setBreakpoints(el),
   });
 })
-
 
 document.querySelectorAll(".gallery-rss").forEach(el => {
   // eslint-disable-next-line no-new
@@ -244,20 +254,42 @@ const swiper10 = new Swiper(".gallery-wide", {
 let prevScrollTop = $(window).scrollTop();
 
 const handleScroll = () => {
-  const $header = $("#header");
-  const scrollTop = $(window).scrollTop();
+  const scrollTop = $(window).scrollTop()
+  $elHeader.css("top", scrollTop < prevScrollTop ? "0" : `-${$elHeader.height()}px`)
 
-  if (scrollTop < prevScrollTop) {
-    $header.css("top", "0");
-  } else {
-    $header.css("top", `-${$header.height()}px`);
+  const elementsToReset = {
+    '.js-menu': 'menu--active',
+    '.js-toggle': 'toggle--active',
+    '.js-menu-item': 'menu__item--active',
+    '.js-account-dropdown': 'account__dropdown--active',
+    '.js-bonus-dropdown': 'bonus__dropdown--active',
+    '.js-nav-scope-dropdown': 'nav-scope__dropdown--active'
   }
 
-  $('.js-menu').removeClass('menu--active')
-  $('.js-toggle').removeClass('toggle--active')
-  $('.js-menu-item').removeClass('menu__item--active')
-  prevScrollTop = scrollTop;
+  Object.entries(elementsToReset).forEach(([selector, className]) => {
+    $(selector).removeClass(className)
+  })
+
+  prevScrollTop = scrollTop
 }
+
+const handleDropdownClick = (wrapperSelector, dropdownSelector, activeClass) => {
+  $(wrapperSelector).click(function handleClick() {
+    const $dropdown = $(dropdownSelector)
+    const scrollTop = $(window).scrollTop()
+
+    if($elMenu.hasClass('menu--active')) {
+      $elToggle.removeClass('toggle--active')
+      $elMenu.removeClass('menu--active')
+    }
+
+    $dropdown.css("top", scrollTop < prevScrollTop ? "50px" : `${$elHeader.offset().top - scrollTop + 50}px`);
+    $dropdown.toggleClass(activeClass)
+  })
+}
+
+handleDropdownClick('.js-account-wrapper', '.js-account-dropdown', 'account__dropdown--active');
+handleDropdownClick('.js-bonus-wrapper', '.js-bonus-dropdown', 'bonus__dropdown--active');
 
 $(document).ready(function () {
   handleScroll();
@@ -269,17 +301,17 @@ $(document).ready(function () {
 
 $('.js-settings-toggle').click(function() {
   $('.js-settings').addClass('settings--active')
-  $('body').addClass('hidden')
+  $elBody.addClass('hidden')
 });
 
 $('.js-settings-close').click(function() {
   $('.js-settings').removeClass('settings--active')
-  $('body').removeClass('hidden')
+  $elBody.removeClass('hidden')
 });
 
 $('.js-settings-shadow').click(function() {
   $('.js-settings').removeClass('settings--active')
-  $('body').removeClass('hidden')
+  $elBody.removeClass('hidden')
 });
 
 $('.js-edition-link').click(function() {
@@ -287,59 +319,34 @@ $('.js-edition-link').click(function() {
   $(this).addClass('edition__link--active')
 
   $(`.js-editions-link[data-editions="${$(this)[0].getAttribute('data-edition')}"]`).addClass('editions__link--active')
-  // $('.js-editions-toggle').text($(this).find('.js-edition-text').html())
 });
 
 $('.js-nav-scope-link').click(function scopeDropdown() {
   $('.js-nav-scope-dropdown').toggleClass('nav-scope__dropdown--active')
 })
 
-// $('.js-editions-select').click(function() {
-//   $('.js-editions').toggleClass('editions--active')
-// });
-
-// $(document).click(function (e) {
-//   if (!$(e.target).closest('.js-editions-select').length) {
-//     $('.js-editions').removeClass('editions--active');
-//   }
-// });
-
-// $('.js-editions-item').click(function() {
-//   $('.js-editions-item').removeClass('editions__link--active')
-//   $(this).addClass('editions__link--active')
-//   $('.js-editions-toggle').text($(this)[0].text)
-//   $(`.js-edition-link[data-edition="${$(this)[0].getAttribute('data-editions')}"]`).addClass('edition__link--active')
-//   $('.js-editions').toggleClass('edition--active')
-// });
-
 $('.js-language-link').click(function() {
   $('.js-language-link').removeClass('language__link--active')
   $(this).addClass('language__link--active')
 });
 
-const getOuterTop = () => {
-  const $stickyElement = $('.header');
-  const $stickyElementTop = $stickyElement.offset().top;
-  const $scrollTop = $(window).scrollTop();
-  return $stickyElementTop - $scrollTop === 0 ? $stickyElement.outerHeight() : $stickyElementTop - $scrollTop + $stickyElement.outerHeight()
-}
-
 $(window).resize(function handleResize() {
-  if($('.menu').hasClass('menu--active')) {
-    $('.js-menu').css('top', `${getOuterTop()}px`)
+  if($elMenu.hasClass('menu--active')) {
+    $elMenu.css('top', `${getOuterTop()}px`)
   }
 });
 
-$('.js-toggle').click(function() {
-  $(this).toggleClass('toggle--active')
-  $('.menu').toggleClass('menu--active')
+$elToggle.click(function handleToggle() {
+  $elToggle.toggleClass('toggle--active')
+  $elMenu.toggleClass('menu--active')
+  // $elBody.toggleClass('hidden')
 
-  if($('.menu').hasClass('menu--active')) {
-    $('body').css('overflowY', 'hidden')
-    $('.js-menu').css('top', `${getOuterTop()}px`)
+  if($elMenu.hasClass('menu--active')) {
+    $elMenu.css('top', `${getOuterTop()}px`)
+    $elBody.addClass('hidden')
   }
   else {
-    $('body').css('overflowY', 'auto')
+    $elBody.removeClass('hidden')
   }
 });
 
@@ -412,12 +419,39 @@ $('.js-menu-link').on('click', function(e) {
 })
 
 $(document).click(function handleDocumentClick(e) {
-  const isMenuItem = $(e.target).closest('.js-menu-item').length > 0;
-  const isNavScopeLink = $(e.target).closest('.js-nav-scope-link').length > 0;
+  const elements = [
+    { selector: '.js-account-wrapper', dropdown: '.js-account-dropdown', activeClass: 'account__dropdown--active' },
+    { selector: '.js-bonus-wrapper', dropdown: '.js-bonus-dropdown', activeClass: 'bonus__dropdown--active' },
+    { selector: '.js-menu-item', dropdown: '.js-menu-item', activeClass: 'menu__item--active' },
+    { selector: '.js-nav-scope-link', dropdown: '.js-nav-scope-dropdown', activeClass: 'nav-scope__dropdown--active' }
+  ]
 
-  if (!isMenuItem && !isNavScopeLink) {
-    $('.js-menu-item').removeClass('menu__item--active');
-    $('.js-nav-scope-dropdown').removeClass('nav-scope__dropdown--active');
+  let clickedElement = null
+
+  elements.forEach(element => {
+    if ($(e.target).closest(element.selector).length > 0) {
+      clickedElement = element
+    }
+  })
+
+  if (clickedElement) {
+    elements.forEach(element => {
+      if (element !== clickedElement) {
+        $(element.dropdown).removeClass(element.activeClass)
+      }
+    })
+
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      $elBody.addClass('hidden')
+    }
+  }
+  else {
+    elements.forEach(element => {
+      $(element.dropdown).removeClass(element.activeClass)
+      if(!$(element.dropdown).hasClass(element.activeClass) && !$elMenu.hasClass('menu--active')) {
+        $elBody.removeClass('hidden')
+      }
+    })
   }
 })
 
@@ -618,7 +652,7 @@ Quiz.prototype.init = function(data, idx) {
 
 const quiz = new Quiz()
 
-$('body').on('change', '.js-quiz-question-checkbox', function() {
+$elBody.on('change', '.js-quiz-question-checkbox', function() {
   const button = $(this).closest('.js-quiz').find('.js-quiz-question-button')
 
   if(button.attr('disabled') !== undefined) {
@@ -626,7 +660,7 @@ $('body').on('change', '.js-quiz-question-checkbox', function() {
   }
 })
 
-$('body').on('click', '.js-quiz-question-button', function () {
+$elBody.on('click', '.js-quiz-question-button', function () {
   const $form = $(this).closest('.js-quiz')
   const index = $form.find('.js-quiz-question-checkbox:checked').attr('data-index')
   const active = quiz.data.data[$form.attr('data-opinion')]
@@ -645,7 +679,7 @@ $('body').on('click', '.js-quiz-question-button', function () {
   $form.find('.js-quiz-question-right').html(base.answer(active, quiz.answer, quiz.data.data.length, Number(idx) + 1))
 })
 
-$('body').on('click', '.js-quiz-answer-button', function() {
+$elBody.on('click', '.js-quiz-answer-button', function() {
   const next = $('.quiz--active').next('.js-quiz')
   console.log(next)
   $('.js-quiz').removeClass('quiz--active')
@@ -658,7 +692,7 @@ $('body').on('click', '.js-quiz-answer-button', function() {
   }
 })
 
-$('body').on('click', '.js-quiz-button-new', function() {
+$elBody.on('click', '.js-quiz-button-new', function() {
   if (base.active < base.data.length - 1) {
     quiz.init(base.data[base.active + 1], base.active + 1)
   }
@@ -704,7 +738,6 @@ Questionary.prototype.init = function() {
       async: false
     });
 }
-
 
 const questionary = new Questionary()
 questionary.init()

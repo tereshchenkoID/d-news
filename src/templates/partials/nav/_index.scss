@@ -41,7 +41,9 @@
     @include flex(center, center);
     @include size(rem(40px));
 
-    * {
+    color: var(--color-text);
+
+    > * {
       @include transition;
     }
 
@@ -52,7 +54,7 @@
     .img {
       @include size(rem(22px));
   
-      fill: var(--color-text);
+      fill: currentColor;
     }
   
     &:hover {

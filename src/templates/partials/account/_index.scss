@@ -1,10 +1,15 @@
 @use 'src/scss/config' as *;
 
 .account {
-  @include flex(null, center);
+  position: relative;
+  z-index: $z-index-10;
 
-  cursor: pointer;
-  gap: rem(8px);
+  &__wrapper {
+    @include flex(null, center);
+
+    gap: rem(8px);
+    cursor: pointer;
+  }
 
   &__text {
     color: var(--color-white);
@@ -19,5 +24,86 @@
     color: var(--color-black);
     border-radius: 50%;
     overflow: hidden;
+  }
+
+  &__dropdown {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    background-color: var(--color-shark);
+    box-shadow: var(--box-shadow);
+
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      top: calc(100% + rem(10px))!important;
+      left: unset;
+      bottom: unset;
+      width: rem(320px);
+    }
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__meta {
+    @include make-spacer(p, 10px);
+    @include flex(center, center, column);
+
+    text-align: center;
+    gap: rem(10px);
+  }
+
+  &__avatar {
+    @include size(rem(120px));
+
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__item {
+    border-top: rem(1px) solid var(--color-porcelain);
+  }
+
+  &__link {
+    @include flex(space-between, center);
+    @include transition(all);
+    @include make-spacer(px, 20px);
+    @include make-spacer(py, 10px);
+
+    font-family: var(--font-family-alt);
+    opacity: 0.9;
+    font-size: rem(14px);
+    gap: rem(10px);
+
+    i {
+      width: rem(20px);
+      font-size: rem(20px);
+      text-align: center;
+    }
+
+    span {
+      flex: 1;
+
+      &:nth-child(3) {
+        @include make-spacer(mr, 0);
+
+        flex: 0;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+      color: var(--color-primary);
+      transform: translateX(rem(10px));
+    }
+
+    &--active {
+      opacity: 1;
+      color: var(--color-primary);
+    }
   }
 }
