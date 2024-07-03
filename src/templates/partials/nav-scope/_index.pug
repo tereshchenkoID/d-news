@@ -1,0 +1,32 @@
+- 
+  var scope = [
+            {
+              text: 'News Details',
+              href: "#"
+            },
+            {
+              text: 'Contact Page',
+              href: "#"
+            },
+            {
+              text: 'Sign In',
+              href: "#"
+            },
+            {
+              text: 'Sign Up',
+              href: "#"
+            },
+          ]
+
+mixin nav-scope
+  nav.nav-scope&attributes(attributes)
+    ul.nav-scope__list
+      each item in scope
+        li.nav-scope__item.nav-scope__item--main
+          a(href=item.link).nav-scope__link.nav-scope__link--main= item.text
+      li.nav-scope__item.nav-scope__item--main
+        a.nav-scope__link.nav-scope__link--main.js-nav-scope-link ...
+        ul.nav-scope__dropdown.js-nav-scope-dropdown
+          each item in scope
+            li.nav-scope__item.nav-scope__item--alt
+              a(href=item.link).nav-scope__link.nav-scope__link--alt= item.text

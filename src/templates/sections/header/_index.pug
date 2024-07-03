@@ -3,13 +3,15 @@ mixin header(show, id)
     .container-fluid
       .container
         .header__container
-          .header__left
-            +breaking-news(1)
+          .header__left Wed. 24 July 2024
+
+          .header__center
+            +nav-scope
 
           .header__right
             +toggle.js-toggle.header__toggle
-            +editions.header__editions.u-mr-16
             +account
+            +bonus
     +nav
     if show
       +header-tabs(id)

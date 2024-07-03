@@ -1,6 +1,6 @@
 import WaveSurfer from 'wavesurfer.js'
-import {Swiper, EffectFade, Navigation, Pagination, Thumbs } from 'swiper';
 import { Fancybox } from "@fancyapps/ui";
+import { Swiper, EffectFade, Navigation, Pagination, Thumbs } from 'swiper';
 import 'theia-sticky-sidebar';
 
 const $switch = $('.js-switch input')
@@ -52,7 +52,6 @@ if (window.SpeechRecognition) {
 } else {
   $('.js-search-microphone').hide()
 }
-
 
 // https://wavesurfer.xyz/examples/?all-options.js
 const waveformOption = (el) => {
@@ -288,27 +287,30 @@ $('.js-edition-link').click(function() {
   $(this).addClass('edition__link--active')
 
   $(`.js-editions-link[data-editions="${$(this)[0].getAttribute('data-edition')}"]`).addClass('editions__link--active')
-  $('.js-editions-toggle').text($(this).find('.js-edition-text').html())
+  // $('.js-editions-toggle').text($(this).find('.js-edition-text').html())
 });
 
+$('.js-nav-scope-link').click(function scopeDropdown() {
+  $('.js-nav-scope-dropdown').toggleClass('nav-scope__dropdown--active')
+})
 
-$('.js-editions-select').click(function() {
-  $('.js-editions').toggleClass('editions--active')
-});
+// $('.js-editions-select').click(function() {
+//   $('.js-editions').toggleClass('editions--active')
+// });
 
-$(document).click(function (e) {
-  if (!$(e.target).closest('.js-editions-select').length) {
-    $('.js-editions').removeClass('editions--active');
-  }
-});
+// $(document).click(function (e) {
+//   if (!$(e.target).closest('.js-editions-select').length) {
+//     $('.js-editions').removeClass('editions--active');
+//   }
+// });
 
-$('.js-editions-item').click(function() {
-  $('.js-editions-item').removeClass('editions__link--active')
-  $(this).addClass('editions__link--active')
-  $('.js-editions-toggle').text($(this)[0].text)
-  $(`.js-edition-link[data-edition="${$(this)[0].getAttribute('data-editions')}"]`).addClass('edition__link--active')
-  $('.js-editions').toggleClass('edition--active')
-});
+// $('.js-editions-item').click(function() {
+//   $('.js-editions-item').removeClass('editions__link--active')
+//   $(this).addClass('editions__link--active')
+//   $('.js-editions-toggle').text($(this)[0].text)
+//   $(`.js-edition-link[data-edition="${$(this)[0].getAttribute('data-editions')}"]`).addClass('edition__link--active')
+//   $('.js-editions').toggleClass('edition--active')
+// });
 
 $('.js-language-link').click(function() {
   $('.js-language-link').removeClass('language__link--active')
@@ -322,7 +324,7 @@ const getOuterTop = () => {
   return $stickyElementTop - $scrollTop === 0 ? $stickyElement.outerHeight() : $stickyElementTop - $scrollTop + $stickyElement.outerHeight()
 }
 
-$(window).resize(function() {
+$(window).resize(function handleResize() {
   if($('.menu').hasClass('menu--active')) {
     $('.js-menu').css('top', `${getOuterTop()}px`)
   }
@@ -348,12 +350,6 @@ $('.js-top-list').click(function() {
   $(this).addClass('top-list__link--active')
   $(`div[data-tab="${id}"]`).addClass('top-list__body--active')
 })
-
-$('.js-ticker').hover(function(){
-  this.stop();
-}, function(){
-  this.start();
-});
 
 $('.sa-sticky').theiaStickySidebar({
     additionalMarginTop: 130
@@ -394,7 +390,6 @@ $('.js-edit-form-button').on('click', function() {
   $(form).find('.js-edit-form-field').attr('type', $(this).hasClass('edit-form__eye--active') ? 'text' : 'password')
 })
 
-
 $('.js-checkbox').on('change', function() {
   if ($('.js-checkbox-all input').prop('checked') === true) {
     $('.js-checkbox-all input').prop('checked', false);
@@ -416,13 +411,17 @@ $('.js-menu-link').on('click', function(e) {
   }
 })
 
-$(document).click(function (e) {
-  if (!$(e.target).closest('.js-menu-item').length) {
+$(document).click(function handleDocumentClick(e) {
+  const isMenuItem = $(e.target).closest('.js-menu-item').length > 0;
+  const isNavScopeLink = $(e.target).closest('.js-nav-scope-link').length > 0;
+
+  if (!isMenuItem && !isNavScopeLink) {
     $('.js-menu-item').removeClass('menu__item--active');
+    $('.js-nav-scope-dropdown').removeClass('nav-scope__dropdown--active');
   }
-});
+})
 
-
+/* Base */
 function Base() {
   this.BASE = 'https://api.qool90.bet/news'
   this.data = []
