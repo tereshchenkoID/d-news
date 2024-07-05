@@ -3,23 +3,46 @@
 .menu {
   @include make-spacer(p, 0);
   @include make-spacer(m, 0);
+  @include flex(flex-start, null, column);
+  @include transition;
 
-  display: none;
-  position: absolute;
-  top: calc(100% + rem(10px));
-  left: -$grid-padding;
-  right: -$grid-padding;
+  position: fixed;
+  top: rem(112px);
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: var(--color-shark);
   box-shadow: var(--box-shadow);
   overflow-y: auto;
   overflow-x: hidden;
+  transform: translateX(-100%);
+
+  @include media-breakpoint-up(md) {
+    max-width: rem(320px);
+  }
 
   @include media-breakpoint-up(xl) {
-    @include flex(flex-start, null, row);
-
     position: static;
+    flex-direction: row;
     background-color: transparent;
     box-shadow: unset;
+    overflow: unset;
+    transform: unset;
+    max-width: 100%;
+  }
+
+  &--active {
+    transform: unset;
+
+    @include media-breakpoint-up(xl) {
+      position: static;
+      flex-direction: row;
+    }
+  }
+
+  &__decor,
+  &__icon {
+    line-height: 1;
   }
 
   &__wrapper {
@@ -46,26 +69,6 @@
         border-bottom: 0;
       }
     }
-  }
-
-  &--active {
-    @include flex(flex-start, null, column);
-
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    @include media-breakpoint-up(xl) {
-      position: static;
-      flex-direction: row;
-      justify-content: flex-start;
-    }
-  }
-
-  &__decor,
-  &__icon {
-    line-height: 1;
   }
 
   &__item {
@@ -135,7 +138,7 @@
 
     @include media-breakpoint-up(xl) {
       position: absolute;
-      top: 100%;
+      top: calc(100% + rem(10px));
       min-width: rem(225px);
       z-index: $z-index-1;
     }
@@ -151,10 +154,6 @@
       left: 0;
       right: 0;
       width: 100%;
-
-      @include media-breakpoint-up(xl) {
-        @include make-spacer(pt, 11px);
-      }
     }
 
     &--hidden {

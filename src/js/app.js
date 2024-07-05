@@ -60,7 +60,8 @@ if (window.SpeechRecognition) {
   $('.js-microphone').on('click', function() {
     $('.js-microphone').removeClass('microphone--active')
   })
-} else {
+} 
+else {
   $('.js-search-microphone').hide()
 }
 
@@ -256,13 +257,12 @@ let prevScrollTop = $(window).scrollTop();
 const handleScroll = () => {
   const scrollTop = $(window).scrollTop()
   $elHeader.css("top", scrollTop < prevScrollTop ? "0" : `-${$elHeader.height()}px`)
+  $('.js-account-dropdown').css('top', scrollTop < prevScrollTop ? "50px" : "0")
+  $('.js-bonus-dropdown').css('top', scrollTop < prevScrollTop ? "50px" : "0")
+  $('.js-menu').css('top', scrollTop < prevScrollTop ? `${$elHeader.height()}px` : "0")
 
   const elementsToReset = {
-    '.js-menu': 'menu--active',
-    '.js-toggle': 'toggle--active',
     '.js-menu-item': 'menu__item--active',
-    '.js-account-dropdown': 'account__dropdown--active',
-    '.js-bonus-dropdown': 'bonus__dropdown--active',
     '.js-nav-scope-dropdown': 'nav-scope__dropdown--active'
   }
 
@@ -275,16 +275,13 @@ const handleScroll = () => {
 
 const handleDropdownClick = (wrapperSelector, dropdownSelector, activeClass) => {
   $(wrapperSelector).click(function handleClick() {
-    const $dropdown = $(dropdownSelector)
-    const scrollTop = $(window).scrollTop()
-
     if($elMenu.hasClass('menu--active')) {
       $elToggle.removeClass('toggle--active')
       $elMenu.removeClass('menu--active')
     }
 
-    $dropdown.css("top", scrollTop < prevScrollTop ? "50px" : `${$elHeader.offset().top - scrollTop + 50}px`);
-    $dropdown.toggleClass(activeClass)
+    $elBody.removeClass('hidden')
+    $(dropdownSelector).toggleClass(activeClass)
   })
 }
 
@@ -292,11 +289,14 @@ handleDropdownClick('.js-account-wrapper', '.js-account-dropdown', 'account__dro
 handleDropdownClick('.js-bonus-wrapper', '.js-bonus-dropdown', 'bonus__dropdown--active');
 
 $(document).ready(function () {
-  handleScroll();
-
   $(window).scroll(function () {
     handleScroll();
   });
+});
+
+$elToggle.click(function handleToggle() {
+  $elToggle.toggleClass('toggle--active')
+  $elMenu.toggleClass('menu--active')
 });
 
 $('.js-settings-toggle').click(function() {
@@ -330,25 +330,6 @@ $('.js-language-link').click(function() {
   $(this).addClass('language__link--active')
 });
 
-$(window).resize(function handleResize() {
-  if($elMenu.hasClass('menu--active')) {
-    $elMenu.css('top', `${getOuterTop()}px`)
-  }
-});
-
-$elToggle.click(function handleToggle() {
-  $elToggle.toggleClass('toggle--active')
-  $elMenu.toggleClass('menu--active')
-  // $elBody.toggleClass('hidden')
-
-  if($elMenu.hasClass('menu--active')) {
-    $elMenu.css('top', `${getOuterTop()}px`)
-    $elBody.addClass('hidden')
-  }
-  else {
-    $elBody.removeClass('hidden')
-  }
-});
 
 $('.js-top-list').click(function() {
   const id = $(this)[0].getAttribute('data-link')
@@ -418,10 +399,14 @@ $('.js-menu-link').on('click', function(e) {
   }
 })
 
+$('.js-account-item').click(function handleAccount() {
+  $(this).toggleClass('account__item--active')
+})
+
 $(document).click(function handleDocumentClick(e) {
   const elements = [
-    { selector: '.js-account-wrapper', dropdown: '.js-account-dropdown', activeClass: 'account__dropdown--active' },
-    { selector: '.js-bonus-wrapper', dropdown: '.js-bonus-dropdown', activeClass: 'bonus__dropdown--active' },
+    { selector: '.js-account', dropdown: '.js-account-dropdown', activeClass: 'account__dropdown--active' },
+    { selector: '.js-bonus', dropdown: '.js-bonus-dropdown', activeClass: 'bonus__dropdown--active' },
     { selector: '.js-menu-item', dropdown: '.js-menu-item', activeClass: 'menu__item--active' },
     { selector: '.js-nav-scope-link', dropdown: '.js-nav-scope-dropdown', activeClass: 'nav-scope__dropdown--active' }
   ]
@@ -440,10 +425,6 @@ $(document).click(function handleDocumentClick(e) {
         $(element.dropdown).removeClass(element.activeClass)
       }
     })
-
-    if (window.matchMedia('(max-width: 768px)').matches) {
-      $elBody.addClass('hidden')
-    }
   }
   else {
     elements.forEach(element => {
@@ -454,6 +435,7 @@ $(document).click(function handleDocumentClick(e) {
     })
   }
 })
+
 
 /* Base */
 function Base() {

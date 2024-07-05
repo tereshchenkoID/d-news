@@ -10,6 +10,7 @@
   }
 
   &--wide {
+    border-top: rem(1px) solid var(--color-porcelain);
 
     .submenu {
 
@@ -71,6 +72,12 @@
     @include make-spacer(py, 15px);
     @include make-spacer(px, 20px);
     @include make-spacer(p, 30px, lg);
+
+    flex-direction: column;
+
+    @include media-breakpoint-up(xl) {
+      flex-direction: row;
+    }
   }
 
   &__title {

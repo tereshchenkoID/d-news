@@ -52,7 +52,7 @@ function createConfig(env) {
       alias: {},
     },
     optimization: {
-      minimize: isProduction
+      minimize: false
     },
     module: {
       rules: [

@@ -142,31 +142,6 @@ ol {
   background-color: var(--color-cod-gray);
 }
 
-.top-banner {
-  height: 50vw;
-
-  @include media-breakpoint-up(sm) {
-    height: 33.3vw;
-  }
-
-  @include media-breakpoint-up(md) {
-    height: 25vw;
-  }
-
-  @include media-breakpoint-up(xl) {
-    height: 20vw;
-  }
-
-  &__block {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: inherit;
-    z-index: 0;
-  }
-}
-
 .wide {
   @include size(100%);
 }

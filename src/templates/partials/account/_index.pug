@@ -11,32 +11,52 @@ mixin account
         p.account__name Username
 
       ul.account__menu
-        li.account__item
+        li.account__item.js-account-item
           a(href="#").account__link
             i.fa.fa-trophy
-            span Rewards
-            span 443
-        li.account__item
+            span.account__label Rewards
+            span 443 
+        li.account__item.js-account-item
           a(href="#").account__link
             i.fa.fa-plus-square-o
-            span Collection
-        li.account__item
+            span.account__label Collection
+        li.account__item.js-account-item
           a(href="#").account__link
             i.fa.fa-user
-            span My profile
-        li.account__item
+            span.account__label My profile
+        li.account__item.js-account-item
           a(href="#").account__link
             i.fa.fa-cog
-            span Settings
-        li.account__item
+            span.account__label Settings
+        li.account__item.js-account-item
           a(href="#").account__link
             i.fa.fa-repeat
-            span Search Journal
-        li.account__item
-          a(href="#").account__link
+            span.account__label Search Journal
+        li.account__item.account__item--dropdown.js-account-item
+          a.account__link
             i.fa.fa-lock
-            span Confidential
-        li.account__item
+            span.account__label Confidential
+            i.fa.fa-angle-down.account__arrow
+          ul.account__menu
+            li.account__item
+              a(href="#").account__link
+                span Link
+            li.account__item
+              a(href="#").account__link
+                span Collection  
+        li.account__item.js-account-item
           a(href="#").account__link
             i.fa.fa-envelope-o
-            span Support
+            span.account__label Support
+        li.account__item.account__item--dropdown.js-account-item
+          a.account__link
+            i.fa.fa-repeat
+            span.account__label Dropdown
+            i.fa.fa-angle-down.account__arrow
+          ul.account__menu
+            li.account__item
+              a(href="#").account__link
+                span Link
+            li.account__item
+              a(href="#").account__link
+                span Collection

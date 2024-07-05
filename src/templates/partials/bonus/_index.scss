@@ -1,7 +1,7 @@
 @use 'src/scss/config' as *;
 
 .bonus {
-  position: relative;
+  // position: relative;
   z-index: $z-index-10;
 
   &__wrapper {
@@ -27,28 +27,29 @@
   }
 
   &__dropdown {
+    @include flex($direction: column);
     @include make-spacer(p, 20px);
-    
-    display: none;
+    @include transition;
+
+    transform: translateX(100%);
     position: fixed;
+    top: rem(50px);
     left: 0;
     right: 0;
     bottom: 0;
     overflow-y: auto;
+    overflow-x: hidden;
+    gap: rem(20px);
     background-color: var(--color-shark);
     box-shadow: var(--box-shadow);
-    gap: rem(20px);
 
     @include media-breakpoint-up(md) {
-      position: absolute;
-      top: calc(100% + rem(10px))!important;
       left: unset;
-      bottom: unset;
       width: rem(320px);
     }
 
     &--active {
-      @include flex($direction: column);
+      transform: translateX(0);
     }
   }
 
