@@ -7,6 +7,8 @@ const $elBody = $('body')
 const $elToggle = $('.js-toggle')
 const $elMenu = $('.js-menu')
 const $elHeader = $('#header')
+// const $elFooter = $('#footer')
+// const $elBanners = $('.js-top-news-column')
 
 const $switch = $('.js-switch input')
 $switch.prop('checked', sessionStorage.getItem('theme') === 'dark')
@@ -14,11 +16,274 @@ $elBody.attr('theme', sessionStorage.getItem('theme') || 'light')
 
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-const getOuterTop = () => {
-  const $stickyElementTop = $elHeader.offset().top
-  const $scrollTop = $(window).scrollTop()
-  return $stickyElementTop - $scrollTop === 0 ? $elHeader.outerHeight() : $stickyElementTop - $scrollTop + $elHeader.outerHeight()
-}
+// const getOuterTop = () => {
+//   const $stickyElementTop = $elHeader.offset().top
+//   const $scrollTop = $(window).scrollTop()
+//   return $stickyElementTop - $scrollTop === 0 ? $elHeader.outerHeight() : $stickyElementTop - $scrollTop + $elHeader.outerHeight()
+// }
+// const isThrottled = false
+
+// const isOverlapping = ($el1, $el2) => {
+//   const rect1 = $el1[0].getBoundingClientRect()
+//   const rect2 = $el2[0].getBoundingClientRect()
+
+//   return !(rect1.right < rect2.left || 
+//            rect1.left > rect2.right || 
+//            rect1.bottom < rect2.top || 
+//            rect1.top > rect2.bottom);
+// }
+
+// const checkOverlapAndUpdate = () => {
+//   const isNowOverlapping = isOverlapping($elFooter, $elBanners);
+
+//   if (isNowOverlapping && !isHidden) {
+//     $elBanners.hide()
+//     isHidden = true
+//   } else if (!isNowOverlapping && isHidden) {
+//     $elBanners.show()
+//     isHidden = false
+//   }
+// };
+
+// $(window).on('scroll', function() {
+//   window.requestAnimationFrame(checkOverlapAndUpdate);
+// });
+
+
+$(document).ready(function() {
+  let $chatOpened   = $(window).width() > 992 ? localStorage.getItem('toggle') : '0'
+  const $chat         =  $('.js-chat')  
+  const $chatForm     =  $('.js-chat-fieldset')
+  const $chatMessage  =  $('.js-chat-input')
+  const $chatSubmit   =  $('.js-chat-button')
+  const $chatList     =  $('.js-chat-list')
+  let $chatFiles    = []
+
+  const adjustHeight = () => {
+    const el = $chatMessage[0]
+    el.style.height = 'auto'
+    el.style.height = `${el.scrollHeight}px`
+  }
+
+  const updateContent = () => {
+    const $scrollableBlock = $('.js-chat-area')
+    
+    if ($scrollableBlock[0].scrollHeight > $scrollableBlock.height()) {
+        $scrollableBlock.scrollTop($scrollableBlock[0].scrollHeight)
+    }
+  }
+
+  adjustHeight()
+  updateContent()
+
+  const handleInput = () => {
+    if ($chatMessage.val().length > 0) {
+      $chatSubmit.removeClass('chat__button--disabled')
+    } else {
+      $chatSubmit.addClass('chat__button--disabled')
+    }
+
+    adjustHeight()
+  }
+
+  $chatMessage.on('keydown, input', handleInput);
+
+  $(window).on('resize', adjustHeight)
+
+  $chatForm.on('submit', function(e) {
+    e.preventDefault()
+
+    $chatList.hide()
+        
+    const newQuestionBlock = `
+      <div class="question js-question">
+        <div class="question__text">${$chatMessage.val()}</div>
+      </div>`
+
+    $('.js-chat-area').append(newQuestionBlock)
+
+    $chatMessage.val('')
+    handleInput()
+    updateContent()
+  })
+
+  $chatMessage.on('keydown', function(e) {
+    if (e.key === 'Enter') {
+      if (!e.shiftKey && $chatMessage.val().length > 0) {
+        e.preventDefault()
+        $chatForm.submit()
+      }
+    }
+  })
+
+  const getFileIcon = (type) => {
+    switch (type) {
+      case 'image':
+        return 1
+      case 'audio':
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" class="h-10 w-10 flex-shrink-0" width="36" height="36"><rect width="36" height="36" rx="6" fill="#FF5588"></rect><path d="M19.6663 9.66663H12.9997C12.5576 9.66663 12.1337 9.84222 11.8212 10.1548C11.5086 10.4673 11.333 10.8913 11.333 11.3333V24.6666C11.333 25.1087 11.5086 25.5326 11.8212 25.8451C12.1337 26.1577 12.5576 26.3333 12.9997 26.3333H22.9997C23.4417 26.3333 23.8656 26.1577 24.1782 25.8451C24.4907 25.5326 24.6663 25.1087 24.6663 24.6666V14.6666L19.6663 9.66663Z" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19.667 9.66663V14.6666H24.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21.3337 18.8334H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21.3337 22.1666H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.3337 15.5H15.5003H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path></svg>'
+      case 'video':
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" class="h-10 w-10 flex-shrink-0" width="36" height="36"><rect width="36" height="36" rx="6" fill="#0000FF"></rect><path d="M18.833 9.66663H12.9997C12.5576 9.66663 12.1337 9.84222 11.8212 10.1548C11.5086 10.4673 11.333 10.8913 11.333 11.3333V24.6666C11.333 25.1087 11.5086 25.5326 11.8212 25.8451C12.1337 26.1577 12.5576 26.3333 12.9997 26.3333H22.9997C23.4417 26.3333 23.8656 26.1577 24.1782 25.8451C24.4907 25.5326 24.6663 25.1087 24.6663 24.6666V15.5L18.833 9.66663Z" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M18.833 9.66663V15.5H24.6663" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path></svg>'
+      case 'text':
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" class="h-10 w-10 flex-shrink-0" width="36" height="36"><rect width="36" height="36" rx="6" fill="#FF5588"></rect><path d="M19.6663 9.66663H12.9997C12.5576 9.66663 12.1337 9.84222 11.8212 10.1548C11.5086 10.4673 11.333 10.8913 11.333 11.3333V24.6666C11.333 25.1087 11.5086 25.5326 11.8212 25.8451C12.1337 26.1577 12.5576 26.3333 12.9997 26.3333H22.9997C23.4417 26.3333 23.8656 26.1577 24.1782 25.8451C24.4907 25.5326 24.6663 25.1087 24.6663 24.6666V14.6666L19.6663 9.66663Z" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19.667 9.66663V14.6666H24.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21.3337 18.8334H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21.3337 22.1666H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.3337 15.5H15.5003H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path></svg>'
+      case 'application': 
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" class="h-10 w-10 flex-shrink-0" width="36" height="36"><rect width="36" height="36" rx="6" fill="#FF5588"></rect><path d="M19.6663 9.66663H12.9997C12.5576 9.66663 12.1337 9.84222 11.8212 10.1548C11.5086 10.4673 11.333 10.8913 11.333 11.3333V24.6666C11.333 25.1087 11.5086 25.5326 11.8212 25.8451C12.1337 26.1577 12.5576 26.3333 12.9997 26.3333H22.9997C23.4417 26.3333 23.8656 26.1577 24.1782 25.8451C24.4907 25.5326 24.6663 25.1087 24.6663 24.6666V14.6666L19.6663 9.66663Z" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19.667 9.66663V14.6666H24.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21.3337 18.8334H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21.3337 22.1666H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.3337 15.5H15.5003H14.667" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path></svg>'
+      default:
+        return '?'  
+    }
+  }
+
+  const getFileType = (mimeType) => {
+    const TYPES = ['image', 'audio', 'video', 'text', 'application']
+    const mainType = mimeType.split('/')[0]
+    return TYPES.includes(mainType) ? mainType : 'unknown'
+  }
+
+  const renderFiles = () => {
+    let html = ''
+    $chatFiles.forEach((file, idx) => {
+      const type = getFileType(file.type)
+
+      console.log(file)
+
+      html += `
+            <div class="attachment ${type === 'image' ? 'attachment--image' : ''} js-attachment" data-idx="${idx}">
+              <button class="attachment__close js-attachment-close" type="button">
+                <i class="fa fa-times"></i>
+              </button>`;
+
+              if(type === 'image') {
+                html += `<img src="${URL.createObjectURL(file)}" alt="${file.name}" class="img img--cover attachment__thumbnail">`
+              }
+              else {
+                html += `<p class="attachment__icon">
+                          ${getFileIcon(type)}
+                         </p>
+                         <div class="attachment__info">
+                           <p class="attachment__name">${file.name}</p>
+                           <p class="attachment__type">${file.type}</p>
+                         </div>`
+              }
+      html += `</div>`
+    })
+
+    $('.js-chat-files').html(html)
+  }
+
+  const removeFile = (index) => {
+    $chatFiles.splice(index, 1)
+    renderFiles()
+  }
+
+  const addClass = () => {
+    if ($(window).width() > 992) {
+      $('.js-chat').addClass('chat--wide')
+    } else {
+      $('.js-chat').removeClass('chat--wide')
+    }
+  }
+
+  const loadClass = () => {
+    if($chatOpened === '1') {
+      $chat.addClass('chat--wide')
+    }
+    else {
+      $chat.removeClass('chat--wide')
+    }
+  }
+
+  $('.js-chat-option').on('click', function() {
+    $chatMessage.val($(this).find('span').text())
+    $chatList.hide()
+    $chatForm.submit()
+  })
+
+  $('.js-chat-file').on('change', function() {
+    $chatFiles = Array.from(this.files)
+    renderFiles()
+  })
+
+  $elBody.on('click', '.js-attachment-close', function() {
+    removeFile($(this).parent().data('idx'))
+  })
+
+  $elBody.on('click', function(event) {
+    if (!$(event.target).closest('.history__item').length) {
+      $('.history__item--active').removeClass('history__item--active')
+    }
+  })
+  
+  $elBody.on('click', '.js-history-toggle', function(event) {
+    event.stopPropagation()
+    const $parent = $(this).parent()
+  
+    if ($parent.hasClass('history__item--active')) {
+      $parent.removeClass('history__item--active')
+    } else {
+      $('.history__item--active').removeClass('history__item--active')
+      $parent.addClass('history__item--active')
+    }
+  })
+
+  $elBody.on('click', '.js-history-option', function() {
+    $('.history__item--active').removeClass('history__item--active')
+  })
+
+  $('.js-chat-toggle').on('click', function() {
+    $chat.toggleClass('chat--wide')
+    const a = $chat.hasClass('chat--wide')
+    $chatOpened = a
+    localStorage.setItem('toggle', a ? '1' : '0')
+  })
+
+  if (window.SpeechRecognition) {
+    // eslint-disable-next-line new-cap,no-undef
+    const recognizer = new SpeechRecognition();
+    recognizer.continuous = false
+    recognizer.interimResults = true
+    recognizer.lang = $('.js-search-microphone').attr('data-locale');
+  
+    recognizer.onresult = function (event) {
+      if (event.results && event.results.length > 0) {
+        const result = event.results[event.resultIndex];
+        if (result.isFinal) {
+          $('.js-chat-input').val(result[0].transcript)
+        } else {
+          $('.js-microphone-results').text(`"${result[0].transcript}"`)
+          $('.js-chat-input').val(result[0].transcript)
+        }
+      }
+    }
+  
+    recognizer.onerror = function(event) {
+      console.log(event)
+      if(event.error !== 'no-speech'){
+        $('.js-search-microphone').addClass('search__microphone--disabled')
+        $('.js-microphone-error').addClass('microphone--active')
+      }
+    };
+  
+    recognizer.onend = function() {
+      $('.js-microphone-results').text('')
+      $('.js-microphone-search').removeClass('microphone--active')
+      adjustHeight()
+      handleInput()
+      // Send after end voice chat
+      // $chatForm.submit()
+    }
+  
+    $('.js-chat-volume').on('click', function() {
+      $('.js-microphone-search').addClass('microphone--active')
+      recognizer.start();
+    })
+  } 
+
+  $(window).on('resize', function() {
+    addClass()
+  })
+
+  loadClass()
+})
 
 if (window.SpeechRecognition) {
   // eslint-disable-next-line new-cap,no-undef
@@ -329,7 +594,6 @@ $('.js-language-link').click(function() {
   $('.js-language-link').removeClass('language__link--active')
   $(this).addClass('language__link--active')
 });
-
 
 $('.js-top-list').click(function() {
   const id = $(this)[0].getAttribute('data-link')

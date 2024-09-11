@@ -1,0 +1,79 @@
+mixin chat
+  .chat.js-chat&attributes(attributes)
+    button(type="button").chat__toggle.js-chat-toggle
+      svg(width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg')
+        path(fill-rule='evenodd' clip-rule='evenodd' d='M8.85719 3H15.1428C16.2266 2.99999 17.1007 2.99998 17.8086 3.05782C18.5375 3.11737 19.1777 3.24318 19.77 3.54497C20.7108 4.02433 21.4757 4.78924 21.955 5.73005C22.2568 6.32234 22.3826 6.96253 22.4422 7.69138C22.5 8.39925 22.5 9.27339 22.5 10.3572V13.6428C22.5 14.7266 22.5 15.6008 22.4422 16.3086C22.3826 17.0375 22.2568 17.6777 21.955 18.27C21.4757 19.2108 20.7108 19.9757 19.77 20.455C19.1777 20.7568 18.5375 20.8826 17.8086 20.9422C17.1008 21 16.2266 21 15.1428 21H8.85717C7.77339 21 6.89925 21 6.19138 20.9422C5.46253 20.8826 4.82234 20.7568 4.23005 20.455C3.28924 19.9757 2.52433 19.2108 2.04497 18.27C1.74318 17.6777 1.61737 17.0375 1.55782 16.3086C1.49998 15.6007 1.49999 14.7266 1.5 13.6428V10.3572C1.49999 9.27341 1.49998 8.39926 1.55782 7.69138C1.61737 6.96253 1.74318 6.32234 2.04497 5.73005C2.52433 4.78924 3.28924 4.02433 4.23005 3.54497C4.82234 3.24318 5.46253 3.11737 6.19138 3.05782C6.89926 2.99998 7.77341 2.99999 8.85719 3ZM6.35424 5.05118C5.74907 5.10062 5.40138 5.19279 5.13803 5.32698C4.57354 5.6146 4.1146 6.07354 3.82698 6.63803C3.69279 6.90138 3.60062 7.24907 3.55118 7.85424C3.50078 8.47108 3.5 9.26339 3.5 10.4V13.6C3.5 14.7366 3.50078 15.5289 3.55118 16.1458C3.60062 16.7509 3.69279 17.0986 3.82698 17.362C4.1146 17.9265 4.57354 18.3854 5.13803 18.673C5.40138 18.8072 5.74907 18.8994 6.35424 18.9488C6.97108 18.9992 7.76339 19 8.9 19H9.5V5H8.9C7.76339 5 6.97108 5.00078 6.35424 5.05118ZM11.5 5V19H15.1C16.2366 19 17.0289 18.9992 17.6458 18.9488C18.2509 18.8994 18.5986 18.8072 18.862 18.673C19.4265 18.3854 19.8854 17.9265 20.173 17.362C20.3072 17.0986 20.3994 16.7509 20.4488 16.1458C20.4992 15.5289 20.5 14.7366 20.5 13.6V10.4C20.5 9.26339 20.4992 8.47108 20.4488 7.85424C20.3994 7.24907 20.3072 6.90138 20.173 6.63803C19.8854 6.07354 19.4265 5.6146 18.862 5.32698C18.5986 5.19279 18.2509 5.10062 17.6458 5.05118C17.0289 5.00078 16.2366 5 15.1 5H11.5ZM5 8.5C5 7.94772 5.44772 7.5 6 7.5H7C7.55229 7.5 8 7.94772 8 8.5C8 9.05229 7.55229 9.5 7 9.5H6C5.44772 9.5 5 9.05229 5 8.5ZM5 12C5 11.4477 5.44772 11 6 11H7C7.55229 11 8 11.4477 8 12C8 12.5523 7.55229 13 7 13H6C5.44772 13 5 12.5523 5 12Z' fill='currentColor')
+    
+    .chat__left
+      .chat__aside
+        .chat__header
+        .chat__history
+          .history
+            .history__section
+              .history__title Yesterday
+              - var i = 0
+              ul.history__list
+                while i < 5
+                  li.history__item
+                    a(href="/35a6bc32-3aa7-442d-b88e-f83d578dfef3" data=i++).history__link Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, quas et. Aliquam dolore soluta tempora voluptas. Animi quam veniam quisquam eaque ad, at pariatur suscipit consequuntur saepe possimus accusamus mollitia.
+                    button(type="button").history__toggle.js-history-toggle
+                      svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24')
+                        path(fill='currentColor' fill-rule='evenodd' d='M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0' clip-rule='evenodd')
+                    .history__dropdown.js-history-dropdown
+                      button(type="button").history__option.js-history-option
+                        i.fa.fa-share
+                        span Share
+                      button(type="button").history__option.js-history-option
+                        i.fa.fa-trash-o 
+                        span Delete
+            
+            .history__section
+              .history__title Last 30 days
+              - var i = 0
+              ul.history__list
+                while i < 15
+                  li.history__item
+                    a(href="/35a6bc32-3aa7-442d-b88e-f83d578dfef3" data=i++).history__link Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, quas et. Aliquam dolore soluta tempora voluptas. Animi quam veniam quisquam eaque ad, at pariatur suscipit consequuntur saepe possimus accusamus mollitia.
+                    button(type="button").history__toggle.js-history-toggle
+                      svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24')
+                        path(fill='currentColor' fill-rule='evenodd' d='M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0' clip-rule='evenodd')
+                    .history__dropdown.js-history-dropdown
+                      button(type="button").history__option.js-history-option
+                        i.fa.fa-share
+                        span Share
+                      button(type="button").history__option.js-history-option
+                        i.fa.fa-trash-o 
+                        span Delete
+
+    .chat__center
+      .chat__list.js-chat-list
+        button(type="button").chat__option.js-chat-option
+          svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewbox='0 0 24 24' style='color: rgb(118, 208, 235)')
+            path(stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m4.5 17.5 3.069-3.118a2 2 0 0 1 2.783-.066L16.5 20')
+            path(stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 12h-.62a3 3 0 0 1-2.278-1.048l-4.204-4.904A3 3 0 0 0 9.62 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1')
+            path(stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 5h-.62a3 3 0 0 0-2.278 1.048L14 8.5')
+            circle(cx='8.5' cy='9.5' r='1.5' fill='currentColor')
+            path(fill='currentColor' d='M18 14v-4a.5.5 0 0 1 .8-.4l2.667 2a.5.5 0 0 1 0 .8l-2.667 2a.5.5 0 0 1-.8-.4M18 7V3a.5.5 0 0 1 .8-.4l2.667 2a.5.5 0 0 1 0 .8l-2.667 2A.5.5 0 0 1 18 7')
+          span Lorem ipsum dolor sit amet consectetur adipisicing elit. 1
+        button(type="button").chat__option.js-chat-option
+          svg(xmlns='http://www.w3.org/2000/svg' width='26' height='24' fill='none' viewbox='0 0 26 24' style='color: rgb(203, 139, 208);')
+            path(fill='currentColor' fill-rule='evenodd' d='M13.454 4.105a1 1 0 0 0-.909 0L2.987 8.982 2.077 7.2l9.56-4.877a3 3 0 0 1 2.726 0l9.56 4.877A1.98 1.98 0 0 1 25 9.22V15a1 1 0 1 1-2 0v-3.784l-2.033.995v4.094a3 3 0 0 1-1.578 2.642l-4.967 2.673a3 3 0 0 1-2.844 0l-4.967-2.673a3 3 0 0 1-1.578-2.642v-4.094l-2.927-1.433C.626 10.053.61 7.949 2.077 7.2l.91 1.782 9.573 4.689a1 1 0 0 0 .88 0L23 8.989v-.014zm-6.42 9.086v3.114a1 1 0 0 0 .525.88l4.967 2.674a1 1 0 0 0 .948 0l4.967-2.673a1 1 0 0 0 .526-.88V13.19l-4.647 2.276a3 3 0 0 1-2.64 0z' clip-rule='evenodd')
+          span Lorem ipsum dolor consectetur adipisicing elit. 2
+        button(type="button").chat__option.js-chat-option
+          svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24' style='color: rgb(118, 208, 235);')
+            path(fill='currentColor' fill-rule='evenodd' d='M13.997 3.39A2.5 2.5 0 0 1 17.2 2.103l2.203.882a2.5 2.5 0 0 1 1.342 3.369L19.063 10H20a1 1 0 0 1 1 1v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-8a1 1 0 0 1 .992-1l-.149-.101-.03-.022c-1.254-.924-1.016-2.864.425-3.458l2.12-.874.724-2.176c.492-1.479 2.41-1.851 3.42-.665L11.99 4.45l1.521.01zm1.513 1.506a2 2 0 0 1 .461 2.618l-1.144 1.861v.045a1.3 1.3 0 0 0 .044.278 1 1 0 0 1 .047.302h1.942l2.07-4.485a.5.5 0 0 0-.268-.673l-2.203-.882a.5.5 0 0 0-.641.258zM12.889 10a3.3 3.3 0 0 1-.06-.499c-.01-.236-.004-.69.237-1.081l1.202-1.954-2.293-.016a2 2 0 0 1-1.51-.704L8.98 4l-.725 2.176A2 2 0 0 1 7.12 7.394L5 8.267l2.063 1.407c.129.087.23.2.303.326zM5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7zm4.5 2.5a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1' clip-rule='evenodd')
+          span Lorem ipsum dolor sit amet consectetur adipisicing elit. 3
+        button(type="button").chat__option.js-chat-option
+          svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24' style='color: rgb(226, 197, 65);')
+            path(fill='currentColor' fill-rule='evenodd' d='M12 3C8.415 3 5.5 5.923 5.5 9.538A6.54 6.54 0 0 0 8.425 15h7.15A6.54 6.54 0 0 0 18.5 9.538C18.5 5.923 15.585 3 12 3m2.865 14h-5.73v1h5.73zm-1.133 3h-3.464a2 2 0 0 0 3.464 0m-5.606 0a4.002 4.002 0 0 0 7.748 0 1 1 0 0 0 .991-1v-2.46A8.54 8.54 0 0 0 20.5 9.539C20.5 4.828 16.7 1 12 1S3.5 4.828 3.5 9.538a8.54 8.54 0 0 0 3.635 7.003V19a1 1 0 0 0 .991 1' clip-rule='evenodd')
+          span Lorem ipsum dolor sit 4
+      .chat__area.js-chat-area
+
+      .chat__form.js-chat-form
+        .chat__files.js-chat-files
+        form.chat__fieldset.js-chat-fieldset
+          button(type="button").chat__volume.js-chat-volume
+          label(for="chat-file").chat__attachment
+            input(type="file" id="chat-file" multiple).js-chat-file
+          textarea(name="chat-message" placeholder="Enter message..." rows="1").chat__input.js-chat-input
+          button.chat__button.chat__button--disabled.js-chat-button

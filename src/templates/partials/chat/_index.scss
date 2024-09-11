@@ -1,0 +1,493 @@
+@use 'src/scss/config' as *;
+
+.question {
+  @include flex(flex-end);
+
+  &__text {
+    @include flex(center, center);
+    @include make-spacer(p, 20px);
+
+    border-radius: rem(16px);
+    border: rem(1px) solid var(--color-border);
+    background-color: var(--color-shark);
+    max-width: rem(70%);
+    white-space: pre-wrap;
+    color: var(--color-text)
+  }
+}
+
+.answer {
+  @include make-spacer(p, 20px);
+
+  border-radius: rem(16px);
+  border: rem(1px) solid var(--color-border);
+  background-color: var(--color-shark);
+  max-width: rem(70%);
+  color: var(--color-text);
+
+  video,
+  audio {
+    @include size(100%);
+
+    display: block;
+  }
+
+  audio {
+    height: rem(50px);
+  }
+
+  ul {
+    list-style: inside;
+  }
+
+  ol {
+    @include make-spacer(pl, 18px);
+    
+    list-style: number;
+  }
+
+  hr {
+    border: 0;
+    background-color: var(--color-text);
+    height: rem(1px);
+  }
+
+  code {
+    tab-size: 4;
+    white-space: pre-wrap;
+    // white-space: pre!important;
+    // word-wrap: normal;
+    // word-break: normal;
+    // word-spacing: normal;
+    hyphens: none;
+  }
+}
+
+.attachment {
+  @include make-spacer(p, 8px);
+  @include make-spacer(pr, 18px);
+  @include flex($align-items: center);
+
+  position: relative;
+  border-radius: rem(8px);
+  gap: rem(8px);
+  color: var(--color-text);
+  min-width: rem(70px);
+  border: rem(1px) solid var(--color-border);
+  flex-shrink: 0;
+
+  &--image {
+    @include size(rem(53px));
+    @include make-spacer(p, 0);
+
+    min-width: 0;
+    box-shadow: none;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  &__icon {
+    @include flex(center, center);
+    @include size(rem(35px));
+    
+    border-radius: rem(6px);
+    flex-shrink: 0;
+    background-color: var(--color-comet);
+  }
+
+  &__thumbnail {
+    border-radius: rem(8px);
+  }
+
+  &__info {
+    text-align: left;
+    font-size: rem(13px);
+  }
+
+  &__name {
+    font-weight: var(--typography-bold);
+    white-space: nowrap;
+  }
+
+  &__type {
+    opacity: 0.8;
+  }
+
+  &__close {
+    @include size(rem(24px));
+
+    position: absolute;
+    top: rem(-4px);
+    right: rem(-12px);
+    border-radius: 50%;
+    background-color: var(--color-shark);
+    color: var(--color-text);
+    border: rem(1px) solid var(--color-border);
+  }
+}
+
+.history {
+  @include make-spacer(py, 16px);
+
+  &__item {
+    @include transition;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: rem(4px);
+    position: relative;
+    border-radius: rem(10px);
+
+    &:hover,
+    &--active {
+      background-color: var(--color-border);
+      color: var(--color-text)
+    }
+
+    &--active {
+
+      .history {
+
+        &__dropdown {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__dropdown {
+    @include make-spacer(p, 4px);
+
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% - 10px);
+    background-color: var(--color-shark);
+    border: rem(1px) solid var(--color-border);
+    border-radius: rem(8px);
+    width: rem(120px);
+    z-index: $z-index-1;
+  }
+
+  &__option {
+    @include transition;
+    @include make-spacer(p, 6px);
+    @include flex($align-items: center);
+
+    width: 100%;
+    border-radius: rem(4px);
+    font-size: rem(14px);
+    gap: rem(4px);
+
+    &:hover,
+    &--active {
+      background-color: var(--color-border);
+      color: var(--color-text)
+    }
+
+    i {
+      width: rem(20px);
+    }
+  }
+
+  &__toggle {
+    @include make-spacer(pt, 8px);
+    @include make-spacer(pr, 4px);
+  }
+
+  &__title {
+    @include ellipsis;
+    @include make-spacer(pr, 8px);
+    @include make-spacer(pl, 16px);
+    @include make-spacer(mb, 8px);
+
+    font-size: rem(12px);
+  }
+
+  &__section {
+    @include make-spacer(mb, 24px);
+
+    &:last-child {
+      @include make-spacer(mb, 0);
+    }
+  }
+
+  &__list {
+    @include make-spacer(px, 8px);
+  }
+
+  &__link {
+    @include ellipsis;
+    @include make-spacer(px, 8px);
+    @include make-spacer(py, 6px);
+    
+    font-size: rem(14px);
+    color: var(--color-text)!important;
+  }
+}
+
+.chat {
+  @include transition;
+  @include make-spacer(mx, auto);
+
+  display: grid;
+  
+  position: relative;
+  height: rem(600px);
+  color: var(--color-text);
+  overflow: hidden;
+  
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 0 1fr;
+  }
+
+  &--wide {
+    
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: rem(240px) 1fr;
+      gap: rem(18px);
+    }
+
+    .chat {
+
+      &__left {
+        transform: translateX(0);
+      }
+    }
+
+    .history {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__left,
+  &__center {
+    overflow: hidden;
+  }
+
+  &__left {
+    @include transition;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: rem(240px);
+    transform: translateX(-100%);
+
+    @include media-breakpoint-up(lg) {
+      position: static;
+      width: 100%;
+      transform: translateX(0);
+    }
+  }
+
+  &__aside {
+    @include flex($direction: column);
+
+    background-color: var(--color-shark);
+    border: rem(1px) solid var(--color-border);
+    border-radius: rem(16px);
+    overflow: hidden;
+    height: 100%;
+  }
+
+  &__center {
+    @include flex($direction: column);
+    @include make-spacer(mx, auto);
+
+    gap: rem(20px);
+    max-width: rem(800px);
+    width: 100%;
+  }
+
+  &__header {
+    @include make-spacer(px, 8px);
+    @include make-spacer(py, 4px);
+
+    flex-shrink: 0;
+    height: rem(56px);
+  }
+
+  &__toggle {
+    @include transition;
+    @include flex(center, center);
+    @include size(rem(40px));
+
+    position: absolute;
+    top: rem(8px);
+    left: 0;
+    border-radius: rem(8px);
+    z-index: $z-index-1;
+
+    @include media-breakpoint-up(lg) {
+      left: rem(8px);
+    }
+
+    &:hover,
+    &--active {
+      background-color: var(--color-border);
+    }
+  }
+
+  &__history {
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+
+  &__files {
+    @include make-spacer(py, 4px);
+    @include flex($align-items: center);
+
+    gap: rem(16px);
+    overflow-x: auto;
+  }
+
+  &__area {
+    @include make-spacer(py, 12px);
+    
+    display: grid;
+    row-gap: rem(20px);
+    overflow-y: auto;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
+    justify-content: center;
+    gap: 16px;
+    flex-grow: 1;
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(4, rem(160px));
+    }
+
+    &--hide {
+      display: none;
+    }
+  }
+
+  &__option {
+    @include flex($direction: column);
+    @include make-spacer(p, 20px);
+    
+    border-radius: rem(16px);
+    border: rem(1px) solid var(--color-border);
+    background-color: var(--color-shark);
+    box-shadow: var(--box-shadow);
+    gap: rem(6px);
+    font-size: rem(14px);
+    text-align: left;
+   
+    span {
+      @include line-clamp(3);
+    }
+
+    svg {
+      @include size(rem(18px));
+    }
+  }
+
+  &__form {
+    @include make-spacer(p, 10px);
+    @include make-spacer(pb, 14px);
+    @include make-spacer(mt, auto);
+
+    border-radius: rem(26px);
+    overflow: hidden;
+    border: rem(1px) solid var(--color-border);
+    background-color: var(--color-shark);
+    flex-shrink: 0
+  }
+
+  &__fieldset {    
+    display: grid;
+    grid-template-columns: rem(32px) rem(32px) 1fr rem(32px);
+    align-items: flex-end;
+    gap: rem(10px);
+  }
+
+  &__input {
+    @include transition(height);
+    @include size(100%, rem(34px));
+    @include make-spacer(py, 5px);
+    
+    display: block;
+    resize: none;
+    background-color: transparent;
+    overflow: hidden;
+    align-self: center;
+    border-color: transparent;
+    color: var(--color-text);
+
+    &::placeholder {
+      color: var(--color-text);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__attachment,
+  &__volume,
+  &__button {
+    @include flex(center, center);
+    @include transition(opacity);
+    @include size(rem(32px));
+
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+    border: rem(1px) solid var(--color-border);
+    color: var(--color-text);
+    font: normal normal normal 14px / 1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+    &--disabled {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  }
+
+  &__volume {
+
+    &:before {
+      content: "\f130";
+    }
+  }
+
+  &__button {
+
+    &::before {
+      content: "\f062";
+    }
+
+    &--waiting {
+
+      &::before {
+        content: "\f0c8";
+      }
+    }
+  }
+
+  &__attachment {
+
+    &::before {
+      font-size: rem(20px);
+      content: "\f0c6";
+    }
+
+    input {
+      @include size(0);
+
+      position: absolute;
+      opacity: 0;
+      display: none;
+    }
+  }
+}
