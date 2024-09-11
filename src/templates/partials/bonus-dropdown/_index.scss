@@ -1,0 +1,68 @@
+@use 'src/scss/config' as *;
+
+.bonus-dropdown {
+  @include flex($direction: column);
+  @include make-spacer(p, 20px);
+  @include transition;
+
+  transform: translateX(100%);
+  position: fixed;
+  top: rem(50px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: rem(20px);
+  background-color: var(--color-shark);
+  box-shadow: var(--box-shadow);
+  z-index: $z-index-12;
+
+  @include media-breakpoint-up(md) {
+    left: unset;
+    width: rem(320px);
+  }
+
+  &--active {
+    transform: translateX(0);
+  }
+
+  &__meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: rem(20px);
+  }
+
+  &__title {
+    @include make-spacer(mb, 0);
+  }
+
+  &__description {
+    font-size: rem(12px);
+    opacity: 0.9
+  }
+
+  &__block {
+    @include flex;
+
+    position: relative;
+    min-height: rem(80px);
+    border-radius: var(--border-radius);
+    background-color: var(--color-border);
+    overflow: hidden;
+  }
+
+  &__label {
+    @include size(rem(50px), rem(22px));
+    @include flex(center, center);
+
+    position: absolute;
+    top: rem(10px);
+    right: 0;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    font-size: rem(12px);
+  }
+}

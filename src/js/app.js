@@ -7,8 +7,6 @@ const $elBody = $('body')
 const $elToggle = $('.js-toggle')
 const $elMenu = $('.js-menu')
 const $elHeader = $('#header')
-// const $elFooter = $('#footer')
-// const $elBanners = $('.js-top-news-column')
 
 const $switch = $('.js-switch input')
 $switch.prop('checked', sessionStorage.getItem('theme') === 'dark')
@@ -16,39 +14,11 @@ $elBody.attr('theme', sessionStorage.getItem('theme') || 'light')
 
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-// const getOuterTop = () => {
-//   const $stickyElementTop = $elHeader.offset().top
-//   const $scrollTop = $(window).scrollTop()
-//   return $stickyElementTop - $scrollTop === 0 ? $elHeader.outerHeight() : $stickyElementTop - $scrollTop + $elHeader.outerHeight()
-// }
-// const isThrottled = false
-
-// const isOverlapping = ($el1, $el2) => {
-//   const rect1 = $el1[0].getBoundingClientRect()
-//   const rect2 = $el2[0].getBoundingClientRect()
-
-//   return !(rect1.right < rect2.left || 
-//            rect1.left > rect2.right || 
-//            rect1.bottom < rect2.top || 
-//            rect1.top > rect2.bottom);
-// }
-
-// const checkOverlapAndUpdate = () => {
-//   const isNowOverlapping = isOverlapping($elFooter, $elBanners);
-
-//   if (isNowOverlapping && !isHidden) {
-//     $elBanners.hide()
-//     isHidden = true
-//   } else if (!isNowOverlapping && isHidden) {
-//     $elBanners.show()
-//     isHidden = false
-//   }
-// };
-
-// $(window).on('scroll', function() {
-//   window.requestAnimationFrame(checkOverlapAndUpdate);
-// });
-
+const getOuterTop = () => {
+  const $stickyElementTop = $elHeader.offset().top
+  const $scrollTop = $(window).scrollTop()
+  return $stickyElementTop - $scrollTop === 0 ? $elHeader.outerHeight() : $stickyElementTop - $scrollTop + $elHeader.outerHeight()
+}
 
 $(document).ready(function() {
   let $chatOpened   = $(window).width() > 992 ? localStorage.getItem('toggle') : '0'
@@ -550,8 +520,8 @@ const handleDropdownClick = (wrapperSelector, dropdownSelector, activeClass) => 
   })
 }
 
-handleDropdownClick('.js-account-wrapper', '.js-account-dropdown', 'account__dropdown--active');
-handleDropdownClick('.js-bonus-wrapper', '.js-bonus-dropdown', 'bonus__dropdown--active');
+handleDropdownClick('.js-account-wrapper', '.js-account-dropdown', 'account-dropdown--active');
+handleDropdownClick('.js-bonus-wrapper', '.js-bonus-dropdown', 'bonus-dropdown--active');
 
 $(document).ready(function () {
   $(window).scroll(function () {
@@ -593,7 +563,7 @@ $('.js-nav-scope-link').click(function scopeDropdown() {
 $('.js-language-link').click(function() {
   $('.js-language-link').removeClass('language__link--active')
   $(this).addClass('language__link--active')
-});
+})
 
 $('.js-top-list').click(function() {
   const id = $(this)[0].getAttribute('data-link')
@@ -605,7 +575,7 @@ $('.js-top-list').click(function() {
 
 $('.sa-sticky').theiaStickySidebar({
     additionalMarginTop: 130
-});
+})
 
 $('.js-search-toggle').on('click', function() {
   $('.js-search').toggleClass('search--wide')
@@ -614,11 +584,11 @@ $('.js-search-toggle').on('click', function() {
 
 $('.js-search-field').on('focus', function() {
   $('.js-search').toggleClass('search--focus')
-});
+})
 
 $('.js-search-field').on('focusout', function() {
   $('.js-search').toggleClass('search--focus')
-});
+})
 
 $('.js-notification .button').on('click', function() {
   $('.js-notification').removeClass('notification--active')
@@ -663,22 +633,26 @@ $('.js-menu-link').on('click', function(e) {
   }
 })
 
-$('.js-account-item').click(function handleAccount() {
-  $(this).toggleClass('account__item--active')
+$('.js-account-dropdown-item').click(function handleAccount() {
+  $(this).toggleClass('account-dropdown__item--active')
 })
 
 $(document).click(function handleDocumentClick(e) {
   const elements = [
-    { selector: '.js-account', dropdown: '.js-account-dropdown', activeClass: 'account__dropdown--active' },
-    { selector: '.js-bonus', dropdown: '.js-bonus-dropdown', activeClass: 'bonus__dropdown--active' },
-    { selector: '.js-menu-item', dropdown: '.js-menu-item', activeClass: 'menu__item--active' },
-    { selector: '.js-nav-scope-link', dropdown: '.js-nav-scope-dropdown', activeClass: 'nav-scope__dropdown--active' }
+    { selector: '.js-account', dropdown: '.js-account-dropdown', activeClass: 'account-dropdown--active', in: false },
+    { selector: '.js-bonus', dropdown: '.js-bonus-dropdown', activeClass: 'bonus-dropdown--active', in: false },
+    { selector: '.js-menu-item', dropdown: '.js-menu-item', activeClass: 'menu__item--active', in: true },
+    { selector: '.js-nav-scope-link', dropdown: '.js-nav-scope-dropdown', activeClass: 'nav-scope__dropdown--active', in: true }
   ]
 
   let clickedElement = null
 
   elements.forEach(element => {
-    if ($(e.target).closest(element.selector).length > 0) {
+    if (element.in) {
+      if ($(e.target).closest(element.selector).length > 0) {
+        clickedElement = element;
+      }
+    } else if ($(e.target).closest(element.selector).length > 0 || $(e.target).closest(element.dropdown).length > 0) {
       clickedElement = element
     }
   })
@@ -689,14 +663,14 @@ $(document).click(function handleDocumentClick(e) {
         $(element.dropdown).removeClass(element.activeClass)
       }
     })
-  }
-  else {
+  } else {
     elements.forEach(element => {
       $(element.dropdown).removeClass(element.activeClass)
-      if(!$(element.dropdown).hasClass(element.activeClass) && !$elMenu.hasClass('menu--active')) {
-        $elBody.removeClass('hidden')
-      }
     })
+
+    if(!$elMenu.hasClass('menu--active')) {
+      $elBody.removeClass('hidden')
+    }
   }
 })
 

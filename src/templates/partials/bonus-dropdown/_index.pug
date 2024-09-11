@@ -1,0 +1,14 @@
+mixin bonus-dropdown
+  .bonus-dropdown&attributes(attributes)
+    .bonus-dropdown__meta
+      div
+        h4.bonus-dropdown__title.u-color-primary 234
+        p.bonus-dropdown__description My rewards points
+      div
+        +button('Activate').button--primary
+    a(href="#").bonus-dropdown__block
+      span.bonus-dropdown__label +10
+    a(href="#").bonus-dropdown__block
+      span.bonus-dropdown__label +20
+    a(href="#").bonus-dropdown__block
+      span.bonus-dropdown__label +30

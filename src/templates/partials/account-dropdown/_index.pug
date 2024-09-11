@@ -1,0 +1,56 @@
+mixin account-dropdown
+  .account-dropdown&attributes(attributes)
+    .account-dropdown__meta
+      .account-dropdown__avatar
+        img(src="https://chtstudio.com/demo/news/images/post/sm5.jpg" loading="lazy").img.img--cover
+      p.account-dropdown__name Username
+    ul.account-dropdown__menu
+      li.account-dropdown__item.js-account-dropdown-item
+        a(href="#").account-dropdown__link
+          i.fa.fa-trophy
+          span.account-dropdown__label Rewards
+          span 443 
+      li.account-dropdown__item.js-account-dropdown-item
+        a(href="#").account-dropdown__link
+          i.fa.fa-plus-square-o
+          span.account-dropdown__label Collection
+      li.account-dropdown__item.js-account-dropdown-item
+        a(href="#").account-dropdown__link
+          i.fa.fa-user
+          span.account-dropdown__label My profile
+      li.account-dropdown__item.js-account-dropdown-item
+        a(href="#").account-dropdown__link
+          i.fa.fa-cog
+          span.account-dropdown__label Settings
+      li.account-dropdown__item.js-account-dropdown-item
+        a(href="#").account-dropdown__link
+          i.fa.fa-repeat
+          span.account-dropdown__label Search Journal
+      li.account-dropdown__item.account-dropdown__item--dropdown.js-account-dropdown-item
+        a.account-dropdown__link
+          i.fa.fa-lock
+          span.account-dropdown__label Confidential
+          i.fa.fa-angle-down.account-dropdown__arrow
+        ul.account-dropdown__menu
+          li.account-dropdown__item
+            a(href="#").account-dropdown__link
+              span Link
+          li.account-dropdown__item
+            a(href="#").account-dropdown__link
+              span Collection  
+      li.account-dropdown__item.js-account-dropdown-item
+        a(href="#").account-dropdown__link
+          i.fa.fa-envelope-o
+          span.account-dropdown__label Support
+      li.account-dropdown__item.account-dropdown__item--dropdown.js-account-dropdown-item
+        a.account-dropdown__link
+          i.fa.fa-repeat
+          span.account-dropdown__label Dropdown
+          i.fa.fa-angle-down.account-dropdown__arrow
+        ul.account-dropdown__menu
+          li.account-dropdown__item
+            a(href="#").account-dropdown__link
+              span Link
+          li.account-dropdown__item
+            a(href="#").account-dropdown__link
+              span Collection
